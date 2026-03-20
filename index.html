@@ -1,781 +1,1302 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gift Vouchers · Beautyrel</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoseEmb | Precision Embroidery Machines</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
 
-<!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    body {
+      color: #2d1b2e;
+      background: #fff;
+      font-size: 17px;
+    }
 
-<style>
-/* === ALL CSS PROVIDED (integrated into <style>) === */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
+    /* WHITE & DARK PINK THEME */
+    :root {
+      --bg-primary: #ffffff;
+      --bg-secondary: #fff5f7;
+      --text-primary: #2d1b2e;
+      --text-secondary: #6a4e6b;
+      --accent: #d45a7a;
+      --accent-dark: #b84363;
+      --accent-light: #ffe4ec;
+      --border-light: #ffe0e8;
+      --card-bg: #ffffff;
+      --footer-bg: #fff5f7;
+      --shadow: 0 12px 30px rgba(212, 90, 122, 0.08);
+      --nav-bg: rgba(255, 255, 255, 0.96);
+    }
 
-body {
-  color: #0e1b4d;
-  background: #fff;
-}
+    body.dark {
+      --bg-primary: #1a121f;
+      --bg-secondary: #2d1f2b;
+      --text-primary: #fae6ef;
+      --text-secondary: #d9b8c4;
+      --accent: #f28aa8;
+      --accent-dark: #e06e90;
+      --accent-light: #4a2e3e;
+      --border-light: #4a3340;
+      --card-bg: #2a1f2a;
+      --footer-bg: #1e1520;
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+      --nav-bg: rgba(26, 18, 31, 0.96);
+    }
 
-/* ================= NAVBAR ================= */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 25px 90px;
-}
+    body {
+      background: var(--bg-primary);
+      color: var(--text-primary);
+    }
 
+    /* ================= NAVBAR ================= */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 90px;
+      position: relative;
+      z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border-light);
+    }
 
+    .logo {
+      font-weight: 600;
+      font-size: 22px;
+    }
+      .logo img {
+      height: 50px;
+      width: auto;
+    }
 
-.logo {
-  font-weight: 600;
-  font-size: 20px;
-}
-
-.brand-image {
+    .brand-image {
       height: auto;
-    max-height: 200px;
-    width: 50%;
-}
-
-.logo p {
-  font-size: 11px;
-  color: #a0a7b5;
-  letter-spacing: 1px;
-  margin-top: 2px;
-}
-
-.sidebar-logo{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-nav a {
-  margin: 0 18px;
-  text-decoration: none;
-  color: #0e1b4d;
-  font-size: 15px;
-  font-weight: 500;
-}
-
-nav .active {
-  color: #f58c7c;
-}
-
-.btn-primary {
-  background: #f58c7c;
-  border: none;
-  padding: 12px 24px;
-  color: white;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-/* ================= HERO ================= */
-.hero {
-  background: #f6d8d4;
-  text-align: center;
-  padding: 120px 20px;
-}
-
-.hero h1 {
-  font-size: 60px;
-  font-weight: 600;
-  letter-spacing: -1px;
-  margin-bottom: 12px;
-}
-
-.hero p {
-  font-size: 18px;
-  color: #6f7a8a;
-}
-
-/* ================= GIFT SECTION ================= */
-.gift {
-  display: flex;
-  align-items: center;
-  padding: 120px 90px;
-  gap: 80px;
-}
-
-.sub {
-  color: #f58c7c;
-  font-weight: 500;
-  font-size: 14px;
-}
-
-.gift-left h2 {
-  font-size: 44px;
-  font-weight: 600;
-  line-height: 1.2;
-  margin: 15px 0 20px;
-}
-
-.gift-left p {
-  font-size: 16px;
-  color: #6f7a8a;
-  line-height: 1.7;
-  margin-bottom: 25px;
-}
-
-.gift-left ul {
-  list-style: none;
-}
-
-.gift-left li {
-  font-size: 15px;
-  margin-bottom: 14px;
-  position: relative;
-  padding-left: 22px;
-}
-
-/* custom bullet */
-.gift-left li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #f58c7c;
-  font-size: 14px;
-}
-
-.gift-right img {
-  width: 520px;
-  border-radius: 10px;
-}
-
-/* ================= PRICING ================= */
-.pricing {
-  text-align: center;
-  padding: 120px 20px;
-}
-
-.pricing h2 {
-  font-size: 42px;
-  font-weight: 600;
-}
-
-.subtitle {
-  margin-top: 12px;
-  font-size: 16px;
-  color: #6f7a8a;
-}
-
-.cards {
-  display: flex;
-  justify-content: center;
-  gap: 35px;
-  margin-top: 60px;
-}
-
-.card {
-  background: #f7f7f7;
-  padding: 45px 35px;
-  width: 300px;
-  border-radius: 12px;
-  text-align: center;
-}
-
-.featured {
-  background: #0e1b4d;
-  color: white;
-  transform: translateY(-10px); /* slight lift like design */
-}
-
-.card span {
-  font-size: 14px;
-  color: #f58c7c;
-}
-
-.featured span {
-  color: #ffb3a7;
-}
-
-.card h3 {
-  margin: 18px 0 12px;
-  font-size: 28px;
-  font-weight: 600;
-}
-
-.card p {
-  font-size: 15px;
-  color: #6f7a8a;
-}
-
-.featured p {
-  color: #cbd3ff;
-}
-
-.card button {
-  margin-top: 25px;
-  background: #f58c7c;
-  border: none;
-  padding: 12px 24px;
-  color: white;
-  border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-/* ================= FAQ ================= */
-.faq {
-  padding: 120px 90px;
-}
-
-.faq h3 {
-  font-size: 26px;
-  margin-bottom: 30px;
-}
-
-.faq-item {
-  padding: 20px 0;
-  border-bottom: 1px solid #e5e7eb;
-  font-size: 15px;
-}
-
-/* ================= FOOTER ================= */
-.footer {
-  background: #0e1b4d;
-  color: white;
-  padding: 70px 90px;
-}
-
-.top-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 50px;
-}
-
-.top-bar strong {
-  font-size: 18px;
-}
-
-.btn-light {
-  margin-left: 15px;
-  background: white;
-  color: #0e1b4d;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 6px;
-  font-size: 14px;
-}
-
-.footer-grid {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 40px;
-}
-
-.footer-grid h4 {
-  margin-bottom: 12px;
-}
-
-.footer-grid p {
-  margin: 6px 0;
-  color: #cbd3ff;
-  font-size: 14px;
-}
-.footer-classic p{
-    font-size: 22px;
-    font-weight: 500;
-    line-height: 146%;
-}
-
-
-/* ================= GLOBAL FONT SCALE ================= */
-
-body {
-  font-size: 17px; /* base increased */
-}
-
-/* NAVBAR */
-.logo {
-  font-size: 22px;
-}
-
-nav a {
-  font-size: 16px;
-}
-
-.btn-primary {
-  font-size: 15px;
-  padding: 13px 26px;
-}
-
-/* HERO */
-.hero h1 {
-  font-size: 68px; /* was 60 */
-}
-
-.hero p {
-  font-size: 20px;
-}
-
-/* GIFT SECTION */
-.sub {
-  font-size: 15px;
-}
-
-.gift-left h2 {
-  font-size: 50px; /* was 44 */
-}
-
-.gift-left p {
-  font-size: 17px;
-}
-
-.gift-left li {
-  font-size: 16px;
-}
-
-/* PRICING */
-.pricing h2 {
-  font-size: 46px;
-}
-
-.subtitle {
-  font-size: 18px;
-}
-
-.card span {
-  font-size: 15px;
-}
-
-.card h3 {
-  font-size: 32px;
-}
-
-.card p {
-  font-size: 16px;
-}
-
-.card button {
-  font-size: 15px;
-}
-
-/* FAQ */
-.faq h3 {
-  font-size: 30px;
-}
-
-.faq-item {
-  font-size: 16px;
-}
-
-/* FOOTER */
-.top-bar strong {
-  font-size: 20px;
-}
-
-.footer-grid h4 {
-  font-size: 18px;
-}
-
-.footer-grid p {
-  font-size: 15px;
-}
-
-.copy {
-  font-size: 14px;
-}
-
-
-/* ================= RESPONSIVE ================= */
-
-/* Tablets */
-@media (max-width: 1024px) {
-
-  .navbar {
-    padding: 20px 40px;
-  }
-
-  .gift {
-    flex-direction: column;
-    padding: 80px 40px;
-    text-align: center;
-  }
-
-  .gift-right img {
-    width: 100%;
-    max-width: 500px;
-  }
-
-  .cards {
-    flex-wrap: wrap;
-  }
-
-  .footer {
-    padding: 60px 40px;
-  }
-
-}
-
-
-/* Mobile */
-@media (max-width: 768px) {
-
-  /* NAVBAR */
-  .navbar {
-    flex-direction: column;
-    gap: 15px;
-    padding: 20px;
-  }
-
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  nav a {
-    margin: 8px 10px;
-  }
-
-  .btn-primary {
-    display: none; /* like most designs */
-  }
-
-  /* HERO */
-  .hero {
-    padding: 80px 20px;
-  }
-
-  .hero h1 {
-    font-size: 42px;
-  }
-
-  .hero p {
-    font-size: 16px;
-  }
-
-  /* GIFT */
-  .gift {
-    padding: 60px 20px;
-    gap: 40px;
-  }
-
-  .gift-left h2 {
-    font-size: 34px;
-  }
-
-  /* PRICING */
-  .cards {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .card {
-    width: 100%;
-    max-width: 350px;
-  }
-
-  .featured {
-    transform: none; /* remove lift on mobile */
-  }
-
-  /* FAQ */
-  .faq {
-    padding: 60px 20px;
-  }
-
-  /* FOOTER */
-  .footer {
-    padding: 50px 20px;
-  }
-
-  .top-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
-
-  .footer-grid {
-    flex-direction: column;
-    gap: 30px;
-  }
-
-}
-
-
-/* Small Mobile */
-@media (max-width: 480px) {
-
-  .hero h1 {
-    font-size: 34px;
-  }
-
-  .gift-left h2 {
-    font-size: 28px;
-  }
-
-  .pricing h2 {
-    font-size: 30px;
-  }
-
-  .card h3 {
-    font-size: 24px;
-  }
-
-}
-
-
-/* ================= MOBILE SIDEBAR ================= */
-
-/* Hide menu icon on desktop */
-.menu-toggle {
-  display: none;
-  font-size: 26px;
-  cursor: pointer;
-}
-
-/* Sidebar */
-.sidebar {
-  position: fixed;
-  top: 0;
-  left: -260px;
-  width: 260px;
-  height: 100%;
-  background: #0e1b4d;
-  color: white;
-  padding: 30px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  transition: 0.3s ease;
-  z-index: 1000;
-}
-
-.sidebar a {
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-}
-
-.sidebar .active {
-  color: #f58c7c;
-}
-
-.close-btn {
-  font-size: 22px;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-
-/* Overlay */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-  opacity: 0;
-  visibility: hidden;
-  transition: 0.3s;
-  z-index: 900;
-}
-
-/* Active states */
-.sidebar.active {
-  left: 0;
-}
-
-.overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-/* ================= MOBILE NAV FIX ================= */
-@media (max-width: 768px) {
-
-  nav {
-    display: none; /* hide desktop menu */
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-}
-</style>
+      max-height: 70px;
+      width: auto;
+    }
+
+    .logo p {
+      font-size: 11px;
+      color: var(--text-secondary);
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    nav a, .nav-item > a {
+      margin: 0 18px;
+      text-decoration: none;
+      color: var(--text-primary);
+      font-size: 16px;
+      font-weight: 500;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    nav .active {
+      color: var(--accent);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      border: none;
+      padding: 13px 26px;
+      color: white;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-dark);
+    }
+
+    /* ================= DROPDOWN STYLES - FIXED ================= */
+    .nav-item {
+      position: relative;
+      display: inline-block;
+    }
+
+    .nav-item > a::after {
+      content: "❯";
+      font-size: 12px;
+      margin-left: 8px;
+      display: inline-block;
+      transition: transform 0.3s ease;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    .nav-item:hover > a::after {
+      transform: rotate(90deg);
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: calc(100% + 5px);
+      left: 0;
+      background-color: var(--card-bg);
+      min-width: 250px;
+      box-shadow: var(--shadow);
+      border-radius: 12px;
+      z-index: 10000;
+      padding: 12px 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+      pointer-events: none;
+      border: 1px solid var(--border-light);
+    }
+
+    /* Add a transparent bridge to prevent gap issues */
+    .nav-item::after {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      height: 12px;
+      background: transparent;
+      pointer-events: auto;
+    }
+
+    /* Keep dropdown visible when hovering over nav-item or dropdown itself */
+    .nav-item:hover .dropdown-content,
+    .dropdown-content:hover {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Also keep visible when hovering over the bridge area */
+    .nav-item:hover::after {
+      pointer-events: auto;
+    }
+
+    .dropdown-content::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: 30px;
+      width: 16px;
+      height: 16px;
+      background: var(--card-bg);
+      transform: rotate(45deg);
+      border-top: 1px solid var(--border-light);
+      border-left: 1px solid var(--border-light);
+      border-radius: 4px 0 0 0;
+    }
+
+    .dropdown-content a {
+      color: var(--text-primary) !important;
+      padding: 12px 25px;
+      margin: 0 !important;
+      display: block;
+      text-align: left;
+      font-size: 15px !important;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .dropdown-content a:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-content a:hover {
+      background-color: var(--accent);
+      color: white !important;
+      padding-left: 32px;
+    }
+
+    /* ================= SIDEBAR DROPDOWN STYLES ================= */
+    .sidebar-dropdown {
+      width: 100%;
+    }
+
+    .sidebar-dropdown-btn {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      font-size: 16px;
+      padding: 10px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .sidebar-dropdown-btn .arrow {
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: bold;
+    }
+
+    .sidebar-dropdown-content {
+      display: none;
+      padding-left: 15px;
+      margin-top: 5px;
+    }
+
+    .sidebar-dropdown-content a {
+      padding: 8px 0;
+      display: block;
+      color: var(--text-secondary);
+      font-size: 15px;
+      text-decoration: none;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .sidebar-dropdown-content a:last-child {
+      border-bottom: none;
+    }
+
+    .sidebar-dropdown-content a:hover {
+      color: var(--accent);
+      padding-left: 5px;
+    }
+
+    .sidebar-dropdown.active .sidebar-dropdown-content {
+      display: block;
+    }
+
+    .sidebar-dropdown.active .arrow {
+      transform: rotate(90deg);
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero-home {
+      background: var(--bg-secondary);
+      text-align: left;
+      padding: 80px 90px;
+      position: relative;
+      z-index: 1;
+      min-height: 100vh;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .hero-home .container {
+      max-width: 1280px;
+      margin: 0px auto;
+    }
+
+    .hero-home .container .col-lg-5 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px;
+      padding-top: 60px;
+    }
+
+    .hero-home h1 {
+      font-size: 68px;
+      font-weight: 600;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 700;
+      font-size: 80px;
+      line-height: 88px;
+      color: var(--text-primary);
+    }
+
+    .hero-home p.lead {
+      font-size: 20px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 400;
+      font-size: 22px;
+      line-height: 32px;
+    }
+
+    .hero-home .btn-wrap {
+      margin: 25px 0;
+    }
+
+    .hero-home .button {
+      display: inline-block;
+      padding: 12px 32px;
+      border-radius: 10px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+      margin-bottom: 20px;
+    }
+
+    .hero-home .button-primary {
+      color: #ffffff;
+      background-color: var(--accent);
+      border-color: var(--accent);
+      padding: 20px 45px;
+      font-size: 20px;
+      line-height: 120%;
+    }
+
+    .hero-home .button-primary:hover {
+      background-color: var(--accent-dark);
+    }
+
+    .hero-home .button-white {
+      background: white;
+      color: var(--text-primary);
+      border: 1px solid var(--border-light);
+    }
+
+    .phone-wrap-2 {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 62px;
+      color: var(--text-primary);
+    }
+
+    .hero-home .phone-link {
+      font-family: "Poppins", sans-serif;
+      text-decoration: none;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 40px;
+      line-height: 62px;
+      color: var(--accent);
+    }
+
+    /* ================= GLOBAL TYPOGRAPHY ================= */
+    .subtitle {
+      font-family: "Poppins", sans-serif;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 40px;
+      color: var(--accent);
+    }
+
+    .title {
+      font-size: 50px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .subtitle-2 {
+      font-size: 18px;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    .text-custom-pink {
+      color: var(--accent);
+    }
+
+    /* sections */
+    .section {
+      padding: 80px 0;
+    }
+
+    .section-lg {
+      padding: 100px 0;
+    }
+
+    .section-xl {
+      padding: 120px 0;
+    }
+
+    .bg-gray-150 {
+      background: var(--bg-secondary);
+    }
+
+    .bg-default {
+      background: var(--bg-primary);
+    }
+
+    .text-center {
+      text-align: center;
+    }
+
+    .container.wide {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .row {
+      display: flex;
+      gap: 30px;
+
+    }
+
+    .col-lg-5,
+    .col-md-6,
+    .col-lg-4,
+    .col-md-5,
+    .col-lg-7,
+    .col-sm-12,
+    .col-xs-10 {
+      flex: 1 1 calc(50% - 30px);
+      min-width: 280px;
+    }
+
+    .col-lg-4 {
+      flex: 1 1 calc(33.333% - 30px);
+    }
+
+    .col-lg-5 {
+      flex: 1 1 calc(41.666% - 30px);
+    }
+
+    .col-lg-7 {
+      flex: 1 1 calc(58.333% - 30px);
+    }
+
+    .col-xs-10 {
+      flex: 1 1 calc(83.333% - 30px);
+    }
+
+    .justify-content-left {
+      justify-content: flex-start;
+    }
+
+    /* testimonial box */
+    .testimonial-box {
+      background: var(--card-bg);
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-light);
+    }
+
+    .testimonial-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .testimonial-name {
+      margin-top: 20px;
+      font-weight: 500;
+      color: var(--accent);
+    }
+
+    /* box info modern */
+    .box-info-modern-figure img {
+      width: 100%;
+      border-radius: 16px;
+      display: block;
+    }
+
+    .box-info-modern-title {
+      font-size: 1.8rem;
+      margin: 20px 0 10px;
+      color: var(--text-primary);
+    }
+
+    .box-info-modern-text {
+      color: var(--text-secondary);
+    }
+
+    /* video cover */
+    .video-cover {
+      display: block;
+      background-size: cover;
+      background-position: center;
+      min-height: 350px;
+      border-radius: 20px;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .video-cover .icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 5rem;
+      color: var(--accent);
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* product card */
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 28px;
+      padding: 28px 24px;
+      flex: 1;
+      min-width: 260px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border-light);
+      transition: 0.25s;
+      text-align: center;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .product-icon {
+      font-size: 48px;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .product-card h3 {
+      font-size: 24px;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .price {
+      font-weight: 700;
+      font-size: 22px;
+      margin: 20px 0 10px;
+      color: var(--accent);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--accent);
+      color: var(--accent);
+      padding: 10px 20px;
+      border-radius: 40px;
+      font-weight: 500;
+      cursor: pointer;
+      margin-top: 12px;
+      display: inline-block;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--accent);
+      color: white;
+    }
+
+    /* box price */
+    .box-price-simple {
+      background: var(--card-bg);
+      padding: 40px 20px;
+      border-radius: 20px;
+      border: 1px solid var(--border-light);
+      text-align: center;
+    }
+
+    .box-price p {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    /* voucher box */
+    .voucher-box,
+    .voucher-box-dark {
+      background: var(--card-bg);
+      padding: 40px 20px;
+      border-radius: 24px;
+      border: 1px solid var(--border-light);
+      text-align: center;
+    }
+
+    .voucher-box-dark {
+      background: var(--accent);
+      color: white;
+    }
+
+    .voucher-box-dark a {
+      background: white;
+      color: var(--accent);
+    }
+
+    .voucher-name {
+      font-weight: 600;
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+    }
+
+    /* card accordion */
+    .card {
+      border: 1px solid var(--border-light);
+      border-radius: 20px;
+      margin-bottom: 15px;
+      padding: 20px;
+      background: var(--card-bg);
+    }
+
+    .card-title a {
+      font-weight: 600;
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .card-body {
+      margin-top: 12px;
+      color: var(--text-secondary);
+    }
+
+    /* helpers */
+    .btn-wrap {
+      margin: 25px 0;
+    }
+
+    .group-middle {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .mt-4 {
+      margin-top: 2rem;
+    }
+
+    .divider {
+      height: 2px;
+      background: var(--border-light);
+      width: 100%;
+    }
+
+    /* ================= FOOTER ================= */
+    .footer {
+      background: var(--footer-bg);
+      color: var(--text-primary);
+      padding: 70px 90px;
+      border-top: 1px solid var(--border-light);
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 50px;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .top-bar strong {
+      font-size: 20px;
+      color: var(--accent);
+    }
+
+    .btn-light {
+      margin-left: 15px;
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .btn-light:hover {
+      background: var(--accent-dark);
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .footer-grid h4 {
+      margin-bottom: 12px;
+      font-size: 18px;
+      color: var(--text-primary);
+    }
+
+    .footer-grid p {
+      margin: 6px 0;
+      color: var(--text-secondary);
+      font-size: 15px;
+    }
+
+    .copy {
+      text-align: center;
+      border-top: 1px solid var(--border-light);
+      padding-top: 20px;
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .date {
+      color: var(--text-secondary);
+      font-size: 14px;
+    }
+
+    /* ================= MOBILE SIDEBAR ================= */
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -280px;
+      width: 280px;
+      height: 100%;
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: 0.3s ease;
+      z-index: 10000;
+      border-right: 1px solid var(--border-light);
+    }
+
+    .sidebar a {
+      color: var(--text-primary);
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .sidebar .active {
+      color: var(--accent);
+    }
+
+    .close-btn {
+      font-size: 22px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      text-align: right;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+      z-index: 9999;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 1024px) {
+      .navbar {
+        padding: 20px 40px;
+      }
+      .footer {
+        padding: 60px 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 15px 20px;
+      }
+      nav {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+      }
+      .btn-primary {
+        display: none;
+      }
+      .hero-home {
+        padding: 60px 20px;
+        text-align: center;
+      }
+      .hero-home h1 {
+        font-size: 42px;
+        line-height: 1.2;
+      }
+      .hero-home p.lead {
+        font-size: 16px;
+      }
+      .title {
+        font-size: 34px;
+      }
+      .subtitle-2 {
+        font-size: 16px;
+      }
+      .footer {
+        padding: 50px 20px;
+      }
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      .footer-grid {
+        flex-direction: column;
+        gap: 30px;
+      }
+      .dropdown-content {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-home h1 {
+        font-size: 34px;
+      }
+      .title {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<header class="navbar">
-
-    <div class="sidebar" id="sidebar">
+<!-- Sidebar mobile with dropdown -->
+<div class="sidebar" id="sidebar">
   <div class="close-btn" onclick="toggleMenu()">✕</div>
-
-  <a href="home.html">Home</a>
-  <a href="index.html" class="active">Gift Vouchers</a>
+  <a href="index.html" class="active">Home</a>
   <a href="about.html">About</a>
-  <a href="massage.html">Massage</a>
-  <a href="contacts.html">Contacts</a>
-  <a href="pages.html">Pages</a>
+  <div class="sidebar-dropdown" id="sidebarProductDropdown">
+    <div class="sidebar-dropdown-btn" onclick="toggleSidebarDropdown()">
+      <span>Product</span>
+      <span class="arrow">❯</span>
+    </div>
+    <div class="sidebar-dropdown-content">
+      <a href="machines.html">Embroidery Machines</a>
+      <a href="devices.html">Precision Devices</a>
+    
+    </div>
+  </div>
+  <a href="gallery.html">Images</a>
+  <a href="contact.html">Contact Us</a>
+  <a href="gift-vouchers.html">Gift Vouchers</a>
 </div>
 
-<div class="overlay sidebar-logo"  id="overlay" onclick="toggleMenu()"></div>
-    <!-- Hamburger -->
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
+<!-- Navbar with dropdown -->
+<header class="navbar">
   <div class="logo">
-    <div class="menu-toggle" onclick="toggleMenu()">
-    ☰
-    </div> 
-    <img class="brand-image" src="./logo-default-428x112.webp" alt="gift card">
-    <!-- Beautyrel -->
-    <!-- <p>BEAUTY SALON</p> -->
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    <img src="./images/logo.jpg.jpeg" alt="RoseEmb Logo">
   </div>
-
   <nav>
-    <a href="home.html">Home</a>
-    <a class="active" href="index.html">Gift Vouchers</a>
+    <a href="index.html" class="active">Home</a>
     <a href="about.html">About</a>
-    <a href="massage.html">Massage</a>
-    <a href="contacts.html">Contacts</a>
-    <a href="pages.html">Pages</a>
-  </nav>
+    <div class="nav-item">
+      <a href="#">Product</a>
+      <div class="dropdown-content">
+        <a href="machines.html">Machines</a>
+        <a href="devices.html">Devices</a>
 
-  <button class="btn-primary">Get A Massage</button>
+      </div>
+    </div>
+    <a href="gallery.html">Images</a>
+    <a href="contact.html">Contact Us</a>
+    <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
+  </nav>
+  <button class="btn-primary" onclick="alert('Call +91 902555206 or email roseembroidery@gmail.com')">Get Quote</button>
 </header>
 
-<!-- Hero -->
-<section class="hero">
-  <h1>Gift Vouchers</h1>
-  <p>Lorem ipsum dolor sit amet, consectetur</p>
-</section>
-
-<!-- Gift Section -->
-<section class="gift">
-  <div class="gift-left">
-    <span class="sub">Make a perfect gift</span>
-    <h2>Buy a gift massage voucher</h2>
-
-    <p>
-      Sed imperdiet hendrerit blandit. Integer at egestas tas ante,
-      a laoreet mi. In diam metus.
-    </p>
-
-    <ul>
-      <li> Treat your friend in the privacy of their own home or hotel</li>
-      <li> Qualified professional massage therapists</li>
-      <li> Easy online bookings and redemption</li>
-      <li> Beautifully designed gift certificate</li>
-    </ul>
-  </div>
-
-  <div class="gift-right">
-    <img src="https://via.placeholder.com/610x550/f58c7c/ffffff?text=gift+card" alt="gift card">
-  </div>
-</section>
-
-<!-- Pricing -->
-<section class="pricing">
-  <h2>Beautyrel Massage Gift Voucher</h2>
-  <p class="subtitle">Get a personalized gift voucher for your family member.</p>
-
-  <div class="cards">
-
-    <div class="card">
-      <span>$250 Gift Voucher</span>
-      <h3>Basic Voucher</h3>
-      <p>The most affordable option for anyone.</p>
-      <button>Buy As Gift</button>
+<!-- HERO (first block) -->
+<div class="hero-home">
+  <div class="container wide">
+    <div class="row justify-content-left">
+      <div class="col-lg-5">
+        <h1 class="hero-home-title">Quality <br> Precision Trust</h1>
+        <p class="lead">Discover the art of flawless embroidery with RoseEmb's cutting-edge machines. Engineered for professionals, loved by creators.</p>
+        <div class="btn-wrap">
+          <div class="group-middle">
+            <a class="button button-primary" href="machines.html">Explore Machines</a>
+            <a class="button button-white" href="gift-vouchers.html">Buy As Gift</a>
+          </div>
+        </div>
+        <div class="phone-wrap-2">
+          <span class="phone-link-title">Call Us:</span>
+          <a class="phone-link" href="tel:91902555206">+91 902555206</a>
+        </div>
+        <p class="text-custom-pink">456 Embroidery Ave, Los Angeles, CA 90017, United States</p>
+      </div>
     </div>
+  </div>
+</div>
 
-    <div class="card featured">
-      <span>$450 Gift Voucher</span>
-      <h3>Standard Voucher</h3>
-      <p>Our most popular offer that also is a great present.</p>
-      <button>Buy As Gift</button>
+<!-- Testimonials carousel -->
+<div class="section section-lg bg-gray-150">
+  <div class="text-center">
+    <p class="subtitle">Our customers love RoseEmb</p>
+    <h2 class="title">Rated #1 Embroidery Machines</h2>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 40px;">
+    <div class="testimonial-box" style="flex: 1 1 300px;">
+      <div class="testimonial-title">Amazing Quality!</div>
+      <div class="testimonial-text">“RoseEmb machines are incredibly precise. The stitch quality is flawless and the machine runs smoothly even at high speeds.”</div>
+      <div class="testimonial-name">— Sarah M.</div>
     </div>
-
-    <div class="card">
-      <span>$950 Gift Voucher</span>
-      <h3>Premium Voucher</h3>
-      <p>This voucher includes the cost of all our treatments.</p>
-      <button>Buy As Gift</button>
+    <div class="testimonial-box" style="flex: 1 1 300px;">
+      <div class="testimonial-title">Excellent Support!</div>
+      <div class="testimonial-text">“The customer support team is fantastic. They helped me set up my machine and provided training. Highly recommended!”</div>
+      <div class="testimonial-name">— John C.</div>
     </div>
+    <div class="testimonial-box" style="flex: 1 1 300px;">
+      <div class="testimonial-title">Game Changer!</div>
+      <div class="testimonial-text">“This machine transformed my embroidery business. Speed, accuracy, and reliability - everything I needed.”</div>
+      <div class="testimonial-name">— Elena R.</div>
+    </div>
+  </div>
+</div>
 
+<!-- How RoseEmb Works -->
+<div class="section section-lg">
+  <div class="container wide">
+    <div class="text-center">
+      <div class="subtitle">Embroidery made easy</div>
+      <h2 class="title">How RoseEmb Works</h2>
+      <div class="subtitle-2">Getting your perfect embroidery machine has never been easier.</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-md-6 col-lg-4">
+        <div class="box-info-modern">
+          <div class="box-info-modern-figure"><img src="https://placehold.co/390x344/ffe4ec/d45a7a?text=Choose+Your+Machine" alt="Choose Machine"></div>
+          <h4 class="box-info-modern-title">Choose</h4>
+          <div class="box-info-modern-text">Select the perfect embroidery machine for your needs from our collection</div>
+        </div>
+      </div>
+      <div class="col-xs-10 col-md-6 col-lg-4">
+        <div class="box-info-modern">
+          <div class="box-info-modern-figure"><img src="https://placehold.co/390x344/ffd9e4/d45a7a?text=Get+Trained" alt="Training"></div>
+          <h4 class="box-info-modern-title">Learn</h4>
+          <div class="box-info-modern-text">Get one-on-one training and installation support from our experts</div>
+        </div>
+      </div>
+      <div class="col-xs-10 col-md-6 col-lg-4">
+        <div class="box-info-modern">
+          <div class="box-info-modern-figure"><img src="https://placehold.co/390x344/facddb/d45a7a?text=Create+Art" alt="Create"></div>
+          <h4 class="box-info-modern-title">Create</h4>
+          <div class="box-info-modern-text">Start creating stunning embroidery designs with precision and ease</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="divider"></div>
+
+<!-- We Deliver Quality Service + video -->
+<div class="section section-lg">
+  <div class="container wide">
+    <div class="row">
+      <div class="col-md-5 col-lg-5">
+        <div class="subtitle">Precision engineering</div>
+        <h2 class="title">We Deliver Quality Service</h2>
+        <div class="subtitle-2">At RoseEmb, you get the highest level of customer service and the utmost precision at a very affordable price.</div>
+        <div class="btn-wrap"><a class="button button-primary" href="contact.html">Contact Us</a></div>
+      </div>
+      <div class="col-md-7 col-lg-7">
+        <div class="video-cover" style="background-image: url('https://placehold.co/600x400/ffe4ec/d45a7a?text=RoseEmb+Video+Tutorial'); min-height: 350px; border-radius: 20px; position: relative;" onclick="alert('Watch our demo video! Call +91 902555206 for more info')">
+          <span class="icon"><i class="fas fa-play"></i></span>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 80px;">
+      <div class="row">
+        <div class="col-md-6 col-lg-6"><img src="https://placehold.co/580x550/ffe4ec/d45a7a?text=Expert+Technicians" alt="Expert Technicians"></div>
+        <div class="col-md-6 col-lg-6">
+          <div class="mt-4">
+            <div class="subtitle">True experts</div>
+            <h2 class="title">Best Embroidery Experts</h2>
+            <div class="subtitle-2">RoseEmb is a team of dedicated and professionally trained embroidery specialists always ready to help you succeed. Experience the best in embroidery technology with us!</div>
+            <div class="btn-wrap"><a class="button button-primary" href="about.html">Learn More</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Choose Your Machine -->
+<div class="section section-lg bg-default">
+  <div class="container wide">
+    <div class="text-center">
+      <div class="subtitle">A machine for every need</div>
+      <h2 class="title">Choose Your Embroidery Machine</h2>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-md-6 col-lg-4">
+        <div class="product-card">
+          <div class="product-icon"><i class="fas fa-robot"></i></div>
+          <h3>RoseEmb Pro One</h3>
+          <p>Single-head, 15 needles, 1200SPM - Perfect for small business</p>
+          <div class="price">$2,890</div>
+          <a href="machines.html" class="btn-outline">View Details</a>
+        </div>
+      </div>
+      <div class="col-xs-10 col-md-6 col-lg-4">
+        <div class="product-card">
+          <div class="product-icon"><i class="fas fa-cogs"></i></div>
+          <h3>Precision Duo X</h3>
+          <p>Dual-head industrial, auto-thread trimmer for high production</p>
+          <div class="price">$5,490</div>
+          <a href="machines.html" class="btn-outline">View Details</a>
+        </div>
+      </div>
+      <div class="col-xs-10 col-md-6 col-lg-4">
+        <div class="product-card">
+          <div class="product-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Elite 6‑Head</h3>
+          <p>High-volume production, 1500SPM, WiFi connectivity</p>
+          <div class="price">$12,999</div>
+          <a href="machines.html" class="btn-outline">View Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- parallax pricing -->
+<section class="section-lg text-center" style="background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);">
+  <div style="padding: 80px 0;">
+    <div class="container wide">
+      <div class="row justify-content-center">
+        <div class="col-xs-10 col-md-6 col-lg-4">
+          <div class="box-price-simple">
+            <div class="box-price"><p>$2,890</p></div>
+            <div class="box-price-title"><p>Pro One Machine</p></div>
+            <p class="text-custom-pink">Perfect for home studios and small businesses</p>
+            <a class="button button-primary" href="machines.html" style="background: var(--accent);">Shop Now</a>
+          </div>
+        </div>
+        <div class="col-xs-10 col-md-6 col-lg-4">
+          <div class="box-price-simple">
+            <div class="box-price"><p>$5,490</p></div>
+            <div class="box-price-title"><p>Duo X Machine</p></div>
+            <p class="text-custom-pink">Industrial-grade dual head for increased productivity</p>
+            <a class="button button-primary" href="machines.html" style="background: var(--accent);">Shop Now</a>
+          </div>
+        </div>
+        <div class="col-xs-10 col-md-6 col-lg-4">
+          <div class="box-price-simple">
+            <div class="box-price"><p>$12,999</p></div>
+            <div class="box-price-title"><p>Elite 6-Head</p></div>
+            <p class="text-custom-pink">Maximum production capacity for large-scale operations</p>
+            <a class="button button-primary" href="machines.html" style="background: var(--accent);">Shop Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="faq">
-  <h3>Frequently Asked Questions</h3>
+<!-- FAQ accordion -->
+<div class="section section-xl">
+  <div class="container wide">
+    <div class="row">
+      <div class="col-sm-12 col-lg-4">
+        <div class="subtitle">Frequently Asked Questions</div>
+        <h2 class="title" style="font-size: 36px;">Got Questions? We've Got Answers</h2>
+      </div>
+      <div class="col-sm-12 col-lg-8">
+        <div class="card-group-custom">
+          <div class="card">
+            <div class="card-title"><a href="#">What types of embroidery machines do you offer?</a></div>
+            <div class="card-body"><p>We offer single-head, dual-head, and multi-head machines ranging from home studio models to industrial-grade production machines with up to 6 heads.</p></div>
+          </div>
+          <div class="card">
+            <div class="card-title"><a href="#">Do you provide installation and training?</a></div>
+            <div class="card-body"><p>Yes! We provide one-day installation and training for all our machines, plus video call support for ongoing assistance.</p></div>
+          </div>
+          <div class="card">
+            <div class="card-title"><a href="#">What is the warranty on RoseEmb machines?</a></div>
+            <div class="card-body"><p>All RoseEmb machines come with a 5-year warranty on core components and 1-year comprehensive coverage.</p></div>
+          </div>
+          <div class="card">
+            <div class="card-title"><a href="#">Can I do cap and 3D embroidery on these machines?</a></div>
+            <div class="card-body"><p>Absolutely! Our machines support cap embroidery, 3D puff designs, and even photo-to-embroidery conversion.</p></div>
+          </div>
+          <div class="card">
+            <div class="card-title"><a href="#">Do you offer financing options?</a></div>
+            <div class="card-body"><p>Yes, we offer flexible financing plans. Contact our sales team for details at +91 902555206.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <div class="faq-item">Do you provide any scripts with your templates?</div>
-  <div class="faq-item">What are the advantages of purchasing a website template?</div>
-  <div class="faq-item">What do I receive when I order a template?</div>
-  <div class="faq-item">In what formats are your templates available?</div>
-  <div class="faq-item">What am I allowed to do with the templates?</div>
-</section>
+<!-- Gift Voucher section -->
+<div class="section section-xl bg-gray-150">
+  <div class="container wide">
+    <div class="text-center">
+      <h2 class="title">RoseEmb Gift Voucher</h2>
+      <div class="subtitle-2">Get a personalized gift voucher for your loved ones.</div>
+    </div>
+    <div class="row">
+      <div class="col-xs-10 col-md-6 col-lg-4 text-center">
+        <div class="voucher-box">
+          <div class="voucher-name">$100 Gift Voucher</div>
+          <p>Perfect for beginners and hobbyists</p>
+          <a class="button button-primary" href="gift-vouchers.html" style="display: inline-block; margin-top: 15px;">Buy As Gift</a>
+        </div>
+      </div>
+      <div class="col-xs-10 col-md-6 col-lg-4 text-center">
+        <div class="voucher-box-dark">
+          <div class="voucher-name">$250 Gift Voucher</div>
+          <p>Our most popular offer - great for machine accessories</p>
+          <a class="button button-primary" href="gift-vouchers.html" style="display: inline-block; margin-top: 15px; background: white; color: var(--accent);">Buy As Gift</a>
+        </div>
+      </div>
+      <div class="col-xs-10 col-md-6 col-lg-4 text-center">
+        <div class="voucher-box">
+          <div class="voucher-name">$500 Gift Voucher</div>
+          <p>Perfect for purchasing a complete embroidery machine</p>
+          <a class="button button-primary" href="gift-vouchers.html" style="display: inline-block; margin-top: 15px;">Buy As Gift</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Join us section -->
+<div class="section section-custom" style="padding: 80px 0;">
+  <div class="container wide">
+    <div class="text-center">
+      <h2 class="title">Are You an Experienced <br> Embroidery Professional?</h2>
+      <div class="subtitle-2">Join our team to push your career forward today!</div>
+      <a class="button button-primary" href="contact.html">Join Us</a>
+      <div class="img-wrap" style="margin-top: 50px;"><img src="https://placehold.co/830x446/ffe4ec/d45a7a?text=Join+RoseEmb+Team" alt="Join RoseEmb Team"></div>
+    </div>
+  </div>
+</div>
 
 <!-- Footer -->
 <footer class="footer">
-
   <div class="top-bar">
-    <div>
-      <strong>1 000 -234 -78-90</strong>
-      <span>Call Me Back</span>
-    </div>
-
-    <div>
-      Any complaints or suggestions?
-      <button class="btn-light">Let Us Know</button>
-    </div>
+    <div><strong>+91 902555206</strong> <span>Call Me Back</span></div>
+    <div>Any questions or suggestions? <button class="btn-light" onclick="alert('Email us at roseembroidery@gmail.com')">Let Us Know</button></div>
   </div>
-
   <div class="footer-grid">
-
     <div>
-      <h4>Treatments</h4>
-      <p>Swedish Massage Therapy</p>
-      <p>Aromatherapy Massage</p>
-      <p>Hot Stone Massage</p>
-      <p>Deep Tissue Massage</p>
-      <p>Shiatsu Massage</p>
-      <p>Thai Massage</p>
+      <h4>Our Machines</h4>
+      <p>RoseEmb Pro One</p>
+      <p>Precision Duo X</p>
+      <p>Elite 6‑Head</p>
+      <p>Magnetic Hoop Pro</p>
+      <p>Digitizing Tablet</p>
     </div>
-
     <div>
-      <h4>Beautyrel</h4>
+      <h4>RoseEmb</h4>
       <p>About Us</p>
       <p>Reviews</p>
       <p>Blog</p>
       <p>Careers</p>
     </div>
-
     <div>
       <h4>Help</h4>
       <p>Help Center</p>
       <p>FAQs</p>
       <p>Pricing</p>
       <p>Privacy Policy</p>
+      <p>Terms & Conditions</p>
     </div>
-    <div class="col-sm-4 col-md-4 col-lg-3 footer-classic"><img src="https://via.placeholder.com/280x156/0e1b4d/cbd3ff?text=blog+thumb" alt="" width="280" height="156">
-                <p >Top 5 Types of Massage That You Have to Try When Visiting Beautyrel</p>
-                <div class="date"> January 30, 2020</div>
-              </div>
-
+    <div>
+      <img src="https://placehold.co/280x156/ffe4ec/d45a7a?text=Embroidery+Tips" alt="" width="280" height="156">
+      <p>Top 5 Embroidery Techniques You Have to Try with RoseEmb Machines</p>
+      <div class="date">February 15, 2026</div>
+    </div>
   </div>
-
-  <p class="copy">© 2026 Beautyrel. Privacy Policy</p>
-
+  <p class="copy">© 2026 RoseEmb — Quality Precision Trust. All rights reserved. | Privacy Policy | Terms of Service</p>
 </footer>
 
 <script>
-function toggleMenu() {
-  document.getElementById("sidebar").classList.toggle("active");
-  document.getElementById("overlay").classList.toggle("active");
-}
+  function toggleMenu() {
+    document.getElementById("sidebar").classList.toggle("active");
+    document.getElementById("overlay").classList.toggle("active");
+  }
+
+  function toggleSidebarDropdown() {
+    document.getElementById("sidebarProductDropdown").classList.toggle("active");
+  }
+
+  // Dark/Light toggle
+  const themeToggle = document.getElementById('themeToggle');
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    const icon = themeToggle.querySelector('i');
+    if (document.body.classList.contains('dark')) {
+      icon.classList.remove('fa-moon');
+      icon.classList.add('fa-sun');
+    } else {
+      icon.classList.remove('fa-sun');
+      icon.classList.add('fa-moon');
+    }
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', function(event) {
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    const menuToggle = document.querySelector('.menu-toggle');
+    
+    if (sidebar && !sidebar.contains(event.target) && !overlay.contains(event.target) && !menuToggle.contains(event.target)) {
+      sidebar.classList.remove('active');
+      overlay.classList.remove('active');
+    }
+  });
+
+  // Make dropdown links clickable
+  document.querySelectorAll('.dropdown-content a, .sidebar-dropdown-content a').forEach(link => {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      const href = this.getAttribute('href');
+      if (href) {
+        window.location.href = href;
+      }
+    });
+  });
 </script>
 </body>
 </html>

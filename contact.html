@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RoseEmb | About Us</title>
+  <title>RoseEmb | Contact Us</title>
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -74,7 +74,8 @@
       font-weight: 600;
       font-size: 22px;
     }
-    .logo img {
+
+    .logo img{
       height: 50px;
       width: auto;
     }
@@ -94,6 +95,11 @@
       color: var(--text-secondary);
       letter-spacing: 1px;
       margin-top: 2px;
+    }
+
+    .logo img {
+      height: 50px;
+      width: auto;
     }
 
     nav {
@@ -286,26 +292,26 @@
     }
 
     /* ================= HERO SECTION ================= */
-    .hero-about {
+    .hero {
       background: var(--bg-secondary);
       text-align: center;
-      padding: 100px 20px;
+      padding: 80px 20px;
       border-bottom: 1px solid var(--border-light);
     }
 
-    .hero-about h1 {
-      font-size: 68px;
+    .hero h1 {
+      font-size: 56px;
       font-weight: 700;
       color: var(--text-primary);
     }
 
-    .hero-about p {
+    .hero p {
       font-size: 18px;
       color: var(--text-secondary);
       margin-top: 15px;
     }
 
-    /* ================= MAIN CONTENT ================= */
+    /* ================= CONTACT SECTION ================= */
     .section {
       padding: 80px 60px;
     }
@@ -316,79 +322,79 @@
       padding: 0 20px;
     }
 
-    .row {
+    .contact-grid {
       display: flex;
-    
       gap: 50px;
-      align-items: center;
+      flex-wrap: wrap;
     }
 
-    .col-6 {
+    .contact-info {
       flex: 1;
       min-width: 280px;
     }
 
-    .subtitle {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 15px;
-      font-weight: 500;
-    }
-
-    .title {
-      font-size: 42px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: var(--text-primary);
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    /* Team Section */
-    .team-grid {
-      display: flex;
-      gap: 30px;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 50px;
-    }
-
-    .team-card {
-      background: var(--card-bg);
-      border-radius: 24px;
-      padding: 30px;
-      text-align: center;
+    .contact-form {
       flex: 1;
-      min-width: 250px;
+      min-width: 280px;
+    }
+
+    .info-card {
+      background: var(--card-bg);
+      border-radius: 28px;
+      padding: 30px;
+      margin-bottom: 30px;
       border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      gap: 20px;
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .team-card:hover {
+    .info-card:hover {
       transform: translateY(-5px);
       box-shadow: var(--shadow);
     }
 
-    .team-card img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-      background: var(--accent-light);
+    .info-card i {
+      font-size: 40px;
+      color: var(--accent);
     }
 
-    .team-card h3 {
-      font-size: 22px;
+    .info-card h3 {
+      font-size: 20px;
       margin-bottom: 8px;
       color: var(--text-primary);
     }
 
-    .team-card p {
-      color: var(--accent);
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 15px;
+      border-radius: 16px;
+      border: 1px solid var(--border-light);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      font-size: 16px;
+      font-family: "Poppins", sans-serif;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--accent);
+    }
+
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .map {
+      margin-top: 60px;
+      border-radius: 28px;
+      overflow: hidden;
     }
 
     /* ================= FOOTER (SAME AS HOME PAGE) ================= */
@@ -422,6 +428,7 @@
       border-radius: 6px;
       font-size: 14px;
       cursor: pointer;
+      transition: 0.2s;
     }
 
     .btn-light:hover {
@@ -454,6 +461,7 @@
       margin: 6px 0;
       display: block;
       font-size: 15px;
+      transition: color 0.2s;
     }
 
     .footer-grid a:hover {
@@ -550,7 +558,7 @@
     @media (max-width: 768px) {
       .navbar {
         flex-direction: row;
-        justify 
+        justify-content: space-between;
         padding: 15px 20px;
       }
       nav {
@@ -562,17 +570,14 @@
       .btn-primary {
         display: none;
       }
-      .hero-about {
-        padding: 80px 20px;
+      .hero {
+        padding: 60px 20px;
       }
-      .hero-about h1 {
-        font-size: 42px;
+      .hero h1 {
+        font-size: 36px;
       }
       .section {
         padding: 60px 30px;
-      }
-      .title {
-        font-size: 32px;
       }
       .footer {
         padding: 50px 20px;
@@ -589,18 +594,18 @@
       .dropdown-content {
         display: none !important;
       }
+      .contact-grid {
+        flex-direction: column;
+      }
     }
 
     @media (max-width: 480px) {
-      .hero-about h1 {
-        font-size: 34px;
-      }
-      .title {
+      .hero h1 {
         font-size: 28px;
       }
-      .team-card img {
-        width: 120px;
-        height: 120px;
+      .info-card {
+        flex-direction: column;
+        text-align: center;
       }
     }
   </style>
@@ -611,7 +616,7 @@
 <div class="sidebar" id="sidebar">
   <div class="close-btn" onclick="toggleMenu()">✕</div>
   <a href="index.html">Home</a>
-  <a href="about.html" class="active">About</a>
+  <a href="about.html">About</a>
   <div class="sidebar-dropdown" id="sidebarProductDropdown">
     <div class="sidebar-dropdown-btn" onclick="toggleSidebarDropdown()">
       <span>Product</span>
@@ -620,11 +625,11 @@
     <div class="sidebar-dropdown-content">
       <a href="machines.html">Machines</a>
       <a href="devices.html">Devices</a>
-
+    
     </div>
   </div>
   <a href="gallery.html">Images</a>
-  <a href="contact.html">Contact Us</a>
+  <a href="contact.html" class="active">Contact Us</a>
   <a href="gift-vouchers.html">Gift Vouchers</a>
 </div>
 
@@ -638,7 +643,7 @@
   </div>
   <nav>
     <a href="index.html">Home</a>
-    <a href="about.html" class="active">About</a>
+    <a href="about.html">About</a>
     <div class="nav-item">
       <a href="#">Product</a>
       <div class="dropdown-content">
@@ -648,79 +653,77 @@
       </div>
     </div>
     <a href="gallery.html">Images</a>
-    <a href="contact.html">Contact Us</a>
+    <a href="contact.html" class="active">Contact Us</a>
     <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
   </nav>
   <button class="btn-primary" onclick="alert('Call +91 902555206 or email roseembroidery@gmail.com')">Get Quote</button>
 </header>
 
 <!-- Hero Section -->
-<section class="hero-about">
-  <h1>About RoseEmb</h1>
-  <p>Crafting Precision, Embroidering Excellence Since 2012</p>
+<section class="hero">
+  <h1>Contact Us</h1>
+  <p>We'd love to hear from you. Reach out for any inquiries!</p>
 </section>
 
-<!-- About Content -->
+<!-- Contact Section -->
 <div class="section">
   <div class="container">
-    <div class="row">
-      <div class="col-6">
-        <div class="subtitle">Our Story</div>
-        <h2 class="title">Where Passion Meets Precision</h2>
-        <p style="color: var(--text-secondary); line-height: 1.8;">RoseEmb was founded in 2012 by a team of engineers and embroidery artists who shared a vision: to create embroidery machines that combine industrial-grade precision with artistic freedom. Today, we're trusted by over 5,000 studios worldwide, from small home businesses to large-scale fashion manufacturers.</p>
-        <p style="color: var(--text-secondary); margin-top: 20px;">Every RoseEmb machine is rigorously tested to deliver perfection — from delicate silk monograms to dense 3D logos. We stand by our Quality Precision Trust promise with lifetime software updates and dedicated support.</p>
-        <div style="margin-top: 30px;">
-          <button class="btn-primary" onclick="location.href='contact.html'">Contact Our Team</button>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="info-card">
+          <i class="fas fa-phone-alt"></i>
+          <div>
+            <h3>Phone</h3>
+            <p style="color: var(--accent); font-size: 24px; font-weight: 600;">+91 902555206</p>
+            <p>Mon-Fri, 9am - 6pm IST</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <h3>Email</h3>
+            <p style="color: var(--accent); font-size: 18px;">roseembroidery@gmail.com</p>
+            <p>We respond within 24 hours</p>
+          </div>
+        </div>
+        <div class="info-card">
+          <i class="fas fa-map-marker-alt"></i>
+          <div>
+            <h3>Office Location</h3>
+            <p>456 Embroidery Avenue<br>Los Angeles, CA 90017<br>United States</p>
+          </div>
         </div>
       </div>
-      <div class="col-6">
-        <img src="https://placehold.co/550x450/ffe4ec/d45a7a?text=RoseEmb+Workshop" style="width: 100%; border-radius: 28px; box-shadow: var(--shadow);" alt="RoseEmb Workshop">
+      <div class="contact-form">
+        <h2 style="margin-bottom: 25px; color: var(--text-primary);">Send us a Message</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <input type="text" placeholder="Your Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" placeholder="Email Address" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="Phone Number">
+          </div>
+          <div class="form-group">
+            <select>
+              <option>Select Inquiry Type</option>
+              <option>Product Information</option>
+              <option>Quote Request</option>
+              <option>Technical Support</option>
+              <option>Partnership</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <textarea placeholder="Your Message..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%;">Send Message</button>
+        </form>
       </div>
     </div>
-  </div>
-</div>
-
-<!-- Team Section -->
-<div class="section" style="background: var(--bg-secondary);">
-  <div class="container">
-    <div class="text-center">
-      <div class="subtitle">Meet the Team</div>
-      <h2 class="title">Our Dedicated Experts</h2>
-      <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto;">Passionate engineers, master embroiderers, and support specialists committed to your success.</p>
-    </div>
-    <div class="team-grid">
-      <div class="team-card">
-        <img src="https://placehold.co/150x150/ffe4ec/d45a7a?text=MC" alt="Michael Chen">
-        <h3>Michael Chen</h3>
-        <p>Founder & Lead Engineer</p>
-      </div>
-      <div class="team-card">
-        <img src="https://placehold.co/150x150/ffd9e4/d45a7a?text=SR" alt="Sophia Rodriguez">
-        <h3>Sophia Rodriguez</h3>
-        <p>Head of Embroidery Design</p>
-      </div>
-      <div class="team-card">
-        <img src="https://placehold.co/150x150/facddb/d45a7a?text=JW" alt="James Wilson">
-        <h3>James Wilson</h3>
-        <p>Customer Success Manager</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Values Section -->
-<div class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-6">
-        <img src="https://placehold.co/550x450/ffd9e4/d45a7a?text=Quality+Precision+Trust" style="width: 100%; border-radius: 28px; box-shadow: var(--shadow);" alt="Our Values">
-      </div>
-      <div class="col-6">
-        <div class="subtitle">Our Values</div>
-        <h2 class="title">Quality • Precision • Trust</h2>
-        <p style="color: var(--text-secondary); line-height: 1.8;">We believe in delivering nothing less than excellence. Every machine that leaves our facility undergoes rigorous testing to ensure it meets our highest standards. Our commitment to precision means you get perfect stitches every time. And trust? That's earned through years of reliable service, transparent communication, and unwavering support for our customers.</p>
-        <p style="color: var(--text-secondary); margin-top: 20px;">These three pillars guide everything we do — from product development to customer service. Join thousands of satisfied embroiderers who have made RoseEmb their trusted partner.</p>
-      </div>
+    <div class="map">
+      <img src="https://placehold.co/1200x400/ffe4ec/d45a7a?text=RoseEmb+Location+Map" style="width: 100%; border-radius: 28px;" alt="RoseEmb Location Map">
     </div>
   </div>
 </div>
@@ -809,6 +812,13 @@
         window.location.href = href;
       }
     });
+  });
+
+  // Contact form submission
+  document.getElementById('contactForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Thank you! Our team will contact you shortly at +91 902555206 or via email.');
+    e.target.reset();
   });
 </script>
 </body>

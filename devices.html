@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RoseEmb | About Us</title>
+  <title>RoseEmb | Precision Devices</title>
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -57,7 +57,7 @@
       color: var(--text-primary);
     }
 
-    /* ================= NAVBAR (SAME AS HOME PAGE) ================= */
+    /* ================= NAVBAR (SAME AS ABOUT PAGE) ================= */
     .navbar {
       display: flex;
       justify-content: space-between;
@@ -74,6 +74,7 @@
       font-weight: 600;
       font-size: 22px;
     }
+
     .logo img {
       height: 50px;
       width: auto;
@@ -170,7 +171,6 @@
       border: 1px solid var(--border-light);
     }
 
-    /* Add a transparent bridge to prevent gap issues */
     .nav-item::after {
       content: '';
       position: absolute;
@@ -182,7 +182,6 @@
       pointer-events: auto;
     }
 
-    /* Keep dropdown visible when hovering over nav-item or dropdown itself */
     .nav-item:hover .dropdown-content,
     .dropdown-content:hover {
       opacity: 1;
@@ -286,26 +285,26 @@
     }
 
     /* ================= HERO SECTION ================= */
-    .hero-about {
+    .hero {
       background: var(--bg-secondary);
       text-align: center;
-      padding: 100px 20px;
+      padding: 80px 20px;
       border-bottom: 1px solid var(--border-light);
     }
 
-    .hero-about h1 {
-      font-size: 68px;
+    .hero h1 {
+      font-size: 56px;
       font-weight: 700;
       color: var(--text-primary);
     }
 
-    .hero-about p {
+    .hero p {
       font-size: 18px;
       color: var(--text-secondary);
       margin-top: 15px;
     }
 
-    /* ================= MAIN CONTENT ================= */
+    /* ================= PRODUCT SECTION ================= */
     .section {
       padding: 80px 60px;
     }
@@ -316,82 +315,56 @@
       padding: 0 20px;
     }
 
-    .row {
+    .product-grid {
       display: flex;
-    
-      gap: 50px;
-      align-items: center;
-    }
-
-    .col-6 {
-      flex: 1;
-      min-width: 280px;
-    }
-
-    .subtitle {
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 15px;
-      font-weight: 500;
-    }
-
-    .title {
-      font-size: 42px;
-      font-weight: 700;
-      margin-bottom: 20px;
-      color: var(--text-primary);
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    /* Team Section */
-    .team-grid {
-      display: flex;
-      gap: 30px;
+      gap: 40px;
       flex-wrap: wrap;
       justify-content: center;
-      margin-top: 50px;
     }
 
-    .team-card {
+    .product-card {
       background: var(--card-bg);
-      border-radius: 24px;
-      padding: 30px;
-      text-align: center;
+      border-radius: 28px;
+      padding: 40px;
       flex: 1;
-      min-width: 250px;
+      min-width: 320px;
+      box-shadow: var(--shadow);
       border: 1px solid var(--border-light);
+      text-align: center;
       transition: transform 0.3s, box-shadow 0.3s;
     }
 
-    .team-card:hover {
-      transform: translateY(-5px);
+    .product-card:hover {
+      transform: translateY(-8px);
       box-shadow: var(--shadow);
     }
 
-    .team-card img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
+    .product-card img {
+      width: 100%;
+      border-radius: 20px;
+      margin-bottom: 25px;
       background: var(--accent-light);
     }
 
-    .team-card h3 {
-      font-size: 22px;
-      margin-bottom: 8px;
+    .product-card h2 {
+      font-size: 28px;
+      margin-bottom: 15px;
       color: var(--text-primary);
     }
 
-    .team-card p {
-      color: var(--accent);
+    .product-card p {
+      color: var(--text-secondary);
+      margin-bottom: 15px;
     }
 
-    /* ================= FOOTER (SAME AS HOME PAGE) ================= */
+    .price {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent);
+      margin: 20px 0;
+    }
+
+    /* ================= FOOTER (SAME AS ABOUT PAGE) ================= */
     .footer {
       background: var(--footer-bg);
       color: var(--text-primary);
@@ -550,7 +523,7 @@
     @media (max-width: 768px) {
       .navbar {
         flex-direction: row;
-        justify 
+        justify-content: space-between;
         padding: 15px 20px;
       }
       nav {
@@ -562,17 +535,14 @@
       .btn-primary {
         display: none;
       }
-      .hero-about {
-        padding: 80px 20px;
+      .hero {
+        padding: 60px 20px;
       }
-      .hero-about h1 {
-        font-size: 42px;
+      .hero h1 {
+        font-size: 36px;
       }
       .section {
         padding: 60px 30px;
-      }
-      .title {
-        font-size: 32px;
       }
       .footer {
         padding: 50px 20px;
@@ -589,18 +559,17 @@
       .dropdown-content {
         display: none !important;
       }
+      .product-grid {
+        flex-direction: column;
+      }
     }
 
     @media (max-width: 480px) {
-      .hero-about h1 {
-        font-size: 34px;
-      }
-      .title {
+      .hero h1 {
         font-size: 28px;
       }
-      .team-card img {
-        width: 120px;
-        height: 120px;
+      .product-card {
+        min-width: auto;
       }
     }
   </style>
@@ -611,7 +580,7 @@
 <div class="sidebar" id="sidebar">
   <div class="close-btn" onclick="toggleMenu()">✕</div>
   <a href="index.html">Home</a>
-  <a href="about.html" class="active">About</a>
+  <a href="about.html">About</a>
   <div class="sidebar-dropdown" id="sidebarProductDropdown">
     <div class="sidebar-dropdown-btn" onclick="toggleSidebarDropdown()">
       <span>Product</span>
@@ -619,8 +588,7 @@
     </div>
     <div class="sidebar-dropdown-content">
       <a href="machines.html">Machines</a>
-      <a href="devices.html">Devices</a>
-
+      <a href="devices.html" class="active">Devices</a>
     </div>
   </div>
   <a href="gallery.html">Images</a>
@@ -630,21 +598,20 @@
 
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
-<!-- Navbar with dropdown (SAME AS HOME PAGE) -->
+<!-- Navbar with dropdown (SAME AS ABOUT PAGE) -->
 <header class="navbar">
   <div class="logo">
     <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <img src="./images/logo.jpg.jpeg" alt="">
+  <img src="./images/logo.jpg.jpeg" alt="">>
   </div>
   <nav>
     <a href="index.html">Home</a>
-    <a href="about.html" class="active">About</a>
+    <a href="about.html">About</a>
     <div class="nav-item">
-      <a href="#">Product</a>
+      <a href="#" class="active">Product</a>
       <div class="dropdown-content">
         <a href="machines.html">Machines</a>
-        <a href="devices.html">Devices</a>
-
+        <a href="devices.html" class="active">Devices</a>
       </div>
     </div>
     <a href="gallery.html">Images</a>
@@ -655,77 +622,70 @@
 </header>
 
 <!-- Hero Section -->
-<section class="hero-about">
-  <h1>About RoseEmb</h1>
-  <p>Crafting Precision, Embroidering Excellence Since 2012</p>
+<section class="hero">
+  <h1>Precision Devices</h1>
+  <p>Innovative tools designed for perfection — enhance your embroidery workflow</p>
 </section>
 
-<!-- About Content -->
+<!-- Products Section -->
 <div class="section">
   <div class="container">
-    <div class="row">
-      <div class="col-6">
-        <div class="subtitle">Our Story</div>
-        <h2 class="title">Where Passion Meets Precision</h2>
-        <p style="color: var(--text-secondary); line-height: 1.8;">RoseEmb was founded in 2012 by a team of engineers and embroidery artists who shared a vision: to create embroidery machines that combine industrial-grade precision with artistic freedom. Today, we're trusted by over 5,000 studios worldwide, from small home businesses to large-scale fashion manufacturers.</p>
-        <p style="color: var(--text-secondary); margin-top: 20px;">Every RoseEmb machine is rigorously tested to deliver perfection — from delicate silk monograms to dense 3D logos. We stand by our Quality Precision Trust promise with lifetime software updates and dedicated support.</p>
-        <div style="margin-top: 30px;">
-          <button class="btn-primary" onclick="location.href='contact.html'">Contact Our Team</button>
-        </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://placehold.co/400x300/ffe4ec/d45a7a?text=Digitizing+Tablet" alt="Digitizing Tablet">
+        <h2>Digitizing Tablet</h2>
+        <p>Wireless pressure-sensitive pad for custom embroidery design creation. Perfect for professional digitizers.</p>
+        <div class="price">$399</div>
+        <button class="btn-primary" onclick="alert('Inquiry sent! Call +91 902555206 for details')">Shop Now</button>
       </div>
-      <div class="col-6">
-        <img src="https://placehold.co/550x450/ffe4ec/d45a7a?text=RoseEmb+Workshop" style="width: 100%; border-radius: 28px; box-shadow: var(--shadow);" alt="RoseEmb Workshop">
+      <div class="product-card">
+        <img src="https://placehold.co/400x300/ffd9e4/d45a7a?text=Laser+Guidance+Kit" alt="Laser Guidance Kit">
+        <h2>Laser Guidance Kit</h2>
+        <p>Precision laser placement system for perfect alignment on multi-hoop projects. Eliminates guesswork.</p>
+        <div class="price">$89</div>
+        <button class="btn-primary" onclick="alert('Inquiry sent! Call +91 902555206 for details')">Shop Now</button>
+      </div>
+      <div class="product-card">
+        <img src="https://placehold.co/400x300/facddb/d45a7a?text=Thread+Sensor+Pro" alt="Thread Sensor Pro">
+        <h2>Thread Sensor Pro</h2>
+        <p>Smart break detection with automatic stop and alert system. Never miss a thread break again.</p>
+        <div class="price">$149</div>
+        <button class="btn-primary" onclick="alert('Inquiry sent! Call +91 902555206 for details')">Shop Now</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Team Section -->
+<!-- Additional Devices Section -->
 <div class="section" style="background: var(--bg-secondary);">
   <div class="container">
-    <div class="text-center">
-      <div class="subtitle">Meet the Team</div>
-      <h2 class="title">Our Dedicated Experts</h2>
-      <p style="color: var(--text-secondary); max-width: 700px; margin: 0 auto;">Passionate engineers, master embroiderers, and support specialists committed to your success.</p>
-    </div>
-    <div class="team-grid">
-      <div class="team-card">
-        <img src="https://placehold.co/150x150/ffe4ec/d45a7a?text=MC" alt="Michael Chen">
-        <h3>Michael Chen</h3>
-        <p>Founder & Lead Engineer</p>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://placehold.co/400x300/ffe4ec/d45a7a?text=Magnetic+Hoop+Pro" alt="Magnetic Hoop Pro">
+        <h2>Magnetic Hoop Pro</h2>
+        <p>No-fuss magnetic grip system, fits all RoseEmb models. Eliminates fabric slipping and hooping frustration.</p>
+        <div class="price">$149</div>
+        <button class="btn-primary" onclick="alert('Inquiry sent! Call +91 902555206 for details')">Shop Now</button>
       </div>
-      <div class="team-card">
-        <img src="https://placehold.co/150x150/ffd9e4/d45a7a?text=SR" alt="Sophia Rodriguez">
-        <h3>Sophia Rodriguez</h3>
-        <p>Head of Embroidery Design</p>
+      <div class="product-card">
+        <img src="https://placehold.co/400x300/ffd9e4/d45a7a?text=Cap+Hoop+System" alt="Cap Hoop System">
+        <h2>Cap Hoop System</h2>
+        <p>Specialized hoop for caps, hats, and curved surfaces with precision alignment for professional results.</p>
+        <div class="price">$129</div>
+        <button class="btn-primary" onclick="alert('Inquiry sent! Call +91 902555206 for details')">Shop Now</button>
       </div>
-      <div class="team-card">
-        <img src="https://placehold.co/150x150/facddb/d45a7a?text=JW" alt="James Wilson">
-        <h3>James Wilson</h3>
-        <p>Customer Success Manager</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Values Section -->
-<div class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-6">
-        <img src="https://placehold.co/550x450/ffd9e4/d45a7a?text=Quality+Precision+Trust" style="width: 100%; border-radius: 28px; box-shadow: var(--shadow);" alt="Our Values">
-      </div>
-      <div class="col-6">
-        <div class="subtitle">Our Values</div>
-        <h2 class="title">Quality • Precision • Trust</h2>
-        <p style="color: var(--text-secondary); line-height: 1.8;">We believe in delivering nothing less than excellence. Every machine that leaves our facility undergoes rigorous testing to ensure it meets our highest standards. Our commitment to precision means you get perfect stitches every time. And trust? That's earned through years of reliable service, transparent communication, and unwavering support for our customers.</p>
-        <p style="color: var(--text-secondary); margin-top: 20px;">These three pillars guide everything we do — from product development to customer service. Join thousands of satisfied embroiderers who have made RoseEmb their trusted partner.</p>
+      <div class="product-card">
+        <img src="https://placehold.co/400x300/facddb/d45a7a?text=Design+Manager+Software" alt="Design Manager Software">
+        <h2>Design Manager Software</h2>
+        <p>Professional embroidery design management software with cloud storage and design editing capabilities.</p>
+        <div class="price">$299</div>
+        <button class="btn-primary" onclick="alert('Inquiry sent! Call +91 902555206 for details')">Shop Now</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Footer (SAME AS HOME PAGE) -->
+<!-- Footer (SAME AS ABOUT PAGE) -->
 <footer class="footer">
   <div class="top-bar">
     <div><strong>+91 902555206</strong> <span>Call Me Back</span></div>

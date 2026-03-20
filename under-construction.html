@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Under Construction · Beautyrel Massage</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Material Icons (for social icons) -->
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
+  <style>
+    /* === EXACT SAME STYLES AS HOME/GIFT VOUCHERS PAGE === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      color: #0e1b4d;
+      background: #fff;
+      font-size: 17px;
+    }
+
+    /* ================= UNDER CONSTRUCTION PAGE STYLES ================= */
+    .section-single {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: #f6d8d4; /* Same coral/pink as hero sections */
+    }
+
+    .section-single-inner {
+      width: 100%;
+      padding: 40px 0;
+    }
+
+    .section-single-header {
+      margin-bottom: 50px;
+    }
+
+    .section-single-header .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-single-main {
+      text-align: center;
+    }
+
+    .section-single-main .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section-single-footer {
+      margin-top: 50px;
+    }
+
+    .section-single-footer .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+      text-align: center;
+    }
+
+    /* Brand logo */
+    .brand {
+      display: inline-block;
+    }
+
+    .brand-logo-dark {
+      height: auto;
+      max-height: 80px;
+      width: auto;
+    }
+
+    /* Headings */
+    h3 {
+      font-size: 48px;
+      font-weight: 600;
+      color: #0e1b4d;
+      margin-bottom: 30px;
+    }
+
+    .divider-small {
+      width: 80px;
+      height: 3px;
+      background: #f58c7c;
+      margin: 0 auto 40px;
+    }
+
+    p {
+      color: #6f7a8a;
+      font-size: 18px;
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+
+    /* ================= COUNTDOWN TIMER ================= */
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin: 50px 0;
+    }
+
+    .countdown-block {
+      position: relative;
+      width: 200px;
+      height: 200px;
+    }
+
+    .countdown-circle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .countdown-circle-bg {
+      fill: none;
+      stroke: rgba(255,255,255,0.3);
+      stroke-width: 8px;
+    }
+
+    .countdown-circle-fg {
+      fill: none;
+      stroke: #f58c7c;
+      stroke-width: 8px;
+      stroke-linecap: round;
+      transform: rotate(-90deg);
+      transform-origin: 50% 50%;
+      transition: stroke-dashoffset 0.3s ease;
+    }
+
+    .countdown-wrap {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+    }
+
+    .countdown-counter {
+      font-size: 56px;
+      font-weight: 700;
+      color: #0e1b4d;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .countdown-title {
+      font-size: 18px;
+      color: #f58c7c;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* ================= FORM STYLES ================= */
+    .rd-mailform-wrap {
+      max-width: 500px;
+      margin: 40px auto 0;
+    }
+
+    .rd-form-inline {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .form-wrap {
+      flex: 1;
+      min-width: 250px;
+      position: relative;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: 16px 20px;
+      border: 2px solid #0e1b4d;
+      border-radius: 50px;
+      font-size: 16px;
+      font-family: 'Poppins', sans-serif;
+      transition: all 0.3s ease;
+      background: transparent;
+      color: #0e1b4d;
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: #f58c7c;
+      box-shadow: 0 0 0 3px rgba(245,140,124,0.1);
+    }
+
+    .form-label {
+      position: absolute;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #6f7a8a;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      font-size: 16px;
+      background: transparent;
+      padding: 0 5px;
+    }
+
+    .form-input:focus + .form-label,
+    .form-input:not(:placeholder-shown) + .form-label {
+      top: 0;
+      transform: translateY(-50%);
+      font-size: 12px;
+      background: #f6d8d4;
+      color: #f58c7c;
+    }
+
+    .form-input::placeholder {
+      color: transparent;
+    }
+
+    .button-primary {
+      background: #f58c7c;
+      border: none;
+      padding: 16px 40px;
+      color: white;
+      border-radius: 50px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      min-width: 150px;
+    }
+
+    .button-primary:hover {
+      background: #0e1b4d;
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(245,140,124,0.3);
+    }
+
+    /* ================= FOOTER RIGHTS ================= */
+    .rights {
+      color: #6f7a8a;
+      font-size: 14px;
+    }
+
+    .rights a {
+      color: #0e1b4d;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .rights a:hover {
+      color: #f58c7c;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 768px) {
+      h3 {
+        font-size: 32px;
+      }
+      
+      .countdown {
+        gap: 20px;
+      }
+      
+      .countdown-block {
+        width: 150px;
+        height: 150px;
+      }
+      
+      .countdown-counter {
+        font-size: 42px;
+      }
+      
+      .countdown-title {
+        font-size: 14px;
+      }
+      
+      .rd-form-inline {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .form-wrap {
+        width: 100%;
+      }
+      
+      .button-primary {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      h3 {
+        font-size: 28px;
+      }
+      
+      .countdown-block {
+        width: 120px;
+        height: 120px;
+      }
+      
+      .countdown-counter {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="section-single">
+  <div class="section-single-inner">
+    <!-- Header with Logo -->
+    <div class="section-single-header">
+      <div class="container">
+        <a class="brand" href="home.html">
+          <img class="brand-image" src="./logo-default-428x112.webp" alt="gift card">
+        </a>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="section-single-main">
+      <div class="container">
+        <h3>We're getting ready to launch in</h3>
+        <div class="divider-small"></div>
+
+        <!-- Countdown Timer (static numbers) -->
+        <div class="countdown">
+          <div class="countdown-block">
+            <svg class="countdown-circle" viewBox="0 0 200 200">
+              <circle class="countdown-circle-bg" cx="100" cy="100" r="90"></circle>
+              <circle class="countdown-circle-fg" cx="100" cy="100" r="90" stroke-dasharray="565.48" stroke-dashoffset="141.37"></circle>
+            </svg>
+            <div class="countdown-wrap">
+              <div class="countdown-counter">1904</div>
+              <div class="countdown-title">days</div>
+            </div>
+          </div>
+
+          <div class="countdown-block">
+            <svg class="countdown-circle" viewBox="0 0 200 200">
+              <circle class="countdown-circle-bg" cx="100" cy="100" r="90"></circle>
+              <circle class="countdown-circle-fg" cx="100" cy="100" r="90" stroke-dasharray="565.48" stroke-dashoffset="282.74"></circle>
+            </svg>
+            <div class="countdown-wrap">
+              <div class="countdown-counter">16</div>
+              <div class="countdown-title">hours</div>
+            </div>
+          </div>
+
+          <div class="countdown-block">
+            <svg class="countdown-circle" viewBox="0 0 200 200">
+              <circle class="countdown-circle-bg" cx="100" cy="100" r="90"></circle>
+              <circle class="countdown-circle-fg" cx="100" cy="100" r="90" stroke-dasharray="565.48" stroke-dashoffset="353.42"></circle>
+            </svg>
+            <div class="countdown-wrap">
+              <div class="countdown-counter">28</div>
+              <div class="countdown-title">minutes</div>
+            </div>
+          </div>
+
+          <div class="countdown-block">
+            <svg class="countdown-circle" viewBox="0 0 200 200">
+              <circle class="countdown-circle-bg" cx="100" cy="100" r="90"></circle>
+              <circle class="countdown-circle-fg" cx="100" cy="100" r="90" stroke-dasharray="565.48" stroke-dashoffset="424.11"></circle>
+            </svg>
+            <div class="countdown-wrap">
+              <div class="countdown-counter">13</div>
+              <div class="countdown-title">seconds</div>
+            </div>
+          </div>
+        </div>
+
+        <p>Our website is under construction, we are working very hard to give you the best experience on our new web site.</p>
+
+        <!-- Subscribe Form -->
+        <div class="rd-mailform-wrap">
+          <form class="rd-form rd-form-inline" novalidate="novalidate">
+            <div class="form-wrap">
+              <input class="form-input" id="subscribe-email" type="email" name="email" placeholder=" ">
+              <label class="form-label" for="subscribe-email">E-mail</label>
+            </div>
+            <div class="form-button">
+              <button class="button-primary" type="submit">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="section-single-footer">
+      <div class="container">
+        <p class="rights">© 2026 Beautyrel. <a href="privacy-policy.html">Privacy Policy</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Simple form handling (prevents actual submission for demo)
+document.querySelector('.rd-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Thank you for subscribing! We\'ll notify you when we launch.');
+  this.reset();
+});
+
+// Optional: Animate the countdown circles on page load
+window.addEventListener('load', function() {
+  const circles = document.querySelectorAll('.countdown-circle-fg');
+  circles.forEach(circle => {
+    circle.style.transition = 'stroke-dashoffset 1s ease';
+  });
+});
+
+// For demo purposes, you could add a simple countdown update
+// This would require JavaScript to calculate remaining time
+</script>
+
+</body>
+</html>

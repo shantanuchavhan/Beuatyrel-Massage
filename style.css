@@ -1,0 +1,594 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  color: #0e1b4d;
+  background: #fff;
+}
+
+/* ================= NAVBAR ================= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 90px;
+}
+
+
+
+.logo {
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.brand-image {
+      height: auto;
+    max-height: 200px;
+    width: 50%;
+}
+
+.logo p {
+  font-size: 11px;
+  color: #a0a7b5;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+
+.sidebar-logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+nav a {
+  margin: 0 18px;
+  text-decoration: none;
+  color: #0e1b4d;
+  font-size: 15px;
+  font-weight: 500;
+}
+
+nav .active {
+  color: #f58c7c;
+}
+
+.btn-primary {
+  background: #f58c7c;
+  border: none;
+  padding: 12px 24px;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ================= HERO ================= */
+.hero {
+  background: #f6d8d4;
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.hero h1 {
+  font-size: 60px;
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin-bottom: 12px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #6f7a8a;
+}
+
+/* ================= GIFT SECTION ================= */
+.gift {
+  display: flex;
+  align-items: center;
+  padding: 120px 90px;
+  gap: 80px;
+}
+
+.sub {
+  color: #f58c7c;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.gift-left h2 {
+  font-size: 44px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 15px 0 20px;
+}
+
+.gift-left p {
+  font-size: 16px;
+  color: #6f7a8a;
+  line-height: 1.7;
+  margin-bottom: 25px;
+}
+
+.gift-left ul {
+  list-style: none;
+}
+
+.gift-left li {
+  font-size: 15px;
+  margin-bottom: 14px;
+  position: relative;
+  padding-left: 22px;
+}
+
+/* custom bullet */
+.gift-left li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #f58c7c;
+  font-size: 14px;
+}
+
+.gift-right img {
+  width: 520px;
+  border-radius: 10px;
+}
+
+/* ================= PRICING ================= */
+.pricing {
+  text-align: center;
+  padding: 120px 20px;
+}
+
+.pricing h2 {
+  font-size: 42px;
+  font-weight: 600;
+}
+
+.subtitle {
+  margin-top: 12px;
+  font-size: 16px;
+  color: #6f7a8a;
+}
+
+.cards {
+  display: flex;
+  justify-content: center;
+  gap: 35px;
+  margin-top: 60px;
+}
+
+.card {
+  background: #f7f7f7;
+  padding: 45px 35px;
+  width: 300px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.featured {
+  background: #0e1b4d;
+  color: white;
+  transform: translateY(-10px); /* slight lift like design */
+}
+
+.card span {
+  font-size: 14px;
+  color: #f58c7c;
+}
+
+.featured span {
+  color: #ffb3a7;
+}
+
+.card h3 {
+  margin: 18px 0 12px;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.card p {
+  font-size: 15px;
+  color: #6f7a8a;
+}
+
+.featured p {
+  color: #cbd3ff;
+}
+
+.card button {
+  margin-top: 25px;
+  background: #f58c7c;
+  border: none;
+  padding: 12px 24px;
+  color: white;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* ================= FAQ ================= */
+.faq {
+  padding: 120px 90px;
+}
+
+.faq h3 {
+  font-size: 26px;
+  margin-bottom: 30px;
+}
+
+.faq-item {
+  padding: 20px 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 15px;
+}
+
+/* ================= FOOTER ================= */
+.footer {
+  background: #0e1b4d;
+  color: white;
+  padding: 70px 90px;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.top-bar strong {
+  font-size: 18px;
+}
+
+.btn-light {
+  margin-left: 15px;
+  background: white;
+  color: #0e1b4d;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.footer-grid h4 {
+  margin-bottom: 12px;
+}
+
+.footer-grid p {
+  margin: 6px 0;
+  color: #cbd3ff;
+  font-size: 14px;
+}
+.footer-classic p{
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 146%;
+}
+
+
+/* ================= GLOBAL FONT SCALE ================= */
+
+body {
+  font-size: 17px; /* base increased */
+}
+
+/* NAVBAR */
+.logo {
+  font-size: 22px;
+}
+
+nav a {
+  font-size: 16px;
+}
+
+.btn-primary {
+  font-size: 15px;
+  padding: 13px 26px;
+}
+
+/* HERO */
+.hero h1 {
+  font-size: 68px; /* was 60 */
+}
+
+.hero p {
+  font-size: 20px;
+}
+
+/* GIFT SECTION */
+.sub {
+  font-size: 15px;
+}
+
+.gift-left h2 {
+  font-size: 50px; /* was 44 */
+}
+
+.gift-left p {
+  font-size: 17px;
+}
+
+.gift-left li {
+  font-size: 16px;
+}
+
+/* PRICING */
+.pricing h2 {
+  font-size: 46px;
+}
+
+.subtitle {
+  font-size: 18px;
+}
+
+.card span {
+  font-size: 15px;
+}
+
+.card h3 {
+  font-size: 32px;
+}
+
+.card p {
+  font-size: 16px;
+}
+
+.card button {
+  font-size: 15px;
+}
+
+/* FAQ */
+.faq h3 {
+  font-size: 30px;
+}
+
+.faq-item {
+  font-size: 16px;
+}
+
+/* FOOTER */
+.top-bar strong {
+  font-size: 20px;
+}
+
+.footer-grid h4 {
+  font-size: 18px;
+}
+
+.footer-grid p {
+  font-size: 15px;
+}
+
+.copy {
+  font-size: 14px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+/* Tablets */
+@media (max-width: 1024px) {
+
+  .navbar {
+    padding: 20px 40px;
+  }
+
+  .gift {
+    flex-direction: column;
+    padding: 80px 40px;
+    text-align: center;
+  }
+
+  .gift-right img {
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .cards {
+    flex-wrap: wrap;
+  }
+
+  .footer {
+    padding: 60px 40px;
+  }
+
+}
+
+
+/* Mobile */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  nav a {
+    margin: 8px 10px;
+  }
+
+  .btn-primary {
+    display: none; /* like most designs */
+  }
+
+  /* HERO */
+  .hero {
+    padding: 80px 20px;
+  }
+
+  .hero h1 {
+    font-size: 42px;
+  }
+
+  .hero p {
+    font-size: 16px;
+  }
+
+  /* GIFT */
+  .gift {
+    padding: 60px 20px;
+    gap: 40px;
+  }
+
+  .gift-left h2 {
+    font-size: 34px;
+  }
+
+  /* PRICING */
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .featured {
+    transform: none; /* remove lift on mobile */
+  }
+
+  /* FAQ */
+  .faq {
+    padding: 60px 20px;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 50px 20px;
+  }
+
+  .top-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .footer-grid {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+}
+
+
+/* Small Mobile */
+@media (max-width: 480px) {
+
+  .hero h1 {
+    font-size: 34px;
+  }
+
+  .gift-left h2 {
+    font-size: 28px;
+  }
+
+  .pricing h2 {
+    font-size: 30px;
+  }
+
+  .card h3 {
+    font-size: 24px;
+  }
+
+}
+
+
+/* ================= MOBILE SIDEBAR ================= */
+
+/* Hide menu icon on desktop */
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 260px;
+  height: 100%;
+  background: #0e1b4d;
+  color: white;
+  padding: 30px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  transition: 0.3s ease;
+  z-index: 1000;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.sidebar .active {
+  color: #f58c7c;
+}
+
+.close-btn {
+  font-size: 22px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.3s;
+  z-index: 900;
+}
+
+/* Active states */
+.sidebar.active {
+  left: 0;
+}
+
+.overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ================= MOBILE NAV FIX ================= */
+@media (max-width: 768px) {
+
+  nav {
+    display: none; /* hide desktop menu */
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+}

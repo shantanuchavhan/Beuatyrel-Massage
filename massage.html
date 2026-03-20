@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beautyrel · Massage Services</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Material Icons (optional, for consistency) -->
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
+  <style>
+    /* === EXACT SAME CSS AS HOME/ABOUT PAGES (gift voucher style) === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      color: #0e1b4d;
+      background: #fff;
+      font-size: 17px;
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 90px;
+    }
+
+    .logo {
+      font-weight: 600;
+      font-size: 22px;
+    }
+
+    .brand-image {
+      height: auto;
+      max-height: 200px;
+      width: 50%;
+    }
+
+    .logo p {
+      font-size: 11px;
+      color: #a0a7b5;
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+
+    .sidebar-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    nav a {
+      margin: 0 18px;
+      text-decoration: none;
+      color: #0e1b4d;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    nav .active {
+      color: #f58c7c;
+    }
+
+    .btn-primary {
+      background: #f58c7c;
+      border: none;
+      padding: 13px 26px;
+      color: white;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    /* ================= PAGE HEADER (hero for massage page) ================= */
+    .page-header-massage {
+      background: #f6d8d4; /* consistent with about hero */
+      text-align: center;
+      padding: 80px 20px;
+    }
+    .page-header-massage h1 {
+      font-size: 68px;
+      font-weight: 600;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+      color: #0e1b4d;
+    }
+    .page-header-massage .subtitle-2 {
+      font-size: 20px;
+      color: #6f7a8a;
+    }
+
+    /* ================= GLOBAL TYPOGRAPHY ================= */
+    .subtitle {
+      color: #f58c7c;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 400;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+    .title {
+      font-size: 50px;
+      font-weight: 600;
+      color: #0e1b4d;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .subtitle-2 {
+      font-size: 18px;
+      color: #6f7a8a;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    /* sections */
+    .section { padding: 80px 0; }
+    .section-lg { padding: 100px 0; }
+    .section-xl { padding: 120px 0; }
+    .bg-secondary { background: #f8fafd; } /* light background */
+    .bg-default { background: #fff; }
+    .text-center { text-align: center; }
+
+    .container.wide {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .col-lg-5, .col-md-6, .col-lg-4, .col-md-5, .col-lg-7, .col-sm-12, .col-xs-10 {
+      flex: 1 1 calc(50% - 30px);
+      min-width: 280px;
+    }
+    .col-lg-4 { flex: 1 1 calc(33.333% - 30px); }
+    .col-xs-10 { flex: 1 1 calc(83.333% - 30px); }
+
+    /* box info modern (used for massage cards) */
+    .box-info-modern {
+      text-align: center;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+      transition: 0.2s;
+    }
+    .box-info-modern:hover {
+      transform: translateY(-6px);
+    }
+    .box-info-modern-figure img {
+      width: 100%;
+      display: block;
+    }
+    .box-info-modern-title {
+      font-size: 1.8rem;
+      margin: 20px 0 10px;
+      color: #0e1b4d;
+    }
+    .box-info-modern-title a {
+      text-decoration: none;
+      color: #0e1b4d;
+    }
+    .box-info-modern-text.small {
+      font-size: 15px;
+      color: #6f7a8a;
+      padding: 0 20px 30px;
+    }
+
+    /* divider */
+    .divider {
+      height: 2px;
+      background: #eef2f7;
+      width: 100%;
+    }
+
+    /* join us / section-custom */
+    .section-custom {
+      padding: 80px 0;
+    }
+    .img-wrap img {
+      border-radius: 12px;
+      margin-top: 40px;
+    }
+
+    /* button styles (consistent) */
+    .button {
+      display: inline-block;
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: 0.2s;
+      border: none;
+      cursor: pointer;
+      background: #f58c7c;
+      color: white;
+    }
+    .button-secondary {
+      background: #0e1b4d;
+      color: white;
+    }
+    .button-white {
+      background: white;
+      color: #0e1b4d;
+      border: 1px solid #ddd;
+    }
+
+    /* ================= FOOTER (exact from home/about) ================= */
+    .footer {
+      background: #0e1b4d;
+      color: white;
+      padding: 70px 90px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+
+    .top-bar strong {
+      font-size: 20px;
+    }
+
+    .btn-light {
+      margin-left: 15px;
+      background: white;
+      color: #0e1b4d;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .footer-grid h4 {
+      margin-bottom: 12px;
+      font-size: 18px;
+      color: white;
+    }
+
+    .footer-grid p {
+      margin: 6px 0;
+      color: #cbd3ff;
+      font-size: 15px;
+    }
+
+    .footer-classic p {
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 146%;
+      color: #cbd3ff;
+    }
+
+    .copy {
+      text-align: center;
+      border-top: 1px solid #33415c;
+      padding-top: 20px;
+      font-size: 14px;
+      color: #cbd3ff;
+    }
+
+    /* ================= MOBILE SIDEBAR (exact) ================= */
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 260px;
+      height: 100%;
+      background: #0e1b4d;
+      color: white;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: 0.3s ease;
+      z-index: 1000;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .sidebar .active {
+      color: #f58c7c;
+    }
+
+    .close-btn {
+      font-size: 22px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      text-align: right;
+      color: white;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+      z-index: 900;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 1024px) {
+      .navbar {
+        padding: 20px 40px;
+      }
+      .footer {
+        padding: 60px 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav a {
+        margin: 8px 10px;
+      }
+      .btn-primary {
+        display: none;
+      }
+      .page-header-massage h1 {
+        font-size: 42px;
+      }
+      .page-header-massage .subtitle-2 {
+        font-size: 16px;
+      }
+      .title {
+        font-size: 34px;
+      }
+      .footer {
+        padding: 50px 20px;
+      }
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      .footer-grid {
+        flex-direction: column;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .page-header-massage h1 {
+        font-size: 34px;
+      }
+      .title {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar mobile (exact same) -->
+<div class="sidebar" id="sidebar">
+  <div class="close-btn" onclick="toggleMenu()">✕</div>
+  <a href="home.html">Home</a>
+  <a href="gift-vouchers.html">Gift Vouchers</a>
+  <a href="about.html">About</a>
+  <a href="massage.html" class="active">Massage</a>
+  <a href="contacts.html">Contacts</a>
+  <a href="pages.html">Pages</a>
+</div>
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<!-- Navbar (exact from home page) -->
+<header class="navbar">
+  <div class="logo">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div> 
+    <img class="brand-image" src="./logo-default-428x112.webp" alt="gift card">
+  </div>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="gift-vouchers.html">Gift Vouchers</a>
+    <a href="about.html">About</a>
+    <a class="active" href="massage.html">Massage</a>
+    <a href="contacts.html">Contacts</a>
+    <a href="pages.html">Pages</a>
+  </nav>
+  <button class="btn-primary">Get A Massage</button>
+</header>
+
+<!-- Page Header (Services hero) -->
+<div class="page-header-massage">
+  <div class="container wide">
+    <h1>Services</h1>
+    <div class="subtitle-2">Lorem ipsum dolor sit amet, consectetur</div>
+  </div>
+</div>
+
+<!-- What we offer / massage listings -->
+<div class="section section-xl">
+  <div class="container wide">
+    <div class="text-center">
+      <div class="subtitle">What we offer</div>
+      <h2 class="title">We Bring The Best <br class="d-none d-xl-block"> Massage To You</h2>
+    </div>
+    <div class="row row-md-80 row-sm-50">
+      <div class="col-xs-10 col-md-6 col-lg-4">
+        <div class="box-info-modern box-md">
+          <div class="box-info-modern-figure"><img src="https://via.placeholder.com/390x344/f58c7c/ffffff?text=Swedish" alt="" width="390" height="344"></div>
+          <div class="box-info-modern-title"><a href="single-massage.html">Swedish Relaxation</a></div>
+          <div class="box-info-modern-text small">One of the primary goals of the Swedish massage technique is to relax the entire body</div>
+        </div>
+      </div>
+      <div class="col-xs-10 col-md-6 col-lg-4">
+        <div class="box-info-modern box-md">
+          <div class="box-info-modern-figure"><img src="https://via.placeholder.com/390x344/f58c7c/ffffff?text=Deep+Tissue" alt="" width="390" height="344"></div>
+          <div class="box-info-modern-title"><a href="single-massage.html">Remedial Deep Tissue</a></div>
+          <div class="box-info-modern-text small">This will include an assessment of the muscles, ligaments, tendons and posture</div>
+        </div>
+      </div>
+      <div class="col-xs-10 col-md-6 col-lg-4">
+        <div class="box-info-modern box-md">
+          <div class="box-info-modern-figure"><img src="https://via.placeholder.com/390x344/f58c7c/ffffff?text=Group" alt="" width="390" height="344"></div>
+          <div class="box-info-modern-title"><a href="single-massage.html">Group Bookings</a></div>
+          <div class="box-info-modern-text small">Treat yourself and your friend with the best massage experience</div>
+        </div>
+      </div>
+      <div class="col-xs-10 col-md-6 col-lg-4">
+        <div class="box-info-modern box-md">
+          <div class="box-info-modern-figure"><img src="https://via.placeholder.com/390x344/f58c7c/ffffff?text=Pregnancy" alt="" width="390" height="344"></div>
+          <div class="box-info-modern-title"><a href="single-massage.html">Pregnancy Massage</a></div>
+          <div class="box-info-modern-text small">Tranquil relaxation and reduce stress, Relief from cramps, spasms, pain, etc.</div>
+        </div>
+      </div>
+      <div class="col-xs-10 col-md-6 col-lg-4">
+        <div class="box-info-modern box-md">
+          <div class="box-info-modern-figure"><img src="https://via.placeholder.com/390x344/f58c7c/ffffff?text=Face+Massage" alt="" width="390" height="344"></div>
+          <div class="box-info-modern-title"><a href="single-massage.html">Face Massage</a></div>
+          <div class="box-info-modern-text small">Facial massages increase circulation to your facial tissue, resulting in youthful-looking skin</div>
+        </div>
+      </div>
+      <div class="col-xs-10 col-md-6 col-lg-4">
+        <div class="box-info-modern box-md">
+          <div class="box-info-modern-figure"><img src="https://via.placeholder.com/390x344/f58c7c/ffffff?text=Massotherapy" alt="" width="390" height="344"></div>
+          <div class="box-info-modern-title"><a href="single-massage.html">Massotherapy</a></div>
+          <div class="box-info-modern-text small">A collection of bodywork modalities designed to improve health</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Divider -->
+<div class="section section-dv">
+  <div class="container wide">
+    <div class="divider"></div>
+  </div>
+</div>
+
+<!-- Join us section (Are You a Qualified Massage Therapist?) -->
+<div class="section section-custom">
+  <div class="container wide">
+    <div class="text-center">
+      <h2 class="title">Are You a Qualified <br class="br-none"> Massage Therapist?</h2>
+      <div class="subtitle-2 big">We are waiting for you to join our team</div>
+      <div><a class="button button-secondary" href="#">Join Us</a></div>
+      <div class="img-wrap"><img src="https://via.placeholder.com/830x446/0e1b4d/ffffff?text=join+our+team" alt="" width="830" height="446"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer (exact from home/about) -->
+<footer class="footer">
+  <div class="top-bar">
+    <div><strong>1 000 -234 -78-90</strong> <span>Call Me Back</span></div>
+    <div>Any complaints or suggestions? <button class="btn-light">Let Us Know</button></div>
+  </div>
+  <div class="footer-grid">
+    <div>
+      <h4>Treatments</h4>
+      <p>Swedish Massage Therapy</p>
+      <p>Aromatherapy Massage</p>
+      <p>Hot Stone Massage</p>
+      <p>Deep Tissue Massage</p>
+      <p>Shiatsu Massage</p>
+      <p>Thai Massage</p>
+      <p>Pregnancy Massage</p>
+    </div>
+    <div>
+      <h4>Beautyrel</h4>
+      <p>About Us</p>
+      <p>Reviews</p>
+      <p>Blog</p>
+      <p>Affiliates</p>
+      <p>Careers</p>
+      <p>Invest</p>
+    </div>
+    <div>
+      <h4>Help</h4>
+      <p>Help Center</p>
+      <p>FAQs</p>
+      <p>Pricing</p>
+      <p>Terms</p>
+      <p>Privacy Policy</p>
+      <p>Contact Us</p>
+    </div>
+       <div class="col-sm-4 col-md-4 col-lg-3"><img src="./footer-1-280x156.jpg" alt="" width="280" height="156">
+                <p>Top 5 Types of Massage That You Have to Try When Visiting Beautyrel</p>
+                <div class="date"> January 30, 2020</div>
+              </div>
+  </div>
+  <p class="copy">© 2026 Beautyrel. Privacy Policy</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("sidebar").classList.toggle("active");
+  document.getElementById("overlay").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beautyrel · About</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Material Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.4.47/css/materialdesignicons.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {
+      color: #0e1b4d;
+      background: #fff;
+      font-size: 17px;
+    }
+
+    /* ================= NAVBAR (exact from home page) ================= */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 25px 90px;
+      position: relative;
+      z-index: 1000;
+      background: white;
+    }
+
+    .logo {
+      font-weight: 600;
+      font-size: 22px;
+    }
+
+    .brand-image {
+      height: auto;
+      max-height: 200px;
+      width: 50%;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav a {
+      margin: 0 18px;
+      text-decoration: none;
+      color: #0e1b4d;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #f58c7c;
+    }
+
+    nav .active {
+      color: #f58c7c;
+    }
+
+    .btn-primary {
+      background: #f58c7c;
+      border: none;
+      padding: 13px 26px;
+      color: white;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn-primary:hover {
+      background: #0e1b4d;
+    }
+
+    /* ================= DROPDOWN STYLES ================= */
+    .nav-item {
+      position: relative;
+      display: inline-block;
+    }
+
+    .nav-item > a::after {
+      content: "▼";
+      font-size: 10px;
+      margin-left: 6px;
+      display: inline-block;
+      transition: transform 0.3s ease;
+      color: #f58c7c;
+    }
+
+    .nav-item:hover > a::after {
+      transform: rotate(180deg);
+    }
+
+    .dropdown-content {
+      position: absolute;
+      top: calc(100% + 10px);
+      left: 0;
+      background: white;
+      min-width: 220px;
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      z-index: 10000;
+      padding: 12px 0;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s ease;
+      border: 1px solid #f0f0f0;
+    }
+
+    .nav-item:hover .dropdown-content {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown-content a {
+      display: block;
+      padding: 10px 24px;
+      color: #0e1b4d !important;
+      font-size: 14px !important;
+      transition: all 0.3s ease;
+      margin: 0 !important;
+    }
+
+    .dropdown-content a:hover {
+      background: #f58c7c;
+      color: white !important;
+      padding-left: 30px;
+    }
+
+    /* ================= HERO (about hero) ================= */
+    .hero-about {
+      background: #f6d8d4;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero-about h1 {
+      font-size: 68px;
+      font-weight: 600;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+      color: #0e1b4d;
+    }
+    .hero-about p {
+      font-size: 20px;
+      color: #6f7a8a;
+    }
+
+    /* ================= GLOBAL TYPOGRAPHY ================= */
+    .subtitle {
+      color: #f58c7c;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 400;
+      margin-bottom: 10px;
+      font-size: 15px;
+    }
+    .title {
+      font-size: 50px;
+      font-weight: 600;
+      color: #0e1b4d;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    .subtitle-2 {
+      font-size: 18px;
+      color: #6f7a8a;
+      max-width: 700px;
+      margin: 0 auto 40px;
+    }
+
+    /* ================= ABOUT WRAP SECTION ================= */
+    .about-wrap {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .row-sm-30 {
+      gap: 30px;
+    }
+    .col-lg-6 {
+      flex: 1 1 calc(50% - 30px);
+      min-width: 280px;
+    }
+    .col-lg-12 {
+      flex: 1 1 100%;
+    }
+    .text-wrap-about p.big {
+      font-size: 18px;
+      line-height: 1.7;
+      color: #6f7a8a;
+    }
+
+    /* Video Cover */
+    .video-cover {
+      display: block;
+      background-size: cover;
+      background-position: center;
+      min-height: 400px;
+      border-radius: 28px;
+      position: relative;
+      overflow: hidden;
+      margin-top: 30px;
+    }
+    .video-cover .icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 70px;
+      color: white;
+      background: rgba(245,140,124,0.9);
+      border-radius: 50%;
+      transition: all 0.3s ease;
+    }
+    .video-cover:hover .icon {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    /* ================= TEAM SECTION ================= */
+    .section {
+      padding: 80px 0;
+    }
+    .section-xl {
+      padding: 120px 0;
+    }
+    .bg-secondary {
+      background: #f8fafd;
+    }
+    .bg-default {
+      background: #fff;
+    }
+    .text-center {
+      text-align: center;
+    }
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .container.wide {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .box-info-modern {
+      text-align: center;
+      padding: 30px 20px;
+      background: white;
+      border-radius: 24px;
+      transition: all 0.3s ease;
+    }
+    .box-info-modern:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 35px rgba(0,0,0,0.05);
+    }
+    .box-info-modern-figure img {
+      width: 100%;
+      border-radius: 20px;
+      margin-bottom: 25px;
+    }
+    .box-info-modern-title {
+      font-size: 24px;
+      font-weight: 700;
+      margin: 15px 0 10px;
+      color: #0e1b4d;
+    }
+    .box-info-modern-text {
+      color: #6f7a8a;
+    }
+
+    .col-xs-10, .col-md-6, .col-lg-4 {
+      flex: 1 1 calc(33.333% - 30px);
+      min-width: 280px;
+    }
+
+    /* Join Section */
+    .section-custom {
+      padding: 80px 0;
+    }
+    .img-wrap img {
+      max-width: 100%;
+      border-radius: 24px;
+      margin-top: 40px;
+    }
+
+    .button-secondary {
+      background: #0e1b4d;
+      color: white;
+      display: inline-block;
+      padding: 14px 38px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+    .button-secondary:hover {
+      background: #f58c7c;
+    }
+
+    /* ================= FOOTER (exact from home) ================= */
+    .footer {
+      background: #0e1b4d;
+      color: white;
+      padding: 70px 90px;
+    }
+
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+
+    .top-bar strong {
+      font-size: 20px;
+    }
+
+    .btn-light {
+      margin-left: 15px;
+      background: white;
+      color: #0e1b4d;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    .footer-grid h4 {
+      margin-bottom: 12px;
+      font-size: 18px;
+      color: white;
+    }
+
+    .footer-grid p {
+      margin: 6px 0;
+      color: #cbd3ff;
+      font-size: 15px;
+    }
+
+    .footer-classic p {
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 146%;
+      color: #cbd3ff;
+    }
+
+    .copy {
+      text-align: center;
+      border-top: 1px solid #33415c;
+      padding-top: 20px;
+      font-size: 14px;
+      color: #cbd3ff;
+    }
+
+    .date {
+      color: #cbd3ff;
+      font-size: 14px;
+    }
+
+    .phone-wrap {
+      margin: 20px 0;
+    }
+    .phone-link {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: white;
+      text-decoration: none;
+    }
+    .phone-sub {
+      color: #cbd3ff;
+      font-size: 16px;
+    }
+
+    .group-md {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .group-xl {
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .button-white {
+      background: white;
+      color: #0e1b4d;
+      border: none;
+      padding: 12px 32px;
+      border-radius: 40px;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .button-white:hover {
+      background: #f58c7c;
+      color: white;
+    }
+
+    .list {
+      list-style: none;
+    }
+    .list li {
+      margin-bottom: 8px;
+    }
+    .list a {
+      color: #cbd3ff;
+      text-decoration: none;
+      font-size: 15px;
+    }
+    .list a:hover {
+      color: #f58c7c;
+    }
+
+    .icon {
+      color: #cbd3ff;
+      font-size: 24px;
+      text-decoration: none;
+    }
+    .icon:hover {
+      color: #f58c7c;
+    }
+
+    .rights {
+      color: #cbd3ff;
+    }
+    .rights a {
+      color: #cbd3ff;
+    }
+
+    /* ================= MOBILE SIDEBAR ================= */
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: -260px;
+      width: 260px;
+      height: 100%;
+      background: #0e1b4d;
+      color: white;
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transition: 0.3s ease;
+      z-index: 10000;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+
+    .sidebar .active {
+      color: #f58c7c;
+    }
+
+    .close-btn {
+      font-size: 22px;
+      margin-bottom: 20px;
+      cursor: pointer;
+      text-align: right;
+      color: white;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.4);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+      z-index: 9999;
+    }
+
+    .sidebar.active {
+      left: 0;
+    }
+
+    .overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 1024px) {
+      .navbar {
+        padding: 20px 40px;
+      }
+      .footer {
+        padding: 60px 40px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 20px;
+      }
+      nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav a {
+        margin: 8px 10px;
+      }
+      .btn-primary {
+        display: none;
+      }
+      .hero-about {
+        padding: 80px 20px;
+      }
+      .hero-about h1 {
+        font-size: 42px;
+      }
+      .hero-about p {
+        font-size: 16px;
+      }
+      .title {
+        font-size: 34px;
+      }
+      .subtitle-2 {
+        font-size: 16px;
+      }
+      .col-lg-6, .col-xs-10, .col-md-6, .col-lg-4 {
+        flex: 1 1 100%;
+      }
+      .footer {
+        padding: 50px 20px;
+      }
+      .top-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+      }
+      .footer-grid {
+        flex-direction: column;
+        gap: 30px;
+      }
+      .dropdown-content {
+        display: none !important;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-about h1 {
+        font-size: 34px;
+      }
+      .title {
+        font-size: 28px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+      }
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Sidebar mobile -->
+<div class="sidebar" id="sidebar">
+  <div class="close-btn" onclick="toggleMenu()">✕</div>
+  <a href="home.html">Home</a>
+  <a href="gift-vouchers.html">Gift Vouchers</a>
+  <a href="about.html" class="active">About</a>
+  <a href="massage.html">Massage</a>
+  <a href="contacts.html">Contacts</a>
+  <div class="sidebar-dropdown" style="margin-top: 10px;">
+    <div style="color: #cbd3ff; font-size: 14px; padding: 10px 0;">Pages</div>
+    <div style="padding-left: 15px;">
+      <a href="typography.html">Typography</a>
+      <a href="buttons.html">Buttons</a>
+      <a href="forms.html">Forms</a>
+      <a href="tabs-and-accordions.html">Tabs and accordions</a>
+      <a href="privacy-policy.html">Privacy policy</a>
+      <a href="under-construction.html">Under Construction</a>
+    </div>
+  </div>
+</div>
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<!-- Navbar -->
+<header class="navbar">
+  <div class="logo">
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div> 
+    <img class="brand-image" src="https://via.placeholder.com/428x112/0e1b4d/ffffff?text=Beautyrel" alt="Beautyrel logo">
+  </div>
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="gift-vouchers.html">Gift Vouchers</a>
+    <a class="active" href="about.html">About</a>
+    <a href="massage.html">Massage</a>
+    <a href="contacts.html">Contacts</a>
+    <div class="nav-item">
+      <a href="#">Pages</a>
+      <div class="dropdown-content">
+        <a href="typography.html">Typography</a>
+        <a href="buttons.html">Buttons</a>
+        <a href="forms.html">Forms</a>
+        <a href="tabs-and-accordions.html">Tabs and accordions</a>
+        <a href="privacy-policy.html">Privacy policy</a>
+        <a href="under-construction.html">Under Construction</a>
+      </div>
+    </div>
+  </nav>
+  <button class="btn-primary">Get A Massage</button>
+</header>
+
+<!-- Hero -->
+<section class="hero-about">
+  <h1>About Us</h1>
+  <p>Lorem ipsum dolor sit amet, consectetur</p>
+</section>
+
+<!-- About Content -->
+<div class="section bg-default">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="subtitle">A few words about Beautyrel</div>
+      <div class="row row-sm-30">
+        <div class="col-lg-6">
+          <h2 class="title">Delivering the <br class="br-none"> Best Massage</h2>
+        </div>
+        <div class="col-lg-6">
+          <div class="text-wrap-about mt-md-3 mt-sm-3">
+            <p class="big">Heu. Heu. Sunt abactuses examinare lotus, festus lunaes. Cobaltums ire in clemens brigantium! Cum gemna trabem, omnes idoleumes consumere secundus, teres castores. Nunquam imperium candidatus. Cum fluctui peregrinationes, omnes humani generises talem nobilis, pius homoes.</p>
+          </div>
+        </div>
+      </div>
+      <div class="row row-sm-30">
+  <div id="lightgallery">
+  <a 
+    class="video-cover" 
+    style="background-image: url('https://img.youtube.com/vi/NxPbcuUZcL0/maxresdefault.jpg');"
+    data-lg-size="1280-720"
+    data-src="https://www.youtube.com/watch?v=NxPbcuUZcL0"
+    data-sub-html="Video"
+  >
+    <span class="icon mdi mdi-play-circle-outline"></span>
+  </a>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+
+<!-- Team Section -->
+<div class="section section-xl bg-secondary">
+  <div class="container wide">
+    <div class="text-center">
+      <h2 class="title">Our dedicated team</h2>
+      <div class="subtitle-2 big">Nulla id nibh at neque aliquet feugiat id sed nibh.</div>
+    </div>
+    <div class="row row-md-30 row-sm-50">
+      <div class="col-xs-10 col-md-6 col-lg-4">
+        <div class="box-info-modern box-md">
+          <div class="box-info-modern-figure"><img src="https://via.placeholder.com/390x360/f58c7c/ffffff?text=Evan" alt=""></div>
+          <h4 class="box-info-modern-title">Evan Johnson</h4>
+          <div class="box-info-modern-text">Founder, massage therapist</div>
+        </div>
+      </div>
+      <div class="col-xs-10 col-md-6 col-lg-4">
+        <div class="box-info-modern box-md">
+          <div class="box-info-modern-figure"><img src="https://via.placeholder.com/390x360/f58c7c/ffffff?text=Janet" alt=""></div>
+          <h4 class="box-info-modern-title">Janet Smith</h4>
+          <div class="box-info-modern-text">Deep tissue massage therapist</div>
+        </div>
+      </div>
+      <div class="col-xs-10 col-md-6 col-lg-4">
+        <div class="box-info-modern box-md">
+          <div class="box-info-modern-figure"><img src="https://via.placeholder.com/390x360/f58c7c/ffffff?text=Peter" alt=""></div>
+          <h4 class="box-info-modern-title">Peter Wilson</h4>
+          <div class="box-info-modern-text">Aromatherapy massage therapist</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Join Us Section -->
+<div class="section section-custom">
+  <div class="container wide">
+    <div class="text-center">
+      <h2 class="title">Are You a Qualified <br class="br-none"> Massage Therapist?</h2>
+      <div class="subtitle-2 big">We are waiting for you to join our team</div>
+      <div class="row justify-content-center"><a class="button-secondary" href="#">Join Us</a></div>
+      <div class="img-wrap"><img src="https://via.placeholder.com/830x446/f58c7c/ffffff?text=Join+Our+Team" alt=""></div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="top-bar">
+    <div><strong>1 000 -234 -78-90</strong> <span>Call Me Back</span></div>
+    <div>Any complaints or suggestions? <button class="btn-light">Let Us Know</button></div>
+  </div>
+  <div class="footer-grid">
+    <div>
+      <h4>Treatments</h4>
+      <p>Swedish Massage Therapy</p>
+      <p>Aromatherapy Massage</p>
+      <p>Hot Stone Massage</p>
+      <p>Deep Tissue Massage</p>
+      <p>Shiatsu Massage</p>
+      <p>Thai Massage</p>
+      <p>Pregnancy Massage</p>
+    </div>
+    <div>
+      <h4>Beautyrel</h4>
+      <p>About Us</p>
+      <p>Reviews</p>
+      <p>Blog</p>
+      <p>Affiliates</p>
+      <p>Careers</p>
+      <p>Invest</p>
+    </div>
+    <div>
+      <h4>Help</h4>
+      <p>Help Center</p>
+      <p>FAQs</p>
+      <p>Pricing</p>
+      <p>Terms</p>
+      <p>Privacy Policy</p>
+      <p>Contact Us</p>
+    </div>
+    <div>
+      <img src="https://via.placeholder.com/280x156/0e1b4d/cbd3ff?text=blog+thumb" alt="" width="280" height="156">
+      <p>Top 5 Types of Massage That You Have to Try When Visiting Beautyrel</p>
+      <div class="date">January 30, 2020</div>
+    </div>
+  </div>
+  <p class="copy">© 2026 Beautyrel. Privacy Policy</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("sidebar").classList.toggle("active");
+  document.getElementById("overlay").classList.toggle("active");
+}
+</script>
+</body>
+</html>

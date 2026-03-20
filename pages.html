@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pages - Beautyrel Massage</title>
+
+<!-- Google Font (very close to original) -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+
+    <div class="sidebar" id="sidebar">
+  <div class="close-btn" onclick="toggleMenu()">✕</div>
+
+  <a href="home.html">Home</a>
+  <a href="gift-vouchers.html">Gift Vouchers</a>
+  <a href="about.html">About</a>
+  <a href="massage.html">Massage</a>
+  <a href="contacts.html">Contacts</a>
+  <a href="pages.html" class="active">Pages</a>
+</div>
+
+<div class="overlay sidebar-logo"  id="overlay" onclick="toggleMenu()"></div>
+    <!-- Hamburger -->
+
+  <div class="logo">
+    <div class="menu-toggle" onclick="toggleMenu()">
+    ☰
+    </div> 
+    <img class="brand-image" src="./logo-default-428x112.webp" alt="gift card">
+    <!-- Beautyrel -->
+    <!-- <p>BEAUTY SALON</p> -->
+  </div>
+
+  <nav>
+    <a href="home.html">Home</a>
+    <a href="gift-vouchers.html">Gift Vouchers</a>
+    <a href="about.html">About</a>
+    <a href="massage.html">Massage</a>
+    <a href="contacts.html">Contacts</a>
+    <a class="active" href="pages.html">Pages</a>
+  </nav>
+
+  <button class="btn-primary">Get A Massage</button>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <h1>Additional Pages</h1>
+  <p>Explore more information about Beautyrel</p>
+</section>
+
+<!-- Content Section -->
+<section class="gift">
+  <div class="gift-left">
+    <span class="sub">More Resources</span>
+    <h2>Discover Additional Pages</h2>
+
+    <p>
+      Welcome to our additional pages section. Here you'll find more detailed information about our services, policies, and resources to help you get the most out of your Beautyrel experience.
+    </p>
+
+    <ul>
+      <li>Blog - Read our latest wellness tips and articles</li>
+      <li>Careers - Join our growing team</li>
+      <li>Privacy Policy - Your data protection matters</li>
+      <li>Terms & Conditions - Important information</li>
+    </ul>
+  </div>
+
+  <div class="gift-right">
+    <img src="./gift-card-610x550.jpg" alt="additional pages">
+  </div>
+</section>
+
+<!-- Additional Info -->
+<section class="pricing">
+  <h2>Explore More Content</h2>
+  <p class="subtitle">Find the information you're looking for.</p>
+
+  <div class="cards">
+
+    <div class="card">
+      <span>Reading</span>
+      <h3>Blog & Articles</h3>
+      <p>Tips, wellness advice, and stories from our clients.</p>
+      <button>Read Blog</button>
+    </div>
+
+    <div class="card featured">
+      <span>Join Us</span>
+      <h3>Careers</h3>
+      <p>Be part of our team and help others achieve wellness.</p>
+      <button>View Careers</button>
+    </div>
+
+    <div class="card">
+      <span>Legal</span>
+      <h3>Policies</h3>
+      <p>Privacy policy and terms of service information.</p>
+      <button>View Policies</button>
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <h3>Pages - FAQ</h3>
+
+  <div class="faq-item">Where can I read about wellness tips?</div>
+  <div class="faq-item">How can I apply for a job at Beautyrel?</div>
+  <div class="faq-item">What is your privacy policy?</div>
+  <div class="faq-item">Are there testimonials from clients?</div>
+  <div class="faq-item">How can I provide feedback or suggestions?</div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+
+  <div class="top-bar">
+    <div>
+      <strong>1 000 -234 -78-90</strong>
+      <span>Call Me Back</span>
+    </div>
+
+    <div>
+      Any complaints or suggestions?
+      <button class="btn-light">Let Us Know</button>
+    </div>
+  </div>
+
+  <div class="footer-grid">
+
+    <div>
+      <h4>Treatments</h4>
+      <p>Swedish Massage Therapy</p>
+      <p>Aromatherapy Massage</p>
+      <p>Hot Stone Massage</p>
+      <p>Deep Tissue Massage</p>
+      <p>Shiatsu Massage</p>
+      <p>Thai Massage</p>
+    </div>
+
+    <div>
+      <h4>Beautyrel</h4>
+      <p>About Us</p>
+      <p>Reviews</p>
+      <p>Blog</p>
+      <p>Careers</p>
+    </div>
+
+    <div>
+      <h4>Help</h4>
+      <p>Help Center</p>
+      <p>FAQs</p>
+      <p>Pricing</p>
+      <p>Privacy Policy</p>
+    </div>
+      <div class="col-sm-4 col-md-4 col-lg-3"><img src="./footer-1-280x156.jpg" alt="" width="280" height="156">
+                <p>Top 5 Types of Massage That You Have to Try When Visiting Beautyrel</p>
+                <div class="date"> January 30, 2020</div>
+              </div>
+
+  </div>
+
+  <p class="copy">© 2026 Beautyrel. Privacy Policy</p>
+
+</footer>
+
+</body>
+<script>
+function toggleMenu() {
+  document.getElementById("sidebar").classList.toggle("active");
+  document.getElementById("overlay").classList.toggle("active");
+}
+</script>
+</html>

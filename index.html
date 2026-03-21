@@ -484,25 +484,64 @@
     }
 
     /* testimonial box */
-    .testimonial-box {
-      background: var(--card-bg);
-      padding: 40px 30px;
-      border-radius: 16px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border-light);
-    }
+    .testimonial-container {
+  overflow: hidden;
+  max-width: 950px;
+  margin: 50px auto 0;
+}
 
-    .testimonial-title {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
+.testimonial-track {
+  display: flex;
+  gap: 30px;
+  transition: transform 0.8s ease;
+}
 
-    .testimonial-name {
-      margin-top: 20px;
-      font-weight: 500;
-      color: var(--accent);
-    }
+.testimonial-box {
+  min-width: 440px;
+  background: #fff;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  border: 1px solid #eee;
+}
+
+.testimonial-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.testimonial-header h3 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1b2a4e;
+}
+
+.stars {
+  color: #ff7a59;
+  font-size: 18px;
+  letter-spacing: 3px;
+}
+
+.testimonial-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: #5a6785;
+}
+
+.testimonial-name {
+  margin-top: 20px;
+  color: #ff7a59;
+  font-weight: 500;
+}
+
+/* Mobile */
+@media(max-width: 768px){
+  .testimonial-box {
+    min-width: 100%;
+  }
+}
 
     /* box info modern */
     .box-info-modern-figure img {
@@ -968,26 +1007,51 @@
 </div>
 
 <!-- Testimonials carousel -->
-<div class="section section-lg bg-gray-150">
+<div class="section section-lg bg-gray-150 testimonial-section">
   <div class="text-center">
     <p class="subtitle">Our customers love RoseEmb</p>
     <h2 class="title">Rated #1 Embroidery Machines</h2>
   </div>
-  <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center; margin-top: 40px;">
-    <div class="testimonial-box" style="flex: 1 1 300px;">
-      <div class="testimonial-title">Amazing Quality!</div>
-      <div class="testimonial-text">“RoseEmb machines are incredibly precise. The stitch quality is flawless and the machine runs smoothly even at high speeds.”</div>
-      <div class="testimonial-name">— Sarah M.</div>
-    </div>
-    <div class="testimonial-box" style="flex: 1 1 300px;">
-      <div class="testimonial-title">Excellent Support!</div>
-      <div class="testimonial-text">“The customer support team is fantastic. They helped me set up my machine and provided training. Highly recommended!”</div>
-      <div class="testimonial-name">— John C.</div>
-    </div>
-    <div class="testimonial-box" style="flex: 1 1 300px;">
-      <div class="testimonial-title">Game Changer!</div>
-      <div class="testimonial-text">“This machine transformed my embroidery business. Speed, accuracy, and reliability - everything I needed.”</div>
-      <div class="testimonial-name">— Elena R.</div>
+
+  <div class="testimonial-container">
+    <div class="testimonial-track">
+
+      <!-- Card 1 -->
+      <div class="testimonial-box">
+        <div class="testimonial-header">
+          <h3>Cool!</h3>
+          <div class="stars">★★★★★</div>
+        </div>
+        <p class="testimonial-text">
+          “RoseEmb machines are incredibly precise. The stitch quality is flawless and the machine runs smoothly even at high speeds.”
+        </p>
+        <div class="testimonial-name">— Sarah M.</div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="testimonial-box">
+        <div class="testimonial-header">
+          <h3>Excellent!</h3>
+          <div class="stars">★★★★★</div>
+        </div>
+        <p class="testimonial-text">
+          “The customer support team is fantastic. They helped me set up my machine and provided training. Highly recommended!”
+        </p>
+        <div class="testimonial-name">— John C.</div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="testimonial-box">
+        <div class="testimonial-header">
+          <h3>Amazing!</h3>
+          <div class="stars">★★★★★</div>
+        </div>
+        <p class="testimonial-text">
+          “This machine transformed my embroidery business. Speed, accuracy, and reliability - everything I needed.”
+        </p>
+        <div class="testimonial-name">— Elena R.</div>
+      </div>
+
     </div>
   </div>
 </div>
@@ -1261,6 +1325,21 @@
   function toggleSidebarDropdown() {
     document.getElementById("sidebarProductDropdown").classList.toggle("active");
   }
+let triggered = false;
+
+window.addEventListener("scroll", () => {
+  const section = document.querySelector(".testimonial-section");
+  const track = document.querySelector(".testimonial-track");
+
+  const rect = section.getBoundingClientRect();
+
+  if (rect.top < window.innerHeight && !triggered) {
+    triggered = true;
+
+    // Slide to show 2nd + 3rd card
+    track.style.transform = "translateX(-470px)";
+  }
+});
 
   // Dark/Light toggle
   const themeToggle = document.getElementById('themeToggle');

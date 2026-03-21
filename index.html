@@ -488,6 +488,7 @@
   overflow: hidden;
   max-width: 950px;
   margin: 50px auto 0;
+  
 }
 
 .testimonial-track {
@@ -496,13 +497,19 @@
   transition: transform 0.8s ease;
 }
 
+.testimonial-section{
+    background-color: #FAFBFC;
+}
+
 .testimonial-box {
   min-width: 440px;
   background: #fff;
   padding: 40px;
   border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  box-shadow: 0 10px 10px rgba(0,0,0,0.08);
   border: 1px solid #eee;
+  padding: 51px 60px 55px 43px;
+    margin: 0 auto;
 }
 
 .testimonial-header {
@@ -516,11 +523,36 @@
   font-size: 24px;
   font-weight: 600;
   color: #1b2a4e;
+  font-family: "DM Sans", sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 32px;
+line-height: 50px;
+color: rgb(12, 20, 81);
+}
+.testimonial-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  background: #cfd5e3;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.dot.active {
+  background: #1b2a4e;
+  transform: scale(1.2);
 }
 
 .stars {
   color: #ff7a59;
-  font-size: 18px;
+  font-size: 26px;
   letter-spacing: 3px;
 }
 
@@ -528,6 +560,12 @@
   font-size: 16px;
   line-height: 1.7;
   color: #5a6785;
+  font-family: "DM Sans", sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 22px;
+line-height: 34px;
+color: rgb(73, 79, 124);
 }
 
 .testimonial-name {
@@ -1052,9 +1090,14 @@
         <div class="testimonial-name">— Elena R.</div>
       </div>
 
+    
+
     </div>
   </div>
-</div>
+<div class="testimonial-dots">
+  <span class="dot active"></span>
+  <span class="dot"></span>
+</div></div>
 
 <!-- How RoseEmb Works -->
 <div class="section section-lg">
@@ -1325,21 +1368,43 @@
   function toggleSidebarDropdown() {
     document.getElementById("sidebarProductDropdown").classList.toggle("active");
   }
-let triggered = false;
 
+  let triggered = false;
+
+const track = document.querySelector(".testimonial-track");
+const dots = document.querySelectorAll(".dot");
+
+// 👉 Function to change slide
+function goToSlide(index) {
+  if (index === 0) {
+    track.style.transform = "translateX(0)";
+  } else {
+    track.style.transform = "translateX(-470px)";
+  }
+
+  // update active dot
+  dots.forEach(dot => dot.classList.remove("active"));
+  dots[index].classList.add("active");
+}
+
+// 👉 Dot click events
+dots.forEach((dot, index) => {
+  dot.addEventListener("click", () => {
+    goToSlide(index);
+  });
+});
+
+// 👉 Scroll trigger
 window.addEventListener("scroll", () => {
-  const section = document.querySelector(".testimonial-section");
-  const track = document.querySelector(".testimonial-track");
-
+  const section = document.querySelector(".testimonial-container");
   const rect = section.getBoundingClientRect();
 
   if (rect.top < window.innerHeight && !triggered) {
     triggered = true;
-
-    // Slide to show 2nd + 3rd card
-    track.style.transform = "translateX(-470px)";
+    goToSlide(1); // move to 2nd view
   }
 });
+
 
   // Dark/Light toggle
   const themeToggle = document.getElementById('themeToggle');

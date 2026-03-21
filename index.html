@@ -402,6 +402,12 @@
       color: var(--text-primary);
       margin-bottom: 20px;
       line-height: 1.2;
+      font-family: "DM Sans", sans-serif;
+font-style: normal;
+font-weight: 500;
+font-size: 60px;
+line-height: 66px;
+color: rgb(12, 20, 81);
     }
 
     .subtitle-2 {
@@ -413,6 +419,15 @@
 
     .text-custom-pink {
       color: var(--accent);
+    }
+    p.text-custom-pink{
+        font-family: "DM Sans", sans-serif;
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 28px;
+ color: var(--accent);
+
     }
 
     /* sections */
@@ -461,6 +476,18 @@
     .col-xs-10 {
       flex: 1 1 calc(50% - 30px);
       min-width: 280px;
+      gap: 20px;
+    }
+
+    .gap-10{
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+    }
+    .gap-20{
+        display: flex;
+        flex-direction: column;
+        gap:20px;
     }
 
     .col-lg-4 {
@@ -542,7 +569,7 @@ color: rgb(12, 20, 81);
   width: 10px;
   height: 10px;
   background: #cfd5e3;
-  border-radius: 50%;
+  border-radius: 10%;
   transition: 0.3s;
 }
 
@@ -591,7 +618,7 @@ color: rgb(254, 155, 142);
     /* box info modern */
     .box-info-modern-figure img {
       width: 100%;
-      border-radius: 16px;
+
       display: block;
     }
 
@@ -606,32 +633,112 @@ color: rgb(254, 155, 142);
     }
 
     /* video cover */
-    .video-cover {
-      display: block;
-      background-size: cover;
-      background-position: center;
-      min-height: 350px;
-      border-radius: 20px;
-      position: relative;
-      cursor: pointer;
-    }
+    /* Section spacing */
+.section-lg {
+  padding: 100px 0;
+  background: #f7f8fc;
+}
 
-    .video-cover .icon {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-size: 5rem;
-      color: var(--accent);
-      background: rgba(255, 255, 255, 0.9);
-      border-radius: 50%;
-      width: 80px;
-      height: 80px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+/* Subtitle (pink small text) */
+.subtitle {
+  font: normal 400 18px/28px "DM Sans", sans-serif;
+  color: rgb(254, 155, 142);
+  margin-bottom: 15px;
+}
 
+/* Main heading */
+.title {
+  font: normal 500 60px/66px "DM Sans", sans-serif;
+  color: rgb(12, 20, 81);
+  margin-bottom: 20px;
+}
+
+/* Paragraph text */
+.subtitle-2 {
+  font: normal 400 22px/34px "DM Sans", sans-serif;
+  color: rgb(73, 79, 124);
+  margin-bottom: 30px;
+}
+
+/* Button */
+.button-primary {
+  background: #0c1451;
+  color: #fff;
+  padding: 16px 36px;
+  border-radius: 10px;
+  font: normal 500 16px/24px "DM Sans", sans-serif;
+  display: inline-block;
+  transition: 0.3s;
+}
+
+.button-primary:hover {
+  background: #ff7a59;
+  transform: translateY(-2px);
+}
+
+/* Layout spacing */
+.gap-20 > * {
+  margin-bottom: 20px;
+}
+
+/* Video block */
+.video-cover {
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+/* Play button */
+.video-cover .icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0c1451;
+  font-size: 22px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.video-cover .icon:hover {
+  background: #ff7a59;
+  color: #fff;
+}
+
+/* Image styling */
+
+/* Second section spacing */
+.mt-4 {
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .title {
+    font-size: 36px;
+    line-height: 44px;
+  }
+
+  .subtitle-2 {
+    font-size: 18px;
+    line-height: 28px;
+  }
+
+  .section-lg {
+    padding: 60px 20px;
+  }
+}
     /* product card */
     .product-card {
       background: var(--card-bg);
@@ -815,7 +922,7 @@ color: rgb(254, 155, 142);
     img {
       max-width: 100%;
       height: auto;
-      border-radius: 12px;
+
     }
 
     .mt-4 {
@@ -824,8 +931,11 @@ color: rgb(254, 155, 142);
 
     .divider {
       height: 2px;
-      background: var(--border-light);
-      width: 100%;
+      background:  #0C1451;
+      padding: 3px;
+      /* width: 100%; */
+      margin:0px 80px;
+      
     }
 
     /* ================= FOOTER ================= */
@@ -1205,7 +1315,7 @@ color: rgb(254, 155, 142);
 <div class="section section-lg">
   <div class="container wide">
     <div class="row">
-      <div class="col-md-5 col-lg-5">
+      <div class="col-md-5 col-lg-5 gap-20">
         <div class="subtitle">Precision engineering</div>
         <h2 class="title">We Deliver Quality Service</h2>
         <div class="subtitle-2">At RoseEmb, you get the highest level of customer service and the utmost precision at a very affordable price.</div>
@@ -1221,7 +1331,7 @@ color: rgb(254, 155, 142);
       <div class="row">
         <div class="col-md-6 col-lg-6"><img src="https://blainesewing.com/wp-content/uploads/2024/07/Routine-Maintenance-scaled.jpg" alt="Expert Technicians"></div>
         <div class="col-md-6 col-lg-6">
-          <div class="mt-4">
+          <div class="mt-4 gap-20">
             <div class="subtitle">True experts</div>
             <h2 class="title">Best Embroidery Experts</h2>
             <div class="subtitle-2">RoseEmb is a team of dedicated and professionally trained embroidery specialists always ready to help you succeed. Experience the best in embroidery technology with us!</div>
@@ -1232,6 +1342,8 @@ color: rgb(254, 155, 142);
     </div>
   </div>
 </div>
+
+<div class="divider"></div>
 
 <!-- Choose Your Machine -->
 <div class="section section-lg bg-default">

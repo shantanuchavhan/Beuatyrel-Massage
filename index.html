@@ -336,7 +336,7 @@
             line-height: 1.8;
         }
 
-        /* Machines Section - NOW WITH BACKGROUND IMAGE (Industrial Workshop Feel) */
+        /* Machines Section - WITH LIGHT PINK GRADIENT OVERLAY */
         .machines-section {
             position: relative;
             background: none;
@@ -356,6 +356,7 @@
             background-attachment: fixed;
         }
 
+        /* Light Pink Gradient Overlay - Soft & Elegant Industrial Feel */
         .machines-bg-overlay::before {
             content: '';
             position: absolute;
@@ -363,7 +364,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.75);
+            background: linear-gradient(135deg, 
+                rgba(255, 200, 210, 0.85) 0%, 
+                rgba(255, 220, 230, 0.75) 30%,
+                rgba(245, 180, 190, 0.7) 70%,
+                rgba(235, 150, 165, 0.8) 100%);
         }
 
         .machines-section .section-header .subtitle,
@@ -371,16 +376,21 @@
             position: relative;
             z-index: 2;
         }
+        h2.embroidery-machines{
+            color: #9a3550 !important;
+        }
 
         .machines-section .section-header .subtitle {
-            color: rgba(255, 255, 255, 0.9);
+            
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .machines-section .section-header h2 {
-            background: linear-gradient(135deg, #fff, #ffd0d9);
+            background: linear-gradient(135deg, #fff, #fff0f3);
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
+            text-shadow: none;
         }
 
         .section-header {
@@ -403,6 +413,7 @@
             font-size: 48px;
             font-weight: 600;
             background: linear-gradient(135deg, #d45a7a, #b84363);
+            color: black;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -417,17 +428,19 @@
         }
 
         .machine-card {
-            background: #fff;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(2px);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(212, 90, 122, 0.1);
+            box-shadow: 0 10px 30px rgba(212, 90, 122, 0.2);
             transition: all 0.3s;
             position: relative;
         }
 
         .machine-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(212, 90, 122, 0.2);
+            box-shadow: 0 25px 45px rgba(212, 90, 122, 0.35);
+            background: #fff;
         }
 
         .machine-badge {
@@ -441,6 +454,7 @@
             font-size: 12px;
             font-weight: 600;
             z-index: 1;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .machine-img {
@@ -505,7 +519,7 @@
             border-color: transparent;
         }
 
-        /* Devices Section - NOW WITHOUT BACKGROUND IMAGE (Clean White/Light) */
+        /* Devices Section - Clean White/Light */
         .devices-section {
             background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
             padding: 100px 0;
@@ -705,7 +719,7 @@
         .gallery-section {
             padding: 100px 0;
             background: url("https://themewagon.github.io/pato/images/icons/pattern2.png");
-                background-repeat: repeat;
+            background-repeat: repeat;
         }
 
         .gallery-grid {
@@ -988,13 +1002,13 @@
 
 <section class="welcome" id="about"><div class="container"><div class="welcome-text" data-aos="fade-up" data-aos-duration="800"><h2>Welcome</h2><h3>Welcome to RoseEmb</h3><p>Discover the art of flawless embroidery with RoseEmb's cutting-edge machines. Engineered for professionals, loved by creators. Our team is dedicated to providing the highest quality embroidery solutions for businesses of all sizes.</p><a href="#machines" class="btn btn-primary-custom">Explore Products</a><a href="#contact" class="btn btn-outline" style="margin-left: 15px;">Get Quote</a></div></div></section>
 
-<!-- Machines Section - NOW WITH INDUSTRIAL BACKGROUND IMAGE -->
+<!-- Machines Section - WITH LIGHT PINK GRADIENT OVERLAY ON BACKGROUND -->
 <section class="machines-section" id="machines">
     <div class="machines-bg-overlay"></div>
     <div class="container">
         <div class="section-header" data-aos="fade-up">
             <div class="subtitle">Industrial Excellence</div>
-            <h2>Embroidery Machines</h2>
+           <h2 class="embroidery-machines" style="color:#9a3550 !important;">Embroidery Machines</h2>
         </div>
         <div class="machines-grid">
             <div class="machine-card" data-aos="fade-up" data-aos-delay="100">
@@ -1015,7 +1029,7 @@
     </div>
 </section>
 
-<!-- Devices Section - NOW WITHOUT BACKGROUND IMAGE (Clean Look) -->
+<!-- Devices Section - Clean Look -->
 <section class="devices-section" id="devices">
     <div class="container">
         <div class="section-header" data-aos="fade-up">

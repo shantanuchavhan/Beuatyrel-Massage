@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -302,6 +301,8 @@
         .welcome {
             padding: 100px 0;
             background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+            background-image: url("https://themewagon.github.io/pato/images/icons/pattern1.png");
+            background-repeat: repeat;
         }
 
         .welcome h2 {
@@ -335,15 +336,58 @@
             line-height: 1.8;
         }
 
-        /* Machines Section */
+        /* Machines Section - NOW WITH BACKGROUND IMAGE (Industrial Workshop Feel) */
         .machines-section {
+            position: relative;
+            background: none;
             padding: 100px 0;
-            background: linear-gradient(135deg, #fff5f7 0%, #ffe4ec 100%);
+            overflow: hidden;
+        }
+
+        .machines-bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .machines-bg-overlay::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.75);
+        }
+
+        .machines-section .section-header .subtitle,
+        .machines-section .section-header h2 {
+            position: relative;
+            z-index: 2;
+        }
+
+        .machines-section .section-header .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .machines-section .section-header h2 {
+            background: linear-gradient(135deg, #fff, #ffd0d9);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .section-header {
             text-align: center;
             margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
         }
 
         .section-header .subtitle {
@@ -368,6 +412,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
+            position: relative;
+            z-index: 2;
         }
 
         .machine-card {
@@ -459,62 +505,18 @@
             border-color: transparent;
         }
 
-        /* Devices Section */
-/* Devices Section with Background Image (like Pato website) */
-.devices-section {
-    position: relative;
-    background: none;
-    padding: 100px 0;
-    overflow: hidden;
-}
+        /* Devices Section - NOW WITHOUT BACKGROUND IMAGE (Clean White/Light) */
+        .devices-section {
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+            padding: 100px 0;
+            position: relative;
+        }
 
-.devices-bg-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg?auto=compress&cs=tinysrgb&w=1600');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-}
-
-.devices-bg-overlay::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.75);
-}
-
-.devices-section .section-header .subtitle,
-.devices-section .section-header h2 {
-    position: relative;
-    z-index: 2;
-}
-
-.devices-section .section-header .subtitle {
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.devices-section .section-header h2 {
-    background: linear-gradient(135deg, #fff, #ffd0d9);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-
-     .devices-grid {
+        .devices-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
         }
-
- 
 
         .device-card {
             background: #fff;
@@ -526,8 +528,6 @@
             position: relative;
             overflow: hidden;
         }
-
-
 
         .device-card::before {
             content: '';
@@ -545,23 +545,10 @@
             transform: scaleX(1);
         }
 
-.device-card:hover {
-    background: #fff;
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-}
-
-/* Mobile responsive adjustment */
-@media (max-width: 768px) {
-    .devices-bg-overlay {
-        background-attachment: scroll;
-    }
-    
-    .device-card {
-        background: rgba(255, 255, 255, 0.98);
-    }
-}
-        
+        .device-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212, 90, 122, 0.2);
+        }
 
         .device-icon {
             width: 100px;
@@ -717,7 +704,8 @@
         /* Gallery Section */
         .gallery-section {
             padding: 100px 0;
-            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+            background: url("https://themewagon.github.io/pato/images/icons/pattern2.png");
+                background-repeat: repeat;
         }
 
         .gallery-grid {
@@ -774,7 +762,7 @@
         /* Testimonials Section */
         .testimonials-section {
             padding: 100px 0;
-            background: linear-gradient(135deg, #fff5f7 0%, #ffe4ec 100%);
+            background: linear-gradient(135deg, #fdfdfd 0%, #ffffff 100%);
             text-align: center;
         }
 
@@ -961,6 +949,7 @@
             .testimonial-text { font-size: 16px; line-height: 28px; }
             .container { padding: 0 20px; }
             .machines-section, .devices-section, .gallery-section, .testimonials-section, .blog-section { padding: 60px 0; }
+            .machines-bg-overlay { background-attachment: scroll; }
         }
         @media (min-width: 769px) and (max-width: 1024px) {
             .hamburger, .sidebar, .overlay { display: none !important; }
@@ -999,11 +988,35 @@
 
 <section class="welcome" id="about"><div class="container"><div class="welcome-text" data-aos="fade-up" data-aos-duration="800"><h2>Welcome</h2><h3>Welcome to RoseEmb</h3><p>Discover the art of flawless embroidery with RoseEmb's cutting-edge machines. Engineered for professionals, loved by creators. Our team is dedicated to providing the highest quality embroidery solutions for businesses of all sizes.</p><a href="#machines" class="btn btn-primary-custom">Explore Products</a><a href="#contact" class="btn btn-outline" style="margin-left: 15px;">Get Quote</a></div></div></section>
 
-<section class="machines-section" id="machines"><div class="container"><div class="section-header" data-aos="fade-up"><div class="subtitle">Industrial Excellence</div><h2>Embroidery Machines</h2></div><div class="machines-grid"><div class="machine-card" data-aos="fade-up" data-aos-delay="100"><div class="machine-badge">BEST SELLER</div><div class="machine-img" style="background-image: url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');"></div><div class="machine-content"><h3>RoseEmb Pro One</h3><p>Perfect for small businesses and home studios. Single-head precision machine with advanced features.</p><ul class="machine-specs"><li><i class="fas fa-tachometer-alt"></i> 1200 SPM Speed</li><li><i class="fas fa-database"></i> 15 Needles</li><li><i class="fas fa-microchip"></i> Digital Control Panel</li><li><i class="fas fa-memory"></i> 1GB Built-in Memory</li></ul><div class="machine-price">$2,890</div><a href="#" class="btn-outline">View Details</a></div></div><div class="machine-card" data-aos="fade-up" data-aos-delay="200"><div class="machine-img" style="background-image: url('https://blainesewing.com/wp-content/uploads/2024/07/Routine-Maintenance-scaled.jpg');"></div><div class="machine-content"><h3>Precision Duo X</h3><p>Dual-head industrial machine for high-volume production with automatic thread trimming.</p><ul class="machine-specs"><li><i class="fas fa-tachometer-alt"></i> 1500 SPM Speed</li><li><i class="fas fa-database"></i> 18 Needles per head</li><li><i class="fas fa-cut"></i> Auto Thread Trimmer</li><li><i class="fas fa-wifi"></i> WiFi Connectivity</li></ul><div class="machine-price">$5,490</div><a href="#" class="btn-outline">View Details</a></div></div><div class="machine-card" data-aos="fade-up" data-aos-delay="300"><div class="machine-badge">NEW</div><div class="machine-img" style="background-image: url('https://i.ytimg.com/vi/KSSNq84MvAE/maxresdefault.jpg');"></div><div class="machine-content"><h3>Elite 6‑Head</h3><p>Maximum production capacity for large-scale operations with 6 independent heads.</p><ul class="machine-specs"><li><i class="fas fa-tachometer-alt"></i> 1500 SPM per head</li><li><i class="fas fa-database"></i> 6 Independent Heads</li><li><i class="fas fa-chart-line"></i> Production Analytics</li><li><i class="fas fa-tablet-alt"></i> Remote Monitoring</li></ul><div class="machine-price">$12,999</div><a href="#" class="btn-outline">View Details</a></div></div></div></div></section>
+<!-- Machines Section - NOW WITH INDUSTRIAL BACKGROUND IMAGE -->
+<section class="machines-section" id="machines">
+    <div class="machines-bg-overlay"></div>
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="subtitle">Industrial Excellence</div>
+            <h2>Embroidery Machines</h2>
+        </div>
+        <div class="machines-grid">
+            <div class="machine-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="machine-badge">BEST SELLER</div>
+                <div class="machine-img" style="background-image: url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');"></div>
+                <div class="machine-content"><h3>RoseEmb Pro One</h3><p>Perfect for small businesses and home studios. Single-head precision machine with advanced features.</p><ul class="machine-specs"><li><i class="fas fa-tachometer-alt"></i> 1200 SPM Speed</li><li><i class="fas fa-database"></i> 15 Needles</li><li><i class="fas fa-microchip"></i> Digital Control Panel</li><li><i class="fas fa-memory"></i> 1GB Built-in Memory</li></ul><div class="machine-price">$2,890</div><a href="#" class="btn-outline">View Details</a></div>
+            </div>
+            <div class="machine-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="machine-img" style="background-image: url('https://blainesewing.com/wp-content/uploads/2024/07/Routine-Maintenance-scaled.jpg');"></div>
+                <div class="machine-content"><h3>Precision Duo X</h3><p>Dual-head industrial machine for high-volume production with automatic thread trimming.</p><ul class="machine-specs"><li><i class="fas fa-tachometer-alt"></i> 1500 SPM Speed</li><li><i class="fas fa-database"></i> 18 Needles per head</li><li><i class="fas fa-cut"></i> Auto Thread Trimmer</li><li><i class="fas fa-wifi"></i> WiFi Connectivity</li></ul><div class="machine-price">$5,490</div><a href="#" class="btn-outline">View Details</a></div>
+            </div>
+            <div class="machine-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="machine-badge">NEW</div>
+                <div class="machine-img" style="background-image: url('https://i.ytimg.com/vi/KSSNq84MvAE/maxresdefault.jpg');"></div>
+                <div class="machine-content"><h3>Elite 6‑Head</h3><p>Maximum production capacity for large-scale operations with 6 independent heads.</p><ul class="machine-specs"><li><i class="fas fa-tachometer-alt"></i> 1500 SPM per head</li><li><i class="fas fa-database"></i> 6 Independent Heads</li><li><i class="fas fa-chart-line"></i> Production Analytics</li><li><i class="fas fa-tablet-alt"></i> Remote Monitoring</li></ul><div class="machine-price">$12,999</div><a href="#" class="btn-outline">View Details</a></div>
+            </div>
+        </div>
+    </div>
+</section>
 
-<!-- Devices Section - with background image like Pato website -->
+<!-- Devices Section - NOW WITHOUT BACKGROUND IMAGE (Clean Look) -->
 <section class="devices-section" id="devices">
-    <div class="devices-bg-overlay"></div>
     <div class="container">
         <div class="section-header" data-aos="fade-up">
             <div class="subtitle">Precision Tools</div>
@@ -1076,4 +1089,3 @@
 </script>
 </body>
 </html>
-```

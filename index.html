@@ -1,1730 +1,1527 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RoseEmb | Precision Embroidery Machines</title>
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: "Poppins", sans-serif;
-    }
-
-    body {
-      color: #2d1b2e;
-      background: #fff;
-      font-size: 17px;
-    }
-
-    /* WHITE & DARK PINK THEME */
-    :root {
-      --bg-primary: #ffffff;
-      --bg-secondary: #fff5f7;
-      --text-primary: #2d1b2e;
-      --text-secondary: #6a4e6b;
-      --accent: #d45a7a;
-      --accent-dark: #b84363;
-      --accent-light: #ffe4ec;
-      --border-light: #ffe0e8;
-      --card-bg: #ffffff;
-      --footer-bg: #fff5f7;
-      --shadow: 0 12px 30px rgba(212, 90, 122, 0.08);
-      --nav-bg: rgba(255, 255, 255, 0.96);
-    }
-
-    body.dark {
-      --bg-primary: #1a121f;
-      --bg-secondary: #2d1f2b;
-      --text-primary: #fae6ef;
-      --text-secondary: #d9b8c4;
-      --accent: #f28aa8;
-      --accent-dark: #e06e90;
-      --accent-light: #4a2e3e;
-      --border-light: #4a3340;
-      --card-bg: #2a1f2a;
-      --footer-bg: #1e1520;
-      --shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
-      --nav-bg: rgba(26, 18, 31, 0.96);
-    }
-
-    body {
-      background: var(--bg-primary);
-      color: var(--text-primary);
-    }
-
-    /* ================= NAVBAR ================= */
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 90px;
-      position: relative;
-      z-index: 1000;
-      background: var(--nav-bg);
-      backdrop-filter: blur(8px);
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .logo {
-      font-weight: 600;
-      font-size: 22px;
-    }
-      .logo img {
-      height: 50px;
-      width: auto;
-    }
-
-    .brand-image {
-      height: auto;
-      max-height: 70px;
-      width: auto;
-    }
-
-    .logo p {
-      font-size: 11px;
-      color: var(--text-secondary);
-      letter-spacing: 1px;
-      margin-top: 2px;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      position: relative;
-    }
-
-    nav a, .nav-item > a {
-      margin: 0 18px;
-      text-decoration: none;
-      color: var(--text-primary);
-      font-size: 16px;
-      font-weight: 500;
-      display: inline-block;
-      cursor: pointer;
-      
-    }
-   .nav-attribute {
-  font-family: "DM Sans", sans-serif;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  color: inherit;
-  transition: color 0.3s ease;
-}
-
-/* Hover effect */
-.nav-attribute:hover {
-  color: var(--accent);
-}
-
-    nav .active {
-      color: var(--accent);
-    }
-
-    .btn-primary {
-      background: var(--accent);
-      border: none;
-      padding: 13px 26px;
-      color: white;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary:hover {
-      background: var(--accent-dark);
-    }
-
-    /* ================= DROPDOWN STYLES - FIXED ================= */
-    .nav-item {
-      position: relative;
-      display: inline-block;
-    }
-
-    .nav-item > a::after {
-      content: "❯";
-      font-size: 12px;
-      margin-left: 8px;
-      display: inline-block;
-      transition: transform 0.3s ease;
-      color: var(--accent);
-      font-weight: bold;
-    }
-
-    .nav-item:hover > a::after {
-      transform: rotate(90deg);
-    }
-
-    .dropdown-content {
-      position: absolute;
-      top: calc(100% + 5px);
-      left: 0;
-      background-color: var(--card-bg);
-      min-width: 250px;
-      box-shadow: var(--shadow);
-      border-radius: 12px;
-      z-index: 10000;
-      padding: 12px 0;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-10px);
-      transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
-      pointer-events: none;
-      border: 1px solid var(--border-light);
-    }
-
-    /* Add a transparent bridge to prevent gap issues */
-    .nav-item::after {
-      content: '';
-      position: absolute;
-      top: 100%;
-      left: 0;
-      width: 100%;
-      height: 12px;
-      background: transparent;
-      pointer-events: auto;
-    }
-
-    /* Keep dropdown visible when hovering over nav-item or dropdown itself */
-    .nav-item:hover .dropdown-content,
-    .dropdown-content:hover {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-      pointer-events: auto;
-    }
-
-    /* Also keep visible when hovering over the bridge area */
-    .nav-item:hover::after {
-      pointer-events: auto;
-    }
-
-    .dropdown-content::before {
-      content: "";
-      position: absolute;
-      top: -8px;
-      left: 30px;
-      width: 16px;
-      height: 16px;
-      background: var(--card-bg);
-      transform: rotate(45deg);
-      border-top: 1px solid var(--border-light);
-      border-left: 1px solid var(--border-light);
-      border-radius: 4px 0 0 0;
-    }
-
-    .dropdown-content a {
-      color: var(--text-primary) !important;
-      padding: 12px 25px;
-      margin: 0 !important;
-      display: block;
-      text-align: left;
-      font-size: 15px !important;
-      transition: all 0.25s ease;
-      white-space: nowrap;
-      text-decoration: none;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .dropdown-content a:last-child {
-      border-bottom: none;
-    }
-
-    .dropdown-content a:hover {
-      background-color: var(--accent);
-      color: white !important;
-      padding-left: 32px;
-    }
-
-    /* ================= SIDEBAR DROPDOWN STYLES ================= */
-    .sidebar-dropdown {
-      width: 100%;
-    }
-
-    .sidebar-dropdown-btn {
-      width: 100%;
-      text-align: left;
-      background: none;
-      border: none;
-      color: var(--text-primary);
-      font-size: 16px;
-      padding: 10px 0;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .sidebar-dropdown-btn .arrow {
-      color: var(--accent);
-      font-size: 14px;
-      font-weight: bold;
-    }
-
-    .sidebar-dropdown-content {
-      display: none;
-      padding-left: 15px;
-      margin-top: 5px;
-    }
-
-    .sidebar-dropdown-content a {
-      padding: 8px 0;
-      display: block;
-      color: var(--text-secondary);
-      font-size: 15px;
-      text-decoration: none;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .sidebar-dropdown-content a:last-child {
-      border-bottom: none;
-    }
-
-    .sidebar-dropdown-content a:hover {
-      color: var(--accent);
-      padding-left: 5px;
-    }
-
-    .sidebar-dropdown.active .sidebar-dropdown-content {
-      display: block;
-    }
-
-    .sidebar-dropdown.active .arrow {
-      transform: rotate(90deg);
-    }
-
-    /* ================= HERO SECTION ================= */
-    .hero-home {
-      background: var(--bg-secondary);
-      text-align: left;
-      padding: 80px 90px;
-      position: relative;
-      z-index: 1;
-      min-height: 100vh;
-      border-bottom: 1px solid var(--border-light);
-    }
-
-    .hero-home .container {
-      max-width: 1280px;
-      margin: 0px auto;
-    }
-
-    .hero-home .container .col-lg-5 {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      gap: 20px;
-      padding: 10px;
-      padding-top: 60px;
-    }
-
- 
-
-    .hero-home h1 {
-      font-size: 68px;
-      font-weight: 600;
-      letter-spacing: -1px;
-      margin-bottom: 12px;
-      font-family: "Poppins", sans-serif;
-      font-weight: 700;
-      font-size: 80px;
-      line-height: 88px;
-      color: var(--text-primary);
-          font-family: "DM Sans", sans-serif;
-font-style: normal;
-font-weight: 500;
-font-size: 80px;
-line-height: 88px;
-color: rgb(12, 20, 81);
-    }
-
-    .hero-home p.lead {
-      font-size: 20px;
-      color: var(--text-secondary);
-      max-width: 600px;
-      font-family: "Poppins", sans-serif;
-      font-weight: 400;
-      font-size: 22px;
-      line-height: 32px;
-      font-family: "DM Sans", sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 22px;
-line-height: 32px;
-color: rgb(73, 79, 124);
-    }
-
-    .hero-home .btn-wrap {
-      margin: 25px 0;
-    }
-
-    .hero-home .button {
-      display: inline-block;
-      padding: 12px 32px;
-      border-radius: 10px;
-      font-weight: 500;
-      text-decoration: none;
-      transition: 0.2s;
-      border: none;
-      cursor: pointer;
-      margin-bottom: 20px;
-    }
-
-    .hero-home .button-primary {
-      color: #ffffff;
-      background-color: var(--accent);
-      border-color: var(--accent);
-      padding: 20px 45px;
-      font-size: 20px;
-      line-height: 120%;
-    }
-
-    .hero-home .button-primary:hover {
-      background-color: var(--accent-dark);
-    }
-
-    .hero-home .button-white {
-      background: white;
-      color: var(--text-primary);
-      border: 1px solid var(--border-light);
-    }
-
-    .phone-wrap-2 {
-      font-style: normal;
-      font-weight: 700;
-      font-size: 40px;
-      line-height: 62px;
-      color: var(--text-primary);
-        font-family: "DM Sans", sans-serif;
-font-style: normal;
-font-weight: 600;
-font-size: 40px;
-line-height: 62px;
-    }
-
-    .hero-home .phone-link {
-      font-family: "Poppins", sans-serif;
-      text-decoration: none;
-      font-style: normal;
-      font-weight: 700;
-      font-size: 40px;
-      line-height: 62px;
-      color: var(--accent);
-  font-family: "DM Sans", sans-serif;
-font-style: normal;
-font-weight: 600;
-font-size: 40px;
-line-height: 62px;
-
-
-    }
-
-    /* ================= GLOBAL TYPOGRAPHY ================= */
-    .subtitle {
-      font-family: "Poppins", sans-serif;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 26px;
-      line-height: 40px;
-      color: var(--accent);
-    }
-
-    .title {
-      font-size: 50px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 20px;
-      line-height: 1.2;
-      font-family: "DM Sans", sans-serif;
-font-style: normal;
-font-weight: 500;
-font-size: 60px;
-line-height: 66px;
-color: rgb(12, 20, 81);
-    }
-
-    .subtitle-2 {
-      font-size: 18px;
-      color: var(--text-secondary);
-      max-width: 700px;
-      margin: 0 auto 40px;
-    }
-
-    .text-custom-pink {
-      color: var(--accent);
-    }
-    p.text-custom-pink{
-        font-family: "DM Sans", sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 28px;
- color: var(--accent);
-
-    }
-
-    /* sections */
-    .section {
-      padding: 80px 0;
-    }
-
-    .section-lg {
-      padding: 100px 0;
-    }
-
-    .section-xl {
-      padding: 120px 0;
-    }
-
-    .bg-gray-150 {
-      background: var(--bg-secondary);
-    }
-
-    .bg-default {
-      background: var(--bg-primary);
-    }
-
-    .text-center {
-      text-align: center;
-    }
-
-    .container.wide {
-      max-width: 1280px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .row {
-      display: flex;
-      gap: 30px;
-
-    }
-
-    .col-lg-5,
-    .col-md-6,
-    .col-lg-4,
-    .col-md-5,
-    .col-lg-7,
-    .col-sm-12,
-    .col-xs-10 {
-      flex: 1 1 calc(50% - 30px);
-      min-width: 280px;
-      gap: 20px;
-    }
-
-    .gap-10{
-        display: flex;
-        flex-direction: column;
-        gap:10px;
-    }
-    .gap-20{
-        display: flex;
-        flex-direction: column;
-        gap:20px;
-    }
-
-    .col-lg-4 {
-      flex: 1 1 calc(33.333% - 30px);
-    }
-
-    .col-lg-5 {
-      flex: 1 1 calc(41.666% - 30px);
-    }
-
-    .col-lg-7 {
-      flex: 1 1 calc(58.333% - 30px);
-    }
-
-    .col-xs-10 {
-      flex: 1 1 calc(83.333% - 30px);
-    }
-
-    .justify-content-left {
-      justify-content: flex-start;
-    }
-
-    /* testimonial box */
-    .testimonial-container {
-  overflow: hidden;
-  max-width: 1250px;
-  margin: 50px auto 0;
-  
-}
-
-.testimonial-track {
-  display: flex;
-  gap: 100px;
-  transition: transform 0.8s ease;
-}
-
-.testimonial-section{
-    background-color: #FAFBFC;
-}
-
-.testimonial-box {
-  min-width: 440px;
-  background: #fff;
-  padding: 40px;
-  border-radius: 16px;
-  box-shadow: 0 10px 10px rgba(0,0,0,0.08);
-  border: 1px solid #eee;
-  min-width: 500px;
-  padding: 60px 80px 80px 60px;
-    margin: 0 auto;
-}
-
-.testimonial-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 45px;
-}
-
-.testimonial-header h3 {
-  font-size: 24px;
-  font-weight: 600;
-  color: #1b2a4e;
-  font-family: "DM Sans", sans-serif;
-font-style: normal;
-font-weight: 500;
-font-size: 32px;
-line-height: 50px;
-color: rgb(12, 20, 81);
-}
-.testimonial-dots {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.dot {
-  width: 10px;
-  height: 10px;
-  background: #cfd5e3;
-  border-radius: 10%;
-  transition: 0.3s;
-}
-
-.dot.active {
-  background: #1b2a4e;
-  transform: scale(1.2);
-}
-
-.stars {
-  color: #ff7a59;
-  font-size: 26px;
-  letter-spacing: 3px;
-}
-
-.testimonial-text {
-  font-size: 16px;
-  line-height: 1.7;
-  color: #5a6785;
-  font-family: "DM Sans", sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 22px;
-line-height: 34px;
-color: rgb(73, 79, 124);
-}
-
-.testimonial-name {
-  margin-top: 20px;
-  color: #ff7a59;
-  font-weight: 500;
-  font-family: "DM Sans", sans-serif;
-font-style: normal;
-font-weight: 400;
-font-size: 18px;
-line-height: 28px;
-color: rgb(254, 155, 142);
-}
-
-/* Mobile */
-@media(max-width: 768px){
-  .testimonial-box {
-    min-width: 100%;
-  }
-}
-
-   .box-info-modern-figure {
-  width: 100%;
-  height: 220px; /* 👈 fixed height */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  border-radius: 16px;
-  background: #f7f8fc; /* optional soft bg */
-}
-
-/* Make all images uniform */
-.box-info-modern-figure img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* 👈 keeps image ratio (no crop) */
-}
-
-    .box-info-modern-title {
-      font-size: 1.8rem;
-      margin: 20px 0 10px;
-      color: var(--text-primary);
-    }
-
-    .box-info-modern-text {
-      color: var(--text-secondary);
-    }
-
-    /* video cover */
-    /* Section spacing */
-.section-lg {
-  padding: 100px 0;
-  background: #f7f8fc;
-}
-
-/* Subtitle (pink small text) */
-.subtitle {
-  font: normal 400 18px/28px "DM Sans", sans-serif;
-  color: rgb(254, 155, 142);
-  margin-bottom: 15px;
-}
-
-/* Main heading */
-.title {
-  font: normal 500 60px/66px "DM Sans", sans-serif;
-  color: rgb(12, 20, 81);
-  margin-bottom: 20px;
-}
-
-/* Paragraph text */
-.subtitle-2 {
-  font: normal 400 22px/34px "DM Sans", sans-serif;
-  color: rgb(73, 79, 124);
-  margin-bottom: 30px;
-}
-
-/* Button */
-.button-primary {
-  background: #0c1451;
-  color: #fff;
-  padding: 16px 36px;
-  border-radius: 10px;
-  font: normal 500 16px/24px "DM Sans", sans-serif;
-  display: inline-block;
-  transition: 0.3s;
-}
-
-.button-primary:hover {
-  background: #ff7a59;
-  transform: translateY(-2px);
-}
-
-/* Layout spacing */
-.gap-20 > * {
-  margin-bottom: 20px;
-}
-
-/* Video block */
-.video-cover {
-  background-size: cover;
-  background-position: center;
-  border-radius: 20px;
-  position: relative;
-  overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-}
-
-/* Play button */
-.video-cover .icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
-  background: #fff;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #0c1451;
-  font-size: 22px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.video-cover .icon:hover {
-  background: #ff7a59;
-  color: #fff;
-}
-
-/* Image styling */
-
-/* Second section spacing */
-.mt-4 {
-  margin-top: 40px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .title {
-    font-size: 36px;
-    line-height: 44px;
-  }
-
-  .subtitle-2 {
-    font-size: 18px;
-    line-height: 28px;
-  }
-
-  .section-lg {
-    padding: 60px 20px;
-  }
-}
-    /* product card */
- /* Section background */
-.bg-default {
-  background: #f7f8fc;
-  padding: 100px 0;
-}
-
-/* Center spacing */
-.product-row {
-  margin-top: 60px;
-  text-align: center;
-}
-
-/* Remove card look */
-.product-card {
-  background: transparent;
-  padding: 0;
-  box-shadow: none;
-  border: none;
-}
-
-/* Icon circle */
-.product-icon {
-  width: 90px;
-  height: 90px;
-  margin: 0 auto 25px;
-  border-radius: 50%;
-  background: rgba(255, 140, 160, 0.15);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.product-icon i {
-  font-size: 30px;
-  color: #ff7a59;
-}
-
-/* Title */
-.product-card h3 {
-  font: normal 500 28px/36px "DM Sans", sans-serif;
-  color: rgb(12, 20, 81);
-  margin-bottom: 15px;
-}
-
-/* Description */
-.product-card p {
-  font: normal 400 18px/28px "DM Sans", sans-serif;
-  color: rgb(73, 79, 124);
-  max-width: 280px;
-  margin: 0 auto;
-}
-
-/* Hide unwanted elements */
-.product-card .price,
-.product-card .btn-outline {
-  display: none;
-}
-
-/* Spacing between columns */
-.col-lg-4 {
-  margin-bottom: 40px;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .product-card h3 {
-    font-size: 22px;
-  }
-
-  .product-card p {
-    font-size: 16px;
-  }
-}
-
-    .pricing-section {
-  position: relative;
-  padding: 100px 0;
-  overflow: hidden;
-
-  /* Background image */
-  background-image: url("https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp");
-  background-size: cover;
-
-  background-position: center;
-  background-attachment: fixed; /* 🔥 Parallax effect */
-}
-
-/* Pink gradient overlay */
-.pricing-section .overlay {
-  position: absolute;
-  inset: 0;
-   background: linear-gradient(
-    135deg,
-    rgba(255, 120, 140, 0.335),
-    rgba(255, 90, 120, 0.7)
-  );
- 
-
-  backdrop-filter: blur(6px); /* 🔥 slight blur */
-  z-index: 1;
-}
-
-/* Content above overlay */
-.pricing-section .content {
-  position: relative;
-  z-index: 2;
-}
-
-/* Card styling improvement */
-.box-price-simple {
-  background: #fff;
-  padding: 40px;
-  border-radius: 16px;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-}
-
-/* Button */
-.button-primary {
-  background: #ff7a59;
-  color: #fff;
-  padding: 10px 25px;
-  border-radius: 8px;
-  display: inline-block;
-  margin-top: 15px;
-}
-    .price {
-      font-weight: 700;
-      font-size: 22px;
-      margin: 20px 0 10px;
-      color: var(--accent);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid var(--accent);
-      color: var(--accent);
-      padding: 10px 20px;
-      border-radius: 40px;
-      font-weight: 500;
-      cursor: pointer;
-      margin-top: 12px;
-      display: inline-block;
-      text-decoration: none;
-      transition: 0.2s;
-    }
-
-    .btn-outline:hover {
-      background: var(--accent);
-      color: white;
-    }
-
-    /* box price */
-    .box-price-simple {
-      background: var(--card-bg);
-      padding: 40px 20px;
-      border-radius: 20px;
-      border: 1px solid var(--border-light);
-      text-align: center;
-    }
-
-    .box-price p {
-      font-size: 2.5rem;
-      font-weight: 700;
-      color: var(--accent);
-    }
-
-    /* voucher box */
-    .voucher-box,
-    .voucher-box-dark {
-      background: var(--card-bg);
-      padding: 40px 20px;
-      border-radius: 24px;
-      border: 1px solid var(--border-light);
-      text-align: center;
-    }
-
-    .voucher-box-dark {
-      background: var(--accent);
-      color: white;
-    }
-
-    .voucher-box-dark a {
-      background: white;
-      color: var(--accent);
-    }
-
-    .voucher-name {
-      font-weight: 600;
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-    }
-
-    /* card accordion */
-    .card {
-      border: 1px solid var(--border-light);
-      border-radius: 20px;
-      margin-bottom: 15px;
-      padding: 20px;
-      background: var(--card-bg);
-    }
-
-    .card-title a {
-      font-weight: 600;
-      color: var(--text-primary);
-      text-decoration: none;
-      font-size: 18px;
-    }
-
-    .card-body {
-      margin-top: 12px;
-      color: var(--text-secondary);
-    }
-
-    /* helpers */
-    .btn-wrap {
-      margin: 25px 0;
-    }
-
-    .group-middle {
-      display: flex;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    img {
-      max-width: 100%;
-      height: auto;
-
-    }
-
-    .mt-4 {
-      margin-top: 2rem;
-    }
-
-    .divider {
-      height: 2px;
-      background:  #0C1451;
-      padding: 3px;
-      /* width: 100%; */
-      margin:0px 80px;
-      
-    }
-
-    /* ================= FOOTER ================= */
-    .footer {
-      background: var(--footer-bg);
-      color: var(--text-primary);
-      padding: 70px 90px;
-      border-top: 1px solid var(--border-light);
-    }
-
-    .top-bar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 50px;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .top-bar strong {
-      font-size: 20px;
-      color: var(--accent);
-    }
-
-    .btn-light {
-      margin-left: 15px;
-      background: var(--accent);
-      color: white;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 6px;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .btn-light:hover {
-      background: var(--accent-dark);
-    }
-
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-      gap: 30px;
-    }
-
-    .footer-grid h4 {
-      margin-bottom: 12px;
-      font-size: 18px;
-      color: var(--text-primary);
-    }
-
-    .footer-grid p {
-      margin: 6px 0;
-      color: var(--text-secondary);
-      font-size: 15px;
-    }
-
-    .copy {
-      text-align: center;
-      border-top: 1px solid var(--border-light);
-      padding-top: 20px;
-      font-size: 14px;
-      color: var(--text-secondary);
-    }
-
-    .date {
-      color: var(--text-secondary);
-      font-size: 14px;
-    }
-
-    /* ================= MOBILE SIDEBAR ================= */
-    .menu-toggle {
-      display: none;
-      font-size: 26px;
-      cursor: pointer;
-    }
-
-    .sidebar {
-      position: fixed;
-      top: 0;
-      left: -280px;
-      width: 280px;
-      height: 100%;
-      background: var(--bg-primary);
-      color: var(--text-primary);
-      padding: 30px 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      transition: 0.3s ease;
-      z-index: 10000;
-      border-right: 1px solid var(--border-light);
-    }
-
-    .sidebar a {
-      color: var(--text-primary);
-      text-decoration: none;
-      font-size: 16px;
-    }
-
-    .sidebar .active {
-      color: var(--accent);
-    }
-
-    .close-btn {
-      font-size: 22px;
-      margin-bottom: 20px;
-      cursor: pointer;
-      text-align: right;
-    }
-
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.4);
-      opacity: 0;
-      visibility: hidden;
-      transition: 0.3s;
-      z-index: 9999;
-    }
-
-     .overlay_lili {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, rgba(45, 27, 46, 0.7) 0%, rgba(212, 90, 122, 0.6) 100%);
-    }
-    .sidebar.active {
-      left: 0;
-    }
-
-    .overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    /* ================= RESPONSIVE ================= */
-    @media (max-width: 1024px) {
-      .navbar {
-        padding: 20px 40px;
-      }
-      .footer {
-        padding: 60px 40px;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .navbar {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 15px 20px;
-      }
-      nav {
-        display: none;
-      }
-      .menu-toggle {
-        display: block;
-      }
-      .btn-primary {
-        display: none;
-      }
-      .hero-home {
-        padding: 60px 20px;
-        text-align: center;
-      }
-      .hero-home h1 {
-        font-size: 42px;
-        line-height: 1.2;
-      }
-      .hero-home p.lead {
-        font-size: 16px;
-      }
-      .title {
-        font-size: 34px;
-      }
-      .subtitle-2 {
-        font-size: 16px;
-      }
-      .footer {
-        padding: 50px 20px;
-      }
-      .top-bar {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 15px;
-      }
-      .footer-grid {
-        flex-direction: column;
-        gap: 30px;
-      }
-      .dropdown-content {
-        display: none !important;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .hero-home h1 {
-        font-size: 34px;
-      }
-      .title {
-        font-size: 28px;
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>RoseEmb | Precision Embroidery Machines</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 50%, #ffe4ec 100%);
+        }
+
+        h1, h2, h3, h4, .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Navbar Styles - Fully Transparent */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 245, 247, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(212, 90, 122, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .navbar.scrolled .logo a {
+            background: linear-gradient(135deg, #d45a7a, #b84363);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-attribute {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .navbar.scrolled .nav-attribute {
+            color: #5a3e4a;
+        }
+
+        .nav-attribute:hover {
+            color: #ffb6c1;
+        }
+
+        .navbar.scrolled .nav-attribute:hover {
+            color: #d45a7a;
+        }
+
+        .nav-attribute.active {
+            color: #ffb6c1;
+        }
+
+        .navbar.scrolled .nav-attribute.active {
+            color: #d45a7a;
+            font-weight: 600;
+        }
+
+        /* Dropdown Styles */
+        .nav-item {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-item > .nav-attribute::after {
+            content: "❯";
+            font-size: 12px;
+            margin-left: 8px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+            color: #ffb6c1;
+            font-weight: bold;
+        }
+
+        .navbar.scrolled .nav-item > .nav-attribute::after {
+            color: #d45a7a;
+        }
+
+        .nav-item:hover > .nav-attribute::after {
+            transform: rotate(90deg);
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+            background-color: #fff;
+            min-width: 200px;
+            box-shadow: 0 10px 30px rgba(212, 90, 122, 0.15);
+            border-radius: 12px;
+            z-index: 10000;
+            padding: 12px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
+            pointer-events: none;
+            border: 1px solid rgba(212, 90, 122, 0.2);
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: transparent;
+            pointer-events: auto;
+        }
+
+        .nav-item:hover .dropdown-content,
+        .dropdown-content:hover {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .dropdown-content::before {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: 30px;
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            transform: rotate(45deg);
+            border-top: 1px solid rgba(212, 90, 122, 0.2);
+            border-left: 1px solid rgba(212, 90, 122, 0.2);
+            border-radius: 4px 0 0 0;
+        }
+
+        .dropdown-content a {
+            color: #5a3e4a !important;
+            padding: 12px 25px;
+            margin: 0 !important;
+            display: block;
+            text-align: left;
+            font-size: 13px !important;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(212, 90, 122, 0.1);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background: linear-gradient(135deg, #d45a7a, #b84363);
+            color: white !important;
+            padding-left: 32px;
+        }
+
+        /* Hide mobile elements on desktop */
+        .hamburger,
+        .sidebar,
+        .overlay {
+            display: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(59, 22, 32, 0.7) 0%, rgba(68, 8, 24, 0.85) 100%), url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            position: relative;
+        }
+
+        .hero-content h2 {
+            font-size: 14px;
+            letter-spacing: 5px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .hero-content h1 {
+            font-size: 90px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero-content p {
+            font-size: 22px;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+            line-height: 1.4;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 35px;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: 0.3s;
+            font-weight: 500;
+            letter-spacing: 1px;
+            font-size: 13px;
+        }
+
+        .btn-light {
+            border: 2px solid #fff;
+            color: #fff;
+            background: transparent;
+            margin: 0 10px;
+        }
+
+        .btn-light:hover {
+            background: #fff;
+            color: #d45a7a;
+        }
+
+        .btn-primary-custom {
+            background: linear-gradient(135deg, #d45a7a, #b84363);
+            color: #fff;
+            border: none;
+            padding: 14px 40px;
+        }
+
+        .btn-primary-custom:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 90, 122, 0.4);
+        }
+
+        /* Welcome Section */
+        .welcome {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+        }
+
+        .welcome h2 {
+            font-size: 14px;
+            letter-spacing: 5px;
+            color: #d45a7a;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .welcome h3 {
+            font-size: 48px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #d45a7a, #b84363);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .welcome-text {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .welcome-text p {
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        /* Machines Section */
+        .machines-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe4ec 100%);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header .subtitle {
+            font-size: 14px;
+            letter-spacing: 5px;
+            color: #d45a7a;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .section-header h2 {
+            font-size: 48px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #d45a7a, #b84363);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .machines-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .machine-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(212, 90, 122, 0.1);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .machine-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212, 90, 122, 0.2);
+        }
+
+        .machine-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #d45a7a, #b84363);
+            color: #fff;
+            padding: 5px 15px;
+            border-radius: 25px;
+            font-size: 12px;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .machine-img {
+            height: 280px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s;
+        }
+
+        .machine-card:hover .machine-img {
+            transform: scale(1.05);
+        }
+
+        .machine-content {
+            padding: 30px;
+        }
+
+        .machine-content h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #d45a7a;
+        }
+
+        .machine-specs {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .machine-specs li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(212, 90, 122, 0.1);
+            color: #666;
+        }
+
+        .machine-specs li i {
+            color: #d45a7a;
+            margin-right: 10px;
+            width: 20px;
+        }
+
+        .machine-price {
+            font-size: 28px;
+            font-weight: 700;
+            color: #d45a7a;
+            margin: 20px 0;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 10px 25px;
+            border: 2px solid #d45a7a;
+            color: #d45a7a;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: linear-gradient(135deg, #d45a7a, #b84363);
+            color: #fff;
+            border-color: transparent;
+        }
+
+        /* Devices Section */
+        .devices-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+        }
+
+        .devices-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .device-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(212, 90, 122, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .device-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, #d45a7a, #b84363);
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .device-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .device-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(212, 90, 122, 0.2);
+        }
+
+        .device-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 25px;
+            background: linear-gradient(135deg, rgba(212, 90, 122, 0.1), rgba(184, 67, 99, 0.1));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .device-icon i {
+            font-size: 50px;
+            background: linear-gradient(135deg, #d45a7a, #b84363);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .device-card h3 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #d45a7a;
+        }
+
+        .device-features {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .device-features li {
+            padding: 8px 0;
+            color: #666;
+            list-style: none;
+        }
+
+        .device-features li i {
+            color: #d45a7a;
+            margin-right: 10px;
+        }
+
+        /* Events Section */
+        .events-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #d45a7a 0%, #b84363 100%);
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .events-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 1%);
+            background-size: 50px 50px;
+            animation: moveDots 20s linear infinite;
+        }
+
+        @keyframes moveDots {
+            from { transform: translate(0, 0); }
+            to { transform: translate(50px, 50px); }
+        }
+
+        .events-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .events-section .subtitle {
+            font-size: 14px;
+            letter-spacing: 5px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .events-section h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .event-date {
+            font-size: 16px;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 20px;
+        }
+
+        .event-title {
+            font-size: 28px;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .event-desc {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: rgba(255,255,255,0.9);
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            padding: 25px 35px;
+            border-radius: 20px;
+            min-width: 120px;
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 48px;
+            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 10px;
+        }
+
+        .countdown-label {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .event-btn {
+            display: inline-block;
+            background: #fff;
+            color: #d45a7a;
+            padding: 12px 35px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .event-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        /* Gallery Section */
+        .gallery-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(212, 90, 122, 0.1);
+            transition: all 0.3s;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(212, 90, 122, 0.2);
+        }
+
+        .gallery-img {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s;
+        }
+
+        .gallery-card:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 30px 20px 20px;
+            color: white;
+        }
+
+        .gallery-overlay h4 {
+            font-size: 22px;
+            margin-bottom: 5px;
+        }
+
+        .gallery-overlay p {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe4ec 100%);
+            text-align: center;
+        }
+
+        .testimonial-container {
+            overflow: hidden;
+            max-width: 1250px;
+            margin: 50px auto 0;
+        }
+
+        .testimonial-track {
+            display: flex;
+            gap: 100px;
+            transition: transform 0.8s ease;
+        }
+
+        .testimonial-box {
+            min-width: 500px;
+            background: #fff;
+            padding: 60px 80px 80px 60px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(212, 90, 122, 0.1);
+            margin: 0 auto;
+            color: #333;
+        }
+
+        .testimonial-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 45px;
+        }
+
+        .testimonial-header h3 {
+            font-size: 32px;
+            font-weight: 600;
+            background: linear-gradient(135deg, #d45a7a, #b84363);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stars {
+            color: #ff7a59;
+            font-size: 26px;
+            letter-spacing: 3px;
+        }
+
+        .testimonial-text {
+            font-size: 22px;
+            line-height: 34px;
+            color: #5a6785;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-name {
+            color: #d45a7a;
+            font-weight: 500;
+            font-size: 18px;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: #cfd5e3;
+            border-radius: 50%;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: #d45a7a;
+            transform: scale(1.2);
+        }
+
+        /* Blog Section */
+        .blog-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .blog-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(212, 90, 122, 0.1);
+            transition: all 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(212, 90, 122, 0.2);
+        }
+
+        .blog-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blog-content {
+            padding: 30px;
+        }
+
+        .blog-date {
+            color: #d45a7a;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .blog-title {
+            font-size: 24px;
+            margin: 15px 0;
+            font-weight: 600;
+            color: #d45a7a;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            color: #d45a7a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #b84363 0%, #9a3550 100%);
+            color: #fff;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        footer h4 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        /* ==================== MOBILE RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            /* Show mobile elements */
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                z-index: 1001;
+            }
+            
+            .hamburger span {
+                display: block;
+                width: 25px;
+                height: 2px;
+                background: #fff;
+                margin: 5px 0;
+                transition: 0.3s;
+            }
+            
+            .navbar.scrolled .hamburger span {
+                background: #d45a7a;
+            }
+            
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -280px;
+                width: 280px;
+                height: 100%;
+                background: linear-gradient(135deg, #fff5f7, #ffe4ec);
+                padding: 80px 30px 30px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                transition: 0.3s ease;
+                z-index: 10000;
+                box-shadow: 5px 0 30px rgba(0,0,0,0.1);
+            }
+            
+            .sidebar.active {
+                left: 0;
+            }
+            
+            .sidebar a {
+                color: #5a3e4a;
+                text-decoration: none;
+                font-size: 16px;
+                padding: 12px 0;
+                font-weight: 500;
+                border-bottom: 1px solid rgba(212, 90, 122, 0.2);
+                transition: 0.3s;
+            }
+            
+            .sidebar a:hover {
+                color: #d45a7a;
+                padding-left: 10px;
+            }
+            
+            .sidebar .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 24px;
+                cursor: pointer;
+                color: #d45a7a;
+                width: 40px;
+                height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 50%;
+                transition: 0.3s;
+            }
+            
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.5);
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.3s;
+                z-index: 9999;
+                display: block;
+            }
+            
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            /* Hide desktop navigation on mobile */
+            .nav-links {
+                display: none;
+            }
+            
+            /* Mobile Navbar padding */
+            .navbar {
+                padding: 15px 0;
+            }
+            
+            /* Hero Section Mobile */
+            .hero {
+                height: auto;
+                min-height: 100vh;
+                padding: 100px 20px;
+                background-attachment: scroll;
+            }
+            
+            .hero-content h1 {
+                font-size: 48px;
+                letter-spacing: 2px;
+            }
+            
+            .hero-content p {
+                font-size: 16px;
+                margin-bottom: 30px;
+            }
+            
+            .btn {
+                padding: 10px 25px;
+                font-size: 12px;
+            }
+            
+            /* Welcome Section Mobile */
+            .welcome {
+                padding: 60px 0;
+            }
+            
+            .welcome h3 {
+                font-size: 36px;
+            }
+            
+            .section-header h2,
+            .events-section h2 {
+                font-size: 32px;
+            }
+            
+            /* Grid Layouts Mobile */
+            .machines-grid,
+            .devices-grid,
+            .gallery-grid,
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .machine-img,
+            .gallery-img,
+            .blog-img {
+                height: 220px;
+            }
+            
+            .machine-content,
+            .blog-content {
+                padding: 20px;
+            }
+            
+            .machine-content h3,
+            .device-card h3,
+            .blog-title {
+                font-size: 24px;
+            }
+            
+            .machine-price {
+                font-size: 24px;
+            }
+            
+            /* Events Section Mobile */
+            .events-section {
+                padding: 60px 0;
+            }
+            
+            .countdown {
+                gap: 15px;
+            }
+            
+            .countdown-item {
+                padding: 15px 20px;
+                min-width: 70px;
+            }
+            
+            .countdown-number {
+                font-size: 28px;
+            }
+            
+            .event-title {
+                font-size: 24px;
+            }
+            
+            /* Testimonials Mobile */
+            .testimonial-box {
+                min-width: calc(100% - 30px);
+                padding: 30px 25px;
+            }
+            
+            .testimonial-header h3 {
+                font-size: 24px;
+            }
+            
+            .testimonial-text {
+                font-size: 16px;
+                line-height: 28px;
+            }
+            
+            /* Container Padding */
+            .container {
+                padding: 0 20px;
+            }
+            
+            /* Sections Padding */
+            .machines-section,
+            .devices-section,
+            .gallery-section,
+            .testimonials-section,
+            .blog-section {
+                padding: 60px 0;
+            }
+            
+            /* Device Cards */
+            .device-icon {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .device-icon i {
+                font-size: 40px;
+            }
+            
+            .device-card {
+                padding: 30px 20px;
+            }
+            
+            /* Footer Mobile */
+            footer {
+                padding: 40px 20px 25px;
+            }
+            
+            footer h4 {
+                font-size: 24px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .hero-content p {
+                font-size: 14px;
+            }
+            
+            .section-header h2,
+            .events-section h2,
+            .welcome h3 {
+                font-size: 28px;
+            }
+            
+            .countdown-item {
+                padding: 12px 15px;
+                min-width: 60px;
+            }
+            
+            .countdown-number {
+                font-size: 24px;
+            }
+            
+            .testimonial-text {
+                font-size: 14px;
+                line-height: 24px;
+            }
+        }
+
+        /* Tablet View - Keep desktop navigation */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hamburger,
+            .sidebar,
+            .overlay {
+                display: none !important;
+            }
+            
+            .nav-links {
+                display: flex !important;
+            }
+            
+            .machines-grid,
+            .devices-grid,
+            .gallery-grid,
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .hero-content h1 {
+                font-size: 70px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-<!-- Sidebar mobile with dropdown -->
-<div class="sidebar" id="sidebar">
-  <div class="close-btn" onclick="toggleMenu()">✕</div>
-  <a href="index.html" class="active">Home</a>
-  <a href="about.html">About</a>
-  <div class="sidebar-dropdown" id="sidebarProductDropdown">
-    <div class="sidebar-dropdown-btn" onclick="toggleSidebarDropdown()">
-      <span>Product</span>
-      <span class="arrow">❯</span>
+<!-- Navbar -->
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="logo">
+            <a href="#">ROSEEMB</a>
+        </div>
+        <div class="nav-links">
+            <a class="nav-attribute active" href="#home">Home</a>
+            <a class="nav-attribute" href="#about">About</a>
+            <div class="nav-item">
+                <a class="nav-attribute" href="#">Product</a>
+                <div class="dropdown-content">
+                    <a class="nav-attribute" href="#machines">Machines</a>
+                    <a class="nav-attribute" href="#devices">Devices</a>
+                </div>
+            </div>
+            <a class="nav-attribute" href="#events">Events</a>
+            <a class="nav-attribute" href="#gallery">Gallery</a>
+            <a class="nav-attribute" href="#contact">Contact</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </div>
-    <div class="sidebar-dropdown-content">
-      <a href="machines.html">Embroidery Machines</a>
-      <a href="devices.html">Precision Devices</a>
-    
-    </div>
-  </div>
-  <a href="gallery.html">Images</a>
-  <a href="contact.html">Contact Us</a>
-  <a href="gift-vouchers.html">Gift Vouchers</a>
-</div>
+</nav>
 
+<!-- Mobile Sidebar -->
+<div class="sidebar" id="sidebar">
+    <div class="close-btn" onclick="toggleMenu()">✕</div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#machines">Machines</a>
+    <a href="#devices">Devices</a>
+    <a href="#events">Events</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+</div>
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
-<!-- Navbar with dropdown -->
-<header class="navbar">
-  <div class="logo">
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-   <img src="./images/logo.png" alt="RoseEmb Logo">
-  </div>
-  <nav>
-    <a class="nav-attribute active" href="index.html">Home</a>
-    <a class="nav-attribute" href="about.html">About</a>
-    <div  class="nav-item">
-      <a class="nav-attribute" href="#">Product</a>
-      <div class="dropdown-content">
-        <a class="nav-attribute" href="machines.html">Machines</a>
-        <a class="nav-attribute" href="devices.html">Devices</a>
-
-      </div>
+<!-- Hero Section -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h2>Precision Engineering</h2>
+        <h1>ROSEEMB</h1>
+        <p>Quality · Precision · Trust</p>
+        <p>Discover the art of flawless embroidery with RoseEmb's cutting-edge machines.</p>
+        <a href="#machines" class="btn btn-light">Explore Machines</a>
+        <a href="#contact" class="btn btn-light">Contact Us</a>
     </div>
-    <a class="nav-attribute" href="gallery.html">Images</a>
-    <a class="nav-attribute" href="contact.html">Contact Us</a>
-    <button class="theme-toggle" id="themeToggle"><i class="fas fa-moon"></i></button>
-  </nav>
-  <button class="btn-primary" onclick="alert('Call +91 902555206 or email roseembroidery@gmail.com')">Get Quote</button>
-</header>
-
-<!-- HERO (first block) -->
-<div class="hero-home">
-  <div class="container wide">
-    <div class="row justify-content-left">
-      <div class="col-lg-5">
-        <h1 class="hero-home-title">Quality <br> Precision Trust</h1>
-        <p class="lead">Discover the art of flawless embroidery with RoseEmb's cutting-edge machines. Engineered for professionals, loved by creators.</p>
-        <div class="btn-wrap">
-          <div class="group-middle">
-            <a class="button button-primary" href="machines.html">Explore Machines</a>
-
-          </div>
-        </div>
-        <div class="phone-wrap-2">
-          <span class="phone-link-title">Call Us:</span>
-          <a class="phone-link" href="tel:91902555206">+91 902555206</a>
-        </div>
-        <p class="text-custom-pink">76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</p>
-       
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Testimonials carousel -->
-<div class="section section-lg bg-gray-150 testimonial-section">
-  <div class="text-center">
-    <p class="subtitle">Our customers love RoseEmb</p>
-    <h2 class="title">Rated #1 Embroidery Machines</h2>
-  </div>
-
-  <div class="testimonial-container">
-    <div class="testimonial-track">
-
-      <!-- Card 1 -->
-      <div class="testimonial-box">
-        <div class="testimonial-header">
-          <h3>Cool!</h3>
-          <div class="stars">★★★★★</div>
-        </div>
-        <p class="testimonial-text">
-          “RoseEmb machines are incredibly precise. The stitch quality is flawless and the machine runs smoothly even at high speeds.”
-        </p>
-        <div class="testimonial-name">— Sarah M.</div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="testimonial-box">
-        <div class="testimonial-header">
-          <h3>Excellent!</h3>
-          <div class="stars">★★★★★</div>
-        </div>
-        <p class="testimonial-text">
-          “The customer support team is fantastic. They helped me set up my machine and provided training. Highly recommended!”
-        </p>
-        <div class="testimonial-name">— John C.</div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="testimonial-box">
-        <div class="testimonial-header">
-          <h3>Amazing!</h3>
-          <div class="stars">★★★★★</div>
-        </div>
-        <p class="testimonial-text">
-          “This machine transformed my embroidery business. Speed, accuracy, and reliability - everything I needed.”
-        </p>
-        <div class="testimonial-name">— Elena R.</div>
-      </div>
-
-    
-
-    </div>
-  </div>
-<div class="testimonial-dots">
-  <span class="dot active"></span>
-  <span class="dot"></span>
-</div></div>
-
-<!-- How RoseEmb Works -->
-<div class="section section-lg">
-  <div class="container wide">
-    <div class="text-center">
-      <div class="subtitle">Embroidery made easy</div>
-      <h2 class="title">How RoseEmb Works</h2>
-      <div class="subtitle-2">Getting your perfect embroidery machine has never been easier.</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-10 col-md-6 col-lg-4">
-        <div class="box-info-modern">
-          <div class="box-info-modern-figure"><img src="https://bazar91.com/cdn/shop/files/brother-vr-clean-black-background.png?height=940&v=1764493070" alt="Choose Machine"></div>
-          <h4 class="box-info-modern-title">Choose</h4>
-          <div class="box-info-modern-text">Select the perfect embroidery machine for your needs from our collection</div>
-        </div>
-      </div>
-      <div class="col-xs-10 col-md-6 col-lg-4">
-        <div class="box-info-modern">
-          <div class="box-info-modern-figure"><img src="https://www.elevify.com/_next/image?url=https%3A%2F%2Fapoia-images-production.s3.amazonaws.com%2Fec6560ac-bb8f-4ed4-a2e7-d4514953fd12.png&w=3840&q=70" alt="Training"></div>
-          <h4 class="box-info-modern-title">Learn</h4>
-          <div class="box-info-modern-text">Get one-on-one training and installation support from our experts</div>
-        </div>
-      </div>
-      <div class="col-xs-10 col-md-6 col-lg-4">
-        <div class="box-info-modern">
-          <div class="box-info-modern-figure"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0uoa-ybR76XGfQFpE5f-BtvIfQomY56xo9A&s" alt="Create"></div>
-          <h4 class="box-info-modern-title">Create</h4>
-          <div class="box-info-modern-text">Start creating stunning embroidery designs with precision and ease</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="divider"></div>
-
-<!-- We Deliver Quality Service + video -->
-<div class="section section-lg">
-  <div class="container wide">
-    <div class="row">
-      <div class="col-md-5 col-lg-5 gap-20">
-        <div class="subtitle">Precision engineering</div>
-        <h2 class="title">We Deliver Quality Service</h2>
-        <div class="subtitle-2">At RoseEmb, you get the highest level of customer service and the utmost precision at a very affordable price.</div>
-        <div class="btn-wrap"><a class="button button-primary" href="contact.html">Contact Us</a></div>
-      </div>
-      <div class="col-md-7 col-lg-7">
-        <div class="video-cover" style="background-image: url('https://i.ytimg.com/vi/KSSNq84MvAE/maxresdefault.jpg'); min-height: 350px; border-radius: 20px; position: relative;" onclick="alert('Watch our demo video! Call +91 902555206 for more info')">
-          <span class="icon"><i class="fas fa-play"></i></span>
-        </div>
-      </div>
-    </div>
-    <div style="margin-top: 80px;">
-      <div class="row">
-        <div class="col-md-6 col-lg-6"><img src="https://blainesewing.com/wp-content/uploads/2024/07/Routine-Maintenance-scaled.jpg" alt="Expert Technicians"></div>
-        <div class="col-md-6 col-lg-6">
-          <div class="mt-4 gap-20">
-            <div class="subtitle">True experts</div>
-            <h2 class="title">Best Embroidery Experts</h2>
-            <div class="subtitle-2">RoseEmb is a team of dedicated and professionally trained embroidery specialists always ready to help you succeed. Experience the best in embroidery technology with us!</div>
-            <div class="btn-wrap"><a class="button button-primary" href="about.html">Learn More</a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<!-- Choose Your Machine -->
-<div class="section section-lg bg-default">
-  <div class="container wide">
-    <div class="text-center">
-      <div class="subtitle">A machine for every need</div>
-      <h2 class="title">Choose Your Embroidery Machine</h2>
-    </div>
-    <div class="row product-row">
-      <div class="col-xs-10 col-md-6 col-lg-4">
-        <div class="product-card">
-          <div class="product-icon"><i class="fas fa-robot"></i></div>
-          <h3>RoseEmb Pro One</h3>
-          <p>Single-head, 15 needles, 1200SPM - Perfect for small business</p>
-          <div class="price">$2,890</div>
-          <a href="machines.html" class="btn-outline">View Details</a>
-        </div>
-      </div>
-      <div class="col-xs-10 col-md-6 col-lg-4">
-        <div class="product-card">
-          <div class="product-icon"><i class="fas fa-cogs"></i></div>
-          <h3>Precision Duo X</h3>
-          <p>Dual-head industrial, auto-thread trimmer for high production</p>
-          <div class="price">$5,490</div>
-          <a href="machines.html" class="btn-outline">View Details</a>
-        </div>
-      </div>
-      <div class="col-xs-10 col-md-6 col-lg-4">
-        <div class="product-card">
-          <div class="product-icon"><i class="fas fa-chart-line"></i></div>
-          <h3>Elite 6‑Head</h3>
-          <p>High-volume production, 1500SPM, WiFi connectivity</p>
-          <div class="price">$12,999</div>
-          <a href="machines.html" class="btn-outline">View Details</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- parallax pricing -->
-<section class="pricing-section">
-  <div class="overlay_lili"></div>
-
-  <div class="content">
-    <div class="container wide">
-      <div class="row justify-content-center">
-
-        <div class="col-xs-10 col-md-6 col-lg-4">
-          <div class="box-price-simple">
-            <div class="box-price"><p>$2,890</p></div>
-            <div class="box-price-title"><p>Pro One Machine</p></div>
-            <p class="text-custom-pink">Perfect for home studios and small businesses</p>
-            <a class="button button-primary" href="#">Shop Now</a>
-          </div>
-        </div>
-
-        <div class="col-xs-10 col-md-6 col-lg-4">
-          <div class="box-price-simple">
-            <div class="box-price"><p>$5,490</p></div>
-            <div class="box-price-title"><p>Duo X Machine</p></div>
-            <p class="text-custom-pink">Industrial-grade dual head for increased productivity</p>
-            <a class="button button-primary" href="#">Shop Now</a>
-          </div>
-        </div>
-
-        <div class="col-xs-10 col-md-6 col-lg-4">
-          <div class="box-price-simple">
-            <div class="box-price"><p>$12,999</p></div>
-            <div class="box-price-title"><p>Elite 6-Head</p></div>
-            <p class="text-custom-pink">Maximum production capacity for large-scale operations</p>
-            <a class="button button-primary" href="#">Shop Now</a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
 </section>
 
-<!-- FAQ accordion -->
-<div class="section section-xl">
-  <div class="container wide">
-    <div class="row">
-      <div class="col-sm-12 col-lg-4">
-        <div class="subtitle">Frequently Asked Questions</div>
-        <h2 class="title" style="font-size: 36px;">Got Questions? We've Got Answers</h2>
-      </div>
-      <div class="col-sm-12 col-lg-8">
-        <div class="card-group-custom">
-          <div class="card">
-            <div class="card-title"><a href="#">What types of embroidery machines do you offer?</a></div>
-            <div class="card-body"><p>We offer single-head, dual-head, and multi-head machines ranging from home studio models to industrial-grade production machines with up to 6 heads.</p></div>
-          </div>
-          <div class="card">
-            <div class="card-title"><a href="#">Do you provide installation and training?</a></div>
-            <div class="card-body"><p>Yes! We provide one-day installation and training for all our machines, plus video call support for ongoing assistance.</p></div>
-          </div>
-          <div class="card">
-            <div class="card-title"><a href="#">What is the warranty on RoseEmb machines?</a></div>
-            <div class="card-body"><p>All RoseEmb machines come with a 5-year warranty on core components and 1-year comprehensive coverage.</p></div>
-          </div>
-          <div class="card">
-            <div class="card-title"><a href="#">Can I do cap and 3D embroidery on these machines?</a></div>
-            <div class="card-body"><p>Absolutely! Our machines support cap embroidery, 3D puff designs, and even photo-to-embroidery conversion.</p></div>
-          </div>
-          <div class="card">
-            <div class="card-title"><a href="#">Do you offer financing options?</a></div>
-            <div class="card-body"><p>Yes, we offer flexible financing plans. Contact our sales team for details at +91 902555206.</p></div>
-          </div>
+<!-- Welcome Section -->
+<section class="welcome" id="about">
+    <div class="container">
+        <div class="welcome-text">
+            <h2>Welcome</h2>
+            <h3>Welcome to RoseEmb</h3>
+            <p>Discover the art of flawless embroidery with RoseEmb's cutting-edge machines. Engineered for professionals, loved by creators. Our team is dedicated to providing the highest quality embroidery solutions for businesses of all sizes.</p>
+            <a href="#machines" class="btn btn-primary-custom">Explore Products</a>
+            <a href="#contact" class="btn btn-outline" style="margin-left: 15px;">Get Quote</a>
         </div>
-      </div>
     </div>
-  </div>
-</div>
+</section>
 
-<!-- Gift Voucher section -->
-<!-- <div class="section section-xl bg-gray-150">
-  <div class="container wide">
-    <div class="text-center">
-      <h2 class="title">RoseEmb Gift Voucher</h2>
-      <div class="subtitle-2">Get a personalized gift voucher for your loved ones.</div>
+<!-- Machines Section -->
+<section class="machines-section" id="machines">
+    <div class="container">
+        <div class="section-header">
+            <div class="subtitle">Industrial Excellence</div>
+            <h2>Embroidery Machines</h2>
+        </div>
+        <div class="machines-grid">
+            <div class="machine-card">
+                <div class="machine-badge">BEST SELLER</div>
+                <div class="machine-img" style="background-image: url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');"></div>
+                <div class="machine-content">
+                    <h3>RoseEmb Pro One</h3>
+                    <p>Perfect for small businesses and home studios. Single-head precision machine with advanced features.</p>
+                    <ul class="machine-specs">
+                        <li><i class="fas fa-tachometer-alt"></i> 1200 SPM Speed</li>
+                        <li><i class="fas fa-database"></i> 15 Needles</li>
+                        <li><i class="fas fa-microchip"></i> Digital Control Panel</li>
+                        <li><i class="fas fa-memory"></i> 1GB Built-in Memory</li>
+                    </ul>
+                    <div class="machine-price">$2,890</div>
+                    <a href="#" class="btn-outline">View Details</a>
+                </div>
+            </div>
+            <div class="machine-card">
+                <div class="machine-img" style="background-image: url('https://blainesewing.com/wp-content/uploads/2024/07/Routine-Maintenance-scaled.jpg');"></div>
+                <div class="machine-content">
+                    <h3>Precision Duo X</h3>
+                    <p>Dual-head industrial machine for high-volume production with automatic thread trimming.</p>
+                    <ul class="machine-specs">
+                        <li><i class="fas fa-tachometer-alt"></i> 1500 SPM Speed</li>
+                        <li><i class="fas fa-database"></i> 18 Needles per head</li>
+                        <li><i class="fas fa-cut"></i> Auto Thread Trimmer</li>
+                        <li><i class="fas fa-wifi"></i> WiFi Connectivity</li>
+                    </ul>
+                    <div class="machine-price">$5,490</div>
+                    <a href="#" class="btn-outline">View Details</a>
+                </div>
+            </div>
+            <div class="machine-card">
+                <div class="machine-badge">NEW</div>
+                <div class="machine-img" style="background-image: url('https://i.ytimg.com/vi/KSSNq84MvAE/maxresdefault.jpg');"></div>
+                <div class="machine-content">
+                    <h3>Elite 6‑Head</h3>
+                    <p>Maximum production capacity for large-scale operations with 6 independent heads.</p>
+                    <ul class="machine-specs">
+                        <li><i class="fas fa-tachometer-alt"></i> 1500 SPM per head</li>
+                        <li><i class="fas fa-database"></i> 6 Independent Heads</li>
+                        <li><i class="fas fa-chart-line"></i> Production Analytics</li>
+                        <li><i class="fas fa-tablet-alt"></i> Remote Monitoring</li>
+                    </ul>
+                    <div class="machine-price">$12,999</div>
+                    <a href="#" class="btn-outline">View Details</a>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="row">
-      <div class="col-xs-10 col-md-6 col-lg-4 text-center">
-        <div class="voucher-box">
-          <div class="voucher-name">$100 Gift Voucher</div>
-          <p>Perfect for beginners and hobbyists</p>
-          <a class="button button-primary" href="gift-vouchers.html" style="display: inline-block; margin-top: 15px;">Buy As Gift</a>
-        </div>
-      </div>
-      <div class="col-xs-10 col-md-6 col-lg-4 text-center">
-        <div class="voucher-box-dark">
-          <div class="voucher-name">$250 Gift Voucher</div>
-          <p>Our most popular offer - great for machine accessories</p>
-          <a class="button button-primary" href="gift-vouchers.html" style="display: inline-block; margin-top: 15px; background: white; color: var(--accent);">Buy As Gift</a>
-        </div>
-      </div>
-      <div class="col-xs-10 col-md-6 col-lg-4 text-center">
-        <div class="voucher-box">
-          <div class="voucher-name">$500 Gift Voucher</div>
-          <p>Perfect for purchasing a complete embroidery machine</p>
-          <a class="button button-primary" href="gift-vouchers.html" style="display: inline-block; margin-top: 15px;">Buy As Gift</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->
+</section>
 
-<!-- Join us section -->
-<div class="section section-custom" style="padding:0;">
-  <div class="container wide">
-    <div class="text-center">
-      <h2 class="title">Are You an Experienced <br> Embroidery Professional?</h2>
-      <div class="subtitle-2">Join our team to push your career forward today!</div>
-      <a class="button button-primary" href="contact.html">Join Us</a>
-      <div class="img-wrap" style="margin-top: 50px;"><img src="https://ld-wt73.template-help.com/free/wt_prod-27731/images/home-4-830x446.jpg" alt="Join RoseEmb Team"></div>
+<!-- Devices Section -->
+<section class="devices-section" id="devices">
+    <div class="container">
+        <div class="section-header">
+            <div class="subtitle">Precision Tools</div>
+            <h2>Embroidery Devices</h2>
+        </div>
+        <div class="devices-grid">
+            <div class="device-card">
+                <div class="device-icon"><i class="fas fa-magnet"></i></div>
+                <h3>Magnetic Hoop Pro</h3>
+                <p>Advanced magnetic hooping system for perfect fabric tension and alignment.</p>
+                <ul class="device-features">
+                    <li><i class="fas fa-check-circle"></i> No fabric slipping</li>
+                    <li><i class="fas fa-check-circle"></i> Quick change system</li>
+                    <li><i class="fas fa-check-circle"></i> Sizes: 4"x4" to 12"x12"</li>
+                </ul>
+                <div class="machine-price">$299</div>
+                <a href="#" class="btn-outline">Learn More</a>
+            </div>
+            <div class="device-card">
+                <div class="device-icon"><i class="fas fa-palette"></i></div>
+                <h3>Digitizing Tablet</h3>
+                <p>Professional embroidery digitizing tablet for custom design creation.</p>
+                <ul class="device-features">
+                    <li><i class="fas fa-check-circle"></i> 15.6" Drawing Area</li>
+                    <li><i class="fas fa-check-circle"></i> 8192 Pressure Levels</li>
+                    <li><i class="fas fa-check-circle"></i> Wireless Connection</li>
+                </ul>
+                <div class="machine-price">$449</div>
+                <a href="#" class="btn-outline">Learn More</a>
+            </div>
+            <div class="device-card">
+                <div class="device-icon"><i class="fas fa-thread"></i></div>
+                <h3>Thread Management System</h3>
+                <p>Automated thread tracking and tension control system for consistent quality.</p>
+                <ul class="device-features">
+                    <li><i class="fas fa-check-circle"></i> Real-time tension monitoring</li>
+                    <li><i class="fas fa-check-circle"></i> Break detection</li>
+                    <li><i class="fas fa-check-circle"></i> Mobile alerts</li>
+                </ul>
+                <div class="machine-price">$199</div>
+                <a href="#" class="btn-outline">Learn More</a>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
+</section>
+
+<!-- Events Section -->
+<section class="events-section" id="events">
+    <div class="container">
+        <div class="subtitle">Upcoming Event</div>
+        <h2>Embroidery Expo 2026</h2>
+        <div class="event-date">10:00 AM Saturday - April 15, 2026</div>
+        <div class="event-title">Meet Our Experts Live!</div>
+        <p class="event-desc">Join us at the International Embroidery Expo to experience our latest machines firsthand. Exclusive demos and special show pricing available!</p>
+        
+        <div class="countdown" id="countdown">
+            <div class="countdown-item"><div class="countdown-number" id="days">00</div><div class="countdown-label">Days</div></div>
+            <div class="countdown-item"><div class="countdown-number" id="hours">00</div><div class="countdown-label">Hours</div></div>
+            <div class="countdown-item"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">Minutes</div></div>
+            <div class="countdown-item"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">Seconds</div></div>
+        </div>
+        
+        <a href="#contact" class="event-btn">Register Now</a>
+    </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery-section" id="gallery">
+    <div class="container">
+        <div class="section-header">
+            <div class="subtitle">Visual Inspiration</div>
+            <h2>Our Gallery</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-card">
+                <div class="gallery-img" style="background-image: url('https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                <div class="gallery-overlay">
+                    <h4>Precision Stitching</h4>
+                    <p>High-quality embroidery samples with flawless detail</p>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <div class="gallery-img" style="background-image: url('https://images.pexels.com/photos/2338405/pexels-photo-2338405.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                <div class="gallery-overlay">
+                    <h4>3D Embroidery</h4>
+                    <p>Puff and dimensional designs that stand out</p>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <div class="gallery-img" style="background-image: url('https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=800');"></div>
+                <div class="gallery-overlay">
+                    <h4>Cap Embroidery</h4>
+                    <p>Specialized headwear designs with perfect curvature</p>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <div class="gallery-img" style="background-image: url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');"></div>
+                <div class="gallery-overlay">
+                    <h4>Industrial Production</h4>
+                    <p>High-volume manufacturing capabilities</p>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <div class="gallery-img" style="background-image: url('https://blainesewing.com/wp-content/uploads/2024/07/Routine-Maintenance-scaled.jpg');"></div>
+                <div class="gallery-overlay">
+                    <h4>Expert Support</h4>
+                    <p>Professional technicians at your service</p>
+                </div>
+            </div>
+            <div class="gallery-card">
+                <div class="gallery-img" style="background-image: url('https://i.ytimg.com/vi/KSSNq84MvAE/maxresdefault.jpg');"></div>
+                <div class="gallery-overlay">
+                    <h4>Smart Technology</h4>
+                    <p>WiFi-enabled machines with remote monitoring</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="subtitle">Our customers love RoseEmb</div>
+            <h2>Rated #1 Embroidery Machines</h2>
+        </div>
+        <div class="testimonial-container">
+            <div class="testimonial-track">
+                <div class="testimonial-box">
+                    <div class="testimonial-header"><h3>Cool!</h3><div class="stars">★★★★★</div></div>
+                    <p class="testimonial-text">"RoseEmb machines are incredibly precise. The stitch quality is flawless and the machine runs smoothly even at high speeds."</p>
+                    <div class="testimonial-name">— Sarah M.</div>
+                </div>
+                <div class="testimonial-box">
+                    <div class="testimonial-header"><h3>Excellent!</h3><div class="stars">★★★★★</div></div>
+                    <p class="testimonial-text">"The customer support team is fantastic. They helped me set up my machine and provided training. Highly recommended!"</p>
+                    <div class="testimonial-name">— John C.</div>
+                </div>
+                <div class="testimonial-box">
+                    <div class="testimonial-header"><h3>Amazing!</h3><div class="stars">★★★★★</div></div>
+                    <p class="testimonial-text">"This machine transformed my embroidery business. Speed, accuracy, and reliability - everything I needed."</p>
+                    <div class="testimonial-name">— Elena R.</div>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div>
+    </div>
+</section>
+
+<!-- Blog Section -->
+<section class="blog-section">
+    <div class="container">
+        <div class="section-header">
+            <div class="subtitle">Discover</div>
+            <h2>Latest Articles</h2>
+        </div>
+        <div class="blog-grid">
+            <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');"></div>
+                <div class="blog-content"><span class="blog-date">February 15, 2026</span><h4 class="blog-title">Top 5 Embroidery Techniques</h4><p class="blog-excerpt">Discover the most innovative embroidery techniques that will transform your creative projects.</p><a href="#" class="read-more">Continue Reading →</a></div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://blainesewing.com/wp-content/uploads/2024/07/Routine-Maintenance-scaled.jpg');"></div>
+                <div class="blog-content"><span class="blog-date">February 10, 2026</span><h4 class="blog-title">Machine Maintenance Tips</h4><p class="blog-excerpt">Learn essential maintenance practices to keep your embroidery machine running smoothly.</p><a href="#" class="read-more">Continue Reading →</a></div>
+            </div>
+            <div class="blog-card">
+                <div class="blog-img" style="background-image: url('https://i.ytimg.com/vi/KSSNq84MvAE/maxresdefault.jpg');"></div>
+                <div class="blog-content"><span class="blog-date">February 5, 2026</span><h4 class="blog-title">Choosing the Right Machine</h4><p class="blog-excerpt">A comprehensive guide to selecting the perfect embroidery machine for your business needs.</p><a href="#" class="read-more">Continue Reading →</a></div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Footer -->
-<footer class="footer">
-  <div class="top-bar">
-    <div><strong>+91 902555206</strong> <span>Call Me Back</span></div>
-    <div>Any questions or suggestions? <button class="btn-light" onclick="alert('Email us at roseembroidery@gmail.com')">Let Us Know</button></div>
-  </div>
-  <div class="footer-grid">
-    <div>
-      <h4>Our Machines</h4>
-      <p>RoseEmb Pro One</p>
-      <p>Precision Duo X</p>
-      <p>Elite 6‑Head</p>
-      <p>Magnetic Hoop Pro</p>
-      <p>Digitizing Tablet</p>
+<footer id="contact">
+    <div class="container">
+        <h4>RoseEmb</h4>
+        <p>+91 902555206 | roseembroidery@gmail.com</p>
+        <p>76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</p>
+        <p style="margin-top: 30px;">© 2026 RoseEmb — Quality Precision Trust. All rights reserved.</p>
     </div>
-    <div>
-      <h4>RoseEmb</h4>
-      <p>About Us</p>
-      <p>Reviews</p>
-      <p>Blog</p>
-      <p>Careers</p>
-    </div>
-    <div>
-      <h4>Help</h4>
-      <p>Help Center</p>
-      <p>FAQs</p>
-      <p>Pricing</p>
-      <p>Privacy Policy</p>
-      <p>Terms & Conditions</p>
-    </div>
-    <div>
-      <img src="data:image/jpeg;base64,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" alt="" width="280" height="156">
-      <p>Top 5 Embroidery Techniques You Have to Try with RoseEmb Machines</p>
-      <div class="date">February 15, 2026</div>
-    </div>
-  </div>
-  <p class="copy">© 2026 RoseEmb — Quality Precision Trust. All rights reserved. | Privacy Policy | Terms of Service</p>
 </footer>
 
 <script>
-  function toggleMenu() {
-    document.getElementById("sidebar").classList.toggle("active");
-    document.getElementById("overlay").classList.toggle("active");
-  }
-
-  function toggleSidebarDropdown() {
-    document.getElementById("sidebarProductDropdown").classList.toggle("active");
-  }
-
-  let triggered = false;
-
-const track = document.querySelector(".testimonial-track");
-const dots = document.querySelectorAll(".dot");
-
-// 👉 Function to change slide
-function goToSlide(index) {
-  if (index === 0) {
-    track.style.transform = "translateX(0)";
-  } else {
-    track.style.transform = "translateX(-470px)";
-  }
-
-  // update active dot
-  dots.forEach(dot => dot.classList.remove("active"));
-  dots[index].classList.add("active");
-}
-
-// 👉 Dot click events
-dots.forEach((dot, index) => {
-  dot.addEventListener("click", () => {
-    goToSlide(index);
-  });
-});
-
-// 👉 Scroll trigger
-window.addEventListener("scroll", () => {
-  const section = document.querySelector(".testimonial-container");
-  const rect = section.getBoundingClientRect();
-
-  if (rect.top < window.innerHeight && !triggered) {
-    triggered = true;
-    goToSlide(1); // move to 2nd view
-  }
-});
-
-
-  // Dark/Light toggle
-  const themeToggle = document.getElementById('themeToggle');
-  themeToggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    const icon = themeToggle.querySelector('i');
-    if (document.body.classList.contains('dark')) {
-      icon.classList.remove('fa-moon');
-      icon.classList.add('fa-sun');
-    } else {
-      icon.classList.remove('fa-sun');
-      icon.classList.add('fa-moon');
-    }
-  });
-
-  // Close dropdown when clicking outside
-  document.addEventListener('click', function(event) {
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-    const menuToggle = document.querySelector('.menu-toggle');
-    
-    if (sidebar && !sidebar.contains(event.target) && !overlay.contains(event.target) && !menuToggle.contains(event.target)) {
-      sidebar.classList.remove('active');
-      overlay.classList.remove('active');
-    }
-  });
-
-  // Make dropdown links clickable
-  document.querySelectorAll('.dropdown-content a, .sidebar-dropdown-content a').forEach(link => {
-    link.addEventListener('click', function(e) {
-      e.preventDefault();
-      const href = this.getAttribute('href');
-      if (href) {
-        window.location.href = href;
-      }
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
     });
-  });
+
+    // Countdown Timer
+    function getNextEventDate() {
+        const now = new Date();
+        let eventDate = new Date(2026, 3, 15, 10, 0, 0);
+        if (now > eventDate) eventDate.setFullYear(2027);
+        return eventDate;
+    }
+    let targetDate = getNextEventDate();
+    function updateCountdown() {
+        const now = new Date().getTime();
+        const distance = targetDate - now;
+        if (distance < 0) { targetDate = getNextEventDate(); updateCountdown(); return; }
+        document.getElementById('days').innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24));
+        document.getElementById('hours').innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        document.getElementById('minutes').innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        document.getElementById('seconds').innerHTML = Math.floor((distance % (1000 * 60)) / 1000);
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // Testimonial slider
+    let currentSlide = 0;
+    const track = document.querySelector(".testimonial-track");
+    const dots = document.querySelectorAll(".dot");
+    function goToSlide(index) {
+        if (track) { track.style.transform = `translateX(-${index * 600}px)`; dots.forEach(dot => dot.classList.remove("active")); dots[index].classList.add("active"); currentSlide = index; }
+    }
+    dots.forEach((dot, index) => dot.addEventListener("click", () => goToSlide(index)));
+
+    // Mobile menu
+    function toggleMenu() { 
+        document.getElementById("sidebar").classList.toggle("active"); 
+        document.getElementById("overlay").classList.toggle("active"); 
+    }
 </script>
 </body>
 </html>

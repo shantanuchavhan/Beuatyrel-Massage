@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>RoseEmb | Embroidery Machine Details</title>
+  <title>Rose Embroidery | HSW Embroidery Machine Details</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
@@ -71,6 +71,29 @@
       font-weight: 700;
       letter-spacing: 2px;
       font-family: 'Cormorant Garamond', serif;
+    }
+
+        .logo {
+      font-weight: 600;
+      font-size: 22px;
+    }
+      .logo img {
+      height: 50px;
+      width: auto;
+      background-color: rgb(255, 255, 255);
+    }
+
+    .brand-image {
+      height: auto;
+      max-height: 70px;
+      width: auto;
+    }
+
+    .logo p {
+      font-size: 11px;
+      color: var(--text-secondary);
+      letter-spacing: 1px;
+      margin-top: 2px;
     }
 
     .navbar.scrolled .logo a {
@@ -329,12 +352,6 @@
       font-size: 16px;
     }
 
-    .feature-list h3 {
-      font-size: 20px;
-      margin: 20px 0 10px;
-      color: #d45a7a;
-    }
-
     /* Accordion */
     .accordion-item {
       border: 1px solid rgba(212, 90, 122, 0.2);
@@ -455,11 +472,6 @@
       color: #fff;
     }
 
-    footer p a {
-      color: #fff;
-      text-decoration: none;
-    }
-
     /* Mobile Responsive */
     @media (max-width: 768px) {
       .hamburger { display: block; cursor: pointer; z-index: 1001; }
@@ -492,20 +504,24 @@
 
 <nav class="navbar" id="navbar">
   <div class="nav-container">
-    <div class="logo"><a href="index.html">ROSEEMB</a></div>
+    <div class="logo"><a href="index.html"><img src="./images/logo.jpg.jpeg" alt=""></a></div>
     <div class="nav-links">
       <a class="nav-attribute" href="index.html">Home</a>
-      <a class="nav-attribute" href="index.html">About</a>
+      <a class="nav-attribute" href="index.html#about">About</a>
       <div class="nav-item">
-        <a class="nav-attribute active" href="index.html">Product</a>
+        <a class="nav-attribute" href="index.html#machines">Product</a>
         <div class="dropdown-content">
-          <a href="index.html">Machines</a>
-          <a href="index.html">Devices</a>
+          <a href="index.html#1216">HSW 1216</a>
+          <a href="index.html#1632">HSW 1632</a>
+          <a href="index.html#2032">HSW 2032</a>
+          <a href="index.html#2048">HSW 2048</a>
+          <a href="index.html#2848">HSW 2848</a>
+          <a href="index.html#3248">HSW 3248</a>
         </div>
       </div>
-      <a class="nav-attribute" href="index.html">Events</a>
-      <a class="nav-attribute" href="index.html">Gallery</a>
-      <a class="nav-attribute" href="index.html">Contact</a>
+      <a class="nav-attribute" href="index.html#events">Events</a>
+      <a class="nav-attribute" href="index.html#gallery">Gallery</a>
+      <a class="nav-attribute" href="index.html#contact">Contact</a>
     </div>
     <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
   </div>
@@ -514,20 +530,24 @@
 <div class="sidebar" id="sidebar">
   <div class="close-btn" onclick="toggleMenu()">✕</div>
   <a href="index.html">Home</a>
-  <a href="index.html">About</a>
-  <a href="index.html">Machines</a>
-  <a href="index.html">Devices</a>
-  <a href="index.html">Events</a>
-  <a href="index.html">Gallery</a>
-  <a href="index.html">Contact</a>
+  <a href="index.html#about">About</a>
+  <a href="index.html#1216">HSW 1216</a>
+  <a href="index.html#1632">HSW 1632</a>
+  <a href="index.html#2032">HSW 2032</a>
+  <a href="index.html#2048">HSW 2048</a>
+  <a href="index.html#2848">HSW 2848</a>
+  <a href="index.html#3248">HSW 3248</a>
+  <a href="index.html#events">Events</a>
+  <a href="index.html#gallery">Gallery</a>
+  <a href="index.html#contact">Contact</a>
 </div>
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
 <!-- Breadcrumb Hero Section -->
 <section class="breadcrumb-hero" id="breadcrumbHero">
   <div class="container">
-    <h1 id="machineTitle" data-aos="fade-up">RoseEmb 2032</h1>
-    <p id="machineSubtitle" data-aos="fade-up" data-aos-delay="100">Next-Generation Embroidery Machine | 20x32 Inch Embroidery Area | 12 Needles | 1200 SPM</p>
+    <h1 id="machineTitle" data-aos="fade-up">HSW 2032</h1>
+    <p id="machineSubtitle" data-aos="fade-up" data-aos-delay="100">Advanced Embroidery Machine | 20x32 Inch Area | 12 Needles | 1200 SPM</p>
   </div>
 </section>
 
@@ -537,36 +557,19 @@
     <div class="product-grid">
       <!-- Gallery Column -->
       <div class="product-gallery" data-aos="fade-right">
-        <div class="gallery-thumbs" id="galleryThumbs">
-          <div class="thumb-btn active" onclick="changeImage(this, 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg')">
-            <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg" alt="Thumb 1">
-          </div>
-          <div class="thumb-btn" onclick="changeImage(this, 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg')">
-            <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg" alt="Thumb 2">
-          </div>
-          <div class="thumb-btn" onclick="changeImage(this, 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg')">
-            <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg" alt="Thumb 3">
-          </div>
-        </div>
+        <div class="gallery-thumbs" id="galleryThumbs"></div>
         <div class="gallery-main">
-          <img id="mainImage" src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg" alt="RoseEmb 2032 Main">
+          <img id="mainImage" src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg" alt="HSW 2032 Main">
         </div>
       </div>
 
       <!-- Product Info Column -->
       <div class="product-info" data-aos="fade-left">
-        <h2 id="productName">RoseEmb 2032 Embroidery Machine</h2>
+        <h2 id="productName">HSW 2032 Embroidery Machine</h2>
         <div class="product-price" id="productPrice">₹4,75,000/- (Including GST)</div>
-        <button class="btn-buy" onclick="alert('For purchase inquiries, contact +91 902555206 or email roseembroidery@gmail.com')">Buy Now</button>
+        <button class="btn-buy" onclick="alert('For purchase inquiries, contact +91 9898235259 or email inquiry@hswindia.com')">Buy Now</button>
 
-        <ul class="feature-list" id="featureList">
-          <li><i class="fas fa-desktop"></i> 10" Touch Screen with RoseEmb Software</li>
-          <li><i class="fas fa-expand-alt"></i> Embroidery Area: 20x32 Inches (500x800 mm)</li>
-          <li><i class="fas fa-database"></i> 12 Needles | 1200 SPM Max Speed</li>
-          <li><i class="fas fa-cut"></i> Auto Thread Trimmer & Color Change</li>
-          <li><i class="fas fa-wifi"></i> USB & Wi-Fi Connectivity</li>
-          <li><i class="fas fa-mobile-alt"></i> Remote Monitoring & Mobile Alerts</li>
-        </ul>
+        <ul class="feature-list" id="featureList"></ul>
 
         <div class="product-messages">
           <span><i class="fas fa-check-circle"></i> 30 Days Easy Returns</span>
@@ -582,7 +585,7 @@
               <i class="fas fa-plus"></i>
             </div>
             <div class="accordion-body">
-              <p>Rose Embroidery International Pvt Ltd. provides products, consultancy, and export-import services. By using our website or making a purchase, you agree to our Terms and Conditions. Product details are as accurate as possible but may vary. Orders may be cancelled for errors or unavailability. Returns are accepted per our Return Policy.</p>
+              <p>HSW International Pvt Ltd. provides products, consultancy, and export-import services. By using our website or making a purchase, you agree to our Terms and Conditions. Product details are as accurate as possible but may vary. Orders may be cancelled for errors or unavailability. Returns are accepted per our Return Policy.</p>
             </div>
           </div>
           <div class="accordion-item">
@@ -608,25 +611,10 @@
     </div>
 
     <!-- Additional Specifications -->
-    <div style="margin-top: 60px;" data-aos="fade-up" id="techSpecs">
+    <div style="margin-top: 60px;" data-aos="fade-up" id="techSpecsContainer">
       <h3 style="color: #d45a7a; margin-bottom: 20px;">Technical Specifications</h3>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-        <ul class="feature-list" style="background: #fff5f7; padding: 20px; border-radius: 20px;">
-          <li><i class="fas fa-chart-line"></i> Max Speed: 1200 RPM</li>
-          <li><i class="fas fa-microchip"></i> Control System: RoseEmb A15 Touch Screen</li>
-          <li><i class="fas fa-thread"></i> Thread Break Detection: Yes</li>
-          <li><i class="fas fa-hat-cowboy"></i> Cap & T-shirt Embroidery: Yes</li>
-          <li><i class="fas fa-camera"></i> Photo to Embroidery: Yes</li>
-        </ul>
-        <ul class="feature-list" style="background: #fff5f7; padding: 20px; border-radius: 20px;">
-          <li><i class="fas fa-ruler-combined"></i> Space Required: 72x72 inches (6x6 feet)</li>
-          <li><i class="fas fa-bolt"></i> Voltage: 220 Volts</li>
-          <li><i class="fas fa-weight-hanging"></i> Machine Weight: 275 kg</li>
-          <li><i class="fas fa-microphone-alt"></i> Support Devices: Sequence, Cording, Beading</li>
-          <li><i class="fas fa-mobile-alt"></i> Free Design App: Android & iOS</li>
-        </ul>
-      </div>
-      <p id="areaOptions" style="margin-top: 20px; font-weight: 500;">Available Embroidery Area Options: 12x16 inches | 16x32 inches | 20x48 inches | 28x48 inches</p>
+      <div id="techSpecsGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;"></div>
+      <p id="areaOptions" style="margin-top: 20px; font-weight: 500;">Available Embroidery Area Options: 12x16 inches | 16x32 inches | 20x32 inches | 20x48 inches | 28x48 inches</p>
     </div>
   </div>
 </section>
@@ -635,166 +623,246 @@
 <section class="related-section">
   <div class="container">
     <h2 style="text-align: center; font-size: 42px; background: linear-gradient(135deg, #d45a7a, #b84363); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-aos="fade-up">Related Products</h2>
-    <div class="related-grid">
-      <div class="related-card" data-aos="fade-up" data-aos-delay="100" onclick="window.location.href='machines.html#2032'">
-        <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg" alt="RoseEmb 2032">
-        <h4>RoseEmb 2032 Machine</h4>
-      </div>
-      <div class="related-card" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='machines.html#1216'">
-        <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg" alt="RoseEmb 1216">
-        <h4>RoseEmb 1216 Machine</h4>
-      </div>
-      <div class="related-card" data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='machines.html#1632'">
-        <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg" alt="RoseEmb 1632">
-        <h4>RoseEmb 1632 Machine</h4>
-      </div>
-      <div class="related-card" data-aos="fade-up" data-aos-delay="400" onclick="window.location.href='machines.html#2048'">
-        <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg" alt="RoseEmb 2048">
-        <h4>RoseEmb 2048 Machine</h4>
-      </div>
-    </div>
+    <div class="related-grid" id="relatedGrid"></div>
   </div>
 </section>
 
-<!-- Footer -->
-<footer>
-  <div class="container">
-    <h4 data-aos="fade-up">RoseEmb</h4>
-    <p data-aos="fade-up" data-aos-delay="100"><a href="index.html">+91 902555206</a> | <a href="index.html">roseembroidery@gmail.com</a></p>
-    <p data-aos="fade-up" data-aos-delay="200">76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</p>
-    <p style="margin-top: 30px;" data-aos="fade-up"><a href="index.html">© 2026 RoseEmb — Quality Precision Trust. All rights reserved.</a></p>
-  </div>
-</footer>
+<footer id="contact"><div class="container"><h4 data-aos="fade-up">Rose Embroidery</h4><p data-aos="fade-up" data-aos-delay="100">+91 902555206 | roseembroidery@gmail.com</p><p data-aos="fade-up" data-aos-delay="200">76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</p><p style="margin-top: 30px;" data-aos="fade-up">© 2026 Rose Embroidery — Quality Precision Trust. All rights reserved.</p></div></footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({ once: false, duration: 800, easing: 'ease-in-out', offset: 50 });
 
-  // Machine Database - All machine information
-  const machineData = {
+  // ========== COMPLETE MACHINE DATABASE ==========
+  const machinesData = {
+    '1216': {
+      id: '1216',
+      name: 'HSW 5G 1216',
+      title: 'HSW 1216',
+      fullName: 'HSW 5G 1216 Multi-Needle Embroidery Machine',
+      subtitle: 'Compact Professional Machine | 12x16 Inch Area | 12 Needles | 1000 SPM',
+      price: '₹3,25,000/- (Including GST)',
+      image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg',
+      features: [
+        '<i class="fas fa-desktop"></i> 10" Touch Screen with HSW A15 Program',
+        '<i class="fas fa-expand-alt"></i> Embroidery Area: 12x16 Inches (300x400 mm)',
+        '<i class="fas fa-database"></i> 12 Needles | 1000 SPM Max Speed',
+        '<i class="fas fa-cut"></i> Auto Thread Trimmer & Color Change',
+        '<i class="fas fa-wifi"></i> USB & Wi-Fi Connectivity',
+        '<i class="fas fa-tshirt"></i> Cap & T-shirt Embroidery Supported'
+      ],
+      techSpecs: [
+        'Max Speed: 1000 RPM',
+        'Control System: HSW A15 Touch Screen',
+        'Thread Break Detection: Yes',
+        'Space Required: 45x45 inches (4x4 feet)',
+        'Machine Weight: 200 kg'
+      ]
+    },
+    '1632': {
+      id: '1632',
+      name: 'HSW 5G 1632',
+      title: 'HSW 1632',
+      fullName: 'HSW 5G 1632 Professional Embroidery Machine',
+      subtitle: 'Mid-Range Industrial Machine | 16x32 Inch Area | 12 Needles | 1000 SPM',
+      price: '₹4,10,000/- (Including GST)',
+      image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg',
+      features: [
+        '<i class="fas fa-desktop"></i> 10" Touch Screen with HSW A15 Program',
+        '<i class="fas fa-expand-alt"></i> Embroidery Area: 16x32 Inches (400x800 mm)',
+        '<i class="fas fa-database"></i> 12 Needles | 1000 SPM Max Speed',
+        '<i class="fas fa-cut"></i> Auto Thread Trimmer & Color Change',
+        '<i class="fas fa-wifi"></i> USB & Wi-Fi Connectivity',
+        '<i class="fas fa-microphone-alt"></i> Support Devices: Sequence, Cording, Beading'
+      ],
+      techSpecs: [
+        'Max Speed: 1000 RPM',
+        'Control System: HSW A15 Touch Screen',
+        'Space Required: 60x60 inches (5x5 feet)',
+        'Electricity: 220 Volts (Single Phase)',
+        'Machine Weight: 250 kg'
+      ]
+    },
     '2032': {
-      name: 'RoseEmb 2032 Embroidery Machine',
-      title: 'RoseEmb 2032',
-      subtitle: 'Next-Generation Embroidery Machine | 20x32 Inch Embroidery Area | 12 Needles | 1200 SPM',
+      id: '2032',
+      name: 'HSW 5G 2032',
+      title: 'HSW 2032',
+      fullName: 'HSW 5G 2032 Advanced Embroidery System',
+      subtitle: 'Next-Generation Machine | 20x32 Inch Area | 12 Needles | 1200 SPM',
       price: '₹4,75,000/- (Including GST)',
       image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg',
       features: [
-        '<i class="fas fa-desktop"></i> 10" Touch Screen with RoseEmb Software',
+        '<i class="fas fa-desktop"></i> 10" Touch Screen with HSW A15 Program',
         '<i class="fas fa-expand-alt"></i> Embroidery Area: 20x32 Inches (500x800 mm)',
         '<i class="fas fa-database"></i> 12 Needles | 1200 SPM Max Speed',
         '<i class="fas fa-cut"></i> Auto Thread Trimmer & Color Change',
         '<i class="fas fa-wifi"></i> USB & Wi-Fi Connectivity',
         '<i class="fas fa-mobile-alt"></i> Remote Monitoring & Mobile Alerts'
       ],
-      areaOptions: 'Available Embroidery Area Options: 12x16 inches | 16x32 inches | 20x48 inches | 28x48 inches'
-    },
-    '1216': {
-      name: 'RoseEmb 1216 Embroidery Machine',
-      title: 'RoseEmb 1216',
-      subtitle: 'Compact Home Model | 12x16 Inch Embroidery Area | 12 Needles | 1000 SPM',
-      price: '₹3,25,000/- (Including GST)',
-      image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg',
-      features: [
-        '<i class="fas fa-desktop"></i> 7" Touch Screen with RoseEmb Software',
-        '<i class="fas fa-expand-alt"></i> Embroidery Area: 12x16 Inches (300x400 mm)',
-        '<i class="fas fa-database"></i> 12 Needles | 1000 SPM Max Speed',
-        '<i class="fas fa-cut"></i> Auto Thread Trimmer',
-        '<i class="fas fa-wifi"></i> USB Connectivity',
-        '<i class="fas fa-home"></i> Perfect for Home Studios'
-      ],
-      areaOptions: 'Available Embroidery Area Options: 12x16 inches | 16x32 inches'
-    },
-    '1632': {
-      name: 'RoseEmb 1632 Embroidery Machine',
-      title: 'RoseEmb 1632',
-      subtitle: 'Mid-Range Industrial Machine | 16x32 Inch Embroidery Area | 12 Needles | 1000 SPM',
-      price: '₹4,10,000/- (Including GST)',
-      image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg',
-      features: [
-        '<i class="fas fa-desktop"></i> 10" Touch Screen with RoseEmb Software',
-        '<i class="fas fa-expand-alt"></i> Embroidery Area: 16x32 Inches (400x800 mm)',
-        '<i class="fas fa-database"></i> 12 Needles | 1000 SPM Max Speed',
-        '<i class="fas fa-cut"></i> Auto Thread Trimmer & Color Change',
-        '<i class="fas fa-wifi"></i> USB & Wi-Fi Connectivity',
-        '<i class="fas fa-chart-line"></i> Production Analytics'
-      ],
-      areaOptions: 'Available Embroidery Area Options: 12x16 inches | 16x32 inches | 20x48 inches'
+      techSpecs: [
+        'Max Speed: 1200 RPM',
+        'Control System: HSW A15 Touch Screen',
+        'Space Required: 72x72 inches (6x6 feet)',
+        'Machine Weight: 275 kg',
+        'Support Devices: Sequence, Cording, Beading'
+      ]
     },
     '2048': {
-      name: 'RoseEmb 2048 Embroidery Machine',
-      title: 'RoseEmb 2048',
-      subtitle: 'Saree & Large Format Machine | 20x48 Inch Embroidery Area | 12 Needles | 1200 SPM',
-      price: '₹5,20,000/- (Including GST)',
+      id: '2048',
+      name: 'HSW 5G 2048',
+      title: 'HSW 2048',
+      fullName: 'HSW 2048 Large Format Embroidery Machine',
+      subtitle: 'Saree & Large Garment Specialist | 20x48 Inch Area | 12 Needles | 1200 SPM',
+      price: '₹5,25,000/- (Including GST)',
       image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg',
       features: [
-        '<i class="fas fa-desktop"></i> 10" Touch Screen with RoseEmb Software',
+        '<i class="fas fa-desktop"></i> 10" Touch Screen with HSW A15 Program',
         '<i class="fas fa-expand-alt"></i> Embroidery Area: 20x48 Inches (500x1200 mm)',
         '<i class="fas fa-database"></i> 12 Needles | 1200 SPM Max Speed',
         '<i class="fas fa-cut"></i> Auto Thread Trimmer & Color Change',
         '<i class="fas fa-wifi"></i> USB & Wi-Fi Connectivity',
-        '<i class="fas fa-tshirt"></i> Ideal for Saree & Large Garments'
+        '<i class="fas fa-tshirt"></i> Ideal for Sarees, Blouses & Burkhas'
       ],
-      areaOptions: 'Available Embroidery Area Options: 20x48 inches | 28x48 inches'
+      techSpecs: [
+        'Max Speed: 1200 RPM',
+        'Space Required: 94x60 inches (8x5 feet)',
+        'Machine Weight: 300 kg',
+        'Support Devices: Sequence, Twin sequence, Cording, Beading',
+        '220 Volts Power Requirement'
+      ]
+    },
+    '2848': {
+      id: '2848',
+      name: 'HSW 5G 2848',
+      title: 'HSW 2848',
+      fullName: 'HSW 2848 Industrial Embroidery Machine',
+      subtitle: 'Large Format Industrial Machine | 28x48 Inch Area | 12 Needles | 1200 RPM',
+      price: '₹5,90,000/- (Including GST)',
+      image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-1.jpg',
+      features: [
+        '<i class="fas fa-desktop"></i> 10" Touch Screen with HSW A15 Program',
+        '<i class="fas fa-expand-alt"></i> Embroidery Area: 28x48 Inches (700x1200 mm)',
+        '<i class="fas fa-database"></i> 12 Needles | 1200 RPM Max Speed',
+        '<i class="fas fa-cut"></i> Auto Thread Trimmer & Color Change',
+        '<i class="fas fa-wifi"></i> USB & Wi-Fi Connectivity',
+        '<i class="fas fa-camera"></i> Photo to Embroidery Supported'
+      ],
+      techSpecs: [
+        'Max Speed: 1200 RPM',
+        'Space Required: 96x96 inches (8x8 feet)',
+        'Machine Weight: 350 kg',
+        'Support Devices: Sequence, Twin sequence, Cording, Beading',
+        '220 Volts (Single Phase)'
+      ]
+    },
+    '3248': {
+      id: '3248',
+      name: 'HSW 5G 3248',
+      title: 'HSW 3248',
+      fullName: 'HSW 3248 Ultimate Embroidery System',
+      subtitle: 'Maximum Production Capacity | 32x48 Inch Area | 12 Needles | 1200 RPM',
+      price: '₹6,30,000/- (Including GST)',
+      image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/3248-1.jpg',
+      features: [
+        '<i class="fas fa-desktop"></i> 10" Touch Screen with HSW A15 Program',
+        '<i class="fas fa-expand-alt"></i> Embroidery Area: 32x48 Inches (800x1200 mm)',
+        '<i class="fas fa-database"></i> 12 Needles | 1200 RPM Max Speed',
+        '<i class="fas fa-cut"></i> Auto Thread Trimmer & Color Change',
+        '<i class="fas fa-wifi"></i> USB & Wi-Fi Connectivity',
+        '<i class="fas fa-chart-line"></i> Maximum Embroidery Field Available'
+      ],
+      techSpecs: [
+        'Max Speed: 1200 RPM',
+        'Space Required: 96x96 inches (8x8 feet)',
+        'Machine Weight: 450 kg',
+        'Cap Embroidery: Not Supported',
+        'Support Devices: Sequence, Twin sequence, Cording, Beading'
+      ]
     }
   };
 
-  // Get hash from URL and load machine data
-  function loadMachineFromHash() {
-    let hash = window.location.hash.substring(1); // Remove the # symbol
-    
-    // Default to 2032 if no hash or invalid hash
-    if (!hash || !machineData[hash]) {
-      hash = '2032';
-    }
-    
-    const machine = machineData[hash];
-    
-    // Update page content
+  // Store in localStorage
+  localStorage.setItem("hswMachines", JSON.stringify(machinesData));
+
+  // Get current machine from URL hash
+  function getCurrentMachineId() {
+    const hash = window.location.hash.substring(1);
+    if (hash && machinesData[hash]) return hash;
+    return '2032';
+  }
+
+  // Update all page content based on selected machine
+  function loadMachine(machineId) {
+    const machine = machinesData[machineId];
+    if (!machine) return;
+
+    // Update hero section
     document.getElementById('machineTitle').innerText = machine.title;
     document.getElementById('machineSubtitle').innerText = machine.subtitle;
-    document.getElementById('productName').innerText = machine.name;
+    
+    // Update product info
+    document.getElementById('productName').innerText = machine.fullName;
     document.getElementById('productPrice').innerText = machine.price;
-    document.getElementById('areaOptions').innerHTML = machine.areaOptions;
     
     // Update main image
     document.getElementById('mainImage').src = machine.image;
     
-    // Update feature list
-    const featureList = document.getElementById('featureList');
-    featureList.innerHTML = '';
-    machine.features.forEach(feature => {
-      const li = document.createElement('li');
-      li.innerHTML = feature;
-      featureList.appendChild(li);
-    });
-    
-    // Update gallery thumbnails (keep them dynamic based on machine)
-    const galleryThumbs = document.getElementById('galleryThumbs');
-    galleryThumbs.innerHTML = `
-      <div class="thumb-btn active" onclick="changeImage(this, '${machine.image}')">
-        <img src="${machine.image}" alt="Main View">
-      </div>
-      <div class="thumb-btn" onclick="changeImage(this, 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg')">
-        <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg" alt="Side View">
-      </div>
-      <div class="thumb-btn" onclick="changeImage(this, 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg')">
-        <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg" alt="Control Panel">
-      </div>
-    `;
-    
-    // Update hero background based on machine
+    // Update hero background
     const heroSection = document.querySelector('.breadcrumb-hero');
     heroSection.style.background = `linear-gradient(135deg, rgba(59, 22, 32, 0.7) 0%, rgba(212, 90, 122, 0.75) 100%), url('${machine.image}')`;
     heroSection.style.backgroundSize = 'cover';
     heroSection.style.backgroundPosition = 'center';
+    
+    // Update feature list
+    const featureList = document.getElementById('featureList');
+    featureList.innerHTML = machine.features.map(f => `<li>${f}</li>`).join('');
+    
+    // Update technical specifications
+    const techSpecsGrid = document.getElementById('techSpecsGrid');
+    techSpecsGrid.innerHTML = `
+      <ul class="feature-list" style="background: #fff5f7; padding: 20px; border-radius: 20px;">
+        ${machine.techSpecs.map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}
+      </ul>
+      <ul class="feature-list" style="background: #fff5f7; padding: 20px; border-radius: 20px;">
+        <li><i class="fas fa-bolt"></i> Voltage: 220 Volts (Single Phase)</li>
+        <li><i class="fas fa-wifi"></i> Connectivity: USB & Wi-Fi</li>
+        <li><i class="fas fa-thread"></i> Thread Break Detection: Yes</li>
+        <li><i class="fas fa-camera"></i> Photo to Embroidery: Yes</li>
+        <li><i class="fas fa-mobile-alt"></i> Free Design App: Android & iOS</li>
+      </ul>
+    `;
+    
+    // Update gallery thumbs
+    const galleryThumbs = document.getElementById('galleryThumbs');
+    const thumbImages = [
+      machine.image,
+      'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg',
+      'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg'
+    ];
+    galleryThumbs.innerHTML = thumbImages.map((img, idx) => `
+      <div class="thumb-btn ${idx === 0 ? 'active' : ''}" onclick="changeImage(this, '${img}')">
+        <img src="${img}" alt="Thumb ${idx + 1}">
+      </div>
+    `).join('');
   }
 
-  // Navbar scroll effect
-  window.addEventListener('scroll', function() {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) navbar.classList.add('scrolled');
-    else navbar.classList.remove('scrolled');
-  });
+  // Render related products (all other machines)
+  function renderRelatedProducts(currentId) {
+    const relatedGrid = document.getElementById('relatedGrid');
+    const otherMachines = Object.keys(machinesData).filter(id => id !== currentId);
+    
+    relatedGrid.innerHTML = otherMachines.map(id => `
+      <div class="related-card" onclick="navigateToMachine('${id}')">
+        <img src="${machinesData[id].image}" alt="${machinesData[id].name}">
+        <h4>${machinesData[id].name}</h4>
+      </div>
+    `).join('');
+  }
+
+  // Navigation function - redirects to index.html with hash
+  function navigateToMachine(machineId) {
+    window.location.href = `index.html#${machineId}`;
+  }
 
   // Gallery image changer
   function changeImage(element, imgSrc) {
@@ -827,24 +895,48 @@
     document.getElementById('overlay').classList.toggle('active');
   }
 
-  // Close sidebar when clicking on a link
+  // Navbar scroll effect
+  window.addEventListener('scroll', function() {
+    const navbar = document.getElementById('navbar');
+    if (window.scrollY > 50) navbar.classList.add('scrolled');
+    else navbar.classList.remove('scrolled');
+  });
+
+  // Handle hash change (for when page is already loaded)
+  window.addEventListener('hashchange', function() {
+    const machineId = getCurrentMachineId();
+    loadMachine(machineId);
+    renderRelatedProducts(machineId);
+  });
+
+  // Initialize
+  const initialId = getCurrentMachineId();
+  loadMachine(initialId);
+  renderRelatedProducts(initialId);
+  
+  // Setup machine navigation links in dropdown and sidebar
+  document.querySelectorAll('.dropdown-content a, .sidebar a').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href && href.includes('#')) {
+      link.addEventListener('click', function(e) {
+        // Allow default navigation to index.html with hash
+        if (window.innerWidth <= 768) toggleMenu();
+      });
+    }
+  });
+
+  // Close sidebar when clicking on a link in mobile
   document.querySelectorAll('.sidebar a').forEach(anchor => {
     anchor.addEventListener('click', function() {
-      if (window.innerWidth <= 768) {
-        toggleMenu();
-      }
+      if (window.innerWidth <= 768) toggleMenu();
     });
   });
 
-  // Load machine based on hash when page loads
-  window.addEventListener('load', function() {
-    loadMachineFromHash();
-  });
-  
-  // Also listen for hash changes
-  window.addEventListener('hashchange', function() {
-    loadMachineFromHash();
-  });
+  // Expose functions globally
+  window.changeImage = changeImage;
+  window.toggleAccordion = toggleAccordion;
+  window.toggleMenu = toggleMenu;
+  window.navigateToMachine = navigateToMachine;
 </script>
 </body>
 </html>

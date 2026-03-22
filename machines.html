@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>RoseEmb | RoseEmb 2032 Embroidery Machine</title>
+  <title>RoseEmb | Embroidery Machine Details</title>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
@@ -36,7 +36,7 @@
       padding: 0 30px;
     }
 
-    /* Navbar Styles - Same as previous template */
+    /* Navbar Styles */
     .navbar {
       position: fixed;
       top: 0;
@@ -441,7 +441,7 @@
       color: #d45a7a;
     }
 
-    /* Footer - Same as template */
+    /* Footer */
     footer {
       background: linear-gradient(135deg, #b84363 0%, #9a3550 100%);
       color: #fff;
@@ -458,10 +458,6 @@
     footer p a {
       color: #fff;
       text-decoration: none;
-    }
-
-    footer p a:hover {
-      text-decoration: underline;
     }
 
     /* Mobile Responsive */
@@ -528,10 +524,10 @@
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
 <!-- Breadcrumb Hero Section -->
-<section class="breadcrumb-hero">
+<section class="breadcrumb-hero" id="breadcrumbHero">
   <div class="container">
-    <h1 data-aos="fade-up">RoseEmb 2032</h1>
-    <p data-aos="fade-up" data-aos-delay="100">Next-Generation Embroidery Machine | 20x32 Inch Embroidery Area | 12 Needles | 1200 SPM</p>
+    <h1 id="machineTitle" data-aos="fade-up">RoseEmb 2032</h1>
+    <p id="machineSubtitle" data-aos="fade-up" data-aos-delay="100">Next-Generation Embroidery Machine | 20x32 Inch Embroidery Area | 12 Needles | 1200 SPM</p>
   </div>
 </section>
 
@@ -541,7 +537,7 @@
     <div class="product-grid">
       <!-- Gallery Column -->
       <div class="product-gallery" data-aos="fade-right">
-        <div class="gallery-thumbs">
+        <div class="gallery-thumbs" id="galleryThumbs">
           <div class="thumb-btn active" onclick="changeImage(this, 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg')">
             <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg" alt="Thumb 1">
           </div>
@@ -559,11 +555,11 @@
 
       <!-- Product Info Column -->
       <div class="product-info" data-aos="fade-left">
-        <h2>RoseEmb 2032 Embroidery Machine</h2>
-        <div class="product-price">₹4,75,000/- (Including GST)</div>
+        <h2 id="productName">RoseEmb 2032 Embroidery Machine</h2>
+        <div class="product-price" id="productPrice">₹4,75,000/- (Including GST)</div>
         <button class="btn-buy" onclick="alert('For purchase inquiries, contact +91 902555206 or email roseembroidery@gmail.com')">Buy Now</button>
 
-        <ul class="feature-list">
+        <ul class="feature-list" id="featureList">
           <li><i class="fas fa-desktop"></i> 10" Touch Screen with RoseEmb Software</li>
           <li><i class="fas fa-expand-alt"></i> Embroidery Area: 20x32 Inches (500x800 mm)</li>
           <li><i class="fas fa-database"></i> 12 Needles | 1200 SPM Max Speed</li>
@@ -586,7 +582,7 @@
               <i class="fas fa-plus"></i>
             </div>
             <div class="accordion-body">
-              <p>RoseEmb International Pvt Ltd. provides products, consultancy, and export-import services. By using our website or making a purchase, you agree to our Terms and Conditions. Product details are as accurate as possible but may vary. Orders may be cancelled for errors or unavailability. Returns are accepted per our Return Policy.</p>
+              <p>Rose Embroidery International Pvt Ltd. provides products, consultancy, and export-import services. By using our website or making a purchase, you agree to our Terms and Conditions. Product details are as accurate as possible but may vary. Orders may be cancelled for errors or unavailability. Returns are accepted per our Return Policy.</p>
             </div>
           </div>
           <div class="accordion-item">
@@ -612,7 +608,7 @@
     </div>
 
     <!-- Additional Specifications -->
-    <div style="margin-top: 60px;" data-aos="fade-up">
+    <div style="margin-top: 60px;" data-aos="fade-up" id="techSpecs">
       <h3 style="color: #d45a7a; margin-bottom: 20px;">Technical Specifications</h3>
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
         <ul class="feature-list" style="background: #fff5f7; padding: 20px; border-radius: 20px;">
@@ -630,7 +626,7 @@
           <li><i class="fas fa-mobile-alt"></i> Free Design App: Android & iOS</li>
         </ul>
       </div>
-      <p style="margin-top: 20px; font-weight: 500;">Available Embroidery Area Options: 12x16 inches | 16x32 inches | 20x48 inches | 28x48 inches</p>
+      <p id="areaOptions" style="margin-top: 20px; font-weight: 500;">Available Embroidery Area Options: 12x16 inches | 16x32 inches | 20x48 inches | 28x48 inches</p>
     </div>
   </div>
 </section>
@@ -640,27 +636,27 @@
   <div class="container">
     <h2 style="text-align: center; font-size: 42px; background: linear-gradient(135deg, #d45a7a, #b84363); -webkit-background-clip: text; -webkit-text-fill-color: transparent;" data-aos="fade-up">Related Products</h2>
     <div class="related-grid">
-      <div class="related-card" data-aos="fade-up" data-aos-delay="100" onclick="window.location.href='index.html'">
+      <div class="related-card" data-aos="fade-up" data-aos-delay="100" onclick="window.location.href='machines.html#2032'">
+        <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg" alt="RoseEmb 2032">
+        <h4>RoseEmb 2032 Machine</h4>
+      </div>
+      <div class="related-card" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='machines.html#1216'">
         <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg" alt="RoseEmb 1216">
         <h4>RoseEmb 1216 Machine</h4>
       </div>
-      <div class="related-card" data-aos="fade-up" data-aos-delay="200" onclick="window.location.href='index.html'">
+      <div class="related-card" data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='machines.html#1632'">
         <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg" alt="RoseEmb 1632">
         <h4>RoseEmb 1632 Machine</h4>
       </div>
-      <div class="related-card" data-aos="fade-up" data-aos-delay="300" onclick="window.location.href='index.html'">
+      <div class="related-card" data-aos="fade-up" data-aos-delay="400" onclick="window.location.href='machines.html#2048'">
         <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg" alt="RoseEmb 2048">
         <h4>RoseEmb 2048 Machine</h4>
-      </div>
-      <div class="related-card" data-aos="fade-up" data-aos-delay="400" onclick="window.location.href='index.html'">
-        <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-1.jpg" alt="RoseEmb 2848">
-        <h4>RoseEmb 2848 Machine</h4>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Footer - Same as template -->
+<!-- Footer -->
 <footer>
   <div class="container">
     <h4 data-aos="fade-up">RoseEmb</h4>
@@ -673,6 +669,125 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
   AOS.init({ once: false, duration: 800, easing: 'ease-in-out', offset: 50 });
+
+  // Machine Database - All machine information
+  const machineData = {
+    '2032': {
+      name: 'RoseEmb 2032 Embroidery Machine',
+      title: 'RoseEmb 2032',
+      subtitle: 'Next-Generation Embroidery Machine | 20x32 Inch Embroidery Area | 12 Needles | 1200 SPM',
+      price: '₹4,75,000/- (Including GST)',
+      image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg',
+      features: [
+        '<i class="fas fa-desktop"></i> 10" Touch Screen with RoseEmb Software',
+        '<i class="fas fa-expand-alt"></i> Embroidery Area: 20x32 Inches (500x800 mm)',
+        '<i class="fas fa-database"></i> 12 Needles | 1200 SPM Max Speed',
+        '<i class="fas fa-cut"></i> Auto Thread Trimmer & Color Change',
+        '<i class="fas fa-wifi"></i> USB & Wi-Fi Connectivity',
+        '<i class="fas fa-mobile-alt"></i> Remote Monitoring & Mobile Alerts'
+      ],
+      areaOptions: 'Available Embroidery Area Options: 12x16 inches | 16x32 inches | 20x48 inches | 28x48 inches'
+    },
+    '1216': {
+      name: 'RoseEmb 1216 Embroidery Machine',
+      title: 'RoseEmb 1216',
+      subtitle: 'Compact Home Model | 12x16 Inch Embroidery Area | 12 Needles | 1000 SPM',
+      price: '₹3,25,000/- (Including GST)',
+      image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg',
+      features: [
+        '<i class="fas fa-desktop"></i> 7" Touch Screen with RoseEmb Software',
+        '<i class="fas fa-expand-alt"></i> Embroidery Area: 12x16 Inches (300x400 mm)',
+        '<i class="fas fa-database"></i> 12 Needles | 1000 SPM Max Speed',
+        '<i class="fas fa-cut"></i> Auto Thread Trimmer',
+        '<i class="fas fa-wifi"></i> USB Connectivity',
+        '<i class="fas fa-home"></i> Perfect for Home Studios'
+      ],
+      areaOptions: 'Available Embroidery Area Options: 12x16 inches | 16x32 inches'
+    },
+    '1632': {
+      name: 'RoseEmb 1632 Embroidery Machine',
+      title: 'RoseEmb 1632',
+      subtitle: 'Mid-Range Industrial Machine | 16x32 Inch Embroidery Area | 12 Needles | 1000 SPM',
+      price: '₹4,10,000/- (Including GST)',
+      image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg',
+      features: [
+        '<i class="fas fa-desktop"></i> 10" Touch Screen with RoseEmb Software',
+        '<i class="fas fa-expand-alt"></i> Embroidery Area: 16x32 Inches (400x800 mm)',
+        '<i class="fas fa-database"></i> 12 Needles | 1000 SPM Max Speed',
+        '<i class="fas fa-cut"></i> Auto Thread Trimmer & Color Change',
+        '<i class="fas fa-wifi"></i> USB & Wi-Fi Connectivity',
+        '<i class="fas fa-chart-line"></i> Production Analytics'
+      ],
+      areaOptions: 'Available Embroidery Area Options: 12x16 inches | 16x32 inches | 20x48 inches'
+    },
+    '2048': {
+      name: 'RoseEmb 2048 Embroidery Machine',
+      title: 'RoseEmb 2048',
+      subtitle: 'Saree & Large Format Machine | 20x48 Inch Embroidery Area | 12 Needles | 1200 SPM',
+      price: '₹5,20,000/- (Including GST)',
+      image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg',
+      features: [
+        '<i class="fas fa-desktop"></i> 10" Touch Screen with RoseEmb Software',
+        '<i class="fas fa-expand-alt"></i> Embroidery Area: 20x48 Inches (500x1200 mm)',
+        '<i class="fas fa-database"></i> 12 Needles | 1200 SPM Max Speed',
+        '<i class="fas fa-cut"></i> Auto Thread Trimmer & Color Change',
+        '<i class="fas fa-wifi"></i> USB & Wi-Fi Connectivity',
+        '<i class="fas fa-tshirt"></i> Ideal for Saree & Large Garments'
+      ],
+      areaOptions: 'Available Embroidery Area Options: 20x48 inches | 28x48 inches'
+    }
+  };
+
+  // Get hash from URL and load machine data
+  function loadMachineFromHash() {
+    let hash = window.location.hash.substring(1); // Remove the # symbol
+    
+    // Default to 2032 if no hash or invalid hash
+    if (!hash || !machineData[hash]) {
+      hash = '2032';
+    }
+    
+    const machine = machineData[hash];
+    
+    // Update page content
+    document.getElementById('machineTitle').innerText = machine.title;
+    document.getElementById('machineSubtitle').innerText = machine.subtitle;
+    document.getElementById('productName').innerText = machine.name;
+    document.getElementById('productPrice').innerText = machine.price;
+    document.getElementById('areaOptions').innerHTML = machine.areaOptions;
+    
+    // Update main image
+    document.getElementById('mainImage').src = machine.image;
+    
+    // Update feature list
+    const featureList = document.getElementById('featureList');
+    featureList.innerHTML = '';
+    machine.features.forEach(feature => {
+      const li = document.createElement('li');
+      li.innerHTML = feature;
+      featureList.appendChild(li);
+    });
+    
+    // Update gallery thumbnails (keep them dynamic based on machine)
+    const galleryThumbs = document.getElementById('galleryThumbs');
+    galleryThumbs.innerHTML = `
+      <div class="thumb-btn active" onclick="changeImage(this, '${machine.image}')">
+        <img src="${machine.image}" alt="Main View">
+      </div>
+      <div class="thumb-btn" onclick="changeImage(this, 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg')">
+        <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg" alt="Side View">
+      </div>
+      <div class="thumb-btn" onclick="changeImage(this, 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg')">
+        <img src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg" alt="Control Panel">
+      </div>
+    `;
+    
+    // Update hero background based on machine
+    const heroSection = document.querySelector('.breadcrumb-hero');
+    heroSection.style.background = `linear-gradient(135deg, rgba(59, 22, 32, 0.7) 0%, rgba(212, 90, 122, 0.75) 100%), url('${machine.image}')`;
+    heroSection.style.backgroundSize = 'cover';
+    heroSection.style.backgroundPosition = 'center';
+  }
 
   // Navbar scroll effect
   window.addEventListener('scroll', function() {
@@ -721,17 +836,14 @@
     });
   });
 
-  // Close dropdowns when clicking outside (optional)
-  document.addEventListener('click', function(event) {
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-    const hamburger = document.querySelector('.hamburger');
-    
-    if (sidebar && sidebar.classList.contains('active')) {
-      if (!sidebar.contains(event.target) && !overlay.contains(event.target) && !hamburger?.contains(event.target)) {
-        toggleMenu();
-      }
-    }
+  // Load machine based on hash when page loads
+  window.addEventListener('load', function() {
+    loadMachineFromHash();
+  });
+  
+  // Also listen for hash changes
+  window.addEventListener('hashchange', function() {
+    loadMachineFromHash();
   });
 </script>
 </body>

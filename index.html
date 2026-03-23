@@ -542,6 +542,61 @@
             border-color: transparent;
         }
 
+        /* Machine Filter Styles */
+        .machines-filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 2;
+            flex-wrap: wrap;
+        }
+
+        .machine-filter-input, .machine-filter-select {
+            padding: 14px 25px;
+            border-radius: 30px;
+            border: 1px solid rgba(212, 90, 122, 0.3);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            color: #5a3e4a;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 5px 15px rgba(212, 90, 122, 0.1);
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .machine-filter-input {
+            width: 320px;
+        }
+
+        .machine-filter-select {
+            width: 250px;
+            cursor: pointer;
+            appearance: none;
+            -webkit-appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23d45a7a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1.2rem center;
+            background-size: 1.2em;
+        }
+
+        .machine-filter-input:focus, .machine-filter-select:focus {
+            border-color: #d45a7a;
+            box-shadow: 0 8px 25px rgba(212, 90, 122, 0.2);
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .machine-filter-input, .machine-filter-select {
+                width: 100%;
+            }
+            .machines-filter-container {
+                flex-direction: column;
+                padding: 0 20px;
+            }
+        }
+
         /* Devices Section - Clean White/Light */
         .devices-section {
             background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
@@ -1033,6 +1088,20 @@
             <div class="subtitle">Industrial Excellence</div>
            <h2 class="embroidery-machines" style="color:#9a3550 !important;">Embroidery Machines</h2>
         </div>
+
+        <div class="machines-filter-container" data-aos="fade-up">
+            <input type="text" id="machineSearch" class="machine-filter-input" placeholder="Search by name, specs..." onkeyup="filterMachines()">
+            <select id="machineCategory" class="machine-filter-select" onchange="filterMachines()">
+                <option value="all">All Machines</option>
+                <option value="HSW 5G 2032">HSW 5G 2032</option>
+                <option value="HSW 5G 1216">HSW 5G 1216</option>
+                <option value="HSW 5G 1632">HSW 5G 1632</option>
+                <option value="HSW 5G 2048">HSW 5G 2048</option>
+                <option value="HSW 5G 2848">HSW 5G 2848</option>
+                <option value="HSW 5G 3248">HSW 5G 3248</option>
+            </select>
+        </div>
+
         <div class="machines-grid">
 
     <!-- 2032 -->
@@ -1219,6 +1288,26 @@
     dots.forEach((dot, index) => dot.addEventListener("click", () => goToSlide(index)));
     function toggleMenu() { document.getElementById("sidebar").classList.toggle("active"); document.getElementById("overlay").classList.toggle("active"); }
     document.querySelectorAll('.nav-attribute, .sidebar a').forEach(anchor => { anchor.addEventListener('click', function(e) { const href = this.getAttribute('href'); if (href && href.startsWith('#')) { e.preventDefault(); const targetId = href.substring(1); const targetElement = document.getElementById(targetId); if (targetElement) { targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' }); if (window.innerWidth <= 768) toggleMenu(); } } }); });
+
+    function filterMachines() {
+        const searchValue = document.getElementById('machineSearch').value.toLowerCase();
+        const dropdownValue = document.getElementById('machineCategory').value;
+        const cards = document.querySelectorAll('.machines-grid .machine-card');
+
+        cards.forEach(card => {
+            const content = card.innerText.toLowerCase();
+            const title = card.querySelector('h3').innerText.toLowerCase();
+            
+            const matchesSearch = content.includes(searchValue);
+            const matchesDropdown = dropdownValue === 'all' || title.includes(dropdownValue.toLowerCase());
+
+            if (matchesSearch && matchesDropdown) {
+                card.style.display = '';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    }
 </script>
 </body>
 </html>

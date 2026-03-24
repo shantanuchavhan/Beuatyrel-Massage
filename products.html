@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>All Products | Rose Embroidery Machines & Devices</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #fff;
+            line-height: 1.6;
+            background: #F20C97;
+            overflow-x: hidden;
+        }
+
+        :root {
+            --pink-dark: #F20C97;
+            --pink-light: #F353AD;
+        }
+
+        h1, h2, h3, h4, .section-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background: transparent;
+        }
+
+        .navbar.scrolled {
+            background: var(--pink-dark);
+            padding: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            background: transparent;
+            filter: brightness(0) invert(1);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+        .nav-attribute {
+            color: #fff;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-attribute:hover {
+            color: var(--pink-light);
+        }
+
+        .nav-attribute.active {
+            color: var(--pink-light);
+            font-weight: 600;
+        }
+
+        .nav-item {
+            position: relative;
+            display: inline-block;
+        }
+
+        .nav-item>.nav-attribute::after {
+            content: "❯";
+            font-size: 12px;
+            margin-left: 8px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+            color: var(--pink-light);
+            font-weight: bold;
+        }
+
+        .nav-item:hover>.nav-attribute::after {
+            transform: rotate(90deg);
+        }
+
+        .dropdown-content {
+            position: absolute;
+            top: calc(100% + 5px);
+            left: 0;
+            background: var(--pink-dark);
+            min-width: 200px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            z-index: 10000;
+            padding: 12px 0;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.25s ease;
+            pointer-events: none;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .nav-item:hover .dropdown-content,
+        .dropdown-content:hover {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .dropdown-content a {
+            color: #fff !important;
+            padding: 12px 25px;
+            display: block;
+            text-align: left;
+            font-size: 13px;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .dropdown-content a:last-child {
+            border-bottom: none;
+        }
+
+        .dropdown-content a:hover {
+            background: var(--pink-light);
+            padding-left: 32px;
+        }
+
+        .hamburger, .sidebar, .overlay { display: none; }
+
+        /* Hero Section */
+        .products-hero {
+            height: 350px;
+            background: linear-gradient(135deg, var(--pink-dark) 0%, var(--pink-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            margin-top: 80px;
+        }
+
+        .products-hero h1 {
+            font-size: 64px;
+            margin-bottom: 15px;
+        }
+
+        .products-hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+
+        /* Filter Section */
+        .filter-section {
+            padding: 50px 0 30px;
+            background: var(--pink-dark);
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+        }
+
+        .filter-btn {
+            padding: 12px 28px;
+            border-radius: 40px;
+            background: var(--pink-light);
+            color: #fff;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .filter-btn.active {
+            background: #fff;
+            color: var(--pink-dark);
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .search-box {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+
+        .search-box input {
+            width: 100%;
+            max-width: 500px;
+            padding: 14px 25px;
+            border-radius: 50px;
+            border: 2px solid #fff;
+            background: transparent;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-box input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Products Grid */
+        .products-section {
+            padding: 40px 0 80px;
+            background: var(--pink-dark);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .product-card {
+            background: var(--pink-light);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            background: var(--pink-dark);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: linear-gradient(135deg, var(--pink-dark), var(--pink-light));
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            z-index: 1;
+        }
+
+        .product-img {
+            height: 240px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s;
+            position: relative;
+        }
+
+        .product-card:hover .product-img {
+            transform: scale(1.05);
+        }
+
+        .product-content {
+            padding: 25px;
+        }
+
+        .product-category {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .product-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .product-price {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin: 15px 0;
+        }
+
+        .product-specs {
+            list-style: none;
+            margin: 15px 0;
+        }
+
+        .product-specs li {
+            padding: 6px 0;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .product-specs li i {
+            color: #fff;
+            width: 20px;
+            font-size: 12px;
+        }
+
+        .btn-view {
+            display: inline-block;
+            padding: 10px 25px;
+            border: 2px solid #fff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 13px;
+            transition: 0.3s;
+            margin-top: 10px;
+            cursor: pointer;
+            background: transparent;
+        }
+
+        .btn-view:hover {
+            background: #fff;
+            color: var(--pink-dark);
+        }
+
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 60px;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--pink-light);
+            color: #fff;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 24px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                z-index: 1001;
+            }
+            .hamburger span {
+                display: block;
+                width: 25px;
+                height: 2px;
+                background: #fff;
+                margin: 5px 0;
+            }
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -280px;
+                width: 280px;
+                height: 100%;
+                background: var(--pink-dark);
+                padding: 80px 30px 30px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                transition: 0.3s;
+                z-index: 10000;
+                box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+            }
+            .sidebar.active { left: 0; }
+            .sidebar a {
+                color: #fff;
+                text-decoration: none;
+                font-size: 16px;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+            .sidebar .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 24px;
+                cursor: pointer;
+                color: #fff;
+            }
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.6);
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.3s;
+                z-index: 9999;
+                display: block;
+            }
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            .nav-links { display: none; }
+            .products-hero h1 { font-size: 42px; }
+            .products-hero { margin-top: 70px; height: 280px; }
+            .filter-container { gap: 12px; }
+            .filter-btn { padding: 8px 18px; font-size: 12px; }
+            .products-grid { grid-template-columns: 1fr; gap: 25px; }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .hamburger, .sidebar, .overlay { display: none !important; }
+            .nav-links { display: flex !important; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="logo"><a href="#"><img src="./images/logo.png" alt="Rose Embroidery Logo"></a></div>
+        <div class="nav-links">
+            <a class="nav-attribute" href="#home">Home</a>
+            <a class="nav-attribute" href="#about">About</a>
+            <div class="nav-item">
+                <a class="nav-attribute" href="#">Product</a>
+                <div class="dropdown-content">
+                    <a href="products.html#machines">Machines</a>
+                    <a href="products.html#devices">Devices</a>
+                </div>
+            </div>
+            <a class="nav-attribute" href="#services">Services</a>
+            <a class="nav-attribute" href="#events">Events</a>
+            <a class="nav-attribute" href="#gallery">Gallery</a>
+            <a class="nav-attribute" href="#contact">Contact</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+</nav>
+
+<div class="sidebar" id="sidebar">
+    <div class="close-btn" onclick="toggleMenu()">✕</div>
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#machines">Machines</a>
+    <a href="#devices">Devices</a>
+    <a href="#services">Services</a>
+    <a href="#events">Events</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+</div>
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<section class="products-hero">
+    <div class="container" data-aos="fade-up">
+        <h1>Our Products</h1>
+        <p>Premium Embroidery Machines & Professional Accessories</p>
+    </div>
+</section>
+
+<section class="filter-section">
+    <div class="container">
+        <div class="filter-container">
+            <button class="filter-btn" data-category="all">All Products</button>
+            <button class="filter-btn" data-category="machine">Embroidery Machines</button>
+            <button class="filter-btn" data-category="device">Accessories & Devices</button>
+        </div>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search by name, features, or specifications..." onkeyup="filterProducts()">
+        </div>
+    </div>
+</section>
+
+<section class="products-section">
+    <div class="container">
+        <div class="products-grid" id="productsGrid"></div>
+        <div id="noResults" class="no-results" style="display: none;">No products found matching your criteria.</div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <h4>Rose Embroidery</h4>
+        <p><i class="fas fa-phone"></i> +91 90255 52206 | <i class="fas fa-envelope"></i> roseembroidery@gmail.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> 76 First Avenue, Millenium Town, Chennai - 600095</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div class="footer-links">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#machines">Products</a>
+            <a href="#events">Events</a>
+            <a href="#contact">Contact</a>
+            <a href="#">Privacy Policy</a>
+        </div>
+        <p>© 2026 Rose Embroidery — Quality · Precision · Trust. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ once: false, duration: 800, easing: 'ease-in-out', offset: 50 });
+
+    // Mapping for machine ID to hash (matches machines.html #id format)
+    const machineHashMap = {
+        'hsw-1216': '1216',
+        'hsw-1632': '1632',
+        'hsw-2032': '2032',
+        'hsw-2048': '2048',
+        'hsw-2848': '2848',
+        'hsw-3248': '3248'
+    };
+
+    // Complete Products Database with redirect URLs
+    const productsData = [
+        // MACHINES
+        {
+            id: 'hsw-1216',
+            name: 'HSW 5G 1216',
+            category: 'machine',
+            badge: 'Compact',
+            image: './images/machine1.jpeg',
+            description: 'Perfect for home businesses and small studios. Compact design with professional features.',
+            price: '₹3,25,000',
+            specs: ['12x16" Embroidery Area', '12 Needles', '1000 SPM', 'USB & Wi-Fi', '10" Touch Screen'],
+            redirectUrl: 'machines.html#1216'
+        },
+        {
+            id: 'hsw-1632',
+            name: 'HSW 5G 1632',
+            category: 'machine',
+            badge: 'Mid-Range',
+            image: './images/machine2.jpeg',
+            description: 'Industrial-grade machine ideal for growing businesses. Perfect balance of size and power.',
+            price: '₹4,10,000',
+            specs: ['16x32" Embroidery Area', '12 Needles', '1000 SPM', 'Auto Thread Trimmer', 'Cording Support'],
+            redirectUrl: 'machines.html#1632'
+        },
+        {
+            id: 'hsw-2032',
+            name: 'HSW 5G 2032',
+            category: 'machine',
+            badge: 'Flagship',
+            image: './images/machine3.jpeg',
+            description: 'Next-generation embroidery system with remote monitoring and mobile alerts.',
+            price: '₹4,75,000',
+            specs: ['20x32" Embroidery Area', '12 Needles', '1200 SPM', 'Remote Monitoring', 'Mobile Alerts'],
+            redirectUrl: 'machines.html#2032'
+        },
+        {
+            id: 'hsw-2048',
+            name: 'HSW 5G 2048',
+            category: 'machine',
+            badge: 'Saree Specialist',
+            image: './images/machine3.jpeg',
+            description: 'Specially designed for saree borders, blouses, and large garment embroidery.',
+            price: '₹5,25,000',
+            specs: ['20x48" Extended Area', '12 Needles', '1200 SPM', 'Saree Border Specialist', 'Bridal Wear Optimized'],
+            redirectUrl: 'machines.html#2048'
+        },
+        {
+            id: 'hsw-2848',
+            name: 'HSW 5G 2848',
+            category: 'machine',
+            badge: 'Industrial',
+            image: './images/machine4.jpeg',
+            description: 'Large format industrial machine for high-volume production. Maximum efficiency.',
+            price: '₹5,90,000',
+            specs: ['28x48" Large Area', '12 Needles', '1200 RPM', 'Photo to Embroidery', 'Twin Sequence Support'],
+            redirectUrl: 'machines.html#2848'
+        },
+        {
+            id: 'hsw-3248',
+            name: 'HSW 5G 3248',
+            category: 'machine',
+            badge: 'Ultimate',
+            image: './images/machine5.jpeg',
+            description: 'Maximum production capacity with the largest embroidery field available.',
+            price: '₹6,30,000',
+            specs: ['32x48" Max Area', '12 Needles', '1200 RPM', 'Maximum Field Size', 'Industrial Grade'],
+            redirectUrl: 'machines.html#3248'
+        },
+        // DEVICES & ACCESSORIES - for devices, redirect to products page with device section or contact
+        {
+            id: 'magnetic-hoop',
+            name: 'Magnetic Hoop Pro',
+            category: 'device',
+            badge: 'Best Seller',
+            image: 'https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg?auto=compress&cs=tinysrgb&w=600',
+            description: 'Advanced magnetic hooping system eliminates fabric slipping. Reduces setup time by 70%.',
+            price: '₹12,500',
+            specs: ['Available in 7 sizes', 'Quick-release mechanism', 'Compatible with all models', 'No hoop burn'],
+            redirectUrl: 'products.html#devices'
+        },
+        {
+            id: 'digitizing-tablet',
+            name: 'Digitizing Tablet Pro',
+            category: 'device',
+            badge: 'Professional',
+            image: 'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600',
+            description: 'Professional drawing tablet with 8192 pressure levels for precise design creation.',
+            price: '₹28,000',
+            specs: ['15.6" Workspace', '8192 Pressure Levels', 'Wireless Connectivity', 'Battery-free Pen', '8 Express Keys'],
+            redirectUrl: 'products.html#devices'
+        },
+        {
+            id: 'smart-thread-manager',
+            name: 'Smart Thread Manager',
+            category: 'device',
+            badge: 'IoT Enabled',
+            image: 'https://images.pexels.com/photos/4427637/pexels-photo-4427637.jpeg?auto=compress&cs=tinysrgb&w=600',
+            description: 'IoT-enabled thread tension monitoring with real-time alerts and production analytics.',
+            price: '₹18,500',
+            specs: ['Mobile App Notifications', 'Break Detection', 'Predictive Maintenance', '12-Month Cloud Storage'],
+            redirectUrl: 'products.html#devices'
+        },
+        {
+            id: 'cap-hoop-set',
+            name: 'Cap Hoop Set',
+            category: 'device',
+            badge: 'Essential',
+            image: 'https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=800',
+            description: 'Complete cap embroidery hooping system for professional headwear designs.',
+            price: '₹8,500',
+            specs: ['Fits all HSW models', 'Quick-change system', 'Curvature optimized', 'Durable construction'],
+            redirectUrl: 'products.html#devices'
+        },
+        {
+            id: 'thread-stand',
+            name: 'Premium Thread Stand',
+            category: 'device',
+            badge: 'Accessory',
+            image: 'https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=800',
+            description: 'Heavy-duty thread stand with tension control for smooth thread delivery.',
+            price: '₹4,200',
+            specs: ['12 Thread Holders', 'Adjustable Tension', 'Stainless Steel', 'Anti-tangle Design'],
+            redirectUrl: 'products.html#devices'
+        },
+        {
+            id: 'digitizing-software',
+            name: 'Wilcom Digitizing Suite',
+            category: 'device',
+            badge: 'Software',
+            image: 'https://images.pexels.com/photos/2338405/pexels-photo-2338405.jpeg?auto=compress&cs=tinysrgb&w=800',
+            description: 'Professional embroidery digitizing software with advanced editing tools.',
+            price: '₹45,000',
+            specs: ['Auto-digitizing', 'Lettering Tools', '3D Puff Support', 'Cloud Backup', 'Training Included'],
+            redirectUrl: 'products.html#devices'
+        },
+        // NEW DEVICE FROM THE LINK - OLH-098A Twin Sequin Plus Triple Beads Device
+        {
+            id: 'olh-098a-sequin-beads',
+            name: 'OLH-098A Twin Sequin + Triple Beads Device',
+            category: 'device',
+            badge: 'Premium',
+            image: 'https://img.diytrade.com/smimg/3035710/54097600-11303186-0/Olh_098A_Twin_Sequin_Plus_Triple_Beads_Device_for_Embroidery_Machine/4959.jpg',
+            description: 'Professional twin sequin plus triple beads attachment for embroidery machines. Adds stunning sequin and beadwork to any design with precision.',
+            price: '₹32,500',
+            specs: [
+                'Head Space: 72mm (one side) / 118mm (both sides)',
+                'Beads Size: 1.7-2.5mm | Pearl: 3.0-4.0mm',
+                'Max Speed: 700-950 RPM (beads) / 1000 RPM (2-5mm)',
+                'Lift Area: 70mm',
+                'Compatible with most single & multi-head machines'
+            ],
+            redirectUrl: 'products.html#devices'
+        }
+    ];
+
+    let currentCategory = 'all';
+    let currentSearch = '';
+
+    // Handle URL hash for tab activation
+    function handleHashTab() {
+        const hash = window.location.hash;
+        if (hash === '#machines') {
+            currentCategory = 'machine';
+            // Update active filter button
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.getAttribute('data-category') === 'machine') {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            renderProducts();
+        } else if (hash === '#devices') {
+            currentCategory = 'device';
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.getAttribute('data-category') === 'device') {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            renderProducts();
+        } else {
+            // Default to all products, update button state
+            currentCategory = 'all';
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                if (btn.getAttribute('data-category') === 'all') {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+            renderProducts();
+        }
+    }
+
+    function renderProducts() {
+        const grid = document.getElementById('productsGrid');
+        const noResultsDiv = document.getElementById('noResults');
+        
+        let filtered = productsData.filter(product => {
+            const matchesCategory = currentCategory === 'all' || product.category === currentCategory;
+            const matchesSearch = currentSearch === '' || 
+                product.name.toLowerCase().includes(currentSearch) ||
+                product.description.toLowerCase().includes(currentSearch) ||
+                product.specs.some(spec => spec.toLowerCase().includes(currentSearch));
+            return matchesCategory && matchesSearch;
+        });
+
+        if (filtered.length === 0) {
+            grid.style.display = 'none';
+            noResultsDiv.style.display = 'block';
+            return;
+        }
+
+        grid.style.display = 'grid';
+        noResultsDiv.style.display = 'none';
+
+        grid.innerHTML = filtered.map(product => `
+            <div class="product-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="product-img" style="background-image: url('${product.image}'); position: relative;">
+                    ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
+                </div>
+                <div class="product-content">
+                    <span class="product-category">${product.category === 'machine' ? 'Embroidery Machine' : 'Accessory & Device'}</span>
+                    <h3>${product.name}</h3>
+                    <p class="product-desc">${product.description}</p>
+                    <div class="product-price">${product.price}</div>
+                    <ul class="product-specs">
+                        ${product.specs.slice(0, 4).map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}
+                        ${product.specs.length > 4 ? `<li><i class="fas fa-plus-circle"></i> +${product.specs.length - 4} more features</li>` : ''}
+                    </ul>
+                    <a href="${product.redirectUrl}" class="btn-view">View Details →</a>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function filterProducts() {
+        const searchInput = document.getElementById('searchInput');
+        currentSearch = searchInput.value.toLowerCase().trim();
+        renderProducts();
+        // Update URL without triggering hash change
+        if (currentSearch === '' && currentCategory !== 'all') {
+            history.pushState(null, '', `products.html#${currentCategory === 'machine' ? 'machines' : 'devices'}`);
+        } else if (currentSearch === '' && currentCategory === 'all') {
+            history.pushState(null, '', 'products.html');
+        }
+    }
+
+    function filterByCategory(category) {
+        currentCategory = category;
+        
+        // Update active button state
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            if (btn.getAttribute('data-category') === category) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        
+        // Clear search when changing category via button
+        const searchInput = document.getElementById('searchInput');
+        if (searchInput.value !== '') {
+            searchInput.value = '';
+            currentSearch = '';
+        }
+        
+        renderProducts();
+        
+        // Update URL hash
+        if (category === 'machine') {
+            window.location.hash = 'machines';
+        } else if (category === 'device') {
+            window.location.hash = 'devices';
+        } else {
+            history.pushState(null, '', 'products.html');
+        }
+    }
+
+    function toggleMenu() {
+        document.getElementById('sidebar').classList.toggle('active');
+        document.getElementById('overlay').classList.toggle('active');
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+    });
+
+    // Setup filter buttons
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            const category = this.getAttribute('data-category');
+            filterByCategory(category);
+        });
+    });
+
+    // Handle hash change for tab activation
+    window.addEventListener('hashchange', function() {
+        handleHashTab();
+    });
+
+    // Close sidebar when clicking on links
+    document.querySelectorAll('.sidebar a').forEach(anchor => {
+        anchor.addEventListener('click', function() {
+            if (window.innerWidth <= 768) toggleMenu();
+        });
+    });
+
+    // Initialize - handle hash on page load
+    handleHashTab();
+
+    // Expose functions globally
+    window.filterProducts = filterProducts;
+    window.filterByCategory = filterByCategory;
+    window.toggleMenu = toggleMenu;
+</script>
+</body>
+</html>

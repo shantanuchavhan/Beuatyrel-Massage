@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>RoseEmb | HSW Embroidery Machine Details</title>
+  <title>RoseEmb | Embroidery Machines & Devices</title>
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
@@ -22,10 +22,16 @@
 
     body {
       font-family: 'Montserrat', sans-serif;
-      color: #333;
+      color: #fff;
       line-height: 1.6;
-      background: linear-gradient(135deg, #ffffff 0%, #fff5f7 50%, #ffe4ec 100%);
+      background: #F20C97;
       overflow-x: hidden;
+    }
+
+    /* ONLY TWO COLORS: #F20C97 (dark pink) and #F353AD (light pink) */
+    :root {
+      --pink-dark: #F20C97;
+      --pink-light: #F353AD;
     }
 
     h1,
@@ -56,10 +62,10 @@
     }
 
     .navbar.scrolled {
-      background: rgba(255, 245, 247, 0.95);
-      backdrop-filter: blur(10px);
+      background: var(--pink-dark);
+      backdrop-filter: blur(0);
       padding: 15px 0;
-      box-shadow: 0 5px 20px rgba(212, 90, 122, 0.1);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
     }
 
     .nav-container {
@@ -88,7 +94,8 @@
     .logo img {
       height: 50px;
       width: auto;
-      background-color: rgb(255, 255, 255);
+      background: transparent;
+      filter: brightness(0) invert(1);
     }
 
     .brand-image {
@@ -99,16 +106,13 @@
 
     .logo p {
       font-size: 11px;
-      color: var(--text-secondary);
+      color: rgba(255,255,255,0.8);
       letter-spacing: 1px;
       margin-top: 2px;
     }
 
     .navbar.scrolled .logo a {
-      background: linear-gradient(135deg, #d45a7a, #b84363);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #fff;
     }
 
     .nav-links {
@@ -129,23 +133,23 @@
     }
 
     .navbar.scrolled .nav-attribute {
-      color: #5a3e4a;
+      color: #fff;
     }
 
     .nav-attribute:hover {
-      color: #ffb6c1;
+      color: var(--pink-light);
     }
 
     .navbar.scrolled .nav-attribute:hover {
-      color: #d45a7a;
+      color: var(--pink-light);
     }
 
     .nav-attribute.active {
-      color: #ffb6c1;
+      color: var(--pink-light);
     }
 
     .navbar.scrolled .nav-attribute.active {
-      color: #d45a7a;
+      color: var(--pink-light);
       font-weight: 600;
     }
 
@@ -161,12 +165,12 @@
       margin-left: 8px;
       display: inline-block;
       transition: transform 0.3s ease;
-      color: #ffb6c1;
+      color: var(--pink-light);
       font-weight: bold;
     }
 
     .navbar.scrolled .nav-item>.nav-attribute::after {
-      color: #d45a7a;
+      color: var(--pink-light);
     }
 
     .nav-item:hover>.nav-attribute::after {
@@ -177,9 +181,9 @@
       position: absolute;
       top: calc(100% + 5px);
       left: 0;
-      background-color: #fff;
+      background: var(--pink-dark);
       min-width: 200px;
-      box-shadow: 0 10px 30px rgba(212, 90, 122, 0.15);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       border-radius: 12px;
       z-index: 10000;
       padding: 12px 0;
@@ -188,7 +192,7 @@
       transform: translateY(-10px);
       transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
       pointer-events: none;
-      border: 1px solid rgba(212, 90, 122, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
     }
 
     .nav-item:hover .dropdown-content,
@@ -200,13 +204,13 @@
     }
 
     .dropdown-content a {
-      color: #5a3e4a !important;
+      color: #fff !important;
       padding: 12px 25px;
       display: block;
       text-align: left;
       font-size: 13px !important;
       text-decoration: none;
-      border-bottom: 1px solid rgba(212, 90, 122, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .dropdown-content a:last-child {
@@ -214,8 +218,8 @@
     }
 
     .dropdown-content a:hover {
-      background: linear-gradient(135deg, #d45a7a, #b84363);
-      color: white !important;
+      background: var(--pink-light);
+      color: #fff !important;
       padding-left: 32px;
     }
 
@@ -229,7 +233,7 @@
     /* Hero/Breadcrumb Section */
     .breadcrumb-hero {
       height: 450px;
-      background: linear-gradient(135deg, rgba(59, 22, 32, 0.7) 0%, rgba(212, 90, 122, 0.75) 100%), url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');
+      background: linear-gradient(135deg, var(--pink-dark) 0%, var(--pink-light) 100%);
       background-size: cover;
       background-position: center;
       display: flex;
@@ -258,6 +262,7 @@
     /* Product Details Section */
     .product-details {
       padding: 80px 0;
+      background: var(--pink-dark);
     }
 
     .product-grid {
@@ -290,7 +295,7 @@
     }
 
     .thumb-btn.active {
-      border-color: #d45a7a;
+      border-color: var(--pink-light);
     }
 
     .thumb-btn img {
@@ -303,7 +308,7 @@
       flex: 1;
       border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(212, 90, 122, 0.1);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     .gallery-main img {
@@ -315,33 +320,8 @@
     /* Product Info */
     .product-info h2 {
       font-size: 36px;
-      color: #d45a7a;
-      margin-bottom: 15px;
-    }
-
-    .product-price {
-      font-size: 32px;
-      font-weight: 700;
-      color: #d45a7a;
-      margin: 20px 0;
-    }
-
-    .btn-buy {
-      background: linear-gradient(135deg, #d45a7a, #b84363);
       color: #fff;
-      border: none;
-      padding: 14px 40px;
-      border-radius: 40px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: 0.3s;
-      font-size: 16px;
-      margin: 20px 0;
-    }
-
-    .btn-buy:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(212, 90, 122, 0.4);
+      margin-bottom: 15px;
     }
 
     /* Feature List */
@@ -352,29 +332,30 @@
 
     .feature-list li {
       padding: 10px 0;
-      border-bottom: 1px solid rgba(212, 90, 122, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
       display: flex;
       align-items: center;
       gap: 12px;
+      color: rgba(255, 255, 255, 0.9);
     }
 
     .feature-list li i {
-      color: #d45a7a;
+      color: var(--pink-light);
       width: 24px;
       font-size: 16px;
     }
 
     /* Accordion */
     .accordion-item {
-      border: 1px solid rgba(212, 90, 122, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 16px;
       margin-bottom: 15px;
       overflow: hidden;
-      background: #fff;
+      background: var(--pink-light);
     }
 
     .accordion-header {
-      background: #fff5f7;
+      background: var(--pink-dark);
       padding: 18px 24px;
       cursor: pointer;
       display: flex;
@@ -382,11 +363,12 @@
       align-items: center;
       font-weight: 600;
       font-size: 18px;
-      color: #d45a7a;
+      color: #fff;
     }
 
     .accordion-header i {
       transition: transform 0.3s;
+      color: #fff;
     }
 
     .accordion-header.collapsed i {
@@ -399,10 +381,11 @@
 
     .accordion-body {
       padding: 20px 24px;
-      color: #666;
+      color: rgba(255, 255, 255, 0.9);
       line-height: 1.8;
-      border-top: 1px solid rgba(212, 90, 122, 0.1);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
       display: none;
+      background: var(--pink-light);
     }
 
     .accordion-body.show {
@@ -422,18 +405,18 @@
       align-items: center;
       gap: 8px;
       font-size: 14px;
-      color: #666;
+      color: rgba(255, 255, 255, 0.9);
     }
 
     .product-messages span i {
-      color: #d45a7a;
+      color: var(--pink-light);
       font-size: 16px;
     }
 
     /* Related Products */
     .related-section {
       padding: 80px 0;
-      background: linear-gradient(135deg, #fff5f7 0%, #ffe4ec 100%);
+      background: var(--pink-light);
     }
 
     .related-grid {
@@ -444,18 +427,19 @@
     }
 
     .related-card {
-      background: #fff;
+      background: var(--pink-dark);
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 5px 20px rgba(212, 90, 122, 0.1);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
       transition: all 0.3s;
       text-align: center;
       cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .related-card:hover {
       transform: translateY(-5px);
-      box-shadow: 0 10px 30px rgba(212, 90, 122, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
     .related-card img {
@@ -467,12 +451,12 @@
     .related-card h4 {
       font-size: 20px;
       padding: 20px;
-      color: #d45a7a;
+      color: #fff;
     }
 
     /* Footer */
     footer {
-      background: linear-gradient(135deg, #b84363 0%, #9a3550 100%);
+      background: var(--pink-dark);
       color: #fff;
       padding: 60px 0 30px;
       text-align: center;
@@ -482,6 +466,36 @@
       font-size: 28px;
       margin-bottom: 20px;
       color: #fff;
+    }
+
+    /* Tech Specs Container */
+    #techSpecsContainer h3 {
+      color: #fff !important;
+    }
+
+    #techSpecsGrid .feature-list {
+      background: var(--pink-light) !important;
+      padding: 20px;
+      border-radius: 20px;
+    }
+
+    #techSpecsGrid .feature-list li {
+      border-bottom-color: rgba(255, 255, 255, 0.2);
+    }
+
+    #areaOptions {
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* Device Badge */
+    .device-badge {
+      display: inline-block;
+      background: var(--pink-light);
+      padding: 5px 15px;
+      border-radius: 30px;
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 15px;
     }
 
     /* Mobile Responsive */
@@ -502,7 +516,7 @@
       }
 
       .navbar.scrolled .hamburger span {
-        background: #d45a7a;
+        background: #fff;
       }
 
       .sidebar {
@@ -511,14 +525,14 @@
         left: -280px;
         width: 280px;
         height: 100%;
-        background: linear-gradient(135deg, #fff5f7, #ffe4ec);
+        background: var(--pink-dark);
         padding: 80px 30px 30px;
         display: flex;
         flex-direction: column;
         gap: 20px;
         transition: 0.3s ease;
         z-index: 10000;
-        box-shadow: 5px 0 30px rgba(0, 0, 0, 0.1);
+        box-shadow: 5px 0 30px rgba(0, 0, 0, 0.3);
       }
 
       .sidebar.active {
@@ -526,12 +540,12 @@
       }
 
       .sidebar a {
-        color: #5a3e4a;
+        color: #fff;
         text-decoration: none;
         font-size: 16px;
         padding: 12px 0;
         font-weight: 500;
-        border-bottom: 1px solid rgba(212, 90, 122, 0.2);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
         cursor: pointer;
       }
 
@@ -541,7 +555,7 @@
         right: 20px;
         font-size: 24px;
         cursor: pointer;
-        color: #d45a7a;
+        color: #fff;
       }
 
       .overlay {
@@ -550,7 +564,7 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.6);
         opacity: 0;
         visibility: hidden;
         transition: 0.3s;
@@ -629,12 +643,13 @@
         <div class="nav-item">
           <a class="nav-attribute active" href="/index.html#product">Product</a>
           <div class="dropdown-content">
-            <a href="./machines.html" class="machine-nav-link" data-id="1216">HSW 1216</a>
-            <a href="./machines.html" class="machine-nav-link" data-id="1632">HSW 1632</a>
-            <a href="./machines.html" class="machine-nav-link" data-id="2032">HSW 2032</a>
-            <a href="./machines.html" class="machine-nav-link" data-id="2048">HSW 2048</a>
-            <a href="./machines.html" class="machine-nav-link" data-id="2848">HSW 2848</a>
-            <a href="./machines.html" class="machine-nav-link" data-id="3248">HSW 3248</a>
+            <a href="./machines.html#1216">HSW 1216</a>
+            <a href="./machines.html#1632">HSW 1632</a>
+            <a href="./machines.html#2032">HSW 2032</a>
+            <a href="./machines.html#2048">HSW 2048</a>
+            <a href="./machines.html#2848">HSW 2848</a>
+            <a href="./machines.html#3248">HSW 3248</a>
+            <a href="./machines.html#olh-098a">OLH-098A Beads Device</a>
           </div>
         </div>
         <a class="nav-attribute" href="./index.html#events">Events</a>
@@ -649,12 +664,13 @@
     <div class="close-btn" onclick="toggleMenu()">✕</div>
     <a href="./index.html">Home</a>
     <a href="./index.html#about">About</a>
-    <a href="./machines.html" class="machine-nav-link" data-id="1216">HSW 1216</a>
-    <a href="./machines.html" class="machine-nav-link" data-id="1632">HSW 1632</a>
-    <a href="./machines.html" class="machine-nav-link" data-id="2032">HSW 2032</a>
-    <a href="./machines.html" class="machine-nav-link" data-id="2048">HSW 2048</a>
-    <a href="./machines.html" class="machine-nav-link" data-id="2848">HSW 2848</a>
-    <a href="./machines.html" class="machine-nav-link" data-id="3248">HSW 3248</a>
+    <a href="./machines.html#1216">HSW 1216</a>
+    <a href="./machines.html#1632">HSW 1632</a>
+    <a href="./machines.html#2032">HSW 2032</a>
+    <a href="./machines.html#2048">HSW 2048</a>
+    <a href="./machines.html#2848">HSW 2848</a>
+    <a href="./machines.html#3248">HSW 3248</a>
+    <a href="./machines.html#olh-098a">OLH-098A Beads Device</a>
     <a href="./index.html#events">Events</a>
     <a href="./index.html#gallery">Gallery</a>
     <a href="./index.html#contact">Contact</a>
@@ -665,8 +681,7 @@
   <section class="breadcrumb-hero" id="breadcrumbHero">
     <div class="container">
       <h1 id="machineTitle" data-aos="fade-up">HSW 2032</h1>
-      <p id="machineSubtitle" data-aos="fade-up" data-aos-delay="100">Advanced Embroidery Machine | 20x32 Inch Area | 12
-        Needles | 1200 SPM</p>
+      <p id="machineSubtitle" data-aos="fade-up" data-aos-delay="100">Advanced Embroidery Machine | 20x32 Inch Area | 12 Needles | 1200 SPM</p>
     </div>
   </section>
 
@@ -678,18 +693,14 @@
         <div class="product-gallery" data-aos="fade-right">
           <div class="gallery-thumbs" id="galleryThumbs"></div>
           <div class="gallery-main">
-            <img id="mainImage" src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg"
-              alt="HSW 2032 Main">
+            <img id="mainImage" src="https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg" alt="Product Main">
           </div>
         </div>
 
         <!-- Product Info Column -->
         <div class="product-info" data-aos="fade-left">
           <h2 id="productName">HSW 2032 Embroidery Machine</h2>
-          <div class="product-price" id="productPrice">₹4,75,000/- (Including GST)</div>
-          <button class="btn-buy"
-            onclick="alert('For purchase inquiries, contact +91 9898235259 or email inquiry@hswindia.com')">Buy
-            Now</button>
+          <button class="btn-buy" onclick="alert('For purchase inquiries, contact +91 90255 52206 or email roseembroidery@gmail.com')">Enquire Now</button>
 
           <ul class="feature-list" id="featureList"></ul>
 
@@ -707,10 +718,7 @@
                 <i class="fas fa-plus"></i>
               </div>
               <div class="accordion-body">
-                <p>HSW International Pvt Ltd. provides products, consultancy, and export-import services. By using our
-                  website or making a purchase, you agree to our Terms and Conditions. Product details are as accurate
-                  as possible but may vary. Orders may be cancelled for errors or unavailability. Returns are accepted
-                  per our Return Policy.</p>
+                <p>Rose Embroidery provides products, consultancy, and export-import services. By using our website or making a purchase, you agree to our Terms and Conditions. Product details are as accurate as possible but may vary. Orders may be cancelled for errors or unavailability. Returns are accepted per our Return Policy.</p>
               </div>
             </div>
             <div class="accordion-item">
@@ -719,9 +727,7 @@
                 <i class="fas fa-plus"></i>
               </div>
               <div class="accordion-body">
-                <p>We respect your privacy and protect your personal data. Information is used to process orders and
-                  improve services. Your data is secured with encryption and shared only with trusted partners when
-                  necessary.</p>
+                <p>We respect your privacy and protect your personal data. Information is used to process orders and improve services. Your data is secured with encryption and shared only with trusted partners when necessary.</p>
               </div>
             </div>
             <div class="accordion-item">
@@ -730,9 +736,7 @@
                 <i class="fas fa-plus"></i>
               </div>
               <div class="accordion-body">
-                <p>Return requests accepted within 7 days of delivery for unused products in original packaging.
-                  Manufacturing defects, wrong items, or shipping damage qualify for returns. Refunds processed within
-                  7-10 business days after inspection.</p>
+                <p>Return requests accepted within 7 days of delivery for unused products in original packaging. Manufacturing defects, wrong items, or shipping damage qualify for returns. Refunds processed within 7-10 business days after inspection.</p>
               </div>
             </div>
           </div>
@@ -741,11 +745,9 @@
 
       <!-- Additional Specifications -->
       <div style="margin-top: 60px;" data-aos="fade-up" id="techSpecsContainer">
-        <h3 style="color: #d45a7a; margin-bottom: 20px;">Technical Specifications</h3>
-        <div id="techSpecsGrid"
-          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;"></div>
-        <p id="areaOptions" style="margin-top: 20px; font-weight: 500;">Available Embroidery Area Options: 12x16 inches
-          | 16x32 inches | 20x32 inches | 20x48 inches | 28x48 inches</p>
+        <h3 style="color: #fff; margin-bottom: 20px;">Technical Specifications</h3>
+        <div id="techSpecsGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;"></div>
+        <p id="areaOptions" style="margin-top: 20px; font-weight: 500; color: rgba(255,255,255,0.9);">Available Embroidery Area Options: 12x16 inches | 16x32 inches | 20x32 inches | 20x48 inches | 28x48 inches</p>
       </div>
     </div>
   </section>
@@ -753,21 +755,17 @@
   <!-- Related Products Section -->
   <section class="related-section">
     <div class="container">
-      <h2
-        style="text-align: center; font-size: 42px; background: linear-gradient(135deg, #d45a7a, #b84363); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"
-        data-aos="fade-up">Related Products</h2>
+      <h2 style="text-align: center; font-size: 42px; color: #fff;" data-aos="fade-up">Related Products</h2>
       <div class="related-grid" id="relatedGrid"></div>
     </div>
   </section>
 
   <footer>
     <div class="container">
-      <h4 data-aos="fade-up">RoseEmb / HSW International</h4>
-      <p data-aos="fade-up" data-aos-delay="100">+91 9898235259 | inquiry@hswindia.com</p>
-      <p data-aos="fade-up" data-aos-delay="200">Plot No. A1-A2, Ichhapore Textile, Adajan-Hazira Road, Ichhapore, Surat
-        394510, Gujarat, India</p>
-      <p style="margin-top: 30px;" data-aos="fade-up">© 2026 HSW International — Quality Precision Trust. All rights
-        reserved.</p>
+      <h4 data-aos="fade-up">Rose Embroidery</h4>
+      <p data-aos="fade-up" data-aos-delay="100">+91 90255 52206 | roseembroidery@gmail.com</p>
+      <p data-aos="fade-up" data-aos-delay="200">76 First Avenue, Millenium Town, Adayalampattu, Madhuravoyal, Chennai - 600095</p>
+      <p style="margin-top: 30px;" data-aos="fade-up">© 2026 Rose Embroidery — Quality Precision Trust. All rights reserved.</p>
     </div>
   </footer>
 
@@ -775,7 +773,7 @@
   <script>
     AOS.init({ once: false, duration: 800, easing: 'ease-in-out', offset: 50 });
 
-    // ========== COMPLETE MACHINE DATABASE from the HTML content ==========
+    // ========== COMPLETE MACHINE & DEVICE DATABASE (NO PRICE TAGS) ==========
     const machinesData = {
       '1216': {
         id: '1216',
@@ -783,8 +781,8 @@
         title: 'HSW 1216',
         fullName: 'HSW 5G 1216 Multi-Needle Embroidery Machine',
         subtitle: 'Compact Professional Machine | 12x16 Inch Area | 12 Needles | 1000 SPM',
-        price: '₹3,25,000/- (Including GST)',
         image: './images/machine1.jpeg',
+        type: 'machine',
         features: [
           '<i class="fas fa-desktop"></i> 10" Touch Screen with HSW A15 Program',
           '<i class="fas fa-expand-alt"></i> Embroidery Area: 12x16 Inches (300x400 mm)',
@@ -807,8 +805,8 @@
         title: 'HSW 1632',
         fullName: 'HSW 5G 1632 Professional Embroidery Machine',
         subtitle: 'Mid-Range Industrial Machine | 16x32 Inch Area | 12 Needles | 1000 SPM',
-        price: '₹4,10,000/- (Including GST)',
         image: './images/machine2.jpeg',
+        type: 'machine',
         features: [
           '<i class="fas fa-desktop"></i> 10" Touch Screen with HSW A15 Program',
           '<i class="fas fa-expand-alt"></i> Embroidery Area: 16x32 Inches (400x800 mm)',
@@ -831,8 +829,8 @@
         title: 'HSW 2032',
         fullName: 'HSW 5G 2032 Advanced Embroidery System',
         subtitle: 'Next-Generation Machine | 20x32 Inch Area | 12 Needles | 1200 SPM',
-        price: '₹4,75,000/- (Including GST)',
         image: './images/machine3.jpeg',
+        type: 'machine',
         features: [
           '<i class="fas fa-desktop"></i> 10" Touch Screen with HSW A15 Program',
           '<i class="fas fa-expand-alt"></i> Embroidery Area: 20x32 Inches (500x800 mm)',
@@ -855,8 +853,8 @@
         title: 'HSW 2048',
         fullName: 'HSW 2048 Large Format Embroidery Machine',
         subtitle: 'Saree & Large Garment Specialist | 20x48 Inch Area | 12 Needles | 1200 SPM',
-        price: '₹5,25,000/- (Including GST)',
         image: './images/machine3.jpeg',
+        type: 'machine',
         features: [
           '<i class="fas fa-desktop"></i> 10" Touch Screen with HSW A15 Program',
           '<i class="fas fa-expand-alt"></i> Embroidery Area: 20x48 Inches (500x1200 mm)',
@@ -879,8 +877,8 @@
         title: 'HSW 2848',
         fullName: 'HSW 2848 Industrial Embroidery Machine',
         subtitle: 'Large Format Industrial Machine | 28x48 Inch Area | 12 Needles | 1200 RPM',
-        price: '₹5,90,000/- (Including GST)',
         image: './images/machine4.jpeg',
+        type: 'machine',
         features: [
           '<i class="fas fa-desktop"></i> 10" Touch Screen with HSW A15 Program',
           '<i class="fas fa-expand-alt"></i> Embroidery Area: 28x48 Inches (700x1200 mm)',
@@ -903,8 +901,8 @@
         title: 'HSW 3248',
         fullName: 'HSW 3248 Ultimate Embroidery System',
         subtitle: 'Maximum Production Capacity | 32x48 Inch Area | 12 Needles | 1200 RPM',
-        price: '₹6,30,000/- (Including GST)',
         image: './images/machine5.jpeg',
+        type: 'machine',
         features: [
           '<i class="fas fa-desktop"></i> 10" Touch Screen with HSW A15 Program',
           '<i class="fas fa-expand-alt"></i> Embroidery Area: 32x48 Inches (800x1200 mm)',
@@ -920,88 +918,106 @@
           'Cap Embroidery: Not Supported',
           'Support Devices: Sequence, Twin sequence, Cording, Beading'
         ]
+      },
+      // NEW DEVICE - OLH-098A Twin Sequin Plus Triple Beads Device (from the link)
+      'olh-098a': {
+        id: 'olh-098a',
+        name: 'OLH-098A Twin Sequin + Triple Beads Device',
+        title: 'OLH-098A',
+        fullName: 'OLH-098A Twin Sequin Plus Triple Beads Device for Embroidery Machine',
+        subtitle: 'Professional Sequins & Beads Attachment | Compatible with All Major Embroidery Machines',
+        image: 'https://img.diytrade.com/smimg/3035710/54097600-11303186-0/Olh_098A_Twin_Sequin_Plus_Triple_Beads_Device_for_Embroidery_Machine/4959.jpg',
+        type: 'device',
+        features: [
+          '<i class="fas fa-gem"></i> Twin Sequin + Triple Beads Functionality',
+          '<i class="fas fa-expand-alt"></i> Head Space: 72mm (One Side) / 118mm (Both Sides)',
+          '<i class="fas fa-ruler"></i> Beads Size: 1.7-2.5mm | Pearl: 3.0-4.0mm',
+          '<i class="fas fa-tachometer-alt"></i> Max Speed: 700-950 RPM (Beads) / 1000 RPM (2-5mm)',
+          '<i class="fas fa-arrow-up"></i> Lift Area: 70mm',
+          '<i class="fas fa-microchip"></i> Compatible with DAHAO & Justelec Drive Cards'
+        ],
+        techSpecs: [
+          'Head Space (mm): One side install 72 | Both side install 118',
+          'X Direction Space: 98mm | Y Direction Space: 120mm',
+          'Material Size: Beads 1.7-2.5mm | Pearl 3.0-4.0mm | Pipe 2.5×3.0mm - 2.5×4.0mm',
+          'Maximum Speed: Beads 700-950 RPM | Pearl 700 RPM | Pipe 900 RPM',
+          'Compatibility: Works with most single & multi-head embroidery machines',
+          'Certification: ISO9001:2000 Certified'
+        ]
       }
     };
 
-    // Store in localStorage
     localStorage.setItem("hswMachines", JSON.stringify(machinesData));
 
-    // Get current machine from URL hash
     function getCurrentMachineId() {
       const hash = window.location.hash.substring(1);
       if (hash && machinesData[hash]) return hash;
-      return '2032'; // Default to 2032
+      return '2032';
     }
 
-    // Update all page content based on selected machine
     function loadMachine(machineId) {
       const machine = machinesData[machineId];
       if (!machine) return;
 
-      // Update hero section
       document.getElementById('machineTitle').innerText = machine.title;
       document.getElementById('machineSubtitle').innerText = machine.subtitle;
+      document.getElementById('productName').innerHTML = machine.fullName + (machine.type === 'device' ? ' <span class="device-badge">Device Attachment</span>' : '');
 
-      // Update product info
-      document.getElementById('productName').innerText = machine.fullName;
-      document.getElementById('productPrice').innerText = machine.price;
-
-      // Update main image
       document.getElementById('mainImage').src = machine.image;
 
-      // Update hero background
       const heroSection = document.querySelector('.breadcrumb-hero');
-      heroSection.style.background = `linear-gradient(135deg, rgba(59, 22, 32, 0.7) 0%, rgba(212, 90, 122, 0.75) 100%), url('${machine.image}')`;
-      heroSection.style.backgroundSize = 'cover';
-      heroSection.style.backgroundPosition = 'center';
+      heroSection.style.background = `linear-gradient(135deg, var(--pink-dark) 0%, var(--pink-light) 100%)`;
 
-      // Update feature list
       const featureList = document.getElementById('featureList');
       featureList.innerHTML = machine.features.map(f => `<li>${f}</li>`).join('');
 
-      // Update technical specifications
       const techSpecsGrid = document.getElementById('techSpecsGrid');
       techSpecsGrid.innerHTML = `
-      <ul class="feature-list" style="background: #fff5f7; padding: 20px; border-radius: 20px;">
-        ${machine.techSpecs.map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}
-      </ul>
-      <ul class="feature-list" style="background: #fff5f7; padding: 20px; border-radius: 20px;">
-        <li><i class="fas fa-bolt"></i> Voltage: 220 Volts (Single Phase)</li>
-        <li><i class="fas fa-wifi"></i> Connectivity: USB & Wi-Fi</li>
-        <li><i class="fas fa-thread"></i> Thread Break Detection: Yes</li>
-        <li><i class="fas fa-camera"></i> Photo to Embroidery: Yes</li>
-        <li><i class="fas fa-mobile-alt"></i> Free Design App: Android & iOS</li>
-      </ul>
-    `;
+        <ul class="feature-list" style="background: var(--pink-light); padding: 20px; border-radius: 20px;">
+          ${machine.techSpecs.map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}
+        </ul>
+        <ul class="feature-list" style="background: var(--pink-light); padding: 20px; border-radius: 20px;">
+          <li><i class="fas fa-plug"></i> Power: 220 Volts (Single Phase)</li>
+          <li><i class="fas fa-wifi"></i> Connectivity: USB & Wi-Fi Ready</li>
+          <li><i class="fas fa-tools"></i> Easy Installation: Plug & Play</li>
+          <li><i class="fas fa-globe"></i> Warranty: 1 Year Comprehensive</li>
+          ${machine.type === 'device' ? '<li><i class="fas fa-truck"></i> Free Installation Support Available</li>' : '<li><i class="fas fa-camera"></i> Photo to Embroidery: Yes</li>'}
+        </ul>
+      `;
 
-      // Update gallery thumbs
+      const areaOptions = document.getElementById('areaOptions');
+      if (machine.type === 'device') {
+        areaOptions.innerHTML = `<i class="fas fa-microchip"></i> Compatible with: HSW, Tajima, Barudan, Happy, ZSK, and all major embroidery machines | Easy retrofit installation`;
+      } else {
+        areaOptions.innerHTML = `Available Embroidery Area Options: 12x16 inches | 16x32 inches | 20x32 inches | 20x48 inches | 28x48 inches`;
+      }
+
       const galleryThumbs = document.getElementById('galleryThumbs');
       const thumbImages = [
         machine.image,
-        'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg',
-        'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg'
+        machine.type === 'device' ? 'https://img.diytrade.com/smimg/3035710/54097600-11303186-0/Olh_098A_Twin_Sequin_Plus_Triple_Beads_Device_for_Embroidery_Machine/4959.jpg' : 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg',
+        machine.type === 'device' ? 'https://img.diytrade.com/smimg/3035710/54097600-11303186-0/Olh_098A_Twin_Sequin_Plus_Triple_Beads_Device_for_Embroidery_Machine/4959.jpg' : 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg'
       ];
       galleryThumbs.innerHTML = thumbImages.map((img, idx) => `
-      <div class="thumb-btn ${idx === 0 ? 'active' : ''}" onclick="changeImage(this, '${img}')">
-        <img src="${img}" alt="Thumb ${idx + 1}">
-      </div>
-    `).join('');
+        <div class="thumb-btn ${idx === 0 ? 'active' : ''}" onclick="changeImage(this, '${img}')">
+          <img src="${img}" alt="Thumb ${idx + 1}">
+        </div>
+      `).join('');
     }
 
-    // Render related products (all other machines)
     function renderRelatedProducts(currentId) {
       const relatedGrid = document.getElementById('relatedGrid');
-      const otherMachines = Object.keys(machinesData).filter(id => id !== currentId);
+      const otherProducts = Object.keys(machinesData).filter(id => id !== currentId);
 
-      relatedGrid.innerHTML = otherMachines.map(id => `
-      <div class="related-card" onclick="navigateToMachine('${id}')">
-        <img src="${machinesData[id].image}" alt="${machinesData[id].name}">
-        <h4>${machinesData[id].name}</h4>
-      </div>
-    `).join('');
+      relatedGrid.innerHTML = otherProducts.map(id => `
+        <div class="related-card" onclick="navigateToMachine('${id}')">
+          <img src="${machinesData[id].image}" alt="${machinesData[id].name}">
+          <h4>${machinesData[id].name}</h4>
+          <p style="padding: 0 20px 20px; font-size: 12px; opacity: 0.8;">${machinesData[id].type === 'device' ? 'Attachment Device' : 'Embroidery Machine'}</p>
+        </div>
+      `).join('');
     }
 
-    // Navigation function
     function navigateToMachine(machineId) {
       window.location.hash = machineId;
       loadMachine(machineId);
@@ -1009,14 +1025,12 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    // Gallery image changer
     function changeImage(element, imgSrc) {
       document.getElementById('mainImage').src = imgSrc;
       document.querySelectorAll('.thumb-btn').forEach(btn => btn.classList.remove('active'));
       element.classList.add('active');
     }
 
-    // Accordion toggle
     function toggleAccordion(header) {
       const body = header.nextElementSibling;
       const isCollapsed = header.classList.contains('collapsed');
@@ -1034,49 +1048,47 @@
       }
     }
 
-    // Mobile menu toggle
     function toggleMenu() {
       document.getElementById('sidebar').classList.toggle('active');
       document.getElementById('overlay').classList.toggle('active');
     }
 
-    // Navbar scroll effect
     window.addEventListener('scroll', function () {
       const navbar = document.getElementById('navbar');
       if (window.scrollY > 50) navbar.classList.add('scrolled');
       else navbar.classList.remove('scrolled');
     });
 
-    // Handle hash change
     window.addEventListener('hashchange', function () {
       const machineId = getCurrentMachineId();
       loadMachine(machineId);
       renderRelatedProducts(machineId);
     });
 
-    // Initialize
     const initialId = getCurrentMachineId();
     loadMachine(initialId);
     renderRelatedProducts(initialId);
 
-    // Setup machine navigation links
-    document.querySelectorAll('.machine-nav-link').forEach(link => {
+    document.querySelectorAll('.machine-nav-link, .dropdown-content a, .sidebar a[href*="machines.html"]').forEach(link => {
       link.addEventListener('click', function (e) {
-        e.preventDefault();
-        const id = this.getAttribute('data-id');
-        if (id) navigateToMachine(id);
-        if (window.innerWidth <= 768) toggleMenu();
+        const href = this.getAttribute('href');
+        if (href && href.includes('machines.html#')) {
+          e.preventDefault();
+          const id = href.split('#')[1];
+          if (id && machinesData[id]) {
+            navigateToMachine(id);
+            if (window.innerWidth <= 768) toggleMenu();
+          }
+        }
       });
     });
 
-    // Close sidebar when clicking on a link
     document.querySelectorAll('.sidebar a').forEach(anchor => {
       anchor.addEventListener('click', function () {
         if (window.innerWidth <= 768) toggleMenu();
       });
     });
 
-    // Expose functions globally
     window.changeImage = changeImage;
     window.toggleAccordion = toggleAccordion;
     window.toggleMenu = toggleMenu;

@@ -829,7 +829,7 @@
                     <span class="product-category">${product.category === 'machine' ? 'Embroidery Machine' : 'Accessory & Device'}</span>
                     <h3>${product.name}</h3>
                     <p class="product-desc">${product.description}</p>
-                    <div class="product-price">${product.price}</div>
+                   
                     <ul class="product-specs">
                         ${product.specs.slice(0, 4).map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}
                         ${product.specs.length > 4 ? `<li><i class="fas fa-plus-circle"></i> +${product.specs.length - 4} more features</li>` : ''}

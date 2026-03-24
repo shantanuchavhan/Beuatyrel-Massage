@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Rose Embroidery | Precision Embroidery Machines</title>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- AOS Library -->
+    <!-- AOS Library for scroll animations -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         * {
@@ -19,19 +22,17 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            color: #fff;
+            color: #333;
             line-height: 1.6;
-            background: #F20C97;
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 50%, #ffe4ec 100%);
             overflow-x: hidden;
         }
 
-        /* ONLY TWO COLORS: #F20C97 (dark pink) and #F353AD (light pink) */
-        :root {
-            --pink-dark: #F20C97;
-            --pink-light: #F353AD;
-        }
-
-        h1, h2, h3, h4, .section-title {
+        h1,
+        h2,
+        h3,
+        h4,
+        .section-title {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
         }
@@ -42,7 +43,6 @@
             padding: 0 30px;
         }
 
-        /* Navbar */
         .navbar {
             position: fixed;
             top: 0;
@@ -54,18 +54,22 @@
             background: transparent;
         }
 
+        .logo {
+            font-weight: 600;
+            font-size: 22px;
+        }
+
         .logo img {
             height: 50px;
             width: auto;
-            background: transparent;
-            filter: brightness(0) invert(1);
+            background-color: rgb(255, 255, 255);
         }
 
         .navbar.scrolled {
-            background: var(--pink-dark);
-            backdrop-filter: blur(0);
+            background: rgba(255, 245, 247, 0.95);
+            backdrop-filter: blur(10px);
             padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 5px 20px rgba(242, 12, 151, 0.15);
         }
 
         .nav-container {
@@ -82,7 +86,15 @@
             text-decoration: none;
             font-size: 28px;
             font-weight: 700;
+            letter-spacing: 2px;
             font-family: 'Cormorant Garamond', serif;
+        }
+
+        .navbar.scrolled .logo a {
+            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links {
@@ -102,19 +114,25 @@
             cursor: pointer;
         }
 
+        .navbar.scrolled .nav-attribute {
+            color: #5a3e4a;
+        }
+
         .nav-attribute:hover {
-            color: var(--pink-light);
-            opacity: 0.9;
+            color: rgb(243, 83, 173);
+        }
+
+        .navbar.scrolled .nav-attribute:hover {
+            color: rgb(242, 12, 151);
         }
 
         .nav-attribute.active {
-            color: #fff;
-            font-weight: 600;
-            border-bottom: 2px solid #fff;
+            color: rgb(243, 83, 173);
         }
 
         .navbar.scrolled .nav-attribute.active {
-            border-bottom-color: #fff;
+            color: rgb(242, 12, 151);
+            font-weight: 600;
         }
 
         .nav-item {
@@ -128,8 +146,12 @@
             margin-left: 8px;
             display: inline-block;
             transition: transform 0.3s ease;
-            color: #fff;
+            color: rgb(243, 83, 173);
             font-weight: bold;
+        }
+
+        .navbar.scrolled .nav-item>.nav-attribute::after {
+            color: rgb(242, 12, 151);
         }
 
         .nav-item:hover>.nav-attribute::after {
@@ -140,9 +162,9 @@
             position: absolute;
             top: calc(100% + 5px);
             left: 0;
-            background: var(--pink-dark);
+            background-color: #fff;
             min-width: 200px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(242, 12, 151, 0.2);
             border-radius: 12px;
             z-index: 10000;
             padding: 12px 0;
@@ -151,7 +173,18 @@
             transform: translateY(-10px);
             transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
             pointer-events: none;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(242, 12, 151, 0.3);
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: transparent;
+            pointer-events: auto;
         }
 
         .nav-item:hover .dropdown-content,
@@ -162,15 +195,30 @@
             pointer-events: auto;
         }
 
+        .dropdown-content::before {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: 30px;
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            transform: rotate(45deg);
+            border-top: 1px solid rgba(242, 12, 151, 0.3);
+            border-left: 1px solid rgba(242, 12, 151, 0.3);
+            border-radius: 4px 0 0 0;
+        }
+
         .dropdown-content a {
-            color: #fff !important;
+            color: #5a3e4a !important;
             padding: 12px 25px;
+            margin: 0 !important;
             display: block;
             text-align: left;
-            font-size: 13px;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 13px !important;
             transition: all 0.25s ease;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(242, 12, 151, 0.1);
         }
 
         .dropdown-content a:last-child {
@@ -178,17 +226,23 @@
         }
 
         .dropdown-content a:hover {
-            background: var(--pink-light);
-            color: #fff !important;
+            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
+            color: white !important;
             padding-left: 32px;
         }
 
-        .hamburger, .sidebar, .overlay { display: none; }
+        .hamburger,
+        .sidebar,
+        .overlay {
+            display: none;
+        }
 
-        /* Hero - only gradient colors, no image */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, var(--pink-dark) 0%, var(--pink-light) 100%);
+            background: linear-gradient(135deg, rgb(228, 33, 150) 0%, rgba(243, 83, 174, 0.937) 100%), url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -203,20 +257,23 @@
             font-weight: 500;
             margin-bottom: 20px;
             text-transform: uppercase;
-            color: rgba(255,255,255,0.9);
+            color: rgba(255, 255, 255, 0.9);
         }
 
         .hero-content h1 {
             font-size: 90px;
             font-weight: 700;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         .hero-content p {
             font-size: 22px;
             max-width: 700px;
             margin: 0 auto 40px;
+            opacity: 0.95;
+            line-height: 1.4;
         }
 
         .btn {
@@ -239,58 +296,45 @@
 
         .btn-light:hover {
             background: #fff;
-            color: var(--pink-dark);
+            color: rgb(242, 12, 151);
         }
 
         .btn-primary-custom {
-            background: linear-gradient(135deg, var(--pink-dark), var(--pink-light));
+            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
             color: #fff;
             border: none;
             padding: 14px 40px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
         .btn-primary-custom:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(242, 12, 151, 0.5);
         }
 
-        .btn-outline {
-            display: inline-block;
-            padding: 10px 25px;
-            border: 2px solid #fff;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: 0.3s;
-            background: transparent;
-        }
-
-        .btn-outline:hover {
-            background: #fff;
-            color: var(--pink-dark);
-            border-color: #fff;
-        }
-
-        /* Welcome / About */
         .welcome {
             padding: 100px 0;
-            background: var(--pink-dark);
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+            background-image: url("https://themewagon.github.io/pato/images/icons/pattern1.png");
+            background-repeat: repeat;
         }
 
         .welcome h2 {
             font-size: 14px;
             letter-spacing: 5px;
-            color: var(--pink-light);
+            color: rgb(242, 12, 151);
             margin-bottom: 15px;
             text-transform: uppercase;
+            font-weight: 500;
         }
 
         .welcome h3 {
             font-size: 48px;
             margin-bottom: 30px;
-            color: #fff;
+            font-weight: 600;
+            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .welcome-text {
@@ -298,16 +342,17 @@
             margin: 0 auto;
             text-align: center;
         }
-        
+
         .welcome-text p {
-            color: rgba(255,255,255,0.9);
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 1.8;
         }
 
-        /* Machines Section */
         .machines-section {
             position: relative;
+            background: none;
             padding: 100px 0;
-            background: var(--pink-light);
             overflow: hidden;
         }
 
@@ -317,7 +362,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--pink-light);
+            background-image: url('https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         .machines-bg-overlay::before {
@@ -327,7 +375,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: var(--pink-light);
+            background: linear-gradient(135deg, rgb(246, 76, 178) 0%, rgba(242, 12, 151, 0.8) 30%, rgba(255, 77, 178, 0.7) 70%, rgba(240, 78, 170, 0.968) 100%);
         }
 
         .section-header {
@@ -340,7 +388,7 @@
         .section-header .subtitle {
             font-size: 14px;
             letter-spacing: 5px;
-            color: rgba(255,255,255,0.8);
+            color: rgb(242, 12, 151);
             margin-bottom: 15px;
             text-transform: uppercase;
             font-weight: 500;
@@ -349,7 +397,21 @@
         .section-header h2 {
             font-size: 48px;
             font-weight: 600;
-            color: #fff;
+            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .machines-section .section-header .subtitle {
+            color: white;
+        }
+
+        .machines-section .section-header h2 {
+            background: linear-gradient(135deg, #fff, #fff0f3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .machines-grid {
@@ -363,29 +425,56 @@
             overflow-x: auto;
             padding-bottom: 20px;
             scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
         }
-        .machines-grid::-webkit-scrollbar { height: 8px; }
-        .machines-grid::-webkit-scrollbar-track { background: rgba(255,255,255,0.3); border-radius: 10px; }
-        .machines-grid::-webkit-scrollbar-thumb { background: var(--pink-dark); border-radius: 10px; }
+
+        .machines-grid::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .machines-grid::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+        }
+
+        .machines-grid::-webkit-scrollbar-thumb {
+            background: rgba(242, 12, 151, 0.6);
+            border-radius: 10px;
+        }
+
+        .machines-grid::-webkit-scrollbar-thumb:hover {
+            background: rgba(243, 83, 173, 0.9);
+        }
+
+        @media (max-width: 768px) {
+            .machines-grid {
+                grid-auto-columns: minmax(280px, 85vw);
+                gap: 20px;
+            }
+        }
 
         .machine-card {
-            background: var(--pink-dark);
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(2px);
             border-radius: 20px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 30px rgba(242, 12, 151, 0.25);
             transition: all 0.3s;
-            scroll-snap-align: start;
             position: relative;
+            scroll-snap-align: start;
         }
+
         .machine-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 25px 45px rgba(0,0,0,0.4);
+            box-shadow: 0 25px 45px rgba(242, 12, 151, 0.4);
+            background: #fff;
         }
+
         .machine-badge {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: var(--pink-light);
+            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
             color: #fff;
             padding: 5px 15px;
             border-radius: 25px;
@@ -393,18 +482,60 @@
             font-weight: 600;
             z-index: 1;
         }
+
         .machine-img {
             height: 280px;
             background-size: cover;
             background-position: center;
             transition: transform 0.5s;
         }
-        .machine-card:hover .machine-img { transform: scale(1.05); }
-        .machine-content { padding: 30px; }
-        .machine-content h3 { font-size: 28px; margin-bottom: 15px; color: #fff; }
-        .machine-specs { list-style: none; margin: 20px 0; }
-        .machine-specs li { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.2); color: rgba(255,255,255,0.9); }
-        .machine-specs li i { color: var(--pink-light); margin-right: 10px; }
+
+        .machine-card:hover .machine-img {
+            transform: scale(1.05);
+        }
+
+        .machine-content {
+            padding: 30px;
+        }
+
+        .machine-content h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: rgb(242, 12, 151);
+        }
+
+        .machine-specs {
+            list-style: none;
+            margin: 20px 0;
+        }
+
+        .machine-specs li {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(242, 12, 151, 0.15);
+            color: #666;
+        }
+
+        .machine-specs li i {
+            color: rgb(242, 12, 151);
+            margin-right: 10px;
+        }
+
+        .btn-outline {
+            display: inline-block;
+            padding: 10px 25px;
+            border: 2px solid rgb(242, 12, 151);
+            color: rgb(242, 12, 151);
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-outline:hover {
+            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
+            color: #fff;
+            border-color: transparent;
+        }
 
         .machines-filter-container {
             display: flex;
@@ -415,106 +546,233 @@
             z-index: 2;
             flex-wrap: wrap;
         }
-        .machine-filter-input, .machine-filter-select {
+
+        .machine-filter-input,
+        .machine-filter-select {
             padding: 14px 25px;
             border-radius: 30px;
-            border: 2px solid #fff;
+            border: 1px solid rgba(242, 12, 151, 0.4);
             font-family: 'Montserrat', sans-serif;
             font-size: 15px;
-            background: var(--pink-dark);
-            color: #fff;
+            background: rgba(255, 255, 255, 0.95);
             outline: none;
         }
-        .machine-filter-input::placeholder {
-            color: rgba(255,255,255,0.7);
-        }
-        .machine-filter-select option {
-            background: var(--pink-dark);
-            color: #fff;
-        }
 
-        /* Stats, Devices, FAQ - all using pink backgrounds */
-        .stats-section, .devices-section, .faq-section, .blog-section, .testimonials-section, .services-section, .gallery-section, .partners-section {
-            background: var(--pink-dark);
+        .devices-section,
+        .stats-section,    
+        .faq-section, 
+        .partners-section {
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
             padding: 100px 0;
         }
-        
-        .stats-grid, .devices-grid, .faq-grid, .blog-grid, .gallery-grid {
+
+        .devices-grid,
+        .stats-grid,
+        .faq-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 40px;
         }
-        
-        .stat-card, .device-card, .faq-card, .blog-card, .gallery-card, .testimonial-box {
-            background: var(--pink-light);
+
+        .device-card,
+        .stat-card,
+        .faq-card {
+            background: #fff;
             border-radius: 20px;
             padding: 40px 30px;
             text-align: center;
             transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            border: 1px solid rgba(255,255,255,0.2);
+            box-shadow: 0 10px 30px rgba(242, 12, 151, 0.1);
+            position: relative;
+            overflow: hidden;
         }
-        
-        .stat-card:hover, .device-card:hover, .faq-card:hover, .blog-card:hover, .gallery-card:hover {
+
+        .device-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
+            transform: scaleX(0);
+            transition: transform 0.3s;
+        }
+
+        .device-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .device-card:hover,
+        .stat-card:hover,
+        .faq-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            background: var(--pink-dark);
+            box-shadow: 0 20px 40px rgba(242, 12, 151, 0.2);
         }
-        
+
         .device-icon {
             width: 100px;
             height: 100px;
             margin: 0 auto 25px;
-            background: rgba(255,255,255,0.2);
+            background: linear-gradient(135deg, rgba(242, 12, 151, 0.1), rgba(243, 83, 173, 0.1));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
         }
-        .device-icon i { font-size: 50px; color: #fff; }
-        .device-card h3, .stat-card h3, .faq-card h3, .blog-title { font-size: 26px; margin-bottom: 15px; color: #fff; }
-        .stat-number { font-size: 48px; font-weight: 700; color: #fff; font-family: 'Cormorant Garamond', serif; }
-        .stat-card p, .device-card p, .faq-card p, .blog-excerpt { color: rgba(255,255,255,0.9); }
 
-        /* Service alternating layout */
+        .device-icon i {
+            font-size: 50px;
+            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .device-card h3,
+        .stat-card h3,
+        .faq-card h3 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: rgb(242, 12, 151);
+        }
+
+        /* New Services Section - Alternating Layout (Inspired by Poseify) */
+        .services-section {
+            background: url("https://themewagon.github.io/pato/images/icons/pattern1.png");
+            background-repeat: repeat;
+            padding: 100px 0;
+        }
+
         .service-item {
             position: relative;
             margin-bottom: 80px;
             overflow: hidden;
         }
-        .service-item:last-child { margin-bottom: 0; }
-        .service-img img {
+
+        .service-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .service-item .service-img {
+            position: relative;
+            display: inline-block;
+        }
+
+        .service-item .service-img::before {
+            position: absolute;
+            content: "";
+            width: calc(100% - 4rem);
+            height: calc(100% - 4rem);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1.5rem solid rgba(242, 12, 151, 0.2);
+            border-radius: 50%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .service-item .service-img img {
             border-radius: 50%;
             width: 100%;
             height: auto;
             object-fit: cover;
             aspect-ratio: 1/1;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            border: 3px solid rgba(255,255,255,0.5);
+            box-shadow: 0 20px 40px rgba(242, 12, 151, 0.2);
         }
-        .service-text h3 { font-size: 32px; color: #fff; margin-bottom: 20px; }
-        .service-text p { color: rgba(255,255,255,0.9); margin-bottom: 25px; }
+
+        .service-item.service-item-left {
+            border-radius: 500px 0 0 500px;
+            background: linear-gradient(135deg, rgba(242, 12, 151, 0.05), rgba(243, 83, 173, 0.05));
+        }
+
+        .service-item.service-item-right {
+            border-radius: 0 500px 500px 0;
+            background: linear-gradient(135deg, rgba(243, 83, 173, 0.05), rgba(242, 12, 151, 0.05));
+        }
+
+        .service-text h3 {
+            font-size: 32px;
+            color: rgb(242, 12, 151);
+            font-weight: 700;
+            margin-bottom: 20px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .service-text p {
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 25px;
+        }
+
         .btn-service {
             display: inline-block;
             padding: 12px 30px;
-            border: 2px solid #fff;
-            color: #fff;
+            border: 2px solid rgb(242, 12, 151);
+            color: rgb(242, 12, 151);
             background: transparent;
             border-radius: 50px;
             font-weight: 600;
             text-decoration: none;
             transition: 0.3s;
         }
-        .btn-service:hover { background: #fff; color: var(--pink-dark); border-color: #fff; transform: translateX(5px); }
 
-        /* Events section */
+        .btn-service:hover {
+            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
+            color: #fff;
+            border-color: transparent;
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 767.98px) {
+
+            .service-item.service-item-left,
+            .service-item.service-item-right {
+                border-radius: 500px 500px 0 0;
+                background: linear-gradient(135deg, rgba(242, 12, 151, 0.05), rgba(243, 83, 173, 0.05));
+                text-align: center;
+            }
+
+            .service-text {
+                text-align: center;
+                padding: 30px 20px !important;
+            }
+
+            .service-item .service-img {
+                margin-top: 30px;
+            }
+        }
+
         .events-section {
             padding: 120px 0;
-            background: var(--pink-light);
+            background: linear-gradient(135deg, rgb(242, 12, 151) 0%, rgb(243, 83, 173) 100%);
             color: #fff;
             position: relative;
             overflow: hidden;
         }
+
+        .events-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.15) 1%, transparent 1%);
+            background-size: 50px 50px;
+            animation: moveDots 20s linear infinite;
+        }
+
+        @keyframes moveDots {
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(50px, 50px);
+            }
+        }
+
         .event-content-wrapper {
             display: flex;
             align-items: center;
@@ -523,190 +781,1194 @@
             position: relative;
             z-index: 2;
         }
-        .event-info { flex: 1; }
+
+        .event-info {
+            flex: 1;
+            max-width: 600px;
+        }
+
         .event-subtitle {
             font-size: 16px;
             letter-spacing: 4px;
             font-weight: 600;
             text-transform: uppercase;
-            background: rgba(255,255,255,0.2);
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 1);
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
             padding: 8px 20px;
             border-radius: 30px;
-            display: inline-block;
-            margin-bottom: 20px;
         }
-        .event-info h2 { font-size: 54px; font-weight: 700; margin-bottom: 20px; }
+
+        .event-info h2 {
+            font-size: 54px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .event-title {
+            font-size: 26px;
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        .event-desc {
+            font-size: 18px;
+            line-height: 1.7;
+            margin-bottom: 35px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .event-location {
+            font-size: 18px;
+            font-weight: 500;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .event-location p {
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+
+        .event-location i {
+            margin-right: 15px;
+            background: #fff;
+            color: rgb(242, 12, 151);
+            width: 45px;
+            height: 45px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            font-size: 18px;
+        }
+
         .event-countdown-card {
-            background: var(--pink-dark);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 20px;
             padding: 50px 40px;
             text-align: center;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
             flex: 0 0 450px;
-            border: 1px solid rgba(255,255,255,0.3);
         }
-        .countdown { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; margin-bottom: 35px; }
-        .countdown-item { background: rgba(255,255,255,0.15); padding: 25px 20px; border-radius: 15px; }
-        .countdown-number { font-size: 46px; font-weight: 700; font-family: 'Cormorant Garamond', serif; line-height: 1; }
+
+        .event-countdown-card h3 {
+            font-size: 26px;
+            margin-bottom: 30px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .countdown {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 25px 20px;
+            border-radius: 15px;
+            box-shadow: inset 0 2px 5px rgba(255, 255, 255, 0.2);
+            text-align: center;
+        }
+
+        .countdown-number {
+            font-size: 46px;
+            font-weight: 700;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .countdown-label {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 600;
+            opacity: 0.95;
+            display: block;
+        }
+
         .event-btn {
             display: inline-block;
             background: #fff;
-            color: var(--pink-dark);
+            color: rgb(242, 12, 151);
             padding: 18px 40px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
+            font-size: 16px;
+            transition: all 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             width: 100%;
             margin-bottom: 20px;
-            transition: 0.3s;
         }
+
+        .event-btn.event-btn-outline {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+            box-shadow: none;
+            width: auto;
+            margin: 0;
+            padding: 14px 35px;
+        }
+
+        .event-btn.event-btn-outline:hover {
+            background: #fff;
+            color: rgb(243, 83, 173);
+        }
+
         .event-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+            background: #fdfdfd;
         }
-        .limited-seats { font-size: 14px; }
-        
+
+        .limited-seats {
+            font-size: 15px;
+            font-weight: 500;
+            color: #fff;
+        }
+
         @media (max-width: 991px) {
-            .event-content-wrapper { flex-direction: column; text-align: center; }
-            .event-countdown-card { flex: none; width: 100%; max-width: 500px; }
+            .event-content-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .event-info {
+                max-width: 100%;
+            }
+
+            .event-location {
+                align-items: center;
+            }
+
+            .event-location p {
+                justify-content: center;
+            }
+
+            .event-countdown-card {
+                flex: none;
+                width: 100%;
+                max-width: 500px;
+            }
         }
 
-        /* Gallery */
-        .gallery-img { height: 280px; background-size: cover; background-position: center; transition: transform 0.5s; border-radius: 15px; }
-        .gallery-card:hover .gallery-img { transform: scale(1.02); }
-        .gallery-overlay { margin-top: 15px; text-align: center; }
-        .gallery-overlay h4 { color: #fff; font-size: 20px; }
+        @media (max-width: 576px) {
+            .event-countdown-card {
+                padding: 30px 20px;
+            }
 
-        /* Testimonials */
-        .testimonial-container { overflow: hidden; max-width: 1250px; margin: 50px auto 0; }
-        .testimonial-track { display: flex; gap: 100px; transition: transform 0.8s ease; }
-        .testimonial-box { min-width: 500px; padding: 50px 40px; text-align: left; }
-        .testimonial-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; flex-wrap: wrap; }
-        .testimonial-header h3 { font-size: 28px; color: #fff; margin: 0; background: none; -webkit-text-fill-color: #fff; }
-        .stars { color: #FFD966; font-size: 24px; letter-spacing: 3px; }
-        .testimonial-text { font-size: 20px; line-height: 32px; color: rgba(255,255,255,0.95); margin-bottom: 25px; }
-        .testimonial-name { color: #fff; font-weight: 600; margin-top: 10px; }
-        .testimonial-dots { display: flex; justify-content: center; gap: 12px; margin-top: 30px; }
-        .dot { width: 12px; height: 12px; background: rgba(255,255,255,0.4); border-radius: 50%; cursor: pointer; transition: 0.3s; }
-        .dot.active { background: #fff; transform: scale(1.3); }
+            .countdown {
+                grid-template-columns: 1fr;
+            }
 
-        /* Blog */
-        .blog-img { height: 220px; background-size: cover; background-position: center; border-radius: 15px 15px 0 0; }
-        .blog-content { padding: 25px; }
-        .blog-date { color: rgba(255,255,255,0.8); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; }
-        .read-more { color: #fff; text-decoration: none; font-weight: 600; display: inline-block; margin-top: 15px; border-bottom: 1px solid #fff; }
+            .event-info h2 {
+                font-size: 40px;
+            }
+        }
 
-        /* Footer */
+        .gallery-section {
+            padding: 100px 0;
+            background: url("https://themewagon.github.io/pato/images/icons/pattern2.png");
+            background-repeat: repeat;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .gallery-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(242, 12, 151, 0.15);
+            transition: all 0.3s;
+        }
+
+        .gallery-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .gallery-img {
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s;
+        }
+
+        .gallery-card:hover .gallery-img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+            padding: 30px 20px 20px;
+            color: white;
+        }
+
+        .testimonials-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #fdfdfd 0%, #ffffff 100%);
+            text-align: center;
+        }
+
+        .testimonial-container {
+            overflow: hidden;
+            max-width: 1250px;
+            margin: 50px auto 0;
+        }
+
+        .testimonial-track {
+            display: flex;
+            gap: 100px;
+            transition: transform 0.8s ease;
+        }
+
+        .testimonial-box {
+            min-width: 500px;
+            background: #fff;
+            padding: 60px 80px 80px 60px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(242, 12, 151, 0.1);
+        }
+
+        .testimonial-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 45px;
+        }
+
+        .testimonial-header h3 {
+            font-size: 32px;
+            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .faq-section{
+            background: url("https://themewagon.github.io/pato/images/icons/pattern1.png");
+            background-repeat: repeat;
+        }
+
+        .stars {
+            color: rgb(243, 83, 173);
+            font-size: 26px;
+        }
+
+        .testimonial-text {
+            font-size: 22px;
+            line-height: 34px;
+            color: #5a6785;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-name {
+            color: rgb(242, 12, 151);
+            font-weight: 500;
+        }
+
+        .testimonial-dots {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background: #cfd5e3;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+
+        .dot.active {
+            background: rgb(242, 12, 151);
+            transform: scale(1.2);
+        }
+
+        .blog-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #ffffffbc 0%, #fae2e7 100%);
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .blog-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(242, 12, 151, 0.1);
+            transition: all 0.3s;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .blog-img {
+            height: 250px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .blog-content {
+            padding: 30px;
+        }
+
+        .blog-date {
+            color: rgb(242, 12, 151);
+            font-size: 12px;
+            text-transform: uppercase;
+        }
+
+        .blog-title {
+            font-size: 24px;
+            margin: 15px 0;
+            color: rgb(242, 12, 151);
+        }
+
+        .read-more {
+            color: rgb(242, 12, 151);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: 700;
+            color: rgb(242, 12, 151);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
         footer {
-            background: var(--pink-light);
+            background: linear-gradient(135deg, rgb(242, 12, 151) 0%, rgb(243, 83, 173) 100%);
             color: #fff;
             padding: 60px 0 30px;
             text-align: center;
         }
-        .footer-links { display: flex; justify-content: center; gap: 40px; margin: 30px 0; flex-wrap: wrap; }
-        .footer-links a { color: #fff; text-decoration: none; transition: 0.3s; }
-        .footer-links a:hover { opacity: 0.8; text-decoration: underline; }
-        .social-icons { display: flex; justify-content: center; gap: 20px; margin: 30px 0; }
-        .social-icons a { color: #fff; font-size: 24px; transition: 0.3s; }
-        .social-icons a:hover { transform: translateY(-3px); }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-links a:hover {
+            opacity: 0.8;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 24px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-3px);
+        }
 
         @media (max-width: 768px) {
-            .hamburger { display: block; cursor: pointer; z-index: 1001; }
-            .hamburger span { display: block; width: 25px; height: 2px; background: #fff; margin: 5px 0; }
-            .sidebar {
-                position: fixed; top: 0; left: -280px; width: 280px; height: 100%;
-                background: var(--pink-dark); padding: 80px 30px 30px; display: flex; flex-direction: column;
-                gap: 20px; transition: 0.3s; z-index: 10000; box-shadow: 2px 0 20px rgba(0,0,0,0.3);
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                z-index: 1001;
             }
-            .sidebar.active { left: 0; }
-            .sidebar a { color: #fff; text-decoration: none; font-size: 16px; border-bottom: 1px solid rgba(255,255,255,0.2); padding: 12px 0; }
-            .sidebar .close-btn { position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer; color: #fff; }
-            .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); opacity: 0; visibility: hidden; transition: 0.3s; z-index: 9999; display: block; }
-            .overlay.active { opacity: 1; visibility: visible; }
-            .nav-links { display: none; }
-            .hero-content h1 { font-size: 48px; }
-            .hero-content p { font-size: 16px; }
-            .testimonial-box { min-width: calc(100% - 20px); padding: 30px 25px; }
-            .testimonial-text { font-size: 16px; line-height: 26px; }
-            .countdown-item { padding: 15px; }
-            .countdown-number { font-size: 28px; }
-            .section-header h2 { font-size: 36px; }
+
+            .hamburger span {
+                display: block;
+                width: 25px;
+                height: 2px;
+                background: #fff;
+                margin: 5px 0;
+            }
+
+            .navbar.scrolled .hamburger span {
+                background: rgb(242, 12, 151);
+            }
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -280px;
+                width: 280px;
+                height: 100%;
+                background: linear-gradient(135deg, #fff5f7, #ffe4ec);
+                padding: 80px 30px 30px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                transition: 0.3s ease;
+                z-index: 10000;
+            }
+
+            .sidebar.active {
+                left: 0;
+            }
+
+            .sidebar a {
+                color: #5a3e4a;
+                text-decoration: none;
+                font-size: 16px;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(242, 12, 151, 0.2);
+            }
+
+            .sidebar .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 24px;
+                cursor: pointer;
+                color: rgb(242, 12, 151);
+            }
+
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.3s;
+                z-index: 9999;
+                display: block;
+            }
+
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content h1 {
+                font-size: 48px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .section-header h2 {
+                font-size: 32px;
+            }
+
+            .testimonial-box {
+                min-width: calc(100% - 30px);
+                padding: 30px 25px;
+            }
+
+            .testimonial-text {
+                font-size: 16px;
+                line-height: 28px;
+            }
+
+            .countdown-item {
+                padding: 15px 20px;
+                min-width: 70px;
+            }
+
+            .countdown-number {
+                font-size: 28px;
+            }
         }
     </style>
 </head>
+
 <body>
 
-<nav class="navbar" id="navbar">
-    <div class="nav-container">
-        <div class="logo"><a href="#"><img src="./images/logo.png" alt="Rose Embroidery Logo"></a></div>
-        <div class="nav-links">
-            <a class="nav-attribute active" href="#home">Home</a>
-            <a class="nav-attribute" href="#about">About</a>
-            <div class="nav-item"><a class="nav-attribute" href="#">Product</a><div class="dropdown-content"><a href="products.html#machines">Machines</a><a href="products.html#devices">Devices</a></div></div>
-            <a class="nav-attribute" href="#services">Services</a>
-            <a class="nav-attribute" href="#events">Events</a>
-            <a class="nav-attribute" href="#gallery">Gallery</a>
-            <a class="nav-attribute" href="#contact">Contact</a>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo"><a href="#"> <img src="./images/logo.png" alt="Rose Embroidery Logo"></a></div>
+            <div class="nav-links">
+                <a class="nav-attribute active" href="#home">Home</a>
+                <a class="nav-attribute" href="#about">About</a>
+                <div class="nav-item">
+                    <a class="nav-attribute" href="#">Product</a>
+                    <div class="dropdown-content">
+                        <a class="nav-attribute" href="#machines">Machines</a>
+                        <a class="nav-attribute" href="#devices">Devices</a>
+                    </div>
+                </div>
+                <a class="nav-attribute" href="#services">Services</a>
+                <a class="nav-attribute" href="#events">Events</a>
+                <a class="nav-attribute" href="#gallery">Gallery</a>
+                <a class="nav-attribute" href="#contact">Contact</a>
+            </div>
+            <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         </div>
-        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </nav>
+    <div class="sidebar" id="sidebar">
+        <div class="close-btn" onclick="toggleMenu()">✕</div>
+        <a href="#home">Home</a><a href="#about">About</a><a href="#machines">Machines</a>
+        <a href="#devices">Devices</a><a href="#services">Services</a><a href="#events">Events</a>
+        <a href="#gallery">Gallery</a><a href="#contact">Contact</a>
     </div>
-</nav>
-<div class="sidebar" id="sidebar"><div class="close-btn" onclick="toggleMenu()">✕</div><a href="#home">Home</a><a href="#about">About</a><a href="#machines">Machines</a><a href="#devices">Devices</a><a href="#services">Services</a><a href="#events">Events</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a></div>
-<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
-<section class="hero" id="home"><div class="hero-content" data-aos="fade-up"><h2>Precision Engineering Since 1995</h2><h1>Rose Embroidery</h1><p>Quality · Precision · Trust · Innovation</p><p>Discover the art of flawless embroidery with Rose Embroidery's cutting-edge machines trusted by 5000+ businesses worldwide.</p><a href="#machines" class="btn btn-light">Explore Machines</a><a href="#contact" class="btn btn-light">Contact Us</a></div></section>
+    <section class="hero" id="home">
+        <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
+            <h2>Precision Engineering Since 1995</h2>
+            <h1>Rose Embroidery</h1>
+            <p>Quality · Precision · Trust · Innovation</p>
+            <p>Discover the art of flawless embroidery with Rose Embroidery's cutting-edge machines trusted by 5000+
+                businesses worldwide.</p>
+            <a href="#machines" class="btn btn-light">Explore Machines</a>
+            <a href="#contact" class="btn btn-light">Contact Us</a>
+        </div>
+    </section>
 
-<section class="welcome" id="about"><div class="container"><div class="welcome-text" data-aos="fade-up"><h2>Welcome to Rose Embroidery</h2><h3>Crafting Excellence Since 1995</h3><p>With over 28 years of experience, Rose Embroidery has established itself as a premier manufacturer of precision embroidery machines. Our commitment to innovation, quality craftsmanship, and customer satisfaction has made us the trusted choice for businesses across the globe. From small home-based studios to large-scale industrial operations, we provide embroidery solutions that deliver exceptional results every time.</p><p style="margin-top: 20px;">Our state-of-the-art manufacturing facility spans 50,000 sq ft and houses the latest CNC machining centers, ensuring every component meets our rigorous quality standards. We're proud to serve customers in over 30 countries with our award-winning machines.</p><a href="#machines" class="btn btn-primary-custom">Explore Products</a><a href="#contact" class="btn-outline" style="margin-left:15px;">Get Quote</a></div></div></section>
+    <section class="welcome" id="about">
+        <div class="container">
+            <div class="welcome-text" data-aos="fade-up">
+                <h2>Welcome to Rose Embroidery</h2>
+                <h3>Crafting Excellence Since 1995</h3>
+                <p>With over 28 years of experience, Rose Embroidery has established itself as a premier manufacturer of
+                    precision embroidery machines. Our commitment to innovation, quality craftsmanship, and customer
+                    satisfaction has made us the trusted choice for businesses across the globe. From small home-based
+                    studios to large-scale industrial operations, we provide embroidery solutions that deliver
+                    exceptional results every time.</p>
+                <p style="margin-top: 20px;">Our state-of-the-art manufacturing facility spans 50,000 sq ft and houses
+                    the latest CNC machining centers, ensuring every component meets our rigorous quality standards.
+                    We're proud to serve customers in over 30 countries with our award-winning machines.</p>
+                <a href="#machines" class="btn btn-primary-custom">Explore Products</a>
+                <a href="#contact" class="btn btn-outline" style="margin-left: 15px;">Get Quote</a>
+            </div>
+        </div>
+    </section>
 
-<section class="stats-section"><div class="container"><div class="section-header" data-aos="fade-up"><div class="subtitle">Our Impact</div><h2>Rose Embroidery by Numbers</h2></div><div class="stats-grid"><div class="stat-card" data-aos="zoom-in" data-aos-delay="100"><div class="stat-number">5000+</div><h3>Happy Customers</h3><p>Businesses worldwide trust Rose Embroidery</p></div><div class="stat-card" data-aos="zoom-in" data-aos-delay="200"><div class="stat-number">28+</div><h3>Years of Excellence</h3><p>Decades of industry leadership</p></div><div class="stat-card" data-aos="zoom-in" data-aos-delay="300"><div class="stat-number">30+</div><h3>Countries Served</h3><p>Global presence and support</p></div><div class="stat-card" data-aos="zoom-in" data-aos-delay="400"><div class="stat-number">50k+</div><h3>Machines Installed</h3><p>Proven reliability worldwide</p></div></div></div></section>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="subtitle">Our Impact</div>
+                <h2>Rose Embroidery by Numbers</h2>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-number">5000+</div>
+                    <h3>Happy Customers</h3>
+                    <p>Businesses worldwide trust Rose Embroidery</p>
+                </div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-number">28+</div>
+                    <h3>Years of Excellence</h3>
+                    <p>Decades of industry leadership</p>
+                </div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="stat-number">30+</div>
+                    <h3>Countries Served</h3>
+                    <p>Global presence and support</p>
+                </div>
+                <div class="stat-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="stat-number">50k+</div>
+                    <h3>Machines Installed</h3>
+                    <p>Proven reliability worldwide</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="machines-section" id="machines"><div class="machines-bg-overlay"></div><div class="container"><div class="section-header" data-aos="fade-up"><div class="subtitle">Industrial Excellence</div><h2>Embroidery Machines</h2></div><div class="machines-filter-container" data-aos="fade-up"><input type="text" id="machineSearch" class="machine-filter-input" placeholder="Search by name, specs..." onkeyup="filterMachines()"><select id="machineCategory" class="machine-filter-select" onchange="filterMachines()"><option value="all">All Machines</option><option value="HSW 5G 2032">HSW 5G 2032</option><option value="HSW 5G 1216">HSW 5G 1216</option><option value="HSW 5G 1632">HSW 5G 1632</option><option value="HSW 5G 2048">HSW 5G 2048</option></select></div><div class="machines-grid"><div class="machine-card" data-aos="fade-up" data-aos-delay="100"><div class="machine-badge">FLAGSHIP</div><div class="machine-img" style="background-image: url('./images/machine1.jpeg');"></div><div class="machine-content"><h3>HSW 5G 2032</h3><p>20×32" · 12 needles · 1200 RPM · Flagship Model</p><ul class="machine-specs"><li><i class="fas fa-tachometer-alt"></i> 1200 RPM Max Speed</li><li><i class="fas fa-database"></i> 12 Needles with Quick Change</li><li><i class="fas fa-crown"></i> Flagship Technology</li><li><i class="fas fa-wifi"></i> WiFi & USB Connectivity</li><li><i class="fas fa-chart-line"></i> Real-time Production Analytics</li></ul><a href="machines.html#2032" class="btn-outline">View Details</a></div></div><div class="machine-card" data-aos="fade-up" data-aos-delay="150"><div class="machine-img" style="background-image: url('./images/machine2.jpeg');"></div><div class="machine-content"><h3>HSW 5G 1216</h3><p>12×16" · 12 needles · 1000 RPM · Home Business Model</p><ul class="machine-specs"><li><i class="fas fa-tachometer-alt"></i> 1000 RPM Speed</li><li><i class="fas fa-database"></i> 12 Needle Configuration</li><li><i class="fas fa-home"></i> Perfect for Home Business</li><li><i class="fas fa-microchip"></i> Smart Touch Screen</li><li><i class="fas fa-battery-full"></i> Energy Efficient</li></ul><a href="machines.html#1216" class="btn-outline">View Details</a></div></div><div class="machine-card" data-aos="fade-up" data-aos-delay="200"><div class="machine-img" style="background-image: url('./images/machine3.jpeg');"></div><div class="machine-content"><h3>HSW 5G 1632</h3><p>16×32" · 12 needles · 1000 RPM · Mid-Range Pro</p><ul class="machine-specs"><li><i class="fas fa-tachometer-alt"></i> 1000 RPM Speed</li><li><i class="fas fa-database"></i> 12 Needle System</li><li><i class="fas fa-balance-scale"></i> Perfect Balance</li><li><i class="fas fa-vector-square"></i> Automatic Thread Trimmer</li><li><i class="fas fa-eye"></i> Laser Positioning Guide</li></ul><a href="machines.html#1632" class="btn-outline">View Details</a></div></div><div class="machine-card" data-aos="fade-up" data-aos-delay="250"><div class="machine-badge">SAREE SPECIALIST</div><div class="machine-img" style="background-image: url('./images/machine4.jpeg');"></div><div class="machine-content"><h3>HSW 5G 2048</h3><p>20×48" · 12 needles · 1200 RPM · Saree & Wedding Wear</p><ul class="machine-specs"><li><i class="fas fa-tachometer-alt"></i> 1200 RPM Speed</li><li><i class="fas fa-database"></i> 12 Needle Capacity</li><li><i class="fas fa-tshirt"></i> Specialized for Saree Border</li><li><i class="fas fa-expand-arrows-alt"></i> Extended Embroidery Area</li><li><i class="fas fa-gem"></i> Bridal Wear Optimized</li></ul><a href="machines.html#2048" class="btn-outline">View Details</a></div></div></div></div></section>
+    <!-- Machines Section -->
+    <!-- <section class="machines-section" id="machines">
+        <div class="machines-bg-overlay"></div>
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="subtitle">Industrial Excellence</div>
+                <h2>Embroidery Machines</h2>
+            </div>
+            <div class="machines-filter-container" data-aos="fade-up">
+                <input type="text" id="machineSearch" class="machine-filter-input"
+                    placeholder="Search by name, specs..." onkeyup="filterMachines()">
+                <select id="machineCategory" class="machine-filter-select" onchange="filterMachines()">
+                    <option value="all">All Machines</option>
+                    <option value="HSW 5G 2032">HSW 5G 2032</option>
+                    <option value="HSW 5G 1216">HSW 5G 1216</option>
+                    <option value="HSW 5G 1632">HSW 5G 1632</option>
+                    <option value="HSW 5G 2048">HSW 5G 2048</option>
+                </select>
+            </div>
+            <div class="machines-grid">
+                <div class="machine-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="machine-badge">FLAGSHIP</div>
+                    <div class="machine-img" style="background-image: url('./images/machine1.jpeg');"></div>
+                    <div class="machine-content">
+                        <h3>HSW 5G 2032</h3>
+                        <p>20×32" · 12 needles · 1200 RPM · Flagship Model</p>
+                        <ul class="machine-specs">
+                            <li><i class="fas fa-tachometer-alt"></i> 1200 RPM Max Speed</li>
+                            <li><i class="fas fa-database"></i> 12 Needles with Quick Change</li>
+                            <li><i class="fas fa-crown"></i> Flagship Technology</li>
+                            <li><i class="fas fa-wifi"></i> WiFi & USB Connectivity</li>
+                            <li><i class="fas fa-chart-line"></i> Real-time Production Analytics</li>
+                        </ul>
+                        <a href="machines.html#2032" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+                <div class="machine-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="machine-img" style="background-image: url('./images/machine2.jpeg');"></div>
+                    <div class="machine-content">
+                        <h3>HSW 5G 1216</h3>
+                        <p>12×16" · 12 needles · 1000 RPM · Home Business Model</p>
+                        <ul class="machine-specs">
+                            <li><i class="fas fa-tachometer-alt"></i> 1000 RPM Speed</li>
+                            <li><i class="fas fa-database"></i> 12 Needle Configuration</li>
+                            <li><i class="fas fa-home"></i> Perfect for Home Business</li>
+                            <li><i class="fas fa-microchip"></i> Smart Touch Screen</li>
+                            <li><i class="fas fa-battery-full"></i> Energy Efficient</li>
+                        </ul>
+                        <a href="machines.html#1216" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+                <div class="machine-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="machine-img" style="background-image: url('./images/machine3.jpeg');"></div>
+                    <div class="machine-content">
+                        <h3>HSW 5G 1632</h3>
+                        <p>16×32" · 12 needles · 1000 RPM · Mid-Range Pro</p>
+                        <ul class="machine-specs">
+                            <li><i class="fas fa-tachometer-alt"></i> 1000 RPM Speed</li>
+                            <li><i class="fas fa-database"></i> 12 Needle System</li>
+                            <li><i class="fas fa-balance-scale"></i> Perfect Balance</li>
+                            <li><i class="fas fa-vector-square"></i> Automatic Thread Trimmer</li>
+                            <li><i class="fas fa-eye"></i> Laser Positioning Guide</li>
+                        </ul>
+                        <a href="machines.html#1632" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+                <div class="machine-card" data-aos="fade-up" data-aos-delay="250">
+                    <div class="machine-badge">SAREE SPECIALIST</div>
+                    <div class="machine-img" style="background-image: url('./images/machine4.jpeg');"></div>
+                    <div class="machine-content">
+                        <h3>HSW 5G 2048</h3>
+                        <p>20×48" · 12 needles · 1200 RPM · Saree & Wedding Wear</p>
+                        <ul class="machine-specs">
+                            <li><i class="fas fa-tachometer-alt"></i> 1200 RPM Speed</li>
+                            <li><i class="fas fa-database"></i> 12 Needle Capacity</li>
+                            <li><i class="fas fa-tshirt"></i> Specialized for Saree Border</li>
+                            <li><i class="fas fa-expand-arrows-alt"></i> Extended Embroidery Area</li>
+                            <li><i class="fas fa-gem"></i> Bridal Wear Optimized</li>
+                        </ul>
+                        <a href="machines.html#2048" class="btn-outline">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
 
-<section class="services-section" id="services"><div class="container"><div class="section-header" data-aos="fade-up"><div class="subtitle">Comprehensive Support</div><h2>How We Help You</h2></div><div class="service-item service-item-left" data-aos="fade-left"><div class="row g-0 align-items-center" style="display: flex; flex-wrap: wrap;"><div class="col-md-5" style="flex: 0 0 41.666%; max-width: 41.666%; padding: 20px 15px;"><div class="service-img p-4" style="position: relative; display: inline-block; width: 100%;"><div style="position: relative; width: 100%; padding-bottom: 100%;"><img class="img-fluid rounded-circle" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQaau2H1jIOIyG0Z8mWPCCLjnQIM8pF4lIq4A&s" alt="Professional Training" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; box-shadow: 0 20px 40px rgba(0,0,0,0.3);"></div><div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 20px); height: calc(100% + 20px); border: 3px solid rgba(255,255,255,0.5); border-radius: 50%; pointer-events: none; z-index: 1;"></div></div></div><div class="col-md-7" style="flex: 0 0 58.333%; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; max-width: 58.333%; padding: 0 15px;"><div class="service-text px-5 px-md-0 py-md-5" style="text-align: start;"><h3>Professional Training</h3><p>Hands-on training sessions for operators, maintenance staff, and designers. Our certified trainers provide comprehensive on-site and virtual training programs with certification upon completion. Master your machine in just 3 days with our industry-leading curriculum.</p><a href="#contact" class="btn-service">Learn More <i class="fas fa-arrow-right ms-2"></i></a></div></div></div></div><div class="service-item service-item-right" data-aos="fade-right"><div class="row g-0 align-items-center" style="display: flex; flex-wrap: wrap;"><div class="col-md-5 order-md-1" style="flex: 0 0 41.666%; max-width: 41.666%; padding: 20px 15px; order: 2;"><div class="service-img p-4" style="position: relative; display: inline-block; width: 100%;"><div style="position: relative; width: 100%; padding-bottom: 100%;"><img class="img-fluid rounded-circle" src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600" alt="24/7 Support" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; box-shadow: 0 20px 40px rgba(0,0,0,0.3);"></div><div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 20px); height: calc(100% + 20px); border: 3px solid rgba(255,255,255,0.5); border-radius: 50%; pointer-events: none; z-index: 1;"></div></div></div><div class="col-md-7" style="flex: 0 0 58.333%; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; max-width: 58.333%; padding: 0 15px;"><div class="service-text px-5 px-md-0 py-md-5" style="text-align: end;"><h3>24/7 Technical Support</h3><p>Round-the-clock assistance from certified technicians. Remote diagnostics, spare parts delivery within 24 hours, and emergency service visits. Our support team resolves 95% of issues within the first call, ensuring minimal downtime for your business.</p><a href="#contact" class="btn-service">Get Support <i class="fas fa-arrow-right ms-2"></i></a></div></div></div></div><div class="service-item service-item-left" data-aos="fade-left"><div class="row g-0 align-items-center" style="display: flex; flex-wrap: wrap;"><div class="col-md-5" style="flex: 0 0 41.666%; max-width: 41.666%; padding: 20px 15px;"><div class="service-img p-4" style="position: relative; display: inline-block; width: 100%;"><div style="position: relative; width: 100%; padding-bottom: 100%;"><img class="img-fluid rounded-circle" src="https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Custom Digitizing" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; box-shadow: 0 20px 40px rgba(0,0,0,0.3);"></div><div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 20px); height: calc(100% + 20px); border: 3px solid rgba(255,255,255,0.5); border-radius: 50%; pointer-events: none; z-index: 1;"></div></div></div><div class="col-md-7" style="flex: 0 0 58.333%; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; max-width: 58.333%; padding: 0 15px;"><div class="service-text px-5 px-md-0 py-md-5" style="text-align: start;"><h3>Custom Digitizing</h3><p>Professional digitizing services for logos, patterns, and complex designs. Our team of 50+ experienced digitizers ensures perfect stitch quality, proper underlay, and optimization for your specific machine model. Fast turnaround with unlimited revisions.</p><a href="#contact" class="btn-service">Upload Design <i class="fas fa-arrow-right ms-2"></i></a></div></div></div></div><div class="service-item service-item-right" data-aos="fade-right"><div class="row g-0 align-items-center" style="display: flex; flex-wrap: wrap;"><div class="col-md-5 order-md-1" style="flex: 0 0 41.666%; max-width: 41.666%; padding: 20px 15px; order: 2;"><div class="service-img p-4" style="position: relative; display: inline-block; width: 100%;"><div style="position: relative; width: 100%; padding-bottom: 100%;"><img class="img-fluid rounded-circle" src="https://img.freepik.com/free-photo/solar-panel-manufacturing-plant-researcher-taking-notes-files_482257-125791.jpg?semt=ais_hybrid&w=740&q=80" alt="AMC Plans" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; box-shadow: 0 20px 40px rgba(0,0,0,0.3);"></div><div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 20px); height: calc(100% + 20px); border: 3px solid rgba(255,255,255,0.5); border-radius: 50%; pointer-events: none; z-index: 1;"></div></div></div><div class="col-md-7" style="flex: 0 0 58.333%; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; max-width: 58.333%; padding: 0 15px;"><div class="service-text px-5 px-md-0 py-md-5" style="text-align: end;"><h3>Annual Maintenance Contracts</h3><p>Comprehensive AMC plans covering preventive maintenance, priority support, and discounted spare parts. Quarterly check-ups, calibration services, and software updates included. Choose from Basic, Premium, or Enterprise plans for complete peace of mind.</p><a href="#contact" class="btn-service">View Plans <i class="fas fa-arrow-right ms-2"></i></a></div></div></div></div></div></section>
+    <!-- Services Section - Alternating Layout (Inspired by Poseify) -->
+    <!-- Services Section - Alternating Layout (Inspired by Poseify) -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="subtitle">Comprehensive Support</div>
+                <h2>How We Help You</h2>
+            </div>
 
-<section class="devices-section" id="devices"><div class="container"><div class="section-header" data-aos="fade-up"><div class="subtitle">Precision Tools</div><h2>Embroidery Accessories & Devices</h2></div><div class="devices-grid"><div class="device-card" data-aos="zoom-in" data-aos-delay="100"><div class="device-icon"><i class="fas fa-magnet"></i></div><h3>Magnetic Hoop Pro</h3><p>Advanced magnetic hooping system eliminates fabric slipping, reduces setup time by 70%, and ensures perfect registration every time.</p><ul class="device-features" style="text-align:left; margin-top:15px; list-style:none;"><li><i class="fas fa-check-circle"></i> Available in 7 sizes</li><li><i class="fas fa-check-circle"></i> Quick-release mechanism</li><li><i class="fas fa-check-circle"></i> Compatible with all models</li></ul><a href="#" class="btn-outline" style="margin-top:15px;">Shop Now</a></div><div class="device-card" data-aos="zoom-in" data-aos-delay="200"><div class="device-icon"><i class="fas fa-palette"></i></div><h3>Digitizing Tablet Pro</h3><p>Professional-grade drawing tablet with 8192 pressure levels, 15.6" workspace, and wireless connectivity for seamless design creation.</p><ul class="device-features" style="text-align:left; margin-top:15px; list-style:none;"><li><i class="fas fa-check-circle"></i> Compatible with Wilcom, Hatch</li><li><i class="fas fa-check-circle"></i> 8 programmable express keys</li><li><i class="fas fa-check-circle"></i> Battery-free pen technology</li></ul><a href="#" class="btn-outline" style="margin-top:15px;">Shop Now</a></div><div class="device-card" data-aos="zoom-in" data-aos-delay="300"><div class="device-icon"><i class="fas fa-thread"></i></div><h3>Smart Thread Manager</h3><p>IoT-enabled thread tension monitoring system with real-time alerts, break detection, and production analytics dashboard.</p><ul class="device-features" style="text-align:left; margin-top:15px; list-style:none;"><li><i class="fas fa-check-circle"></i> Mobile app notifications</li><li><i class="fas fa-check-circle"></i> Predictive maintenance alerts</li><li><i class="fas fa-check-circle"></i> 12-month cloud storage</li></ul><a href="#" class="btn-outline" style="margin-top:15px;">Shop Now</a></div></div></div></section>
+            <div class="service-item service-item-left" data-aos="fade-left">
+                <div class="row g-0 align-items-center" style="display: flex; flex-wrap: wrap;">
+                    <div class="col-md-5" style="flex: 0 0 41.666%; max-width: 41.666%; padding: 20px 15px;">
+                        <div class="service-img p-4" style="position: relative; display: inline-block; width: 100%;">
+                            <div style="position: relative; width: 100%; padding-bottom: 100%;">
+                                <img class="img-fluid rounded-circle"
+                                    src="https://images.pexels.com/photos/3768916/pexels-photo-3768916.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                    alt="Professional Training"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; box-shadow: 0 20px 40px rgba(242, 12, 151, 0.2);">
+                            </div>
+                            <div
+                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 20px); height: calc(100% + 20px); border: 3px solid rgba(242, 12, 151, 0.3); border-radius: 50%; pointer-events: none; z-index: 1;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7"
+                        style="flex: 0 0 58.333%; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; max-width: 58.333%; padding: 0 15px;">
+                        <div class="service-text px-5 px-md-0 py-md-5" style="text-align: start;">
+                            <h3>Professional Training</h3>
+                            <p>Hands-on training sessions for operators, maintenance staff, and designers. Our certified
+                                trainers provide comprehensive on-site and virtual training programs with certification
+                                upon completion. Master your machine in just 3 days with our industry-leading
+                                curriculum.</p>
+                            <a href="#contact" class="btn-service">Learn More <i
+                                    class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<section class="events-section" id="events"><div class="container"><div class="event-content-wrapper"><div class="event-info" data-aos="fade-right"><div class="event-subtitle">Mark Your Calendar</div><h2>Embroidery Expo 2026</h2><div class="event-title">Meet Our Experts Live! + Special Launch Event</div><p class="event-desc">Join us at India's largest embroidery technology exhibition. Experience hands-on demos of our latest 5G series machines, exclusive show discounts up to 15%, and meet our master digitizers.</p><div class="event-location"><p><i class="fas fa-map-marker-alt"></i> Chennai Trade Centre</p><p><i class="fas fa-calendar-alt"></i> April 15, 2026</p></div></div><div class="event-countdown-card" data-aos="fade-left"><h3>Event starts in</h3><div class="countdown" id="countdown"><div class="countdown-item"><div class="countdown-number" id="days">00</div><div class="countdown-label">Days</div></div><div class="countdown-item"><div class="countdown-number" id="hours">00</div><div class="countdown-label">Hours</div></div><div class="countdown-item"><div class="countdown-number" id="minutes">00</div><div class="countdown-label">Minutes</div></div><div class="countdown-item"><div class="countdown-number" id="seconds">00</div><div class="countdown-label">Seconds</div></div></div><a href="#contact" class="event-btn">Register Now <i class="fas fa-arrow-right" style="margin-left:5px;"></i></a><p class="limited-seats"><i class="fas fa-ticket-alt"></i> Limited VIP passes available!</p></div></div></div></section>
+            <div class="service-item service-item-right" data-aos="fade-right">
+                <div class="row g-0 align-items-center" style="display: flex; flex-wrap: wrap;">
+                    <div class="col-md-5 order-md-1"
+                        style="flex: 0 0 41.666%; max-width: 41.666%; padding: 20px 15px; order: 2;">
+                        <div class="service-img p-4" style="position: relative; display: inline-block; width: 100%;">
+                            <div style="position: relative; width: 100%; padding-bottom: 100%;">
+                                <img class="img-fluid rounded-circle"
+                                    src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                    alt="24/7 Support"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; box-shadow: 0 20px 40px rgba(242, 12, 151, 0.2);">
+                            </div>
+                            <div
+                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 20px); height: calc(100% + 20px); border: 3px solid rgba(242, 12, 151, 0.3); border-radius: 50%; pointer-events: none; z-index: 1;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7"
+                        style="flex: 0 0 58.333%; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; max-width: 58.333%; padding: 0 15px;">
+                        <div class="service-text px-5 px-md-0 py-md-5" style="text-align: end;">
+                            <h3>24/7 Technical Support</h3>
+                            <p>Round-the-clock assistance from certified technicians. Remote diagnostics, spare parts
+                                delivery within 24 hours, and emergency service visits. Our support team resolves 95% of
+                                issues within the first call, ensuring minimal downtime for your business.</p>
+                            <a href="#contact" class="btn-service">Get Support <i
+                                    class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<section class="gallery-section" id="gallery"><div class="container"><div class="section-header" data-aos="fade-up"><div class="subtitle">Visual Inspiration</div><h2>Our Gallery</h2></div><div class="gallery-grid"><div class="gallery-card" data-aos="flip-left" data-aos-delay="100"><div class="gallery-img" style="background-image: url('https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><div class="gallery-overlay"><h4>Precision Stitching</h4><p>Flawless embroidery samples with micron-level accuracy</p></div></div><div class="gallery-card" data-aos="flip-left" data-aos-delay="200"><div class="gallery-img" style="background-image: url('https://images.pexels.com/photos/2338405/pexels-photo-2338405.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><div class="gallery-overlay"><h4>3D Puff Embroidery</h4><p>Dimensional designs with perfect foam application</p></div></div><div class="gallery-card" data-aos="flip-left" data-aos-delay="300"><div class="gallery-img" style="background-image: url('https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=800');"></div><div class="gallery-overlay"><h4>Cap Embroidery Mastery</h4><p>Specialized headwear designs with perfect curvature</p></div></div><div class="gallery-card" data-aos="flip-left" data-aos-delay="400"><div class="gallery-img" style="background-image: url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');"></div><div class="gallery-overlay"><h4>Industrial Production</h4><p>High-volume manufacturing with consistent quality</p></div></div><div class="gallery-card" data-aos="flip-left" data-aos-delay="500"><div class="gallery-img" style="background-image: url('https://blainesewing.com/wp-content/uploads/2024/07/Routine-Maintenance-scaled.jpg');"></div><div class="gallery-overlay"><h4>Expert Support Team</h4><p>Professional technicians providing world-class service</p></div></div><div class="gallery-card" data-aos="flip-left" data-aos-delay="600"><div class="gallery-img" style="background-image: url('https://i.ytimg.com/vi/KSSNq84MvAE/maxresdefault.jpg');"></div><div class="gallery-overlay"><h4>Smart Factory Solutions</h4><p>Industry 4.0 ready machines with IoT connectivity</p></div></div></div></div></section>
+            <div class="service-item service-item-left" data-aos="fade-left">
+                <div class="row g-0 align-items-center" style="display: flex; flex-wrap: wrap;">
+                    <div class="col-md-5" style="flex: 0 0 41.666%; max-width: 41.666%; padding: 20px 15px;">
+                        <div class="service-img p-4" style="position: relative; display: inline-block; width: 100%;">
+                            <div style="position: relative; width: 100%; padding-bottom: 100%;">
+                                <img class="img-fluid rounded-circle"
+                                    src="https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                    alt="Custom Digitizing"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; box-shadow: 0 20px 40px rgba(242, 12, 151, 0.2);">
+                            </div>
+                            <div
+                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 20px); height: calc(100% + 20px); border: 3px solid rgba(242, 12, 151, 0.3); border-radius: 50%; pointer-events: none; z-index: 1;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7"
+                        style="flex: 0 0 58.333%; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; max-width: 58.333%; padding: 0 15px;">
+                        <div class="service-text px-5 px-md-0 py-md-5" style="text-align: start;">
+                            <h3>Custom Digitizing</h3>
+                            <p>Professional digitizing services for logos, patterns, and complex designs. Our team of
+                                50+ experienced digitizers ensures perfect stitch quality, proper underlay, and
+                                optimization for your specific machine model. Fast turnaround with unlimited revisions.
+                            </p>
+                            <a href="#contact" class="btn-service">Upload Design <i
+                                    class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-<section class="testimonials-section"><div class="container"><div class="section-header" data-aos="fade-up"><div class="subtitle">Trusted by Industry Leaders</div><h2>What Our Customers Say</h2></div><div class="testimonial-container"><div class="testimonial-track"><div class="testimonial-box"><div class="testimonial-header"><h3>Outstanding Quality!</h3><div class="stars">★★★★★</div></div><p class="testimonial-text">"Rose Embroidery machines have transformed our production. The stitch quality is unmatched, and the support team is always responsive. We've increased our output by 40% since switching."</p><div class="testimonial-name">— Priya Sharma, Textile Hub India</div></div><div class="testimonial-box"><div class="testimonial-header"><h3>Game Changer</h3><div class="stars">★★★★★</div></div><p class="testimonial-text">"The HSW 5G series is incredibly reliable. We run these machines 12 hours daily with minimal maintenance. Best investment we've made for our export business."</p><div class="testimonial-name">— Abdul Rahman, Gulf Embroidery LLC</div></div><div class="testimonial-box"><div class="testimonial-header"><h3>Excellent Support</h3><div class="stars">★★★★★</div></div><p class="testimonial-text">"From installation to training, the Rose team went above and beyond. The machines are user-friendly and the digitizing software integration is seamless. Highly recommended!"</p><div class="testimonial-name">— Jennifer M., Creative Stitches USA</div></div></div></div><div class="testimonial-dots"><span class="dot active"></span><span class="dot"></span><span class="dot"></span></div></div></section>
+            <div class="service-item service-item-right" data-aos="fade-right">
+                <div class="row g-0 align-items-center" style="display: flex; flex-wrap: wrap;">
+                    <div class="col-md-5 order-md-1"
+                        style="flex: 0 0 41.666%; max-width: 41.666%; padding: 20px 15px; order: 2;">
+                        <div class="service-img p-4" style="position: relative; display: inline-block; width: 100%;">
+                            <div style="position: relative; width: 100%; padding-bottom: 100%;">
+                                <img class="img-fluid rounded-circle"
+                                    src="https://images.pexels.com/photos/4427637/pexels-photo-4427637.jpeg?auto=compress&cs=tinysrgb&w=600"
+                                    alt="AMC Plans"
+                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 50%; box-shadow: 0 20px 40px rgba(242, 12, 151, 0.2);">
+                            </div>
+                            <div
+                                style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: calc(100% + 20px); height: calc(100% + 20px); border: 3px solid rgba(242, 12, 151, 0.3); border-radius: 50%; pointer-events: none; z-index: 1;">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7"
+                        style="flex: 0 0 58.333%; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 400px; max-width: 58.333%; padding: 0 15px;">
+                        <div class="service-text px-5 px-md-0 py-md-5" style="text-align: end;">
+                            <h3>Annual Maintenance Contracts</h3>
+                            <p>Comprehensive AMC plans covering preventive maintenance, priority support, and discounted
+                                spare parts. Quarterly check-ups, calibration services, and software updates included.
+                                Choose from Basic, Premium, or Enterprise plans for complete peace of mind.</p>
+                            <a href="#contact" class="btn-service">View Plans <i
+                                    class="fas fa-arrow-right ms-2"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<section class="faq-section"><div class="container"><div class="section-header" data-aos="fade-up"><div class="subtitle">Common Questions</div><h2>Frequently Asked Questions</h2></div><div class="faq-grid"><div class="faq-card" data-aos="fade-up" data-aos-delay="100"><h3><i class="fas fa-question-circle" style="margin-right:10px;"></i> What warranty do you offer?</h3><p>All our embroidery machines come with 3 years comprehensive warranty covering parts and labor. Extended warranty options available up to 5 years.</p></div><div class="faq-card" data-aos="fade-up" data-aos-delay="200"><h3><i class="fas fa-question-circle" style="margin-right:10px;"></i> Do you provide installation?</h3><p>Yes, we offer free installation and operator training with every machine purchase. Our technicians ensure proper setup and calibration.</p></div><div class="faq-card" data-aos="fade-up" data-aos-delay="300"><h3><i class="fas fa-question-circle" style="margin-right:10px;"></i> What's the delivery time?</h3><p>Standard delivery takes 7-10 business days for domestic orders. International orders typically arrive within 15-20 days. Express shipping available.</p></div><div class="faq-card" data-aos="fade-up" data-aos-delay="400"><h3><i class="fas fa-question-circle" style="margin-right:10px;"></i> Do you finance machines?</h3><p>Yes, we partner with leading financial institutions to offer EMI options with 0% interest for eligible customers. Leasing options also available.</p></div></div></div></section>
+    <!-- Devices Section -->
+    <!-- <section class="devices-section" id="devices">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="subtitle">Precision Tools</div>
+                <h2>Embroidery Accessories & Devices</h2>
+            </div>
+            <div class="devices-grid">
+                <div class="device-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="device-icon"><i class="fas fa-magnet"></i></div>
+                    <h3>Magnetic Hoop Pro</h3>
+                    <p>Advanced magnetic hooping system eliminates fabric slipping, reduces setup time by 70%, and
+                        ensures perfect registration every time.</p>
+                    <ul class="device-features" style="text-align:left; margin-top:15px;">
+                        <li><i class="fas fa-check-circle"></i> Available in 7 sizes</li>
+                        <li><i class="fas fa-check-circle"></i> Quick-release mechanism</li>
+                        <li><i class="fas fa-check-circle"></i> Compatible with all models</li>
+                    </ul>
+                    <a href="#" class="btn-outline" style="margin-top:15px;">Shop Now</a>
+                </div>
+                <div class="device-card" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="device-icon"><i class="fas fa-palette"></i></div>
+                    <h3>Digitizing Tablet Pro</h3>
+                    <p>Professional-grade drawing tablet with 8192 pressure levels, 15.6" workspace, and wireless
+                        connectivity for seamless design creation.</p>
+                    <ul class="device-features" style="text-align:left; margin-top:15px;">
+                        <li><i class="fas fa-check-circle"></i> Compatible with Wilcom, Hatch</li>
+                        <li><i class="fas fa-check-circle"></i> 8 programmable express keys</li>
+                        <li><i class="fas fa-check-circle"></i> Battery-free pen technology</li>
+                    </ul>
+                    <a href="#" class="btn-outline" style="margin-top:15px;">Shop Now</a>
+                </div>
+                <div class="device-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="device-icon"><i class="fas fa-thread"></i></div>
+                    <h3>Smart Thread Manager</h3>
+                    <p>IoT-enabled thread tension monitoring system with real-time alerts, break detection, and
+                        production analytics dashboard.</p>
+                    <ul class="device-features" style="text-align:left; margin-top:15px;">
+                        <li><i class="fas fa-check-circle"></i> Mobile app notifications</li>
+                        <li><i class="fas fa-check-circle"></i> Predictive maintenance alerts</li>
+                        <li><i class="fas fa-check-circle"></i> 12-month cloud storage</li>
+                    </ul>
+                    <a href="#" class="btn-outline" style="margin-top:15px;">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </section> -->
 
-<section class="blog-section"><div class="container"><div class="section-header" data-aos="fade-up"><div class="subtitle">Latest Insights</div><h2>From Our Blog</h2></div><div class="blog-grid"><div class="blog-card" data-aos="fade-up" data-aos-delay="100"><div class="blog-img" style="background-image: url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');"></div><div class="blog-content"><span class="blog-date">February 15, 2026</span><h4 class="blog-title">Top 10 Embroidery Business Tips</h4><p class="blog-excerpt">Expert advice on scaling your embroidery business, from pricing strategies to marketing techniques that work in 2026.</p><a href="#" class="read-more">Read More →</a></div></div><div class="blog-card" data-aos="fade-up" data-aos-delay="200"><div class="blog-img" style="background-image: url('https://blainesewing.com/wp-content/uploads/2024/07/Routine-Maintenance-scaled.jpg');"></div><div class="blog-content"><span class="blog-date">February 10, 2026</span><h4 class="blog-title">Complete Maintenance Guide</h4><p class="blog-excerpt">Daily, weekly, and monthly maintenance routines to keep your machine running at peak performance for years.</p><a href="#" class="read-more">Read More →</a></div></div><div class="blog-card" data-aos="fade-up" data-aos-delay="300"><div class="blog-img" style="background-image: url('https://i.ytimg.com/vi/KSSNq84MvAE/maxresdefault.jpg');"></div><div class="blog-content"><span class="blog-date">February 5, 2026</span><h4 class="blog-title">Digitizing Masterclass</h4><p class="blog-excerpt">Learn professional digitizing techniques from our experts. Tips for achieving perfect stitch density and underlay.</p><a href="#" class="read-more">Read More →</a></div></div></div></div></section>
+    <section class="events-section" id="events">
+        <div class="container">
+            <div class="event-content-wrapper">
+                <div class="event-info" data-aos="fade-right">
+                    <div class="event-subtitle">Mark Your Calendar</div>
+                    <h2>Embroidery Expo 2026</h2>
+                    <div class="event-title">Meet Our Experts Live! + Special Launch Event</div>
+                    <p class="event-desc">Join us at India's largest embroidery technology exhibition. Experience
+                        hands-on demos of our latest 5G series machines, exclusive show discounts up to 15%, and meet
+                        our master digitizers.</p>
+                    <div class="event-location">
+                        <p><i class="fas fa-map-marker-alt"></i> Chennai Trade Centre</p>
+                        <p><i class="fas fa-calendar-alt"></i> April 15, 2026</p>
+                    </div>
+                </div>
 
-<footer id="contact"><div class="container"><h4 data-aos="fade-up">Rose Embroidery</h4><p data-aos="fade-up" data-aos-delay="100"><i class="fas fa-phone"></i> +91 90255 52206 | <i class="fas fa-envelope"></i> roseembroidery@gmail.com</p><p data-aos="fade-up" data-aos-delay="150"><i class="fas fa-map-marker-alt"></i> 76 First Avenue, Millenium Town, Adayalampattu, Madhuravoyal, Chennai - 600095</p><div class="social-icons" data-aos="fade-up" data-aos-delay="200"><a href="#"><i class="fab fa-facebook-f"></i></a><a href="#"><i class="fab fa-instagram"></i></a><a href="#"><i class="fab fa-youtube"></i></a><a href="#"><i class="fab fa-linkedin-in"></i></a></div><div class="footer-links" data-aos="fade-up" data-aos-delay="250"><a href="#home">Home</a><a href="#about">About</a><a href="#machines">Machines</a><a href="#services">Services</a><a href="#contact">Support</a><a href="#">Privacy Policy</a><a href="#">Terms & Conditions</a></div><p style="margin-top: 20px;" data-aos="fade-up" data-aos-delay="300">© 2026 Rose Embroidery — Quality · Precision · Trust. All rights reserved.</p></div></footer>
+                <div class="event-countdown-card" data-aos="fade-left">
+                    <h3>Event starts in</h3>
+                    <div class="countdown" id="countdown">
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="days">00</div>
+                            <div class="countdown-label">Days</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="hours">00</div>
+                            <div class="countdown-label">Hours</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="minutes">00</div>
+                            <div class="countdown-label">Minutes</div>
+                        </div>
+                        <div class="countdown-item">
+                            <div class="countdown-number" id="seconds">00</div>
+                            <div class="countdown-label">Seconds</div>
+                        </div>
+                    </div>
+                    <a href="#contact" class="event-btn">Register Now <i class="fas fa-arrow-right"
+                            style="margin-left:5px;"></i></a>
+                    <p class="limited-seats"><i class="fas fa-ticket-alt"></i> Limited VIP passes available!</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init({ once: false, duration: 800, easing: 'ease-in-out', offset: 50 });
-    window.addEventListener('scroll', function () { const navbar = document.getElementById('navbar'); if (window.scrollY > 50) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled'); });
+    <section class="gallery-section" id="gallery">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="subtitle">Visual Inspiration</div>
+                <h2>Our Gallery</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-card" data-aos="flip-left" data-aos-delay="100">
+                    <div class="gallery-img"
+                        style="background-image: url('https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=800');">
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Precision Stitching</h4>
+                        <p>Flawless embroidery samples with micron-level accuracy</p>
+                    </div>
+                </div>
+                <div class="gallery-card" data-aos="flip-left" data-aos-delay="200">
+                    <div class="gallery-img"
+                        style="background-image: url('https://images.pexels.com/photos/2338405/pexels-photo-2338405.jpeg?auto=compress&cs=tinysrgb&w=800');">
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>3D Puff Embroidery</h4>
+                        <p>Dimensional designs with perfect foam application</p>
+                    </div>
+                </div>
+                <div class="gallery-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="gallery-img"
+                        style="background-image: url('https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=800');">
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Cap Embroidery Mastery</h4>
+                        <p>Specialized headwear designs with perfect curvature</p>
+                    </div>
+                </div>
+                <div class="gallery-card" data-aos="flip-left" data-aos-delay="400">
+                    <div class="gallery-img"
+                        style="background-image: url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');">
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Industrial Production</h4>
+                        <p>High-volume manufacturing with consistent quality</p>
+                    </div>
+                </div>
+                <div class="gallery-card" data-aos="flip-left" data-aos-delay="500">
+                    <div class="gallery-img"
+                        style="background-image: url('https://blainesewing.com/wp-content/uploads/2024/07/Routine-Maintenance-scaled.jpg');">
+                    </div>
+                    <div class="gallery-overlay">
+                        <h4>Expert Support Team</h4>
+                        <p>Professional technicians providing world-class service</p>
+                    </div>
+                </div>
+                <div class="gallery-card" data-aos="flip-left" data-aos-delay="600">
+                    <div class="gallery-img"
+                        style="background-image: url('https://i.ytimg.com/vi/KSSNq84MvAE/maxresdefault.jpg');"></div>
+                    <div class="gallery-overlay">
+                        <h4>Smart Factory Solutions</h4>
+                        <p>Industry 4.0 ready machines with IoT connectivity</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    function getNextEventDate() { let now = new Date(); let eventDate = new Date(2026, 3, 15, 10, 0, 0); if (now > eventDate) eventDate.setFullYear(2027); return eventDate; }
-    let targetDate = getNextEventDate();
-    function updateCountdown() { let now = new Date().getTime(); let distance = targetDate - now; if (distance < 0) { targetDate = getNextEventDate(); updateCountdown(); return; } document.getElementById('days').innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24)); document.getElementById('hours').innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); document.getElementById('minutes').innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); document.getElementById('seconds').innerHTML = Math.floor((distance % (1000 * 60)) / 1000); }
-    updateCountdown(); setInterval(updateCountdown, 1000);
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="subtitle">Trusted by Industry Leaders</div>
+                <h2>What Our Customers Say</h2>
+            </div>
+            <div class="testimonial-container">
+                <div class="testimonial-track">
+                    <div class="testimonial-box">
+                        <div class="testimonial-header">
+                            <h3>Outstanding Quality!</h3>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <p class="testimonial-text">"Rose Embroidery machines have transformed our production. The
+                            stitch quality is unmatched, and the support team is always responsive. We've increased our
+                            output by 40% since switching."</p>
+                        <div class="testimonial-name">— Priya Sharma, Textile Hub India</div>
+                    </div>
+                    <div class="testimonial-box">
+                        <div class="testimonial-header">
+                            <h3>Game Changer</h3>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <p class="testimonial-text">"The HSW 5G series is incredibly reliable. We run these machines 12
+                            hours daily with minimal maintenance. Best investment we've made for our export business."
+                        </p>
+                        <div class="testimonial-name">— Abdul Rahman, Gulf Embroidery LLC</div>
+                    </div>
+                    <div class="testimonial-box">
+                        <div class="testimonial-header">
+                            <h3>Excellent Support</h3>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                        <p class="testimonial-text">"From installation to training, the Rose team went above and beyond.
+                            The machines are user-friendly and the digitizing software integration is seamless. Highly
+                            recommended!"</p>
+                        <div class="testimonial-name">— Jennifer M., Creative Stitches USA</div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-dots"><span class="dot active"></span><span class="dot"></span><span
+                    class="dot"></span></div>
+        </div>
+    </section>
 
-    let currentSlide = 0; const track = document.querySelector(".testimonial-track"); const dots = document.querySelectorAll(".dot");
-    function goToSlide(index) { if (track) { track.style.transform = `translateX(-${index * 600}px)`; dots.forEach(dot => dot.classList.remove("active")); dots[index].classList.add("active"); currentSlide = index; } }
-    if (dots.length) dots.forEach((dot, index) => dot.addEventListener("click", () => goToSlide(index)));
+    <!-- FAQ Section - NEW -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="subtitle">Common Questions</div>
+                <h2>Frequently Asked Questions</h2>
+            </div>
+            <div class="faq-grid">
+                <div class="faq-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3><i class="fas fa-question-circle" style="color:rgb(242,12,151); margin-right:10px;"></i> What
+                        warranty do you offer?</h3>
+                    <p>All our embroidery machines come with 3 years comprehensive warranty covering parts and labor.
+                        Extended warranty options available up to 5 years.</p>
+                </div>
+                <div class="faq-card" data-aos="fade-up" data-aos-delay="200">
+                    <h3><i class="fas fa-question-circle" style="color:rgb(242,12,151); margin-right:10px;"></i> Do you
+                        provide installation?</h3>
+                    <p>Yes, we offer free installation and operator training with every machine purchase. Our
+                        technicians ensure proper setup and calibration.</p>
+                </div>
+                <div class="faq-card" data-aos="fade-up" data-aos-delay="300">
+                    <h3><i class="fas fa-question-circle" style="color:rgb(242,12,151); margin-right:10px;"></i> What's
+                        the delivery time?</h3>
+                    <p>Standard delivery takes 7-10 business days for domestic orders. International orders typically
+                        arrive within 15-20 days. Express shipping available.</p>
+                </div>
+                <div class="faq-card" data-aos="fade-up" data-aos-delay="400">
+                    <h3><i class="fas fa-question-circle" style="color:rgb(242,12,151); margin-right:10px;"></i> Do you
+                        finance machines?</h3>
+                    <p>Yes, we partner with leading financial institutions to offer EMI options with 0% interest for
+                        eligible customers. Leasing options also available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    function toggleMenu() { document.getElementById("sidebar").classList.toggle("active"); document.getElementById("overlay").classList.toggle("active"); }
+    <section class="blog-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="subtitle">Latest Insights</div>
+                <h2>From Our Blog</h2>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-img"
+                        style="background-image: url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');">
+                    </div>
+                    <div class="blog-content"><span class="blog-date">February 15, 2026</span>
+                        <h4 class="blog-title">Top 10 Embroidery Business Tips</h4>
+                        <p class="blog-excerpt">Expert advice on scaling your embroidery business, from pricing
+                            strategies to marketing techniques that work in 2026.</p><a href="#" class="read-more">Read
+                            More →</a>
+                    </div>
+                </div>
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-img"
+                        style="background-image: url('https://blainesewing.com/wp-content/uploads/2024/07/Routine-Maintenance-scaled.jpg');">
+                    </div>
+                    <div class="blog-content"><span class="blog-date">February 10, 2026</span>
+                        <h4 class="blog-title">Complete Maintenance Guide</h4>
+                        <p class="blog-excerpt">Daily, weekly, and monthly maintenance routines to keep your machine
+                            running at peak performance for years.</p><a href="#" class="read-more">Read More →</a>
+                    </div>
+                </div>
+                <div class="blog-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="blog-img"
+                        style="background-image: url('https://i.ytimg.com/vi/KSSNq84MvAE/maxresdefault.jpg');"></div>
+                    <div class="blog-content"><span class="blog-date">February 5, 2026</span>
+                        <h4 class="blog-title">Digitizing Masterclass</h4>
+                        <p class="blog-excerpt">Learn professional digitizing techniques from our experts. Tips for
+                            achieving perfect stitch density and underlay.</p><a href="#" class="read-more">Read More
+                            →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    document.querySelectorAll('.nav-attribute, .sidebar a').forEach(anchor => { anchor.addEventListener('click', function (e) { const href = this.getAttribute('href'); if (href && href.startsWith('#')) { e.preventDefault(); const targetId = href.substring(1); const targetElement = document.getElementById(targetId); if (targetElement) { targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' }); if (window.innerWidth <= 768) toggleMenu(); } } }); });
+    <footer id="contact">
+        <div class="container">
+            <h4 data-aos="fade-up">Rose Embroidery</h4>
+            <p data-aos="fade-up" data-aos-delay="100"><i class="fas fa-phone"></i> +91 90255 52206 | <i
+                    class="fas fa-envelope"></i> roseembroidery@gmail.com</p>
+            <p data-aos="fade-up" data-aos-delay="150"><i class="fas fa-map-marker-alt"></i> 76 First Avenue, Millenium
+                Town, Adayalampattu, Madhuravoyal, Chennai - 600095</p>
+            <div class="social-icons" data-aos="fade-up" data-aos-delay="200">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="footer-links" data-aos="fade-up" data-aos-delay="250">
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#machines">Machines</a>
+                <a href="#services">Services</a>
+                <a href="#contact">Support</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms & Conditions</a>
+            </div>
+            <p style="margin-top: 20px;" data-aos="fade-up" data-aos-delay="300">© 2026 Rose Embroidery — Quality ·
+                Precision · Trust. All rights reserved.</p>
+        </div>
+    </footer>
 
-    function filterMachines() {
-        const searchValue = document.getElementById('machineSearch').value.toLowerCase();
-        const dropdownValue = document.getElementById('machineCategory').value;
-        const cards = document.querySelectorAll('.machines-grid .machine-card');
-        cards.forEach(card => {
-            const content = card.innerText.toLowerCase();
-            const title = card.querySelector('h3').innerText.toLowerCase();
-            const matchesSearch = content.includes(searchValue);
-            const matchesDropdown = dropdownValue === 'all' || title.includes(dropdownValue.toLowerCase());
-            card.style.display = (matchesSearch && matchesDropdown) ? '' : 'none';
-        });
-    }
-</script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: false, duration: 800, easing: 'ease-in-out', offset: 50 });
+        window.addEventListener('scroll', function () { const navbar = document.getElementById('navbar'); if (window.scrollY > 50) navbar.classList.add('scrolled'); else navbar.classList.remove('scrolled'); });
+
+        function getNextEventDate() { let now = new Date(); let eventDate = new Date(2026, 3, 15, 10, 0, 0); if (now > eventDate) eventDate.setFullYear(2027); return eventDate; }
+        let targetDate = getNextEventDate();
+        function updateCountdown() { let now = new Date().getTime(); let distance = targetDate - now; if (distance < 0) { targetDate = getNextEventDate(); updateCountdown(); return; } document.getElementById('days').innerHTML = Math.floor(distance / (1000 * 60 * 60 * 24)); document.getElementById('hours').innerHTML = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); document.getElementById('minutes').innerHTML = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)); document.getElementById('seconds').innerHTML = Math.floor((distance % (1000 * 60)) / 1000); }
+        updateCountdown(); setInterval(updateCountdown, 1000);
+
+        let currentSlide = 0; const track = document.querySelector(".testimonial-track"); const dots = document.querySelectorAll(".dot");
+        function goToSlide(index) { if (track) { track.style.transform = `translateX(-${index * 600}px)`; dots.forEach(dot => dot.classList.remove("active")); dots[index].classList.add("active"); currentSlide = index; } }
+        if (dots.length) dots.forEach((dot, index) => dot.addEventListener("click", () => goToSlide(index)));
+
+        function toggleMenu() { document.getElementById("sidebar").classList.toggle("active"); document.getElementById("overlay").classList.toggle("active"); }
+
+        document.querySelectorAll('.nav-attribute, .sidebar a').forEach(anchor => { anchor.addEventListener('click', function (e) { const href = this.getAttribute('href'); if (href && href.startsWith('#')) { e.preventDefault(); const targetId = href.substring(1); const targetElement = document.getElementById(targetId); if (targetElement) { targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' }); if (window.innerWidth <= 768) toggleMenu(); } } }); });
+
+        function filterMachines() {
+            const searchValue = document.getElementById('machineSearch').value.toLowerCase();
+            const dropdownValue = document.getElementById('machineCategory').value;
+            const cards = document.querySelectorAll('.machines-grid .machine-card');
+            cards.forEach(card => {
+                const content = card.innerText.toLowerCase();
+                const title = card.querySelector('h3').innerText.toLowerCase();
+                const matchesSearch = content.includes(searchValue);
+                const matchesDropdown = dropdownValue === 'all' || title.includes(dropdownValue.toLowerCase());
+                card.style.display = (matchesSearch && matchesDropdown) ? '' : 'none';
+            });
+        }
+    </script>
 </body>
-</html>
+
+</html> 

@@ -779,46 +779,117 @@
     AOS.init({ once: false, duration: 800, easing: 'ease-in-out', offset: 50 });
 
     // Complete Product Database
-    const productsData = {
+  const productsData = {
       '1216': {
-        id: '1216', name: 'HSW 5G 1216', title: 'HSW 5G 1216', subtitle: 'Compact Professional | 12x16" Area | 12 Needles | 1000 SPM',
-        image: './images/machine1.jpeg', type: 'machine',
+        id: '1216', 
+        name: 'HSW 5G 1216', 
+        title: 'HSW 5G 1216', 
+        subtitle: 'Compact Professional | 12x16" Area | 12 Needles | 1000 SPM',
+        image: 'https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp', 
+        type: 'machine',
         features: ['10" Touch Screen with HSW A15 Program', 'Embroidery Area: 12x16 Inches (300x400 mm)', '12 Needles | 1000 SPM Max Speed', 'Auto Thread Trimmer & Color Change', 'USB & Wi-Fi Connectivity', 'Cap & T-shirt Embroidery Supported'],
         techSpecs: ['Max Speed: 1000 RPM', 'Control System: HSW A15 Touch Screen', 'Thread Break Detection: Yes', 'Space Required: 45x45 inches', 'Machine Weight: 200 kg']
       },
       '1632': {
-        id: '1632', name: 'HSW 5G 1632', title: 'HSW 5G 1632', subtitle: 'Mid-Range Industrial | 16x32" Area | 12 Needles | 1000 SPM',
-        image: './images/machine2.jpeg', type: 'machine',
+        id: '1632', 
+        name: 'HSW 5G 1632', 
+        title: 'HSW 5G 1632', 
+        subtitle: 'Mid-Range Industrial | 16x32" Area | 12 Needles | 1000 SPM',
+        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg', 
+        type: 'machine',
         features: ['10" Touch Screen with HSW A15 Program', 'Embroidery Area: 16x32 Inches (400x800 mm)', '12 Needles | 1000 SPM', 'Auto Thread Trimmer', 'USB & Wi-Fi', 'Support: Sequence, Cording, Beading'],
         techSpecs: ['Max Speed: 1000 RPM', 'Space Required: 60x60 inches', 'Machine Weight: 250 kg', '220 Volts Single Phase', 'Support Devices Ready']
       },
       '2032': {
-        id: '2032', name: 'HSW 5G 2032', title: 'HSW 5G 2032', subtitle: 'Next-Generation | 20x32" Area | 12 Needles | 1200 SPM',
-        image: './images/machine3.jpeg', type: 'machine',
+        id: '2032', 
+        name: 'HSW 5G 2032', 
+        title: 'HSW 5G 2032', 
+        subtitle: 'Next-Generation | 20x32" Area | 12 Needles | 1200 SPM',
+        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg', 
+        type: 'machine',
         features: ['10" Touch Screen with HSW A15 Program', 'Embroidery Area: 20x32 Inches (500x800 mm)', '12 Needles | 1200 SPM', 'Auto Thread Trimmer', 'USB & Wi-Fi', 'Remote Monitoring & Mobile Alerts'],
         techSpecs: ['Max Speed: 1200 RPM', 'Space Required: 72x72 inches', 'Machine Weight: 275 kg', 'Support: Sequence, Cording, Beading', 'Mobile App Integration']
       },
       '2048': {
-        id: '2048', name: 'HSW 5G 2048', title: 'HSW 5G 2048', subtitle: 'Saree & Large Garment Specialist | 20x48" Area | 12 Needles | 1200 SPM',
-        image: './images/machine3.jpeg', type: 'machine',
+        id: '2048', 
+        name: 'HSW 5G 2048', 
+        title: 'HSW 5G 2048', 
+        subtitle: 'Saree & Large Garment Specialist | 20x48" Area | 12 Needles | 1200 SPM',
+        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg', 
+        type: 'machine',
         features: ['10" Touch Screen', 'Embroidery Area: 20x48 Inches (500x1200 mm)', '12 Needles | 1200 SPM', 'Auto Thread Trimmer', 'USB & Wi-Fi', 'Ideal for Sarees, Blouses & Burkhas'],
         techSpecs: ['Max Speed: 1200 RPM', 'Space Required: 94x60 inches', 'Machine Weight: 300 kg', 'Support: Sequence, Twin sequence, Cording', 'Large Format Specialist']
       },
       '2848': {
-        id: '2848', name: 'HSW 5G 2848', title: 'HSW 5G 2848', subtitle: 'Industrial Large Format | 28x48" Area | 12 Needles | 1200 RPM',
-        image: './images/machine4.jpeg', type: 'machine',
+        id: '2848', 
+        name: 'HSW 5G 2848', 
+        title: 'HSW 5G 2848', 
+        subtitle: 'Industrial Large Format | 28x48" Area | 12 Needles | 1200 RPM',
+        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-1.jpg', 
+        type: 'machine',
         features: ['10" Touch Screen', 'Embroidery Area: 28x48 Inches (700x1200 mm)', '12 Needles | 1200 RPM', 'Auto Thread Trimmer', 'USB & Wi-Fi', 'Photo to Embroidery Supported'],
         techSpecs: ['Max Speed: 1200 RPM', 'Space Required: 96x96 inches', 'Machine Weight: 350 kg', 'Support: Sequence, Twin sequence, Cording', 'Industrial Grade']
       },
       '3248': {
-        id: '3248', name: 'HSW 5G 3248', title: 'HSW 5G 3248', subtitle: 'Ultimate Production | 32x48" Area | 12 Needles | 1200 RPM',
-        image: './images/machine5.jpeg', type: 'machine',
+        id: '3248', 
+        name: 'HSW 5G 3248', 
+        title: 'HSW 5G 3248', 
+        subtitle: 'Ultimate Production | 32x48" Area | 12 Needles | 1200 RPM',
+        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/3248-1.jpg', 
+        type: 'machine',
         features: ['10" Touch Screen', 'Embroidery Area: 32x48 Inches (800x1200 mm)', '12 Needles | 1200 RPM', 'Auto Thread Trimmer', 'USB & Wi-Fi', 'Maximum Embroidery Field'],
         techSpecs: ['Max Speed: 1200 RPM', 'Space Required: 96x96 inches', 'Machine Weight: 450 kg', 'Cap Embroidery: Not Supported', 'Ultimate Production Capacity']
       },
+      // NEW BABA YUEMEI MACHINE
+          'baba-yuemei': {
+        id: 'baba-yuemei', 
+        name: 'BABA YUEMEI Computerized Embroidery Machine', 
+        title: 'BABA YUEMEI HE A 1201/800-500', 
+        subtitle: 'High Speed Efficient Machine | 12 Needles | Single Head | 20x48" Area | 1500 SPM',
+        image: './images/machine2.jpeg',
+        type: 'machine',
+        features: [
+          'Brand: BABA YUEMEI | Model: HE A 1201/800-500',
+          '12 Needles | Single Head',
+          'Max Speed: 1500 SPM (Flat Stitch)',
+          'Worktable Size: 20x48 inches',
+          'Automatic Thread Trimmer (cuts thread both upside & downside)',
+          'Dahao Touch Monitor Computer (A25)',
+          'Latest Advanced Control System',
+          'Heavy Italian Body Structure',
+          'Japanese Shuttle & Rotary Hook Set',
+          'Servo Motor with Motor Jump (MJ) for long stitches',
+          'Easy to Understand & Operate',
+          'ISI Certified | Stainless Steel Construction',
+          '2 Years Warranty | In Stock'
+        ],
+        techSpecs: [
+          'Brand: BABA YUEMEI',
+          'Model: HE A 1201/800-500',
+          'Max Speed: 1500 SPM (Flat Stitch)',
+          'Number of Needles: 12',
+          'Number of Heads: Single Head',
+          'Worktable Size: 20x48 inches',
+          'Voltage: 220V',
+          'Material: Stainless Steel',
+          'Gross Weight: 300 KG',
+          'Control System: Dahao A25 Touch Monitor',
+          'Motor: Servo Motor with MJ (Motor Jump)',
+          'Shuttle: Japanese Rotary Hook Set',
+          'Body Structure: Heavy Italian Body',
+          'Certification: ISI Certified',
+          'Warranty: 2 Years',
+          'Availability: In Stock'
+        ]
+      },
+
       'olh-098a': {
-        id: 'olh-098a', name: 'OLH-098A Twin Sequin + Triple Beads Device', title: 'OLH-098A', subtitle: 'Professional Sequins & Beads Attachment | Compatible with All Major Machines',
-        image: 'https://image.made-in-china.com/202f0j00BnqbTUHaHeoh/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-for-Embroidery-Machine.webp', type: 'device',
+        id: 'olh-098a', 
+        name: 'OLH-098A Twin Sequin + Triple Beads Device', 
+        title: 'OLH-098A', 
+        subtitle: 'Professional Sequins & Beads Attachment | Compatible with All Major Machines',
+        image: 'https://image.made-in-china.com/202f0j00BnqbTUHaHeoh/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-for-Embroidery-Machine.webp', 
+        type: 'device',
         features: ['Twin Sequin + Triple Beads Functionality', 'Head Space: 72mm (One Side) / 118mm (Both Sides)', 'Beads Size: 1.7-2.5mm | Pearl: 3.0-4.0mm', 'Max Speed: 700-950 RPM (Beads)', 'Lift Area: 70mm', 'Compatible with DAHAO & Justelec Drive Cards'],
         techSpecs: ['Head Space: 72mm / 118mm', 'X Direction Space: 98mm', 'Y Direction Space: 120mm', 'Material: Beads 1.7-2.5mm, Pearl 3.0-4.0mm', 'Max Speed: Beads 950 RPM', 'ISO9001:2000 Certified']
       }
@@ -859,7 +930,7 @@
       }
       
       const galleryThumbs = document.getElementById('galleryThumbs');
-      const thumbs = [p.image, p.type === 'device' ? p.image : 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg', p.type === 'device' ? p.image : 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg'];
+      const thumbs = [p.image, p.type === 'device' ? p.image : './images/machine2.jpeg', p.type === 'device' ? p.image : './images/machine3.jpeg'];
       galleryThumbs.innerHTML = thumbs.map((img, idx) => `<div class="thumb-btn ${idx === 0 ? 'active' : ''}" onclick="changeImage(this, '${img}')"><img src="${img}" alt="thumb"></div>`).join('');
     }
 

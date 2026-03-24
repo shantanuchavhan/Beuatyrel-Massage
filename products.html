@@ -691,126 +691,152 @@
         'hsw-3248': 'machines.html#3248'
     };
 
-    // Products Database
-    const productsData = [
-        // MACHINES
-        {
-            id: 'hsw-1216',
-            name: 'HSW 5G 1216',
-            category: 'machine',
-            badge: 'Compact',
-            image: 'https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp',
-            description: 'Perfect for home businesses and small studios. Compact design with professional features.',
-            price: '₹3,25,000',
-            specs: ['12x16" Embroidery Area', '12 Needles', '1000 SPM', 'USB & Wi-Fi', '10" Touch Screen'],
-            redirectUrl: 'machines.html#1216'
-        },
-        {
-            id: 'hsw-1632',
-            name: 'HSW 5G 1632',
-            category: 'machine',
-            badge: 'Mid-Range',
-            image: 'https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg?auto=compress&cs=tinysrgb&w=800',
-            description: 'Industrial-grade machine ideal for growing businesses. Perfect balance of size and power.',
-            price: '₹4,10,000',
-            specs: ['16x32" Embroidery Area', '12 Needles', '1000 SPM', 'Auto Thread Trimmer', 'Cording Support'],
-            redirectUrl: 'machines.html#1632'
-        },
-        {
-            id: 'hsw-2032',
-            name: 'HSW 5G 2032',
-            category: 'machine',
-            badge: 'Flagship',
-            image: 'https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=800',
-            description: 'Next-generation embroidery system with remote monitoring and mobile alerts.',
-            price: '₹4,75,000',
-            specs: ['20x32" Embroidery Area', '12 Needles', '1200 SPM', 'Remote Monitoring', 'Mobile Alerts'],
-            redirectUrl: 'machines.html#2032'
-        },
-        {
-            id: 'hsw-2048',
-            name: 'HSW 5G 2048',
-            category: 'machine',
-            badge: 'Saree Specialist',
-            image: 'https://images.pexels.com/photos/2338405/pexels-photo-2338405.jpeg?auto=compress&cs=tinysrgb&w=800',
-            description: 'Specially designed for saree borders, blouses, and large garment embroidery.',
-            price: '₹5,25,000',
-            specs: ['20x48" Extended Area', '12 Needles', '1200 SPM', 'Saree Border Specialist', 'Bridal Wear Optimized'],
-            redirectUrl: 'machines.html#2048'
-        },
-        {
-            id: 'hsw-2848',
-            name: 'HSW 5G 2848',
-            category: 'machine',
-            badge: 'Industrial',
-            image: 'https://blainesewing.com/wp-content/uploads/2024/07/Routine-Maintenance-scaled.jpg',
-            description: 'Large format industrial machine for high-volume production. Maximum efficiency.',
-            price: '₹5,90,000',
-            specs: ['28x48" Large Area', '12 Needles', '1200 RPM', 'Photo to Embroidery', 'Twin Sequence Support'],
-            redirectUrl: 'machines.html#2848'
-        },
-        {
-            id: 'hsw-3248',
-            name: 'HSW 5G 3248',
-            category: 'machine',
-            badge: 'Ultimate',
-            image: 'https://i.ytimg.com/vi/KSSNq84MvAE/maxresdefault.jpg',
-            description: 'Maximum production capacity with the largest embroidery field available.',
-            price: '₹6,30,000',
-            specs: ['32x48" Max Area', '12 Needles', '1200 RPM', 'Maximum Field Size', 'Industrial Grade'],
-            redirectUrl: 'machines.html#3248'
-        },
-        // DEVICES & ACCESSORIES
-        {
-            id: 'magnetic-hoop',
-            name: 'Magnetic Hoop Pro',
-            category: 'device',
-            badge: 'Best Seller',
-            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR878VKlZXIT7rcGYXe1G2Thh8jUDWCyL7tw&s',
-            description: 'Advanced magnetic hooping system eliminates fabric slipping. Reduces setup time by 70%.',
-            price: '₹12,500',
-            specs: ['Available in 7 sizes', 'Quick-release mechanism', 'Compatible with all models', 'No hoop burn'],
-            redirectUrl: 'device-detail.html#magnetic-hoop'
-        },
-        {
-            id: 'digitizing-tablet',
-            name: 'Digitizing Tablet Pro',
-            category: 'device',
-            badge: 'Professional',
-            image: 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUTEhIRFhUWEBUXExUYFhYYFRUWGBcXFxcWFhYdHCggGRwnGxMYIjIhJikrLy4uGB8zODMsNyguLisBCgoKDg0OGxAQGzAmICYvLS0tMC0vLSsvLystLS0tLy0rLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAOEA4QMBEQACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABQIDBAYHAQj/xABPEAABAwEEBgUHBA4IBwAAAAABAAIRAwQSITEFBhMiQVEHYXGBkTJCUqGxwdEUI2KyFkRTVHJ0goOSk6LS4fAVJDM0Q5TC8TVVhKPT4uP/xAAbAQEAAwEBAQEAAAAAAAAAAAAAAgMEAQUGB//EADQRAQACAgAEAwYEBQUBAAAAAAABAgMRBBIhMQVBURMUImFxkRUygaEjMzRCUhax0eHwwf/aAAwDAQACEQMRAD8A7igICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIMGjbXOqOZdAAvY5zBjJSmuo2Me2aULWMey6Q4E4zEDjM4jryXaV5u58kdR1hqOIwpwYukSR1Yzx5qji+fHTnp1hdjpE25b9JXKmmao9DwPxXlTx+X5NdeEpKH0lrBbBjTdTjlckj1qVeOyT6NWPg+H/u390FU10tv3Vo7GM9sKXveR6NfCeGmN6n7rL9brcTBrlp62MHCfRSeIy71tOPDOE1uK7/AFlYGsukHAkV6hAzgMHsauRmzT2lK3A8DSdWrH7rZ0zpFxjb1zgDg6M8p5LvPmnzd938Pr/bH7sV2lraZPymvAmfnXYQJOR5LnNl9VsY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',
-            description: 'Professional drawing tablet with 8192 pressure levels for precise design creation.',
-            price: '₹28,000',
-            specs: ['15.6" Workspace', '8192 Pressure Levels', 'Wireless Connectivity', 'Battery-free Pen', '8 Express Keys'],
-            redirectUrl: 'device-detail.html#digitizing-tablet'
-        },
-        {
-            id: 'smart-thread-manager',
-            name: 'Smart Thread Manager',
-            category: 'device',
-            badge: 'IoT Enabled',
-            image: 'https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png',
-            description: 'IoT-enabled thread tension monitoring with real-time alerts and production analytics.',
-            price: '₹18,500',
-            specs: ['Mobile App Notifications', 'Break Detection', 'Predictive Maintenance', '12-Month Cloud Storage'],
-            redirectUrl: 'device-detail.html#smart-thread-manager'
-        },
-        {
-            id: 'olh-098a-sequin-beads',
-            name: 'OLH-098A Twin Sequin + Triple Beads Device',
-            category: 'device',
-            badge: 'Premium',
-            image: 'https://image.made-in-china.com/202f0j00BnqbTUHaHeoh/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-for-Embroidery-Machine.webp',
-            description: 'Professional twin sequin plus triple beads attachment. Adds stunning sequin and beadwork with precision.',
-            price: '₹32,500',
-            specs: [
-                'Head Space: 72mm (one side) / 118mm (both sides)',
-                'Beads Size: 1.7-2.5mm | Pearl: 3.0-4.0mm',
-                'Max Speed: 700-950 RPM (beads) / 1000 RPM (2-5mm)',
-                'Lift Area: 70mm'
-            ],
-            redirectUrl: 'device-detail.html#olh-098a'
-        }
-    ];
+// Products Database
+const productsData = [
+    // MACHINES
+    {
+        id: 'hsw-1216',
+        name: 'HSW 5G 1216',
+        category: 'machine',
+        badge: 'Compact',
+        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg',
+        description: 'Perfect for home businesses and small studios. Compact design with professional features. Ideal for beginners and small-scale production.',
+        price: '₹3,25,000',
+        specs: ['12x16" Embroidery Area', '12 Needles', '1000 SPM', 'USB & Wi-Fi', '10" Touch Screen', 'Cap Frame Compatible'],
+        redirectUrl: 'machines.html#1216'
+    },
+    {
+        id: 'hsw-1632',
+        name: 'HSW 5G 1632',
+        category: 'machine',
+        badge: 'Mid-Range',
+        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg',
+        description: 'Industrial-grade machine ideal for growing businesses. Perfect balance of size and power for medium-scale production.',
+        price: '₹4,10,000',
+        specs: ['16x32" Embroidery Area', '12 Needles', '1000 SPM', 'Auto Thread Trimmer', 'Cording Support', 'Sequence Device Ready'],
+        redirectUrl: 'machines.html#1632'
+    },
+    {
+        id: 'hsw-2032',
+        name: 'HSW 5G 2032',
+        category: 'machine',
+        badge: 'Flagship',
+        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg',
+        description: 'Next-generation embroidery system with remote monitoring and mobile alerts. Industry 4.0 ready.',
+        price: '₹4,75,000',
+        specs: ['20x32" Embroidery Area', '12 Needles', '1200 SPM', 'Remote Monitoring', 'Mobile Alerts', 'AI Thread Tension Control'],
+        redirectUrl: 'machines.html#2032'
+    },
+    {
+        id: 'hsw-2048',
+        name: 'HSW 5G 2048',
+        category: 'machine',
+        badge: 'Saree Specialist',
+        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg',
+        description: 'Specially designed for saree borders, blouses, and large garment embroidery. Extended embroidery field for traditional wear.',
+        price: '₹5,25,000',
+        specs: ['20x48" Extended Area', '12 Needles', '1200 SPM', 'Saree Border Specialist', 'Bridal Wear Optimized', 'Large Format Embroidery'],
+        redirectUrl: 'machines.html#2048'
+    },
+    {
+        id: 'hsw-2848',
+        name: 'HSW 5G 2848',
+        category: 'machine',
+        badge: 'Industrial',
+        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-1.jpg',
+        description: 'Large format industrial machine for high-volume production. Maximum efficiency for commercial operations.',
+        price: '₹5,90,000',
+        specs: ['28x48" Large Area', '12 Needles', '1200 RPM', 'Photo to Embroidery', 'Twin Sequence Support', 'Heavy-duty Construction'],
+        redirectUrl: 'machines.html#2848'
+    },
+    {
+        id: 'hsw-3248',
+        name: 'HSW 5G 3248',
+        category: 'machine',
+        badge: 'Ultimate',
+        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/3248-1.jpg',
+        description: 'Maximum production capacity with the largest embroidery field available. Ultimate machine for high-end production.',
+        price: '₹6,30,000',
+        specs: ['32x48" Max Area', '12 Needles', '1200 RPM', 'Maximum Field Size', 'Industrial Grade', 'Factory Production Ready'],
+        redirectUrl: 'machines.html#3248'
+    },
+    // NEW BABA YUEMEI MACHINE
+    {
+    id: 'baba-yuemei',
+    name: 'BABA YUEMEI Computerized Embroidery Machine',
+    category: 'machine',
+    badge: 'Premium',
+    image: 'https://sc04.alicdn.com/kf/Hfec568ab1b2548caae0c49ec4a024d31I.jpg',
+    description: 'High-speed computerized embroidery machine from BABA YUEMEI. Features Dahao A25 touch monitor, Japanese shuttle, servo motor with MJ technology, and heavy Italian body structure for superior performance and reliability.',
+    price: '₹4,95,000',
+    specs: [
+        'Brand: BABA YUEMEI | Model: HE A 1201/800-500',
+        '12 Needles | Single Head',
+        'Max Speed: 1500 SPM (Flat Stitch)',
+        'Worktable Size: 20x48 inches',
+        'Dahao A25 Touch Monitor Computer',
+        'Automatic Thread Trimmer (cuts both upside & downside)',
+        'Japanese Shuttle & Rotary Hook Set',
+        'Servo Motor with MJ (Motor Jump) for long stitches',
+        'Heavy Italian Body Structure',
+        'USB & Network Connectivity',
+        'ISI Certified | Stainless Steel Construction',
+        '2 Years Warranty | In Stock',
+        'Gross Weight: 300 KG'
+    ],
+    redirectUrl: 'machines.html#baba-yuemei'
+},
+    // DEVICES & ACCESSORIES
+    {
+        id: 'magnetic-hoop',
+        name: 'Magnetic Hoop Pro',
+        category: 'device',
+        badge: 'Best Seller',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR878VKlZXIT7rcGYXe1G2Thh8jUDWCyL7tw&s',
+        description: 'Advanced magnetic hooping system eliminates fabric slipping. Reduces setup time by 70%.',
+        price: '₹12,500',
+        specs: ['Available in 7 sizes', 'Quick-release mechanism', 'Compatible with all models', 'No hoop burn'],
+        redirectUrl: 'device-detail.html#magnetic-hoop'
+    },
+    {
+        id: 'digitizing-tablet',
+        name: 'Digitizing Tablet Pro',
+        category: 'device',
+        badge: 'Professional',
+        image: 'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600',
+        description: 'Professional drawing tablet with 8192 pressure levels for precise design creation.',
+        price: '₹28,000',
+        specs: ['15.6" Workspace', '8192 Pressure Levels', 'Wireless Connectivity', 'Battery-free Pen', '8 Express Keys'],
+        redirectUrl: 'device-detail.html#digitizing-tablet'
+    },
+    {
+        id: 'smart-thread-manager',
+        name: 'Smart Thread Manager',
+        category: 'device',
+        badge: 'IoT Enabled',
+        image: 'https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png',
+        description: 'IoT-enabled thread tension monitoring with real-time alerts and production analytics.',
+        price: '₹18,500',
+        specs: ['Mobile App Notifications', 'Break Detection', 'Predictive Maintenance', '12-Month Cloud Storage'],
+        redirectUrl: 'device-detail.html#smart-thread-manager'
+    },
+    {
+        id: 'olh-098a-sequin-beads',
+        name: 'OLH-098A Twin Sequin + Triple Beads Device',
+        category: 'device',
+        badge: 'Premium',
+        image: 'https://image.made-in-china.com/202f0j00BnqbTUHaHeoh/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-for-Embroidery-Machine.webp',
+        description: 'Professional twin sequin plus triple beads attachment. Adds stunning sequin and beadwork with precision.',
+        price: '₹32,500',
+        specs: [
+            'Head Space: 72mm (one side) / 118mm (both sides)',
+            'Beads Size: 1.7-2.5mm | Pearl: 3.0-4.0mm',
+            'Max Speed: 700-950 RPM (beads) / 1000 RPM (2-5mm)',
+            'Lift Area: 70mm'
+        ],
+        redirectUrl: 'device-detail.html#olh-098a'
+    }
+];
 
     let currentCategory = 'all';
     let currentSearch = '';

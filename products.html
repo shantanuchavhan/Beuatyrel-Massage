@@ -68,6 +68,7 @@
             height: 50px;
             width: auto;
             background-color: rgb(255, 255, 255);
+           
         }
 
         .navbar.scrolled .logo img {
@@ -670,6 +671,24 @@
 <script>
     AOS.init({ once: false, duration: 800, easing: 'ease-in-out', offset: 50 });
 
+    // Mapping for device redirect URLs - each device has its own detail page with hash
+    const deviceRedirectMap = {
+        'magnetic-hoop': 'devices.html#magnetic-hoop',
+        'digitizing-tablet': 'devices.html#digitizing-tablet',
+        'smart-thread-manager': 'devices.html#smart-thread-manager',
+        'olh-098a-sequin-beads': 'devices.html#olh-098a'
+    };
+
+    // Machine redirect mapping
+    const machineRedirectMap = {
+        'hsw-1216': 'machines.html#1216',
+        'hsw-1632': 'machines.html#1632',
+        'hsw-2032': 'machines.html#2032',
+        'hsw-2048': 'machines.html#2048',
+        'hsw-2848': 'machines.html#2848',
+        'hsw-3248': 'machines.html#3248'
+    };
+
     // Products Database
     const productsData = [
         // MACHINES
@@ -749,7 +768,7 @@
             description: 'Advanced magnetic hooping system eliminates fabric slipping. Reduces setup time by 70%.',
             price: '₹12,500',
             specs: ['Available in 7 sizes', 'Quick-release mechanism', 'Compatible with all models', 'No hoop burn'],
-            redirectUrl: 'products.html#devices'
+            redirectUrl: 'device-detail.html#magnetic-hoop'
         },
         {
             id: 'digitizing-tablet',
@@ -760,7 +779,7 @@
             description: 'Professional drawing tablet with 8192 pressure levels for precise design creation.',
             price: '₹28,000',
             specs: ['15.6" Workspace', '8192 Pressure Levels', 'Wireless Connectivity', 'Battery-free Pen', '8 Express Keys'],
-            redirectUrl: 'products.html#devices'
+            redirectUrl: 'device-detail.html#digitizing-tablet'
         },
         {
             id: 'smart-thread-manager',
@@ -771,7 +790,7 @@
             description: 'IoT-enabled thread tension monitoring with real-time alerts and production analytics.',
             price: '₹18,500',
             specs: ['Mobile App Notifications', 'Break Detection', 'Predictive Maintenance', '12-Month Cloud Storage'],
-            redirectUrl: 'products.html#devices'
+            redirectUrl: 'device-detail.html#smart-thread-manager'
         },
         {
             id: 'olh-098a-sequin-beads',
@@ -787,12 +806,20 @@
                 'Max Speed: 700-950 RPM (beads) / 1000 RPM (2-5mm)',
                 'Lift Area: 70mm'
             ],
-            redirectUrl: 'products.html#devices'
+            redirectUrl: 'device-detail.html#olh-098a'
         }
     ];
 
     let currentCategory = 'all';
     let currentSearch = '';
+
+    function getRedirectUrl(product) {
+        if (product.category === 'machine') {
+            return machineRedirectMap[product.id] || product.redirectUrl || `machines.html#${product.id.split('-')[1]}`;
+        } else {
+            return deviceRedirectMap[product.id] || product.redirectUrl || `device-detail.html#${product.id}`;
+        }
+    }
 
     function renderProducts() {
         const grid = document.getElementById('productsGrid');
@@ -816,7 +843,9 @@
         grid.style.display = 'grid';
         noResultsDiv.style.display = 'none';
 
-        grid.innerHTML = filtered.map(product => `
+        grid.innerHTML = filtered.map(product => {
+            const redirectUrl = getRedirectUrl(product);
+            return `
             <div class="product-card" data-aos="fade-up" data-aos-delay="100">
                 <div class="product-img" style="background-image: url('${product.image}'); position: relative;">
                     ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
@@ -830,10 +859,10 @@
                         ${product.specs.slice(0, 4).map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}
                         ${product.specs.length > 4 ? `<li><i class="fas fa-plus-circle"></i> +${product.specs.length - 4} more features</li>` : ''}
                     </ul>
-                    <a href="${product.redirectUrl}" class="btn-view">View Details →</a>
+                    <a href="${redirectUrl}" class="btn-view">View Details →</a>
                 </div>
             </div>
-        `).join('');
+        `}).join('');
     }
 
     function filterProducts() {

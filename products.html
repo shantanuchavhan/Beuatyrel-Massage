@@ -19,15 +19,10 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            color: #fff;
+            color: #333;
             line-height: 1.6;
-            background: #F20C97;
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 50%, #ffe4ec 100%);
             overflow-x: hidden;
-        }
-
-        :root {
-            --pink-dark: #F20C97;
-            --pink-light: #F353AD;
         }
 
         h1, h2, h3, h4, .section-title {
@@ -41,7 +36,7 @@
             padding: 0 30px;
         }
 
-        /* Navbar */
+        /* Navbar - exactly matching main template */
         .navbar {
             position: fixed;
             top: 0;
@@ -54,9 +49,10 @@
         }
 
         .navbar.scrolled {
-            background: var(--pink-dark);
+            background: rgba(255, 245, 247, 0.95);
+            backdrop-filter: blur(10px);
             padding: 15px 0;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 3px 6px rgba(126, 126, 126, 0.084);
         }
 
         .nav-container {
@@ -71,8 +67,11 @@
         .logo img {
             height: 50px;
             width: auto;
-            background: transparent;
-            filter: brightness(0) invert(1);
+            background-color: rgb(255, 255, 255);
+        }
+
+        .navbar.scrolled .logo img {
+            filter: none;
         }
 
         .nav-links {
@@ -92,12 +91,24 @@
             cursor: pointer;
         }
 
+        .navbar.scrolled .nav-attribute {
+            color: #5a3e4a;
+        }
+
         .nav-attribute:hover {
-            color: var(--pink-light);
+            color: rgb(243, 83, 173);
+        }
+
+        .navbar.scrolled .nav-attribute:hover {
+            color: rgb(242, 12, 151);
         }
 
         .nav-attribute.active {
-            color: var(--pink-light);
+            color: rgb(243, 83, 173);
+        }
+
+        .navbar.scrolled .nav-attribute.active {
+            color: rgb(242, 12, 151);
             font-weight: 600;
         }
 
@@ -112,8 +123,12 @@
             margin-left: 8px;
             display: inline-block;
             transition: transform 0.3s ease;
-            color: var(--pink-light);
+            color: rgb(243, 83, 173);
             font-weight: bold;
+        }
+
+        .navbar.scrolled .nav-item>.nav-attribute::after {
+            color: rgb(242, 12, 151);
         }
 
         .nav-item:hover>.nav-attribute::after {
@@ -124,18 +139,29 @@
             position: absolute;
             top: calc(100% + 5px);
             left: 0;
-            background: var(--pink-dark);
+            background-color: #fff;
             min-width: 200px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 30px rgba(242, 12, 151, 0.2);
             border-radius: 12px;
             z-index: 10000;
             padding: 12px 0;
             opacity: 0;
             visibility: hidden;
             transform: translateY(-10px);
-            transition: all 0.25s ease;
+            transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
             pointer-events: none;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(242, 12, 151, 0.3);
+        }
+
+        .nav-item::after {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            height: 12px;
+            background: transparent;
+            pointer-events: auto;
         }
 
         .nav-item:hover .dropdown-content,
@@ -146,14 +172,30 @@
             pointer-events: auto;
         }
 
+        .dropdown-content::before {
+            content: "";
+            position: absolute;
+            top: -8px;
+            left: 30px;
+            width: 16px;
+            height: 16px;
+            background: #fff;
+            transform: rotate(45deg);
+            border-top: 1px solid rgba(242, 12, 151, 0.3);
+            border-left: 1px solid rgba(242, 12, 151, 0.3);
+            border-radius: 4px 0 0 0;
+        }
+
         .dropdown-content a {
-            color: #fff !important;
+            color: #5a3e4a !important;
             padding: 12px 25px;
+            margin: 0 !important;
             display: block;
             text-align: left;
-            font-size: 13px;
+            font-size: 13px !important;
+            transition: all 0.25s ease;
             text-decoration: none;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid rgba(242, 12, 151, 0.1);
         }
 
         .dropdown-content a:last-child {
@@ -161,38 +203,47 @@
         }
 
         .dropdown-content a:hover {
-            background: var(--pink-light);
+            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
+            color: white !important;
             padding-left: 32px;
         }
 
-        .hamburger, .sidebar, .overlay { display: none; }
+        .hamburger, .sidebar, .overlay {
+            display: none;
+        }
 
-        /* Hero Section */
+        /* Hero Section - Reduced height, matching home page style */
         .products-hero {
-            height: 350px;
-            background: linear-gradient(135deg, var(--pink-dark) 0%, var(--pink-light) 100%);
+            height: 65vh;
+            min-height: 450px;
+            background: linear-gradient(135deg, rgba(242, 12, 151, 0.85) 0%, rgba(243, 83, 173, 0.85) 100%), url('https://images.pexels.com/photos/4553378/pexels-photo-4553378.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
-            margin-top: 80px;
+            margin-top: 0;
+            position: relative;
         }
 
         .products-hero h1 {
             font-size: 64px;
             margin-bottom: 15px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
         }
 
         .products-hero p {
             font-size: 18px;
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
-        /* Filter Section */
+        /* Filter Section - soft background */
         .filter-section {
             padding: 50px 0 30px;
-            background: var(--pink-dark);
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
         }
 
         .filter-container {
@@ -206,23 +257,26 @@
         .filter-btn {
             padding: 12px 28px;
             border-radius: 40px;
-            background: var(--pink-light);
+            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
             color: #fff;
             border: none;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             font-size: 14px;
+            box-shadow: 0 4px 12px rgba(242, 12, 151, 0.3);
         }
 
         .filter-btn.active {
             background: #fff;
-            color: var(--pink-dark);
+            color: rgb(242, 12, 151);
+            box-shadow: 0 4px 15px rgba(242, 12, 151, 0.2);
+            border: 1px solid rgb(242, 12, 151);
         }
 
         .filter-btn:hover {
             transform: translateY(-2px);
-            opacity: 0.9;
+            opacity: 0.95;
         }
 
         .search-box {
@@ -236,55 +290,63 @@
             max-width: 500px;
             padding: 14px 25px;
             border-radius: 50px;
-            border: 2px solid #fff;
-            background: transparent;
-            color: #fff;
+            border: 2px solid rgb(242, 12, 151);
+            background: #fff;
+            color: #333;
             font-size: 16px;
             outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: rgb(243, 83, 173);
+            box-shadow: 0 0 0 3px rgba(242, 12, 151, 0.2);
         }
 
         .search-box input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
+            color: #aaa;
         }
 
-        /* Products Grid */
+        /* Products Grid - card style matching main theme */
         .products-section {
             padding: 40px 0 80px;
-            background: var(--pink-dark);
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 40px;
         }
 
         .product-card {
-            background: var(--pink-light);
+            background: #fff;
             border-radius: 24px;
             overflow: hidden;
             transition: all 0.3s;
             cursor: pointer;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 10px 25px rgba(242, 12, 151, 0.1);
+            border: 1px solid rgba(242, 12, 151, 0.15);
         }
 
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-            background: var(--pink-dark);
+            box-shadow: 0 20px 40px rgba(242, 12, 151, 0.2);
+            border-color: rgb(242, 12, 151);
         }
 
         .product-badge {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: linear-gradient(135deg, var(--pink-dark), var(--pink-light));
+            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
             color: #fff;
-            padding: 5px 12px;
-            border-radius: 20px;
+            padding: 5px 14px;
+            border-radius: 25px;
             font-size: 11px;
             font-weight: 600;
             z-index: 1;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
 
         .product-img {
@@ -296,7 +358,7 @@
         }
 
         .product-card:hover .product-img {
-            transform: scale(1.05);
+            transform: scale(1.02);
         }
 
         .product-content {
@@ -305,31 +367,33 @@
 
         .product-category {
             display: inline-block;
-            padding: 4px 12px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
+            padding: 4px 14px;
+            background: rgba(242, 12, 151, 0.1);
+            border-radius: 30px;
             font-size: 11px;
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 12px;
+            color: rgb(242, 12, 151);
         }
 
         .product-content h3 {
-            font-size: 24px;
+            font-size: 26px;
             margin-bottom: 10px;
-            color: #fff;
+            color: rgb(242, 12, 151);
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .product-desc {
             font-size: 14px;
-            color: rgba(255, 255, 255, 0.85);
+            color: #666;
             margin-bottom: 15px;
             line-height: 1.5;
         }
 
         .product-price {
-            font-size: 22px;
+            font-size: 24px;
             font-weight: 700;
-            color: #fff;
+            color: rgb(242, 12, 151);
             margin: 15px 0;
         }
 
@@ -341,49 +405,53 @@
         .product-specs li {
             padding: 6px 0;
             font-size: 13px;
-            color: rgba(255, 255, 255, 0.9);
+            color: #555;
             display: flex;
             align-items: center;
             gap: 8px;
         }
 
         .product-specs li i {
-            color: #fff;
-            width: 20px;
+            color: rgb(242, 12, 151);
+            width: 18px;
             font-size: 12px;
         }
 
         .btn-view {
             display: inline-block;
-            padding: 10px 25px;
-            border: 2px solid #fff;
-            color: #fff;
+            padding: 10px 28px;
+            border: 2px solid rgb(242, 12, 151);
+            color: rgb(242, 12, 151);
             text-decoration: none;
-            border-radius: 30px;
+            border-radius: 40px;
             font-weight: 600;
             font-size: 13px;
             transition: 0.3s;
             margin-top: 10px;
-            cursor: pointer;
             background: transparent;
+            cursor: pointer;
         }
 
         .btn-view:hover {
-            background: #fff;
-            color: var(--pink-dark);
+            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
+            color: #fff;
+            border-color: transparent;
+            transform: translateX(5px);
         }
 
         /* No Results */
         .no-results {
             text-align: center;
             padding: 60px;
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+            color: rgb(242, 12, 151);
+            background: rgba(242, 12, 151, 0.05);
+            border-radius: 30px;
         }
 
-        /* Footer */
+        /* Footer - matches main template */
         footer {
-            background: var(--pink-light);
+            background: linear-gradient(135deg, rgb(242, 12, 151) 0%, rgb(243, 83, 173) 100%);
             color: #fff;
             padding: 60px 0 30px;
             text-align: center;
@@ -438,28 +506,31 @@
                 background: #fff;
                 margin: 5px 0;
             }
+            .navbar.scrolled .hamburger span {
+                background: rgb(242, 12, 151);
+            }
             .sidebar {
                 position: fixed;
                 top: 0;
                 left: -280px;
                 width: 280px;
                 height: 100%;
-                background: var(--pink-dark);
+                background: linear-gradient(135deg, #fff5f7, #ffe4ec);
                 padding: 80px 30px 30px;
                 display: flex;
                 flex-direction: column;
                 gap: 20px;
                 transition: 0.3s;
                 z-index: 10000;
-                box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+                box-shadow: 2px 0 20px rgba(242, 12, 151, 0.2);
             }
             .sidebar.active { left: 0; }
             .sidebar a {
-                color: #fff;
+                color: #5a3e4a;
                 text-decoration: none;
                 font-size: 16px;
                 padding: 12px 0;
-                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                border-bottom: 1px solid rgba(242, 12, 151, 0.2);
             }
             .sidebar .close-btn {
                 position: absolute;
@@ -467,7 +538,7 @@
                 right: 20px;
                 font-size: 24px;
                 cursor: pointer;
-                color: #fff;
+                color: rgb(242, 12, 151);
             }
             .overlay {
                 position: fixed;
@@ -475,7 +546,7 @@
                 left: 0;
                 width: 100%;
                 height: 100%;
-                background: rgba(0, 0, 0, 0.6);
+                background: rgba(0, 0, 0, 0.5);
                 opacity: 0;
                 visibility: hidden;
                 transition: 0.3s;
@@ -487,16 +558,23 @@
                 visibility: visible;
             }
             .nav-links { display: none; }
+            .products-hero { 
+                height: 55vh; 
+                min-height: 380px; 
+                margin-top: 0;
+                background-attachment: scroll;
+            }
             .products-hero h1 { font-size: 42px; }
-            .products-hero { margin-top: 70px; height: 280px; }
+            .products-hero p { font-size: 16px; }
             .filter-container { gap: 12px; }
-            .filter-btn { padding: 8px 18px; font-size: 12px; }
+            .filter-btn { padding: 10px 20px; font-size: 12px; }
             .products-grid { grid-template-columns: 1fr; gap: 25px; }
         }
 
         @media (min-width: 769px) and (max-width: 1024px) {
             .hamburger, .sidebar, .overlay { display: none !important; }
             .nav-links { display: flex !important; }
+            .products-hero { height: 55vh; min-height: 420px; }
         }
     </style>
 </head>
@@ -504,21 +582,21 @@
 
 <nav class="navbar" id="navbar">
     <div class="nav-container">
-        <div class="logo"><a href="./index.html"><img src="./images/logo.png" alt="Rose Embroidery Logo"></a></div>
+        <div class="logo"><a href="index.html"><img src="./images/logo.png" alt="Rose Embroidery Logo"></a></div>
         <div class="nav-links">
-              <a  class="nav-attribute" href="./index.html">Home</a>
-    <a  class="nav-attribute" href="./index.html#about">About</a>
+            <a class="nav-attribute" href="index.html">Home</a>
+            <a class="nav-attribute" href="index.html#about">About</a>
             <div class="nav-item">
-                <a class="nav-attribute" href="#">Product</a>
+                <a class="nav-attribute active" href="products.html">Product</a>
                 <div class="dropdown-content">
-                    <a  class="nav-attribute" href="products.html#machines">Machines</a>
-                    <a href="products.html#devices">Devices</a>
+                    <a class="nav-attribute" href="products.html#machines">Machines</a>
+                    <a class="nav-attribute" href="products.html#devices">Devices</a>
                 </div>
             </div>
-            <a class="nav-attribute" href="#services">Services</a>
-             <a  class="nav-attribute" href="./index.html#events">Events</a>
-    <a  class="nav-attribute" href="./index.html#gallery">Gallery</a>
-    <a  class="nav-attribute" href="./index.html#contact">Contact</a>
+            <a class="nav-attribute" href="index.html#services">Services</a>
+            <a class="nav-attribute" href="index.html#events">Events</a>
+            <a class="nav-attribute" href="index.html#gallery">Gallery</a>
+            <a class="nav-attribute" href="index.html#contact">Contact</a>
         </div>
         <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </div>
@@ -526,19 +604,19 @@
 
 <div class="sidebar" id="sidebar">
     <div class="close-btn" onclick="toggleMenu()">✕</div>
-    <a href="#home">Home</a>
-    <a href="#about">About</a>
-    <a href="#machines">Machines</a>
-    <a href="#devices">Devices</a>
-    <a href="#services">Services</a>
-    <a href="#events">Events</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#contact">Contact</a>
+    <a href="index.html">Home</a>
+    <a href="index.html#about">About</a>
+    <a href="products.html#machines">Machines</a>
+    <a href="products.html#devices">Devices</a>
+    <a href="index.html#services">Services</a>
+    <a href="index.html#events">Events</a>
+    <a href="index.html#gallery">Gallery</a>
+    <a href="index.html#contact">Contact</a>
 </div>
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
 <section class="products-hero">
-    <div class="container" data-aos="fade-up">
+    <div class="container" data-aos="fade-up" data-aos-duration="1200">
         <h1>Our Products</h1>
         <p>Premium Embroidery Machines & Professional Accessories</p>
     </div>
@@ -560,7 +638,7 @@
 <section class="products-section">
     <div class="container">
         <div class="products-grid" id="productsGrid"></div>
-        <div id="noResults" class="no-results" style="display: none;">No products found matching your criteria.</div>
+        <div id="noResults" class="no-results" style="display: none;">✨ No products found matching your criteria. Try another keyword!</div>
     </div>
 </section>
 
@@ -568,7 +646,7 @@
     <div class="container">
         <h4>Rose Embroidery</h4>
         <p><i class="fas fa-phone"></i> +91 90255 52206 | <i class="fas fa-envelope"></i> roseembroidery@gmail.com</p>
-        <p><i class="fas fa-map-marker-alt"></i> 76 First Avenue, Millenium Town, Chennai - 600095</p>
+        <p><i class="fas fa-map-marker-alt"></i> 76 First Avenue, Millenium Town, Adayalampattu, Madhuravoyal, Chennai - 600095</p>
         <div class="social-icons">
             <a href="#"><i class="fab fa-facebook-f"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -576,12 +654,13 @@
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
         </div>
         <div class="footer-links">
-            <a href="#home">Home</a>
-            <a href="#about">About</a>
-            <a href="#machines">Products</a>
-            <a href="#events">Events</a>
-            <a href="#contact">Contact</a>
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="products.html#machines">Products</a>
+            <a href="index.html#events">Events</a>
+            <a href="index.html#contact">Contact</a>
             <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
         </div>
         <p>© 2026 Rose Embroidery — Quality · Precision · Trust. All rights reserved.</p>
     </div>
@@ -591,17 +670,7 @@
 <script>
     AOS.init({ once: false, duration: 800, easing: 'ease-in-out', offset: 50 });
 
-    // Mapping for machine ID to hash (matches machines.html #id format)
-    const machineHashMap = {
-        'hsw-1216': '1216',
-        'hsw-1632': '1632',
-        'hsw-2032': '2032',
-        'hsw-2048': '2048',
-        'hsw-2848': '2848',
-        'hsw-3248': '3248'
-    };
-
-    // Complete Products Database with redirect URLs
+    // Products Database
     const productsData = [
         // MACHINES
         {
@@ -609,7 +678,7 @@
             name: 'HSW 5G 1216',
             category: 'machine',
             badge: 'Compact',
-            image: './images/machine1.jpeg',
+            image: 'https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp',
             description: 'Perfect for home businesses and small studios. Compact design with professional features.',
             price: '₹3,25,000',
             specs: ['12x16" Embroidery Area', '12 Needles', '1000 SPM', 'USB & Wi-Fi', '10" Touch Screen'],
@@ -620,7 +689,7 @@
             name: 'HSW 5G 1632',
             category: 'machine',
             badge: 'Mid-Range',
-            image: './images/machine2.jpeg',
+            image: 'https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg?auto=compress&cs=tinysrgb&w=800',
             description: 'Industrial-grade machine ideal for growing businesses. Perfect balance of size and power.',
             price: '₹4,10,000',
             specs: ['16x32" Embroidery Area', '12 Needles', '1000 SPM', 'Auto Thread Trimmer', 'Cording Support'],
@@ -631,7 +700,7 @@
             name: 'HSW 5G 2032',
             category: 'machine',
             badge: 'Flagship',
-            image: './images/machine3.jpeg',
+            image: 'https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=800',
             description: 'Next-generation embroidery system with remote monitoring and mobile alerts.',
             price: '₹4,75,000',
             specs: ['20x32" Embroidery Area', '12 Needles', '1200 SPM', 'Remote Monitoring', 'Mobile Alerts'],
@@ -642,7 +711,7 @@
             name: 'HSW 5G 2048',
             category: 'machine',
             badge: 'Saree Specialist',
-            image: './images/machine3.jpeg',
+            image: 'https://images.pexels.com/photos/2338405/pexels-photo-2338405.jpeg?auto=compress&cs=tinysrgb&w=800',
             description: 'Specially designed for saree borders, blouses, and large garment embroidery.',
             price: '₹5,25,000',
             specs: ['20x48" Extended Area', '12 Needles', '1200 SPM', 'Saree Border Specialist', 'Bridal Wear Optimized'],
@@ -653,7 +722,7 @@
             name: 'HSW 5G 2848',
             category: 'machine',
             badge: 'Industrial',
-            image: './images/machine4.jpeg',
+            image: 'https://blainesewing.com/wp-content/uploads/2024/07/Routine-Maintenance-scaled.jpg',
             description: 'Large format industrial machine for high-volume production. Maximum efficiency.',
             price: '₹5,90,000',
             specs: ['28x48" Large Area', '12 Needles', '1200 RPM', 'Photo to Embroidery', 'Twin Sequence Support'],
@@ -664,94 +733,59 @@
             name: 'HSW 5G 3248',
             category: 'machine',
             badge: 'Ultimate',
-            image: './images/machine5.jpeg',
+            image: 'https://i.ytimg.com/vi/KSSNq84MvAE/maxresdefault.jpg',
             description: 'Maximum production capacity with the largest embroidery field available.',
             price: '₹6,30,000',
             specs: ['32x48" Max Area', '12 Needles', '1200 RPM', 'Maximum Field Size', 'Industrial Grade'],
             redirectUrl: 'machines.html#3248'
         },
-        // DEVICES & ACCESSORIES - for devices, redirect to products page with device section or contact
-        // {
-        //     id: 'magnetic-hoop',
-        //     name: 'Magnetic Hoop Pro',
-        //     category: 'device',
-        //     badge: 'Best Seller',
-        //     image: 'https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg?auto=compress&cs=tinysrgb&w=600',
-        //     description: 'Advanced magnetic hooping system eliminates fabric slipping. Reduces setup time by 70%.',
-        //     price: '₹12,500',
-        //     specs: ['Available in 7 sizes', 'Quick-release mechanism', 'Compatible with all models', 'No hoop burn'],
-        //     redirectUrl: 'products.html#devices'
-        // },
-        // {
-        //     id: 'digitizing-tablet',
-        //     name: 'Digitizing Tablet Pro',
-        //     category: 'device',
-        //     badge: 'Professional',
-        //     image: 'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600',
-        //     description: 'Professional drawing tablet with 8192 pressure levels for precise design creation.',
-        //     price: '₹28,000',
-        //     specs: ['15.6" Workspace', '8192 Pressure Levels', 'Wireless Connectivity', 'Battery-free Pen', '8 Express Keys'],
-        //     redirectUrl: 'products.html#devices'
-        // },
-        // {
-        //     id: 'smart-thread-manager',
-        //     name: 'Smart Thread Manager',
-        //     category: 'device',
-        //     badge: 'IoT Enabled',
-        //     image: 'https://images.pexels.com/photos/4427637/pexels-photo-4427637.jpeg?auto=compress&cs=tinysrgb&w=600',
-        //     description: 'IoT-enabled thread tension monitoring with real-time alerts and production analytics.',
-        //     price: '₹18,500',
-        //     specs: ['Mobile App Notifications', 'Break Detection', 'Predictive Maintenance', '12-Month Cloud Storage'],
-        //     redirectUrl: 'products.html#devices'
-        // },
-        // {
-        //     id: 'cap-hoop-set',
-        //     name: 'Cap Hoop Set',
-        //     category: 'device',
-        //     badge: 'Essential',
-        //     image: 'https://images.pexels.com/photos/169198/pexels-photo-169198.jpeg?auto=compress&cs=tinysrgb&w=800',
-        //     description: 'Complete cap embroidery hooping system for professional headwear designs.',
-        //     price: '₹8,500',
-        //     specs: ['Fits all HSW models', 'Quick-change system', 'Curvature optimized', 'Durable construction'],
-        //     redirectUrl: 'products.html#devices'
-        // },
-        // {
-        //     id: 'thread-stand',
-        //     name: 'Premium Thread Stand',
-        //     category: 'device',
-        //     badge: 'Accessory',
-        //     image: 'https://images.pexels.com/photos/1283219/pexels-photo-1283219.jpeg?auto=compress&cs=tinysrgb&w=800',
-        //     description: 'Heavy-duty thread stand with tension control for smooth thread delivery.',
-        //     price: '₹4,200',
-        //     specs: ['12 Thread Holders', 'Adjustable Tension', 'Stainless Steel', 'Anti-tangle Design'],
-        //     redirectUrl: 'products.html#devices'
-        // },
-        // {
-        //     id: 'digitizing-software',
-        //     name: 'Wilcom Digitizing Suite',
-        //     category: 'device',
-        //     badge: 'Software',
-        //     image: 'https://images.pexels.com/photos/2338405/pexels-photo-2338405.jpeg?auto=compress&cs=tinysrgb&w=800',
-        //     description: 'Professional embroidery digitizing software with advanced editing tools.',
-        //     price: '₹45,000',
-        //     specs: ['Auto-digitizing', 'Lettering Tools', '3D Puff Support', 'Cloud Backup', 'Training Included'],
-        //     redirectUrl: 'products.html#devices'
-        // },
-        // NEW DEVICE FROM THE LINK - OLH-098A Twin Sequin Plus Triple Beads Device
+        // DEVICES & ACCESSORIES
+        {
+            id: 'magnetic-hoop',
+            name: 'Magnetic Hoop Pro',
+            category: 'device',
+            badge: 'Best Seller',
+            image: 'https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg?auto=compress&cs=tinysrgb&w=600',
+            description: 'Advanced magnetic hooping system eliminates fabric slipping. Reduces setup time by 70%.',
+            price: '₹12,500',
+            specs: ['Available in 7 sizes', 'Quick-release mechanism', 'Compatible with all models', 'No hoop burn'],
+            redirectUrl: 'products.html#devices'
+        },
+        {
+            id: 'digitizing-tablet',
+            name: 'Digitizing Tablet Pro',
+            category: 'device',
+            badge: 'Professional',
+            image: 'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600',
+            description: 'Professional drawing tablet with 8192 pressure levels for precise design creation.',
+            price: '₹28,000',
+            specs: ['15.6" Workspace', '8192 Pressure Levels', 'Wireless Connectivity', 'Battery-free Pen', '8 Express Keys'],
+            redirectUrl: 'products.html#devices'
+        },
+        {
+            id: 'smart-thread-manager',
+            name: 'Smart Thread Manager',
+            category: 'device',
+            badge: 'IoT Enabled',
+            image: 'https://images.pexels.com/photos/4427637/pexels-photo-4427637.jpeg?auto=compress&cs=tinysrgb&w=600',
+            description: 'IoT-enabled thread tension monitoring with real-time alerts and production analytics.',
+            price: '₹18,500',
+            specs: ['Mobile App Notifications', 'Break Detection', 'Predictive Maintenance', '12-Month Cloud Storage'],
+            redirectUrl: 'products.html#devices'
+        },
         {
             id: 'olh-098a-sequin-beads',
             name: 'OLH-098A Twin Sequin + Triple Beads Device',
             category: 'device',
             badge: 'Premium',
             image: 'https://image.made-in-china.com/202f0j00BnqbTUHaHeoh/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-for-Embroidery-Machine.webp',
-            description: 'Professional twin sequin plus triple beads attachment for embroidery machines. Adds stunning sequin and beadwork to any design with precision.',
+            description: 'Professional twin sequin plus triple beads attachment. Adds stunning sequin and beadwork with precision.',
             price: '₹32,500',
             specs: [
                 'Head Space: 72mm (one side) / 118mm (both sides)',
                 'Beads Size: 1.7-2.5mm | Pearl: 3.0-4.0mm',
                 'Max Speed: 700-950 RPM (beads) / 1000 RPM (2-5mm)',
-                'Lift Area: 70mm',
-                'Compatible with most single & multi-head machines'
+                'Lift Area: 70mm'
             ],
             redirectUrl: 'products.html#devices'
         }
@@ -759,44 +793,6 @@
 
     let currentCategory = 'all';
     let currentSearch = '';
-
-    // Handle URL hash for tab activation
-    function handleHashTab() {
-        const hash = window.location.hash;
-        if (hash === '#machines') {
-            currentCategory = 'machine';
-            // Update active filter button
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                if (btn.getAttribute('data-category') === 'machine') {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-            renderProducts();
-        } else if (hash === '#devices') {
-            currentCategory = 'device';
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                if (btn.getAttribute('data-category') === 'device') {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-            renderProducts();
-        } else {
-            // Default to all products, update button state
-            currentCategory = 'all';
-            document.querySelectorAll('.filter-btn').forEach(btn => {
-                if (btn.getAttribute('data-category') === 'all') {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
-            });
-            renderProducts();
-        }
-    }
 
     function renderProducts() {
         const grid = document.getElementById('productsGrid');
@@ -826,10 +822,10 @@
                     ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
                 </div>
                 <div class="product-content">
-                    <span class="product-category">${product.category === 'machine' ? 'Embroidery Machine' : 'Accessory & Device'}</span>
+                    <span class="product-category">${product.category === 'machine' ? '🪡 Embroidery Machine' : '🔧 Accessory & Device'}</span>
                     <h3>${product.name}</h3>
                     <p class="product-desc">${product.description}</p>
-                   
+                    <div class="product-price">${product.price}</div>
                     <ul class="product-specs">
                         ${product.specs.slice(0, 4).map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}
                         ${product.specs.length > 4 ? `<li><i class="fas fa-plus-circle"></i> +${product.specs.length - 4} more features</li>` : ''}
@@ -844,18 +840,10 @@
         const searchInput = document.getElementById('searchInput');
         currentSearch = searchInput.value.toLowerCase().trim();
         renderProducts();
-        // Update URL without triggering hash change
-        if (currentSearch === '' && currentCategory !== 'all') {
-            history.pushState(null, '', `products.html#${currentCategory === 'machine' ? 'machines' : 'devices'}`);
-        } else if (currentSearch === '' && currentCategory === 'all') {
-            history.pushState(null, '', 'products.html');
-        }
     }
 
     function filterByCategory(category) {
         currentCategory = category;
-        
-        // Update active button state
         document.querySelectorAll('.filter-btn').forEach(btn => {
             if (btn.getAttribute('data-category') === category) {
                 btn.classList.add('active');
@@ -863,24 +851,22 @@
                 btn.classList.remove('active');
             }
         });
-        
-        // Clear search when changing category via button
         const searchInput = document.getElementById('searchInput');
         if (searchInput.value !== '') {
             searchInput.value = '';
             currentSearch = '';
         }
-        
         renderProducts();
-        
-        // Update URL hash
-        if (category === 'machine') {
-            window.location.hash = 'machines';
-        } else if (category === 'device') {
-            window.location.hash = 'devices';
-        } else {
-            history.pushState(null, '', 'products.html');
-        }
+        if (category === 'machine') window.location.hash = 'machines';
+        else if (category === 'device') window.location.hash = 'devices';
+        else history.pushState(null, '', 'products.html');
+    }
+
+    function handleHashTab() {
+        const hash = window.location.hash;
+        if (hash === '#machines') filterByCategory('machine');
+        else if (hash === '#devices') filterByCategory('device');
+        else filterByCategory('all');
     }
 
     function toggleMenu() {
@@ -888,14 +874,12 @@
         document.getElementById('overlay').classList.toggle('active');
     }
 
-    // Navbar scroll effect
     window.addEventListener('scroll', function() {
         const navbar = document.getElementById('navbar');
         if (window.scrollY > 50) navbar.classList.add('scrolled');
         else navbar.classList.remove('scrolled');
     });
 
-    // Setup filter buttons
     document.querySelectorAll('.filter-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             const category = this.getAttribute('data-category');
@@ -903,22 +887,14 @@
         });
     });
 
-    // Handle hash change for tab activation
-    window.addEventListener('hashchange', function() {
-        handleHashTab();
-    });
-
-    // Close sidebar when clicking on links
+    window.addEventListener('hashchange', handleHashTab);
     document.querySelectorAll('.sidebar a').forEach(anchor => {
         anchor.addEventListener('click', function() {
             if (window.innerWidth <= 768) toggleMenu();
         });
     });
 
-    // Initialize - handle hash on page load
     handleHashTab();
-
-    // Expose functions globally
     window.filterProducts = filterProducts;
     window.filterByCategory = filterByCategory;
     window.toggleMenu = toggleMenu;

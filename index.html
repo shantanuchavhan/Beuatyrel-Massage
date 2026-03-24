@@ -551,7 +551,7 @@
         .machine-filter-select {
             padding: 14px 25px;
             border-radius: 30px;
-            border: 1px solid rgba(242, 12, 151, 0.4);
+            border: 1px solid rgba(227, 0, 136, 0.4);
             font-family: 'Montserrat', sans-serif;
             font-size: 15px;
             background: rgba(255, 255, 255, 0.95);
@@ -559,11 +559,27 @@
         }
 
         .devices-section,
-        .stats-section,
-        .faq-section,
         .partners-section {
             background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
             padding: 100px 0;
+        }
+
+        .faq-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 245, 247, 0.96) 100%), url('https://images.pexels.com/photos/461035/pexels-photo-461035.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .stats-section {
+            padding: 120px 0;
+            background: linear-gradient(135deg, rgba(255, 248, 250, 0.92) 0%, rgba(255, 255, 255, 0.95) 100%), url('https://images.pexels.com/photos/2733918/pexels-photo-2733918.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
         }
 
         .devices-grid,
@@ -640,7 +656,7 @@
         .services-section {
             padding: 120px 0;
             background-color: #fffafb;
-            background-image: radial-gradient(rgba(62, 6, 40, 0.177) 2px, transparent 2px);
+            background-image: radial-gradient(rgba(242, 12, 151, 0.15) 2px, transparent 2px);
             background-size: 40px 40px;
             position: relative;
         }
@@ -652,8 +668,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(to bottom, #ffffff 0%, transparent 15%, transparent 85%, #ffffff 100%), 
-                        linear-gradient(to right, #ffffff 0%, transparent 15%, transparent 85%, #ffffff 100%);
+            background: linear-gradient(to bottom, #ffffff 0%, transparent 15%, transparent 85%, #ffffff 100%),
+                linear-gradient(to right, #ffffff 0%, transparent 15%, transparent 85%, #ffffff 100%);
             pointer-events: none;
             z-index: 1;
         }
@@ -1003,7 +1019,8 @@
 
         .gallery-section {
             padding: 100px 0;
-            background: url("https://themewagon.github.io/pato/images/icons/pattern2.png");
+            background-color: #fff5f7;
+            background-image: url("https://themewagon.github.io/pato/images/icons/pattern2.png");
             background-repeat: repeat;
         }
 
@@ -1108,7 +1125,8 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-top: 20px;
+            margin-top: 80px;
+
         }
 
         .dot {
@@ -1126,7 +1144,7 @@
 
         .blog-section {
             padding: 100px 0;
-            background: linear-gradient(135deg, #fff1fce8 0%, #ffccf9 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
         }
 
         .blog-grid {
@@ -1347,8 +1365,8 @@
                 <div class="nav-item">
                     <a class="nav-attribute" href="index.html#products">Product</a>
                     <div class="dropdown-content">
-                        <a class="nav-attribute" href="index.html#machines">Machines</a>
-                        <a class="nav-attribute" href="index.html#devices">Devices</a>
+                        <a class="nav-attribute" href="products.html#machines">Machines</a>
+                        <a class="nav-attribute" href="products.html#devices">Devices</a>
                     </div>
                 </div>
                 <a class="nav-attribute" href="index.html#services">Services</a>
@@ -1362,7 +1380,8 @@
     <div class="sidebar" id="sidebar">
         <div class="close-btn" onclick="toggleMenu()">✕</div>
         <a href="index.html#home">Home</a><a href="index.html#about">About</a><a href="index.html#machines">Machines</a>
-        <a href="index.html#devices">Devices</a><a href="index.html#services">Services</a><a href="index.html#events">Events</a>
+        <a href="index.html#devices">Devices</a><a href="index.html#services">Services</a><a
+            href="index.html#events">Events</a>
         <a href="index.html#gallery">Gallery</a><a href="index.html#contact">Contact</a>
     </div>
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>

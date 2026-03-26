@@ -708,7 +708,9 @@
             const redirectUrl = getRedirectUrl(product);
             return `
             <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-              
+                <div class="product-img" style="background-image: url('${product.image}'); position: relative;">
+                   
+                </div>
                 <div class="product-content">
                     <span class="product-category">${product.category === 'machine' ? '🪡 Embroidery Machine' : '🔧 Accessory & Device'}</span>
                     <h3>${product.name}</h3>

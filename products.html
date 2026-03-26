@@ -36,7 +36,7 @@
             padding: 0 30px;
         }
 
-        /* Navbar - exactly matching main template */
+        /* Navbar - matching main theme (rose-inspired) */
         .navbar {
             position: fixed;
             top: 0;
@@ -45,14 +45,14 @@
             padding: 25px 0;
             z-index: 1000;
             transition: all 0.4s ease;
-            background: white;
+            background: transparent;
         }
 
         .navbar.scrolled {
-            background: white;
+            background: rgba(255, 245, 247, 0.95);
             backdrop-filter: blur(10px);
             padding: 15px 0;
-            box-shadow: 0 3px 6px rgba(126, 126, 126, 0.084);
+            box-shadow: 0 5px 20px rgba(212, 90, 122, 0.1);
         }
 
         .nav-container {
@@ -65,14 +65,24 @@
         }
 
         .logo img {
-            height: 50px;
-            width: auto;
-   
-           
+            height: 40px;
+            transition: all 0.3s ease;
         }
 
-        .navbar.scrolled .logo img {
-            filter: none;
+        .logo a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .navbar.scrolled .logo a {
+            background: linear-gradient(135deg, #d45a7a, #b84363);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .nav-links {
@@ -82,7 +92,7 @@
         }
 
         .nav-attribute {
-            color: black;
+            color: #fff;
             text-decoration: none;
             font-size: 13px;
             font-weight: 500;
@@ -97,20 +107,19 @@
         }
 
         .nav-attribute:hover {
-            color: rgb(243, 83, 173);
+            color: #ffb6c1;
         }
 
         .navbar.scrolled .nav-attribute:hover {
-            color: rgb(242, 12, 151);
+            color: #d45a7a;
         }
 
-         .nav-attribute.active {
-            color: rgb(243, 83, 173);
-            padding: 5px;
+        .nav-attribute.active {
+            color: #ffb6c1;
         }
 
         .navbar.scrolled .nav-attribute.active {
-            color: rgb(242, 12, 151);
+            color: #d45a7a;
             font-weight: 600;
         }
 
@@ -119,21 +128,21 @@
             display: inline-block;
         }
 
-        .nav-item>.nav-attribute::after {
+        .nav-item > .nav-attribute::after {
             content: "❯";
             font-size: 12px;
             margin-left: 8px;
             display: inline-block;
             transition: transform 0.3s ease;
-            color: rgb(243, 83, 173);
+            color: #ffb6c1;
             font-weight: bold;
         }
 
-        .navbar.scrolled .nav-item>.nav-attribute::after {
-            color: rgb(242, 12, 151);
+        .navbar.scrolled .nav-item > .nav-attribute::after {
+            color: #d45a7a;
         }
 
-        .nav-item:hover>.nav-attribute::after {
+        .nav-item:hover > .nav-attribute::after {
             transform: rotate(90deg);
         }
 
@@ -143,7 +152,7 @@
             left: 0;
             background-color: #fff;
             min-width: 200px;
-            box-shadow: 0 10px 30px rgba(242, 12, 151, 0.2);
+            box-shadow: 0 10px 30px rgba(212, 90, 122, 0.15);
             border-radius: 12px;
             z-index: 10000;
             padding: 12px 0;
@@ -152,7 +161,7 @@
             transform: translateY(-10px);
             transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
             pointer-events: none;
-            border: 1px solid rgba(242, 12, 151, 0.3);
+            border: 1px solid rgba(212, 90, 122, 0.2);
         }
 
         .nav-item::after {
@@ -183,8 +192,8 @@
             height: 16px;
             background: #fff;
             transform: rotate(45deg);
-            border-top: 1px solid rgba(242, 12, 151, 0.3);
-            border-left: 1px solid rgba(242, 12, 151, 0.3);
+            border-top: 1px solid rgba(212, 90, 122, 0.2);
+            border-left: 1px solid rgba(212, 90, 122, 0.2);
             border-radius: 4px 0 0 0;
         }
 
@@ -197,7 +206,7 @@
             font-size: 13px !important;
             transition: all 0.25s ease;
             text-decoration: none;
-            border-bottom: 1px solid rgba(242, 12, 151, 0.1);
+            border-bottom: 1px solid rgba(212, 90, 122, 0.1);
         }
 
         .dropdown-content a:last-child {
@@ -205,20 +214,21 @@
         }
 
         .dropdown-content a:hover {
-            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
+            background: linear-gradient(135deg, #d45a7a, #b84363);
             color: white !important;
             padding-left: 32px;
         }
 
+        /* Mobile menu */
         .hamburger, .sidebar, .overlay {
             display: none;
         }
 
-        /* Hero Section - Reduced height, matching home page style */
+        /* Hero Section - matches theme gradient with rose overlay */
         .products-hero {
             height: 65vh;
             min-height: 450px;
-                         background: linear-gradient(135deg, rgba(82, 0, 48, 0.85) 0%, rgba(242, 12, 151, 0.75) 100%), url('./images/emradorymachineherobg.png');
+            background: linear-gradient(135deg, rgba(59, 22, 32, 0.75) 0%, rgba(184, 67, 99, 0.85) 100%), url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -235,6 +245,7 @@
             font-size: 64px;
             margin-bottom: 15px;
             text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+            font-family: 'Cormorant Garamond', serif;
         }
 
         .products-hero p {
@@ -242,7 +253,7 @@
             opacity: 0.95;
         }
 
-        /* Filter Section - soft background */
+        /* Filter Section - elegant soft rose */
         .filter-section {
             padding: 50px 0 30px;
             background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
@@ -259,21 +270,21 @@
         .filter-btn {
             padding: 12px 28px;
             border-radius: 40px;
-            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
+            background: linear-gradient(135deg, #d45a7a, #b84363);
             color: #fff;
             border: none;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
             font-size: 14px;
-            box-shadow: 0 4px 12px rgba(242, 12, 151, 0.3);
+            box-shadow: 0 4px 12px rgba(212, 90, 122, 0.3);
         }
 
         .filter-btn.active {
             background: #fff;
-            color: rgb(242, 12, 151);
-            box-shadow: 0 4px 15px rgba(242, 12, 151, 0.2);
-            border: 1px solid rgb(242, 12, 151);
+            color: #d45a7a;
+            box-shadow: 0 4px 15px rgba(212, 90, 122, 0.2);
+            border: 1px solid #d45a7a;
         }
 
         .filter-btn:hover {
@@ -292,7 +303,7 @@
             max-width: 500px;
             padding: 14px 25px;
             border-radius: 50px;
-            border: 2px solid rgb(242, 12, 151);
+            border: 2px solid #d45a7a;
             background: #fff;
             color: #333;
             font-size: 16px;
@@ -301,15 +312,15 @@
         }
 
         .search-box input:focus {
-            border-color: rgb(243, 83, 173);
-            box-shadow: 0 0 0 3px rgba(242, 12, 151, 0.2);
+            border-color: #b84363;
+            box-shadow: 0 0 0 3px rgba(212, 90, 122, 0.2);
         }
 
         .search-box input::placeholder {
             color: #aaa;
         }
 
-        /* Products Grid - card style matching main theme */
+        /* Products Grid - rose theme cards */
         .products-section {
             padding: 40px 0 80px;
             background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
@@ -327,21 +338,21 @@
             overflow: hidden;
             transition: all 0.3s;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(242, 12, 151, 0.1);
-            border: 1px solid rgba(242, 12, 151, 0.15);
+            box-shadow: 0 10px 25px rgba(212, 90, 122, 0.1);
+            border: 1px solid rgba(212, 90, 122, 0.15);
         }
 
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(242, 12, 151, 0.2);
-            border-color: rgb(242, 12, 151);
+            box-shadow: 0 20px 40px rgba(212, 90, 122, 0.2);
+            border-color: #d45a7a;
         }
 
         .product-badge {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
+            background: linear-gradient(135deg, #d45a7a, #b84363);
             color: #fff;
             padding: 5px 14px;
             border-radius: 25px;
@@ -370,18 +381,18 @@
         .product-category {
             display: inline-block;
             padding: 4px 14px;
-            background: rgba(242, 12, 151, 0.1);
+            background: rgba(212, 90, 122, 0.1);
             border-radius: 30px;
             font-size: 11px;
             font-weight: 600;
             margin-bottom: 12px;
-            color: rgb(242, 12, 151);
+            color: #d45a7a;
         }
 
         .product-content h3 {
             font-size: 26px;
             margin-bottom: 10px;
-            color: rgb(242, 12, 151);
+            color: #d45a7a;
             font-family: 'Cormorant Garamond', serif;
         }
 
@@ -395,7 +406,7 @@
         .product-price {
             font-size: 24px;
             font-weight: 700;
-            color: rgb(242, 12, 151);
+            color: #d45a7a;
             margin: 15px 0;
         }
 
@@ -414,7 +425,7 @@
         }
 
         .product-specs li i {
-            color: rgb(242, 12, 151);
+            color: #d45a7a;
             width: 18px;
             font-size: 12px;
         }
@@ -422,8 +433,8 @@
         .btn-view {
             display: inline-block;
             padding: 10px 28px;
-            border: 2px solid rgb(242, 12, 151);
-            color: rgb(242, 12, 151);
+            border: 2px solid #d45a7a;
+            color: #d45a7a;
             text-decoration: none;
             border-radius: 40px;
             font-weight: 600;
@@ -435,7 +446,7 @@
         }
 
         .btn-view:hover {
-            background: linear-gradient(135deg, rgb(242, 12, 151), rgb(243, 83, 173));
+            background: linear-gradient(135deg, #d45a7a, #b84363);
             color: #fff;
             border-color: transparent;
             transform: translateX(5px);
@@ -446,14 +457,14 @@
             text-align: center;
             padding: 60px;
             font-size: 18px;
-            color: rgb(242, 12, 151);
-            background: rgba(242, 12, 151, 0.05);
+            color: #d45a7a;
+            background: rgba(212, 90, 122, 0.05);
             border-radius: 30px;
         }
 
-        /* Footer - matches main template */
+        /* Footer - matches main theme rose gradient */
         footer {
-            background: linear-gradient(135deg, rgb(242, 12, 151) 0%, rgb(243, 83, 173) 100%);
+            background: linear-gradient(135deg, #441c26 0%, #9a3550 100%);
             color: #fff;
             padding: 60px 0 30px;
             text-align: center;
@@ -507,9 +518,10 @@
                 height: 2px;
                 background: #fff;
                 margin: 5px 0;
+                transition: 0.3s;
             }
             .navbar.scrolled .hamburger span {
-                background: rgb(242, 12, 151);
+                background: #d45a7a;
             }
             .sidebar {
                 position: fixed;
@@ -524,7 +536,7 @@
                 gap: 20px;
                 transition: 0.3s;
                 z-index: 10000;
-                box-shadow: 2px 0 20px rgba(242, 12, 151, 0.2);
+                box-shadow: 2px 0 20px rgba(212, 90, 122, 0.2);
             }
             .sidebar.active { left: 0; }
             .sidebar a {
@@ -532,7 +544,7 @@
                 text-decoration: none;
                 font-size: 16px;
                 padding: 12px 0;
-                border-bottom: 1px solid rgba(242, 12, 151, 0.2);
+                border-bottom: 1px solid rgba(212, 90, 122, 0.2);
             }
             .sidebar .close-btn {
                 position: absolute;
@@ -540,7 +552,7 @@
                 right: 20px;
                 font-size: 24px;
                 cursor: pointer;
-                color: rgb(242, 12, 151);
+                color: #d45a7a;
             }
             .overlay {
                 position: fixed;
@@ -563,7 +575,6 @@
             .products-hero { 
                 height: 55vh; 
                 min-height: 380px; 
-                margin-top: 0;
                 background-attachment: scroll;
             }
             .products-hero h1 { font-size: 42px; }
@@ -584,7 +595,7 @@
 
 <nav class="navbar" id="navbar">
     <div class="nav-container">
-        <div class="logo"><a href="index.html"><img src="./images/logo.jpeg" alt="Rose Embroidery Logo"></a></div>
+        <div class="logo"><img src="./images/logo.png" alt=""></div>
         <div class="nav-links">
             <a class="nav-attribute" href="index.html">Home</a>
             <a class="nav-attribute" href="index.html#about">About</a>
@@ -595,8 +606,6 @@
                     <a class="nav-attribute" href="products.html#devices">Devices</a>
                 </div>
             </div>
-            <a class="nav-attribute" href="index.html#services">Services</a>
-            <!-- <a class="nav-attribute" href="index.html#events">Events</a> -->
             <a class="nav-attribute" href="index.html#gallery">Gallery</a>
             <a class="nav-attribute" href="index.html#contact">Contact</a>
         </div>
@@ -610,8 +619,6 @@
     <a href="index.html#about">About</a>
     <a href="products.html#machines">Machines</a>
     <a href="products.html#devices">Devices</a>
-    <a href="index.html#services">Services</a>
-    <a href="index.html#events">Events</a>
     <a href="index.html#gallery">Gallery</a>
     <a href="index.html#contact">Contact</a>
 </div>
@@ -643,209 +650,34 @@
         <div id="noResults" class="no-results" style="display: none;">✨ No products found matching your criteria. Try another keyword!</div>
     </div>
 </section>
-
-<footer>
-    <div class="container">
-        <h4>Rose Embroidery</h4>
-        <p><i class="fas fa-phone"></i> +91 90255 52206 | <i class="fas fa-envelope"></i> roseembroidery@gmail.com</p>
-        <p><i class="fas fa-map-marker-alt"></i> 76 First Avenue, Millenium Town, Adayalampattu, Madhuravoyal, Chennai - 600095</p>
-        <div class="social-icons">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-            <a href="#"><i class="fab fa-youtube"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-        </div>
-        <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="index.html#about">About</a>
-            <a href="products.html#machines">Products</a>
-            <a href="index.html#events">Events</a>
-            <a href="index.html#contact">Contact</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
-        </div>
-        <p>© 2026 Rose Embroidery — Quality · Precision · Trust. All rights reserved.</p>
-    </div>
-</footer>
+<footer id="contact"><div class="container"><h4 data-aos="fade-up">Rose Embroidery</h4><p data-aos="fade-up" data-aos-delay="100">+91 902555206</p><p data-aos="fade-up" data-aos-delay="200">76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</p><p style="margin-top: 30px;" data-aos="fade-up">© 2026 Rose Embroidery — Quality Precision Trust. All rights reserved.</p></div></footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
     AOS.init({ once: false, duration: 800, easing: 'ease-in-out', offset: 50 });
 
-    // Mapping for device redirect URLs - each device has its own detail page with hash
-    const deviceRedirectMap = {
-        'magnetic-hoop': 'devices.html#magnetic-hoop',
-        'digitizing-tablet': 'devices.html#digitizing-tablet',
-        'smart-thread-manager': 'devices.html#smart-thread-manager',
-        'olh-098a-sequin-beads': 'devices.html#olh-098a'
-    };
-
-    // Machine redirect mapping
-    const machineRedirectMap = {
-        'hsw-1216': 'machines.html#1216',
-        'hsw-1632': 'machines.html#1632',
-        'hsw-2032': 'machines.html#2032',
-        'hsw-2048': 'machines.html#2048',
-        'hsw-2848': 'machines.html#2848',
-        'hsw-3248': 'machines.html#3248'
-    };
-
-// Products Database
-const productsData = [
-    // MACHINES
-    {
-        id: 'hsw-1216',
-        name: 'HSW 5G 1216',
-        category: 'machine',
-        badge: 'Compact',
-        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg',
-        description: 'Perfect for home businesses and small studios. Compact design with professional features. Ideal for beginners and small-scale production.',
-        price: '₹3,25,000',
-        specs: ['12x16" Embroidery Area', '12 Needles', '1000 SPM', 'USB & Wi-Fi', '10" Touch Screen', 'Cap Frame Compatible'],
-        redirectUrl: 'machines.html#1216'
-    },
-    {
-        id: 'hsw-1632',
-        name: 'HSW 5G 1632',
-        category: 'machine',
-        badge: 'Mid-Range',
-        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg',
-        description: 'Industrial-grade machine ideal for growing businesses. Perfect balance of size and power for medium-scale production.',
-        price: '₹4,10,000',
-        specs: ['16x32" Embroidery Area', '12 Needles', '1000 SPM', 'Auto Thread Trimmer', 'Cording Support', 'Sequence Device Ready'],
-        redirectUrl: 'machines.html#1632'
-    },
-    {
-        id: 'hsw-2032',
-        name: 'HSW 5G 2032',
-        category: 'machine',
-        badge: 'Flagship',
-        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg',
-        description: 'Next-generation embroidery system with remote monitoring and mobile alerts. Industry 4.0 ready.',
-        price: '₹4,75,000',
-        specs: ['20x32" Embroidery Area', '12 Needles', '1200 SPM', 'Remote Monitoring', 'Mobile Alerts', 'AI Thread Tension Control'],
-        redirectUrl: 'machines.html#2032'
-    },
-    {
-        id: 'hsw-2048',
-        name: 'HSW 5G 2048',
-        category: 'machine',
-        badge: 'Saree Specialist',
-        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg',
-        description: 'Specially designed for saree borders, blouses, and large garment embroidery. Extended embroidery field for traditional wear.',
-        price: '₹5,25,000',
-        specs: ['20x48" Extended Area', '12 Needles', '1200 SPM', 'Saree Border Specialist', 'Bridal Wear Optimized', 'Large Format Embroidery'],
-        redirectUrl: 'machines.html#2048'
-    },
-    {
-        id: 'hsw-2848',
-        name: 'HSW 5G 2848',
-        category: 'machine',
-        badge: 'Industrial',
-        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-1.jpg',
-        description: 'Large format industrial machine for high-volume production. Maximum efficiency for commercial operations.',
-        price: '₹5,90,000',
-        specs: ['28x48" Large Area', '12 Needles', '1200 RPM', 'Photo to Embroidery', 'Twin Sequence Support', 'Heavy-duty Construction'],
-        redirectUrl: 'machines.html#2848'
-    },
-    {
-        id: 'hsw-3248',
-        name: 'HSW 5G 3248',
-        category: 'machine',
-        badge: 'Ultimate',
-        image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/3248-1.jpg',
-        description: 'Maximum production capacity with the largest embroidery field available. Ultimate machine for high-end production.',
-        price: '₹6,30,000',
-        specs: ['32x48" Max Area', '12 Needles', '1200 RPM', 'Maximum Field Size', 'Industrial Grade', 'Factory Production Ready'],
-        redirectUrl: 'machines.html#3248'
-    },
-    // NEW BABA YUEMEI MACHINE
-    {
-    id: 'baba-yuemei',
-    name: 'BABA YUEMEI Computerized Embroidery Machine',
-    category: 'machine',
-    badge: 'Premium',
-    image: './images/machine1.jpeg',
-    description: 'High-speed computerized embroidery machine from BABA YUEMEI. Features Dahao A25 touch monitor, Japanese shuttle, servo motor with MJ technology, and heavy Italian body structure for superior performance and reliability.',
-    price: '₹4,95,000',
-    specs: [
-        'Brand: BABA YUEMEI | Model: HE A 1201/800-500',
-        '12 Needles | Single Head',
-        'Max Speed: 1500 SPM (Flat Stitch)',
-        'Worktable Size: 20x48 inches',
-        'Dahao A25 Touch Monitor Computer',
-        'Automatic Thread Trimmer (cuts both upside & downside)',
-        'Japanese Shuttle & Rotary Hook Set',
-        'Servo Motor with MJ (Motor Jump) for long stitches',
-        'Heavy Italian Body Structure',
-        'USB & Network Connectivity',
-        'ISI Certified | Stainless Steel Construction',
-        '2 Years Warranty | In Stock',
-        'Gross Weight: 300 KG'
-    ],
-    redirectUrl: 'machines.html#baba-yuemei'
-},
-    // DEVICES & ACCESSORIES
-    {
-        id: 'magnetic-hoop',
-        name: 'Magnetic Hoop Pro',
-        category: 'device',
-        badge: 'Best Seller',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR878VKlZXIT7rcGYXe1G2Thh8jUDWCyL7tw&s',
-        description: 'Advanced magnetic hooping system eliminates fabric slipping. Reduces setup time by 70%.',
-        price: '₹12,500',
-        specs: ['Available in 7 sizes', 'Quick-release mechanism', 'Compatible with all models', 'No hoop burn'],
-        redirectUrl: 'device-detail.html#magnetic-hoop'
-    },
-    {
-        id: 'digitizing-tablet',
-        name: 'Digitizing Tablet Pro',
-        category: 'device',
-        badge: 'Professional',
-        image: 'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600',
-        description: 'Professional drawing tablet with 8192 pressure levels for precise design creation.',
-        price: '₹28,000',
-        specs: ['15.6" Workspace', '8192 Pressure Levels', 'Wireless Connectivity', 'Battery-free Pen', '8 Express Keys'],
-        redirectUrl: 'device-detail.html#digitizing-tablet'
-    },
-    {
-        id: 'smart-thread-manager',
-        name: 'Smart Thread Manager',
-        category: 'device',
-        badge: 'IoT Enabled',
-        image: 'https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png',
-        description: 'IoT-enabled thread tension monitoring with real-time alerts and production analytics.',
-        price: '₹18,500',
-        specs: ['Mobile App Notifications', 'Break Detection', 'Predictive Maintenance', '12-Month Cloud Storage'],
-        redirectUrl: 'device-detail.html#smart-thread-manager'
-    },
-    {
-        id: 'olh-098a-sequin-beads',
-        name: 'OLH-098A Twin Sequin + Triple Beads Device',
-        category: 'device',
-        badge: 'Premium',
-        image: 'https://image.made-in-china.com/202f0j00BnqbTUHaHeoh/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-for-Embroidery-Machine.webp',
-        description: 'Professional twin sequin plus triple beads attachment. Adds stunning sequin and beadwork with precision.',
-        price: '₹32,500',
-        specs: [
-            'Head Space: 72mm (one side) / 118mm (both sides)',
-            'Beads Size: 1.7-2.5mm | Pearl: 3.0-4.0mm',
-            'Max Speed: 700-950 RPM (beads) / 1000 RPM (2-5mm)',
-            'Lift Area: 70mm'
-        ],
-        redirectUrl: 'device-detail.html#olh-098a'
-    }
-];
+    // Enhanced product database with rose embroidery theme
+    const productsData = [
+        // MACHINES - Rose Precision Series
+        { id: 'hsw-1216', name: 'HSW 5G 1216', category: 'machine', badge: 'Compact Rose', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg', description: 'Compact powerhouse for home studios and small businesses. Professional-grade with signature rose precision.', price: '₹3,25,000', specs: ['12x16" Embroidery Area', '12 Needles', '1000 SPM', 'USB & Wi-Fi', '10" Touch Screen', 'Cap Frame Compatible'], redirectUrl: 'machines.html#1216' },
+        { id: 'hsw-1632', name: 'HSW 5G 1632', category: 'machine', badge: 'Rose Performer', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg', description: 'Industrial-grade machine with expanded workspace, ideal for growing embroidery ateliers.', price: '₹4,10,000', specs: ['16x32" Embroidery Area', '12 Needles', '1000 SPM', 'Auto Thread Trimmer', 'Cording Support'], redirectUrl: 'machines.html#1632' },
+        { id: 'hsw-2032', name: 'HSW 5G 2032', category: 'machine', badge: 'Flagship Rose', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg', description: 'Industry 4.0 ready with AI thread tension and mobile alerts. Ultimate creativity tool.', price: '₹4,75,000', specs: ['20x32" Area', '12 Needles', '1200 SPM', 'Remote Monitoring', 'AI Tension Control'], redirectUrl: 'machines.html#2032' },
+        { id: 'hsw-2048', name: 'HSW 5G 2048', category: 'machine', badge: 'Saree Specialist', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg', description: 'Extended field for saree borders and bridal wear. Celebrated by traditional artisans.', price: '₹5,25,000', specs: ['20x48" Extended Area', '12 Needles', '1200 SPM', 'Saree Border Specialist', 'Bridal Wear Optimized'], redirectUrl: 'machines.html#2048' },
+        { id: 'hsw-2848', name: 'HSW 5G 2848', category: 'machine', badge: 'Industrial Rose', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-1.jpg', description: 'Heavy-duty large format machine for high-volume production with flawless stitch quality.', price: '₹5,90,000', specs: ['28x48" Large Area', '12 Needles', '1200 RPM', 'Photo to Embroidery', 'Twin Sequence Support'], redirectUrl: 'machines.html#2848' },
+        { id: 'hsw-3248', name: 'HSW 5G 3248', category: 'machine', badge: 'Ultimate Rose', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/3248-1.jpg', description: 'Maximum embroidery field for luxury production. The pinnacle of precision engineering.', price: '₹6,30,000', specs: ['32x48" Max Area', '12 Needles', '1200 RPM', 'Maximum Field Size', 'Industrial Grade'], redirectUrl: 'machines.html#3248' },
+        { id: 'baba-yuemei', name: 'BABA YUEMEI Computerized', category: 'machine', badge: 'Premium Rose', image: 'https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg?auto=compress&cs=tinysrgb&w=800', description: 'High-speed 12-needle with Dahao A25 touch monitor, Japanese shuttle, and Italian body structure.', price: '₹4,95,000', specs: ['12 Needles | Single Head', 'Max Speed: 1500 SPM', '20x48" Worktable', 'Japanese Shuttle', 'Auto Thread Trimmer', '2 Years Warranty'], redirectUrl: 'machines.html#baba-yuemei' },
+        // DEVICES & ACCESSORIES
+        { id: 'magnetic-hoop', name: 'Magnetic Hoop Pro', category: 'device', badge: 'Best Seller', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR878VKlZXIT7rcGYXe1G2Thh8jUDWCyL7tw&s', description: 'Advanced magnetic hooping eliminates fabric slipping. Reduces setup time by 70%.', price: '₹12,500', specs: ['7 Sizes Available', 'Quick-release', 'No Hoop Burn', 'Universal Compatibility'], redirectUrl: 'devices.html#magnetic-hoop' },
+        { id: 'digitizing-tablet', name: 'Digitizing Tablet Pro', category: 'device', badge: 'Professional', image: 'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600', description: '8192 pressure levels, wireless, battery-free pen for intricate embroidery digitizing.', price: '₹28,000', specs: ['15.6" Workspace', '8192 Pressure Levels', 'Wireless', '8 Express Keys'], redirectUrl: 'devices.html#digitizing-tablet' },
+        { id: 'smart-thread-manager', name: 'Smart Thread Manager', category: 'device', badge: 'IoT Enabled', image: 'https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png', description: 'Real-time tension monitoring with mobile alerts and predictive analytics.', price: '₹18,500', specs: ['Mobile App Notifications', 'Break Detection', 'Predictive Maintenance', '12-Month Cloud'], redirectUrl: 'devices.html#smart-thread-manager' },
+        { id: 'olh-098a-sequin-beads', name: 'OLH-098A Twin Sequin + Beads', category: 'device', badge: 'Premium', image: 'https://image.made-in-china.com/202f0j00BnqbTUHaHeoh/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-for-Embroidery-Machine.webp', description: 'Twin sequin plus triple beads attachment for stunning embellishments.', price: '₹32,500', specs: ['Head Space: 72-118mm', 'Beads Size: 1.7-4.0mm', 'Max Speed: 1000 RPM', 'Lift Area: 70mm'], redirectUrl: 'devices.html#olh-098a' }
+    ];
 
     let currentCategory = 'all';
     let currentSearch = '';
 
     function getRedirectUrl(product) {
-        if (product.category === 'machine') {
-            return machineRedirectMap[product.id] || product.redirectUrl || `machines.html#${product.id.split('-')[1]}`;
-        } else {
-            return deviceRedirectMap[product.id] || product.redirectUrl || `device-detail.html#${product.id}`;
-        }
+        return product.redirectUrl || (product.category === 'machine' ? `machines.html#${product.id}` : `devices.html#${product.id}`);
     }
 
     function renderProducts() {
@@ -857,7 +689,8 @@ const productsData = [
             const matchesSearch = currentSearch === '' || 
                 product.name.toLowerCase().includes(currentSearch) ||
                 product.description.toLowerCase().includes(currentSearch) ||
-                product.specs.some(spec => spec.toLowerCase().includes(currentSearch));
+                product.specs.some(spec => spec.toLowerCase().includes(currentSearch)) ||
+                product.price.toLowerCase().includes(currentSearch);
             return matchesCategory && matchesSearch;
         });
 
@@ -881,7 +714,7 @@ const productsData = [
                     <span class="product-category">${product.category === 'machine' ? '🪡 Embroidery Machine' : '🔧 Accessory & Device'}</span>
                     <h3>${product.name}</h3>
                     <p class="product-desc">${product.description}</p>
-
+                   
                     <ul class="product-specs">
                         ${product.specs.slice(0, 4).map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}
                         ${product.specs.length > 4 ? `<li><i class="fas fa-plus-circle"></i> +${product.specs.length - 4} more features</li>` : ''}

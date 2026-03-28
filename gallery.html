@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Rose Embroidery | Gallery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: #333; background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+        
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 25px 0; z-index: 1000; transition: all 0.4s ease; background: white; }
+        .navbar.scrolled { backdrop-filter: blur(10px); padding: 15px 0; box-shadow: 0 5px 6px rgba(212, 90, 122, 0.1); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 40px; }
+        .nav-links { display: flex; align-items: center; gap: 30px; }
+        .nav-attribute { color: black; text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; }
+        .nav-attribute:hover { color: #ffb6c1; }
+        .nav-attribute.active { color: #ffb6c1; }
+        .navbar.scrolled .nav-attribute.active { color: #d45a7a; }
+        
+        .page-header { height: 40vh; background: linear-gradient(135deg, rgba(212, 90, 122, 0.9), rgba(184, 67, 99, 0.9)), url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding-top: 80px; }
+        .page-header h1 { font-size: 64px; }
+        
+        .gallery-section { padding: 80px 0; }
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header .subtitle { font-size: 14px; letter-spacing: 5px; color: #d45a7a; margin-bottom: 15px; text-transform: uppercase; }
+        .section-header h2 { font-size: 48px; background: linear-gradient(135deg, #d45a7a, #b84363); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+        .gallery-card { position: relative; border-radius: 20px; overflow: hidden; cursor: pointer; box-shadow: 0 10px 30px rgba(212, 90, 122, 0.1); transition: all 0.3s; }
+        .gallery-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(212, 90, 122, 0.2); }
+        .gallery-img { height: 300px; background-size: cover; background-position: center; transition: transform 0.5s; }
+        .gallery-card:hover .gallery-img { transform: scale(1.1); }
+        .gallery-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 30px 20px 20px; color: white; }
+        .gallery-overlay h4 { font-size: 22px; margin-bottom: 5px; }
+        .gallery-overlay p { font-size: 14px; opacity: 0.9; }
+        
+        footer { background: linear-gradient(135deg, #441c26 0%, #9a3550 100%); color: #fff; padding: 60px 0 30px; text-align: center; }
+        
+        .hamburger, .sidebar, .overlay { display: none; }
+        @media (max-width: 768px) {
+            .hamburger { display: block; cursor: pointer; z-index: 1001; }
+            .hamburger span { display: block; width: 25px; height: 2px; background: #fff; margin: 5px 0; }
+            .navbar.scrolled .hamburger span { background: #d45a7a; }
+            .sidebar { position: fixed; top: 0; left: -280px; width: 280px; height: 100%; background: linear-gradient(135deg, #fff5f7, #ffe4ec); padding: 80px 30px 30px; display: flex; flex-direction: column; gap: 20px; transition: 0.3s; z-index: 10000; }
+            .sidebar.active { left: 0; }
+            .sidebar a { color: #5a3e4a; text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid rgba(212, 90, 122, 0.2); }
+            .sidebar .close-btn { position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer; color: #d45a7a; }
+            .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: 0.3s; z-index: 9999; display: block; }
+            .overlay.active { opacity: 1; visibility: visible; }
+            .nav-links { display: none; }
+            .page-header h1 { font-size: 42px; }
+            .section-header h2 { font-size: 32px; }
+            .container { padding: 0 20px; }
+        }
+        @media (min-width: 769px) { .hamburger, .sidebar, .overlay { display: none !important; } .nav-links { display: flex !important; } }
+    </style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="logo"><img src="./images/logo.png" alt="Rose Embroidery"></div>
+        <div class="nav-links">
+            <a class="nav-attribute" href="index.html">Home</a>
+            <a class="nav-attribute" href="about.html">About</a>
+            <a class="nav-attribute" href="products.html">Product</a>
+            <a class="nav-attribute active" href="gallery.html">Gallery</a>
+            <a class="nav-attribute" href="contact.html">Contact</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+</nav>
+<div class="sidebar" id="sidebar"><div class="close-btn" onclick="toggleMenu()">✕</div><a href="index.html">Home</a><a href="about.html">About</a><a href="products.html">Product</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<section class="page-header">
+    <div data-aos="fade-up"><h1>Our Gallery</h1></div>
+</section>
+
+<section class="gallery-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="subtitle">Visual Inspiration</div>
+            <h2>Embroidery Masterpieces</h2>
+        </div>
+        <div class="gallery-grid">
+            <div class="gallery-card" data-aos="flip-left" data-aos-delay="100">
+                <div class="gallery-img" style="background-image: url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');"></div>
+                <div class="gallery-overlay"><h4>Precision Stitching</h4><p>Flawless embroidery samples with micron-level accuracy</p></div>
+            </div>
+            <div class="gallery-card" data-aos="flip-left" data-aos-delay="200">
+                <div class="gallery-img" style="background-image: url('https://blog.hatchembroidery.com/wp-content/uploads/2019/10/Mainpower.jpg');"></div>
+                <div class="gallery-overlay"><h4>3D Puff Embroidery</h4><p>Dimensional designs with perfect foam application</p></div>
+            </div>
+            <div class="gallery-card" data-aos="flip-left" data-aos-delay="300">
+                <div class="gallery-img" style="background-image: url('https://blainesewing.com/wp-content/uploads/2024/07/Routine-Maintenance-scaled.jpg');"></div>
+                <div class="gallery-overlay"><h4>Expert Support Team</h4><p>Professional technicians providing world-class service</p></div>
+            </div>
+            <div class="gallery-card" data-aos="flip-left" data-aos-delay="400">
+                <div class="gallery-img" style="background-image: url('https://i.ytimg.com/vi/KSSNq84MvAE/maxresdefault.jpg');"></div>
+                <div class="gallery-overlay"><h4>Smart Factory Solutions</h4><p>Industry 4.0 ready machines with IoT connectivity</p></div>
+            </div>
+            <div class="gallery-card" data-aos="flip-left" data-aos-delay="500">
+                <div class="gallery-img" style="background-image: url('https://images.pexels.com/photos/1626481/pexels-photo-1626481.jpeg?auto=compress&cs=tinysrgb&w=1600');"></div>
+                <div class="gallery-overlay"><h4>Industrial Production</h4><p>High-volume manufacturing with consistent quality</p></div>
+            </div>
+            <div class="gallery-card" data-aos="flip-left" data-aos-delay="600">
+                <div class="gallery-img" style="background-image: url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');"></div>
+                <div class="gallery-overlay"><h4>Cap Embroidery Mastery</h4><p>Specialized headwear designs with perfect curvature</p></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <h4>Rose Embroidery</h4>
+        <p>+91 902555206 | Drroslineg@gmail.com</p>
+        <p>76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</p>
+        <p style="margin-top: 30px;">© 2026 Rose Embroidery — Quality Precision Trust. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800 });
+    window.addEventListener('scroll', function() { 
+        const navbar = document.getElementById('navbar'); 
+        if (window.scrollY > 50) navbar.classList.add('scrolled'); 
+        else navbar.classList.remove('scrolled'); 
+    });
+    function toggleMenu() { 
+        document.getElementById("sidebar").classList.toggle("active"); 
+        document.getElementById("overlay").classList.toggle("active"); 
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Rose Embroidery | Contact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; color: #333; background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
+        
+        .navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 25px 0; z-index: 1000; transition: all 0.4s ease; background: white; }
+        .navbar.scrolled { backdrop-filter: blur(10px); padding: 15px 0; box-shadow: 0 5px 6px rgba(212, 90, 122, 0.1); }
+        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; }
+        .logo img { height: 40px; }
+        .nav-links { display: flex; align-items: center; gap: 30px; }
+        .nav-attribute { color: black; text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; }
+        .nav-attribute:hover { color: #ffb6c1; }
+        .nav-attribute.active { color: #ffb6c1; }
+        .navbar.scrolled .nav-attribute.active { color: #d45a7a; }
+        
+        .page-header { height: 40vh; background: linear-gradient(135deg, rgba(212, 90, 122, 0.9), rgba(184, 67, 99, 0.9)), url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding-top: 80px; }
+        .page-header h1 { font-size: 64px; }
+        
+        .contact-section { padding: 80px 0; }
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+        .contact-info h2, .contact-form h2 { font-size: 32px; color: #d45a7a; margin-bottom: 30px; }
+        .info-item { display: flex; align-items: center; margin-bottom: 30px; }
+        .info-icon { width: 60px; height: 60px; background: linear-gradient(135deg, rgba(212, 90, 122, 0.1), rgba(184, 67, 99, 0.1)); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 20px; }
+        .info-icon i { font-size: 24px; color: #d45a7a; }
+        .info-text h3 { font-size: 18px; margin-bottom: 5px; }
+        .info-text p { color: #666; }
+        
+        .contact-form form { background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(212, 90, 122, 0.1); }
+        .form-group { margin-bottom: 20px; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 12px 15px; border: 1px solid #e0e0e0; border-radius: 10px; font-family: inherit; transition: all 0.3s; }
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: #d45a7a; box-shadow: 0 0 0 3px rgba(212, 90, 122, 0.1); }
+        .form-group textarea { resize: vertical; }
+        .btn-submit { background: linear-gradient(135deg, #d45a7a, #b84363); color: #fff; border: none; padding: 14px 35px; border-radius: 30px; font-weight: 600; cursor: pointer; transition: all 0.3s; width: 100%; }
+        .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(212, 90, 122, 0.4); }
+        
+        .map-section { padding: 0 0 80px 0; }
+        .map-container { border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(212, 90, 122, 0.1); }
+        .map-container iframe { width: 100%; height: 450px; border: 0; }
+        
+        footer { background: linear-gradient(135deg, #441c26 0%, #9a3550 100%); color: #fff; padding: 60px 0 30px; text-align: center; }
+        
+        .hamburger, .sidebar, .overlay { display: none; }
+        @media (max-width: 768px) {
+            .hamburger { display: block; cursor: pointer; z-index: 1001; }
+            .hamburger span { display: block; width: 25px; height: 2px; background: #fff; margin: 5px 0; }
+            .navbar.scrolled .hamburger span { background: #d45a7a; }
+            .sidebar { position: fixed; top: 0; left: -280px; width: 280px; height: 100%; background: linear-gradient(135deg, #fff5f7, #ffe4ec); padding: 80px 30px 30px; display: flex; flex-direction: column; gap: 20px; transition: 0.3s; z-index: 10000; }
+            .sidebar.active { left: 0; }
+            .sidebar a { color: #5a3e4a; text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid rgba(212, 90, 122, 0.2); }
+            .sidebar .close-btn { position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer; color: #d45a7a; }
+            .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: 0.3s; z-index: 9999; display: block; }
+            .overlay.active { opacity: 1; visibility: visible; }
+            .nav-links { display: none; }
+            .page-header h1 { font-size: 42px; }
+            .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+            .contact-form form { padding: 25px; }
+            .container { padding: 0 20px; }
+        }
+        @media (min-width: 769px) { .hamburger, .sidebar, .overlay { display: none !important; } .nav-links { display: flex !important; } }
+    </style>
+</head>
+<body>
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="logo"><img src="./images/logo.png" alt="Rose Embroidery"></div>
+        <div class="nav-links">
+            <a class="nav-attribute" href="index.html">Home</a>
+            <a class="nav-attribute" href="about.html">About</a>
+            <a class="nav-attribute" href="products.html">Product</a>
+            <a class="nav-attribute" href="gallery.html">Gallery</a>
+            <a class="nav-attribute active" href="contact.html">Contact</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+</nav>
+<div class="sidebar" id="sidebar"><div class="close-btn" onclick="toggleMenu()">✕</div><a href="index.html">Home</a><a href="about.html">About</a><a href="products.html">Product</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<section class="page-header">
+    <div data-aos="fade-up"><h1>Contact Us</h1></div>
+</section>
+
+<section class="contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info" data-aos="fade-right">
+                <h2>Get In Touch</h2>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="info-text"><h3>Visit Us</h3><p>76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</p></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-phone"></i></div>
+                    <div class="info-text"><h3>Call Us</h3><p>+91 902555206</p></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="info-text"><h3>Email Us</h3><p>Drroslineg@gmail.com</p></div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-clock"></i></div>
+                    <div class="info-text"><h3>Business Hours</h3><p>Monday - Saturday: 9:00 AM - 7:00 PM<br>Sunday: Closed</p></div>
+                </div>
+            </div>
+            <div class="contact-form" data-aos="fade-left">
+                <h2>Send a Message</h2>
+                <form id="contactForm" action="#" method="POST">
+                    <div class="form-group"><input type="text" placeholder="Your Name" required></div>
+                    <div class="form-group"><input type="email" placeholder="Your Email" required></div>
+                    <div class="form-group"><input type="tel" placeholder="Phone Number"></div>
+                    <div class="form-group"><select><option>Inquiry Type</option><option>Machine Purchase</option><option>Service & Support</option><option>General Inquiry</option></select></div>
+                    <div class="form-group"><textarea rows="5" placeholder="Your Message"></textarea></div>
+                    <button type="submit" class="btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="map-section">
+    <div class="container">
+        <div class="map-container" data-aos="fade-up">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.754874567542!2d80.1656853!3d13.060117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5261c2b8b5d8b3%3A0x6b5c5b8b5c5b8b5c!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <h4>Rose Embroidery</h4>
+        <p>+91 902555206 | Drroslineg@gmail.com</p>
+        <p>76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</p>
+        <p style="margin-top: 30px;">© 2026 Rose Embroidery — Quality Precision Trust. All rights reserved.</p>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 800 });
+    window.addEventListener('scroll', function() { 
+        const navbar = document.getElementById('navbar'); 
+        if (window.scrollY > 50) navbar.classList.add('scrolled'); 
+        else navbar.classList.remove('scrolled'); 
+    });
+    function toggleMenu() { 
+        document.getElementById("sidebar").classList.toggle("active"); 
+        document.getElementById("overlay").classList.toggle("active"); 
+    }
+    
+    document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for your message! We will get back to you soon.');
+        this.reset();
+    });
+</script>
+</body>
+</html>

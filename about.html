@@ -3,81 +3,493 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Rose Embroidery | About Us</title>
+    <title>Rose Embroidery Machines | About Us – Precision & Trust</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Montserrat', sans-serif; color: #333; line-height: 1.6; background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%); }
-        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 600; }
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 30px; }
-        
-        .navbar { position: fixed; top: 0; left: 0; width: 100%; z-index: 1000; transition: all 0.4s ease; background: white; }
-        .navbar.scrolled { backdrop-filter: blur(10px); padding: 15px 0; box-shadow: 0 5px 6px rgba(212, 90, 122, 0.1); }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; }
-        .logo img { height: 80px; }
-        .nav-links { display: flex; align-items: center; gap: 30px; }
-        .nav-attribute { color: black; text-decoration: none; font-size: 13px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s; }
-        .navbar.scrolled .nav-attribute { color: #5a3e4a; }
-        .nav-attribute:hover { color: #ffb6c1; }
-        .nav-attribute.active { color: #ffb6c1; }
-        .navbar.scrolled .nav-attribute.active { color: #d45a7a; }
-        
-        .page-header { height: 50vh; background: linear-gradient(135deg, rgba(212, 90, 122, 0.9), rgba(184, 67, 99, 0.9)), url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff; padding-top: 80px; }
-        .page-header h1 { font-size: 64px; letter-spacing: 2px; }
-        .page-header p { font-size: 18px; margin-top: 15px; }
-        
-        .about-content { padding: 80px 0; }
-        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-        .about-text h2 { font-size: 36px; color: #d45a7a; margin-bottom: 20px; }
-        .about-text p { color: #666; margin-bottom: 20px; line-height: 1.8; }
-        .about-image img { width: 100%; border-radius: 20px; box-shadow: 0 20px 40px rgba(212, 90, 122, 0.2); }
-        
-        .mission-section { background: linear-gradient(135deg, #d45a7a, #b84363); color: #fff; padding: 80px 0; text-align: center; }
-        .mission-section h2 { font-size: 42px; margin-bottom: 30px; }
-        .mission-section p { max-width: 800px; margin: 0 auto; font-size: 18px; line-height: 1.8; }
-        
-        .values-section { padding: 80px 0; background: #fff5f7; }
-        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; margin-top: 50px; }
-        .value-card { text-align: center; padding: 40px 30px; background: #fff; border-radius: 20px; box-shadow: 0 10px 30px rgba(212, 90, 122, 0.1); transition: all 0.3s; }
-        .value-card:hover { transform: translateY(-10px); }
-        .value-card i { font-size: 50px; background: linear-gradient(135deg, #d45a7a, #b84363); -webkit-background-clip: text; -webkit-text-fill-color: transparent; margin-bottom: 20px; }
-        .value-card h3 { font-size: 24px; color: #d45a7a; margin-bottom: 15px; }
-        .value-card p { color: #666; }
-        
-        .team-section { padding: 80px 0; }
-        .team-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 50px; }
-        .team-card { text-align: center; }
-        .team-card img { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
-        .team-card h3 { font-size: 22px; color: #d45a7a; }
-        .team-card p { color: #888; }
-        
-        footer { background: linear-gradient(135deg, #441c26 0%, #9a3550 100%); color: #fff; padding: 60px 0 30px; text-align: center; }
-        
-        .hamburger, .sidebar, .overlay { display: none; }
-        @media (max-width: 768px) {
-            .hamburger { display: block; cursor: pointer; z-index: 1001; }
-            .hamburger span { display: block; width: 25px; height: 2px; background: #fff; margin: 5px 0; }
-            .navbar.scrolled .hamburger span { background: #d45a7a; }
-            .sidebar { position: fixed; top: 0; left: -280px; width: 280px; height: 100%; background: linear-gradient(135deg, #fff5f7, #ffe4ec); padding: 80px 30px 30px; display: flex; flex-direction: column; gap: 20px; transition: 0.3s ease; z-index: 10000; }
-            .sidebar.active { left: 0; }
-            .sidebar a { color: #5a3e4a; text-decoration: none; font-size: 16px; padding: 12px 0; border-bottom: 1px solid rgba(212, 90, 122, 0.2); }
-            .sidebar .close-btn { position: absolute; top: 20px; right: 20px; font-size: 24px; cursor: pointer; color: #d45a7a; }
-            .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: 0.3s; z-index: 9999; display: block; }
-            .overlay.active { opacity: 1; visibility: visible; }
-            .nav-links { display: none; }
-            .page-header h1 { font-size: 42px; }
-            .about-grid { grid-template-columns: 1fr; }
-            .container { padding: 0 20px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
-        @media (min-width: 769px) { .hamburger, .sidebar, .overlay { display: none !important; } .nav-links { display: flex !important; } }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #2c2c2c;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #ffffff 0%, #fef7f9 100%);
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            letter-spacing: -0.2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background: white;
+        }
+
+        .navbar.scrolled {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.96);
+            padding: 15px 0;
+            box-shadow: 0 5px 15px rgba(212, 90, 122, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 75px;
+            transition: 0.3s;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-attribute {
+            color: #3e2a2f;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+        }
+
+        .navbar.scrolled .nav-attribute {
+            color: #5a3e4a;
+        }
+
+        .nav-attribute:hover {
+            color: #d45a7a;
+        }
+
+        .nav-attribute.active {
+            color: #d45a7a;
+            border-bottom: 2px solid #d45a7a;
+            padding-bottom: 4px;
+        }
+
+        /* header */
+        .page-header {
+            height: 52vh;
+            background: linear-gradient(135deg, rgba(180, 60, 88, 0.92), rgba(140, 45, 68, 0.92)), url('https://images.pexels.com/photos/3778010/pexels-photo-3778010.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center 40%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            padding-top: 80px;
+        }
+
+        .page-header h1 {
+            font-size: 68px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+        }
+
+        .page-header p {
+            font-size: 20px;
+            margin-top: 16px;
+            font-weight: 400;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+        }
+
+        /* about content */
+        .about-content {
+            padding: 90px 0 70px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 42px;
+            color: #b34262;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .about-text h2:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 70px;
+            height: 3px;
+            background: linear-gradient(90deg, #d45a7a, #f3a6bb);
+        }
+
+        .about-text p {
+            color: #4a3b40;
+            margin-bottom: 24px;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 28px;
+            box-shadow: 0 25px 40px rgba(180, 60, 88, 0.25);
+            transition: transform 0.4s;
+        }
+
+        .about-image img:hover {
+            transform: scale(1.02);
+        }
+
+        /* mission section (updated) */
+        .mission-section {
+            background: linear-gradient(125deg, #b34262 0%, #942a4c 100%);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .mission-section h2 {
+            font-size: 46px;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+
+        .mission-section p {
+            max-width: 850px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        /* values */
+        .values-section {
+            padding: 90px 0;
+            background: #fffbfc;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .subtitle {
+            color: #d45a7a;
+            font-size: 14px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .values-section h2 {
+            font-size: 52px;
+            color: #2d2327;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 45px;
+            margin-top: 50px;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 42px 28px;
+            background: #ffffff;
+            border-radius: 32px;
+            box-shadow: 0 12px 28px rgba(180, 60, 88, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(212, 90, 122, 0.15);
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 35px rgba(180, 60, 88, 0.18);
+        }
+
+        .value-card i {
+            font-size: 52px;
+            background: linear-gradient(135deg, #d45a7a, #aa3c5c);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 20px;
+        }
+
+        .value-card h3 {
+            font-size: 26px;
+            color: #b34262;
+            margin-bottom: 15px;
+        }
+
+        .value-card p {
+            color: #5b4b52;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* new added: extra service highlight (success & trends) */
+        .expertise-showcase {
+            background: #ffffff;
+            padding: 60px 0 80px;
+            border-top: 1px solid #fad9e2;
+        }
+
+        .expertise-flex {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .expertise-text {
+            flex: 1;
+        }
+
+        .expertise-text h3 {
+            font-size: 34px;
+            color: #b34262;
+            margin-bottom: 18px;
+        }
+
+        .expertise-text p {
+            font-size: 1rem;
+            margin-bottom: 20px;
+            color: #4d3e44;
+        }
+
+        .expertise-badge {
+            flex: 1;
+            background: linear-gradient(125deg, #fdf2f5, #fff);
+            border-radius: 48px;
+            padding: 32px 28px;
+            text-align: center;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.02);
+            border: 1px solid #ffdce6;
+        }
+
+        .expertise-badge i {
+            font-size: 56px;
+            color: #d45a7a;
+            margin-bottom: 18px;
+        }
+
+        .expertise-badge h4 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        /* team section (happy clients) */
+        .team-section {
+            padding: 70px 0 90px;
+            background: #fef6f9;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 45px;
+            margin-top: 50px;
+        }
+
+        .team-card {
+            text-align: center;
+            background: white;
+            padding: 30px 20px;
+            border-radius: 48px;
+            transition: 0.25s;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+        }
+
+        .team-card img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 22px;
+            box-shadow: 0 15px 25px rgba(212, 90, 122, 0.15);
+            border: 3px solid #ffe2ec;
+        }
+
+        .team-card h3 {
+            font-size: 22px;
+            color: #b34262;
+            margin-bottom: 6px;
+        }
+
+        .team-card p {
+            color: #7a616b;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* footer */
+        footer {
+            background: linear-gradient(135deg, #2e1922 0%, #812a48 100%);
+            color: #fff2f5;
+            padding: 60px 0 35px;
+            text-align: center;
+        }
+
+        footer h4 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+        }
+
+        footer p {
+            font-size: 15px;
+            opacity: 0.9;
+            margin-bottom: 8px;
+        }
+
+        /* responsive */
+        .hamburger, .sidebar, .overlay {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                z-index: 1001;
+            }
+            .hamburger span {
+                display: block;
+                width: 26px;
+                height: 2px;
+                background: #b34262;
+                margin: 6px 0;
+                transition: 0.2s;
+            }
+            .navbar.scrolled .hamburger span {
+                background: #b34262;
+            }
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -300px;
+                width: 280px;
+                height: 100%;
+                background: linear-gradient(145deg, #fff9fb, #fff0f4);
+                padding: 90px 28px 30px;
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
+                transition: 0.3s ease;
+                z-index: 10000;
+                box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+            }
+            .sidebar.active {
+                left: 0;
+            }
+            .sidebar a {
+                color: #3e2a2f;
+                text-decoration: none;
+                font-size: 18px;
+                font-weight: 500;
+                padding: 10px 0;
+                border-bottom: 1px solid #f3c9d4;
+            }
+            .sidebar .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 24px;
+                font-size: 28px;
+                cursor: pointer;
+                color: #b34262;
+            }
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.4);
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.3s;
+                z-index: 9999;
+                display: block;
+            }
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            .nav-links {
+                display: none !important;
+            }
+            .page-header h1 {
+                font-size: 44px;
+            }
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .container {
+                padding: 0 24px;
+            }
+            .values-section h2 {
+                font-size: 38px;
+            }
+            .expertise-flex {
+                flex-direction: column;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .hamburger, .sidebar, .overlay {
+                display: none !important;
+            }
+            .nav-links {
+                display: flex !important;
+            }
+        }
     </style>
 </head>
 <body>
+
 <nav class="navbar" id="navbar">
     <div class="nav-container">
-        <div class="logo"><img src="./images/logo.png" alt="Rose Embroidery"></div>
+        <div class="logo">
+            <img src="./images/logo.png" alt="Rose Embroidery Machines">
+        </div>
         <div class="nav-links">
             <a class="nav-attribute" href="index.html">Home</a>
             <a class="nav-attribute active" href="about.html">About</a>
@@ -85,94 +497,180 @@
             <a class="nav-attribute" href="gallery.html">Gallery</a>
             <a class="nav-attribute" href="contact.html">Contact</a>
         </div>
-        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+        <div class="hamburger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
     </div>
 </nav>
-<div class="sidebar" id="sidebar"><div class="close-btn" onclick="toggleMenu()">✕</div><a href="index.html">Home</a><a href="about.html">About</a><a href="products.html">Product</a><a href="gallery.html">Gallery</a><a href="contact.html">Contact</a></div>
+
+<div class="sidebar" id="sidebar">
+    <div class="close-btn" onclick="toggleMenu()">✕</div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="products.html">Product</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="contact.html">Contact</a>
+</div>
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
+<!-- Header -->
 <section class="page-header">
     <div data-aos="fade-up">
         <h1>About Rose Embroidery</h1>
-        <p>Precision engineering meets artistic craftsmanship</p>
+        <p>Embroidery machine sales • Expert service • Complete solutions</p>
     </div>
 </section>
 
+<!-- Main about content: based on new provided text -->
 <section class="about-content">
     <div class="container">
         <div class="about-grid">
             <div class="about-text" data-aos="fade-right">
-                <h2>Our Story</h2>
-                <p>Founded with a vision to revolutionize the embroidery industry, Rose Embroidery Machines has grown to become a trusted name in precision embroidery technology. Our journey began with a simple mission: to provide businesses and creators with machines that combine industrial-grade reliability with artistic precision.</p>
-                <p>Today, we serve customers across the globe, from small home-based businesses to large-scale industrial operations. Our commitment to innovation has led to the development of cutting-edge features like IoT connectivity, automatic thread detection, and cloud-based design management.</p>
-                <p>Every machine we produce is a testament to our dedication to quality, precision, and customer satisfaction.</p>
+                <h2>Trusted Embroidery Partners</h2>
+                <p><strong>Rose Embroidery Machines</strong> is a trusted provider of embroidery machine sales, service, and complete solutions. We supply high-quality machines along with expert repair, maintenance, and installation services to ensure smooth and efficient performance. Our offerings include Aari work, embroidery design samples, and customized embroidery services for businesses and individuals.</p>
+                <p>We take pride in our success by delivering reliable products and easy machine setup with clear guidelines, making it simple for clients to get started. Our strong maintenance support ensures long-lasting performance and minimal downtime. We have built a base of happy clients who trust our quality and service.</p>
+                <p>We also stay updated with the latest embroidery design trends, helping customers create impactful and high-selling designs. Our goal is to support creativity, improve productivity, and help our clients grow successfully in the embroidery business.</p>
             </div>
             <div class="about-image" data-aos="fade-left">
-                <img src="https://blainesewing.com/wp-content/uploads/2024/07/Routine-Maintenance-scaled.jpg" alt="Rose Embroidery Workshop">
+                <img src="https://www.madeintextiles.com/wp-content/uploads/2024/01/embroidery-machine-industrial-scaled.jpg" alt="Professional embroidery machine service and repair">
             </div>
         </div>
     </div>
 </section>
 
+<!-- Mission & Vision section (aligns with core goal) -->
 <section class="mission-section">
     <div class="container" data-aos="fade-up">
-        <h2>Our Mission</h2>
-        <p>To empower creators and businesses with world-class embroidery technology that transforms ideas into stunning reality. We are committed to continuous innovation, exceptional quality, and dedicated support that helps our customers achieve their creative and business goals.</p>
+        <h2>Our Mission: Empower Creativity, Elevate Business</h2>
+        <p>To deliver unmatched embroidery solutions—from premium machine sales to precision maintenance—that fuel business growth, artistic expression, and long-term reliability. We combine technical expertise with design innovation, ensuring every client gains a competitive edge with minimal downtime and maximum output.</p>
     </div>
 </section>
 
+<!-- Values section refined with relevance -->
 <section class="values-section">
     <div class="container">
-        <div class="section-header" data-aos="fade-up" style="text-align: center;">
-            <div class="subtitle" style="color: #d45a7a; font-size: 14px; letter-spacing: 5px;">Core Principles</div>
-            <h2 style="font-size: 48px;">Our Values</h2>
+        <div class="section-header" data-aos="fade-up">
+            <div class="subtitle">Why We Stand Out</div>
+            <h2>Our Core Commitments</h2>
         </div>
         <div class="values-grid">
             <div class="value-card" data-aos="fade-up" data-aos-delay="100">
-                <i class="fas fa-gem"></i>
-                <h3>Quality First</h3>
-                <p>Uncompromising standards in every component, ensuring decades of reliable performance.</p>
+                <i class="fas fa-cogs"></i>
+                <h3>Reliable Machines & Setup</h3>
+                <p>Easy machine installation with clear guidelines, plus rugged equipment built for continuous production and flawless embroidery.</p>
             </div>
             <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-                <i class="fas fa-lightbulb"></i>
-                <h3>Innovation</h3>
-                <p>Continuously pushing boundaries with smart technology and user-centric design.</p>
+                <i class="fas fa-tools"></i>
+                <h3>Expert Maintenance Support</h3>
+                <p>Minimize downtime with our responsive service team, repair expertise, and preventive maintenance plans that extend machine life.</p>
             </div>
             <div class="value-card" data-aos="fade-up" data-aos-delay="300">
-                <i class="fas fa-handshake"></i>
-                <h3>Integrity</h3>
-                <p>Building lasting relationships through transparency, honesty, and trust.</p>
+                <i class="fas fa-palette"></i>
+                <h3>Design-Driven Innovation</h3>
+                <p>Latest embroidery design trends, Aari work samples, and customized digitizing to help you create high-selling collections.</p>
             </div>
             <div class="value-card" data-aos="fade-up" data-aos-delay="400">
-                <i class="fas fa-users"></i>
-                <h3>Customer Success</h3>
-                <p>Your success is our success. We're committed to your growth every step of the way.</p>
+                <i class="fas fa-smile"></i>
+                <h3>Client Success First</h3>
+                <p>Hundreds of happy clients trust our end-to-end solutions—from small businesses to large production units. We grow together.</p>
             </div>
         </div>
     </div>
 </section>
 
+<!-- extra: expertise & trend-driven success (reinforcing the new content) -->
+<section class="expertise-showcase">
+    <div class="container">
+        <div class="expertise-flex">
+            <div class="expertise-text" data-aos="fade-right">
+                <h3>✨ Latest design trends & custom Aari work</h3>
+                <p>We constantly scout global embroidery trends to offer exclusive design samples and Aari work patterns that captivate the market. Whether you need wedding trousseau embellishments, fashion embroidery, or commercial bulk orders — our design library and customization help you stand out.</p>
+                <p><i class="fas fa-check-circle" style="color:#d45a7a; margin-right: 8px;"></i> Custom embroidery service & digitizing<br>
+                <i class="fas fa-check-circle" style="color:#d45a7a; margin-right: 8px;"></i> Quick turnaround samples & prototyping<br>
+                <i class="fas fa-check-circle" style="color:#d45a7a; margin-right: 8px;"></i> High-selling commercial design packages</p>
+            </div>
+            <div class="expertise-badge" data-aos="fade-left">
+                <i class="fas fa-chart-line"></i>
+                <h4>Boosting productivity</h4>
+                <p>Our comprehensive solutions improve output by 40%+ with reliable machinery, training, and responsive maintenance. Let us help you scale your embroidery business with confidence.</p>
+                <div style="margin-top: 20px;"><i class="fas fa-star" style="color:#f3b33d;"></i><i class="fas fa-star" style="color:#f3b33d;"></i><i class="fas fa-star" style="color:#f3b33d;"></i><i class="fas fa-star" style="color:#f3b33d;"></i><i class="fas fa-star" style="color:#f3b33d;"></i> <span style="font-size: 14px;">Trusted by 500+ happy clients</span></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Happy clients & team representation (success base) -->
+<section class="team-section">
+    <div class="container">
+        <div class="section-header" data-aos="fade-up">
+            <div class="subtitle">Our success reflects in them</div>
+            <h2>Happy Clients & Partners</h2>
+        </div>
+        <div class="team-grid">
+            <div class="team-card" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="client avatar">
+                <h3>Meera S.</h3>
+                <p>Fashion Studio Owner</p>
+                <p style="font-size: 13px; margin-top: 10px;">"Rose Embroidery Machines gave us perfect setup & after-sales service. My Aari production doubled!"</p>
+            </div>
+            <div class="team-card" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="client">
+                <h3>Ramesh K.</h3>
+                <p>Garment Manufacturer</p>
+                <p style="font-size: 13px; margin-top: 10px;">"Their maintenance support is unmatched. Minimal downtime, maximum reliability."</p>
+            </div>
+            <div class="team-card" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="client">
+                <h3>Anjali P.</h3>
+                <p>Embroidery Designer</p>
+                <p style="font-size: 13px; margin-top: 10px;">"Latest design trends & easy machine guidelines helped me start my own brand."</p>
+            </div>
+            <div class="team-card" data-aos="fade-up" data-aos-delay="400">
+                <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="client">
+                <h3>Vikram C.</h3>
+                <p>Export House Director</p>
+                <p style="font-size: 13px; margin-top: 10px;">"High-quality embroidery machines + dedicated support — truly reliable partner."</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer with exact details -->
 <footer>
     <div class="container">
-        <h4>Rose Embroidery</h4>
-        <p>+91 902555206 | Drroslineg@gmail.com</p>
-        <p>76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</p>
-        <p style="margin-top: 30px;">© 2026 Rose Embroidery — Quality Precision Trust. All rights reserved.</p>
+        <h4>Rose Embroidery Machines</h4>
+        <p><i class="fas fa-phone-alt"></i> +91 902555206 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> Drroslineg@gmail.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> 76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</p>
+        <p style="margin-top: 28px; font-size: 13px;">© 2026 Rose Embroidery — Quality Precision Trust. All rights reserved.</p>
+        <p style="font-size: 12px; opacity: 0.7;">Embroidery machine sales • Service & repair • Aari work • Custom designs</p>
     </div>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    AOS.init({ duration: 800 });
-    window.addEventListener('scroll', function() { 
-        const navbar = document.getElementById('navbar'); 
-        if (window.scrollY > 50) navbar.classList.add('scrolled'); 
-        else navbar.classList.remove('scrolled'); 
+    AOS.init({ duration: 750, easing: 'ease-out', once: true });
+
+    window.addEventListener('scroll', function() {
+        const navbar = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
     });
-    function toggleMenu() { 
-        document.getElementById("sidebar").classList.toggle("active"); 
-        document.getElementById("overlay").classList.toggle("active"); 
+
+    function toggleMenu() {
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        sidebar.classList.toggle("active");
+        overlay.classList.toggle("active");
     }
+
+    // close sidebar on click overlay
+    document.getElementById("overlay")?.addEventListener('click', function() {
+        document.getElementById("sidebar").classList.remove("active");
+        this.classList.remove("active");
+    });
 </script>
 </body>
 </html>

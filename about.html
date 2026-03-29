@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Rose Embroidery Machines | About Us – Precision & Trust</title>
+    <title>Rose Embroidery Machines | About Us – Precision, Aari & Materials</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -196,7 +196,7 @@
             font-weight: 400;
         }
 
-        /* values */
+        /* values section - expanded core commitments (now includes Aari + Materials) */
         .values-section {
             padding: 90px 0;
             background: #fffbfc;
@@ -222,7 +222,7 @@
 
         .values-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
             gap: 45px;
             margin-top: 50px;
         }
@@ -262,8 +262,31 @@
             font-size: 0.95rem;
             line-height: 1.6;
         }
+        
+        /* special list inside cards for materials/aari details */
+        .commitment-list {
+            text-align: left;
+            margin-top: 18px;
+            list-style: none;
+            padding-left: 8px;
+        }
+        .commitment-list li {
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #5e4350;
+        }
+        .commitment-list li i {
+            font-size: 14px;
+            background: none;
+            -webkit-text-fill-color: #d45a7a;
+            color: #d45a7a;
+            width: 20px;
+        }
 
-        /* new added: extra service highlight (success & trends) */
+        /* extra: expertise showcase */
         .expertise-showcase {
             background: #ffffff;
             padding: 60px 0 80px;
@@ -359,8 +382,7 @@
             font-size: 0.9rem;
         }
 
-
-          /* Footer */
+        /* Footer */
         footer { background: linear-gradient(125deg, #fa6992 0%, #ca3061 100%);color: #fff; padding: 60px 0 30px; text-align: center; }
         footer h4 { font-size: 28px; margin-bottom: 20px; }
 
@@ -506,7 +528,7 @@
     </div>
 </section>
 
-<!-- Main about content: based on new provided text -->
+<!-- Main about content -->
 <section class="about-content">
     <div class="container">
         <div class="about-grid">
@@ -523,7 +545,7 @@
     </div>
 </section>
 
-<!-- Mission & Vision section (aligns with core goal) -->
+<!-- Mission & Vision section -->
 <section class="mission-section">
     <div class="container" data-aos="fade-up">
         <h2>Our Mission: Empower Creativity, Elevate Business</h2>
@@ -531,44 +553,62 @@
     </div>
 </section>
 
-<!-- Values section refined with relevance -->
+<!-- WHY WE STAND OUT | Our Core Commitments (EXPANDED: now includes Aari Works & Embroidery Materials) -->
 <section class="values-section">
     <div class="container">
         <div class="section-header" data-aos="fade-up">
-            <div class="subtitle">Why We Stand Out</div>
+            <div class="subtitle">WHY WE STAND OUT</div>
             <h2>Our Core Commitments</h2>
         </div>
         <div class="values-grid">
+            <!-- Commitment 1: Reliable Machines & Setup -->
             <div class="value-card" data-aos="fade-up" data-aos-delay="100">
                 <i class="fas fa-cogs"></i>
                 <h3>Reliable Machines & Setup</h3>
                 <p>Easy machine installation with clear guidelines, plus rugged equipment built for continuous production and flawless embroidery.</p>
             </div>
-            <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+            <!-- Commitment 2: Expert Maintenance Support -->
+            <div class="value-card" data-aos="fade-up" data-aos-delay="150">
                 <i class="fas fa-tools"></i>
-                <h3>Expert maintainence Support</h3>
+                <h3>Expert Maintenance Support</h3>
                 <p>Minimize downtime with our responsive service team, repair expertise, and preventive maintainence plans that extend machine life.</p>
             </div>
-            <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+            <!-- Commitment 3: Design-Driven Innovation -->
+            <div class="value-card" data-aos="fade-up" data-aos-delay="200">
                 <i class="fas fa-palette"></i>
                 <h3>Design-Driven Innovation</h3>
                 <p>Latest embroidery design trends, Aari work samples, and customized digitizing to help you create high-selling collections.</p>
             </div>
-            <div class="value-card" data-aos="fade-up" data-aos-delay="400">
+            <!-- Commitment 4: Client Success First -->
+            <div class="value-card" data-aos="fade-up" data-aos-delay="250">
                 <i class="fas fa-smile"></i>
                 <h3>Client Success First</h3>
                 <p>Hundreds of happy clients trust our end-to-end solutions—from small businesses to large production units. We grow together.</p>
+            </div>
+            <!-- NEW Commitment 5: Masterful Aari Craftsmanship (added inside core commitments) -->
+            <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                <i class="fas fa-hand-sparkles"></i>
+                <h3>Masterful Aari Craftsmanship</h3>
+                <p>Specialized Aari work that blends heritage techniques with modern flair. From intricate thread work to mirror embellishments, our artisans deliver perfection for bridal, festive, and high-fashion collections.</p>
+            
+            </div>
+            <!-- NEW Commitment 6: Premium Embroidery Materials (added inside core commitments) -->
+            <div class="value-card" data-aos="fade-up" data-aos-delay="350">
+                <i class="fas fa-ribbon"></i>
+                <h3>Premium Embroidery Materials</h3>
+                <p>Only the finest threads, stabilizers, needles, and accessories. Our premium supplies reduce thread breaks, enhance tension control, and ensure vibrant, durable embroidery results.</p>
+            
             </div>
         </div>
     </div>
 </section>
 
-<!-- extra: expertise & trend-driven success (reinforcing the new content) -->
+<!-- extra: expertise & trend-driven success (reinforcing aari + materials) -->
 <section class="expertise-showcase">
-    <div class="container">
+    <div class="container" style="max-width: fit-content; padding: 0% 10%;">
         <div class="expertise-flex">
             <div class="expertise-text" data-aos="fade-right">
-                <h3>✨ Latest design trends & custom Aari work</h3>
+                <h3>Design trends & custom Aari work</h3>
                 <p>We constantly scout global embroidery trends to offer exclusive design samples and Aari work patterns that captivate the market. Whether you need wedding trousseau embellishments, fashion embroidery, or commercial bulk orders — our design library and customization help you stand out.</p>
                 <p><i class="fas fa-check-circle" style="color:#d45a7a; margin-right: 8px;"></i> Custom embroidery service & digitizing<br>
                 <i class="fas fa-check-circle" style="color:#d45a7a; margin-right: 8px;"></i> Quick turnaround samples & prototyping<br>
@@ -583,8 +623,6 @@
         </div>
     </div>
 </section>
-
-
 
 <!-- Footer with exact details -->
 <footer>
@@ -616,7 +654,6 @@
         overlay.classList.toggle("active");
     }
 
-    // close sidebar on click overlay
     document.getElementById("overlay")?.addEventListener('click', function() {
         document.getElementById("sidebar").classList.remove("active");
         this.classList.remove("active");

@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Rose Embroidery | Login & Register – Embroidery Partner Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.3/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #2c2c2c;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #fff9fc 0%, #fff0f5 100%);
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* navbar */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background: white;
+        }
+
+        .navbar.scrolled {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.96);
+            padding: 12px 0;
+            box-shadow: 0 8px 25px rgba(212, 90, 122, 0.12);
+        }
+
+        .nav-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 70px;
+            transition: 0.3s;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .nav-attribute {
+            color: #4a2c36;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            transition: all 0.3s;
+        }
+
+        .nav-attribute:hover, .nav-attribute.active {
+            color: #d45a7a;
+        }
+
+        .nav-attribute.active {
+            border-bottom: 2px solid #d45a7a;
+            padding-bottom: 5px;
+        }
+
+        /* auth section */
+        .auth-section {
+            padding: 140px 0 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .auth-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 60px;
+            background: white;
+            border-radius: 60px;
+            box-shadow: 0 35px 65px rgba(180, 60, 88, 0.15);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        /* left brand side */
+        .auth-brand {
+            background: linear-gradient(135deg, #d45a7a, #aa3c5c);
+            padding: 60px 40px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-brand::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 280px;
+            height: 280px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .auth-brand::after {
+            content: '';
+            position: absolute;
+            bottom: -20%;
+            left: -20%;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 50%;
+        }
+
+        .brand-icon {
+            font-size: 80px;
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-brand h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .auth-brand p {
+            font-size: 1rem;
+            line-height: 1.7;
+            opacity: 0.95;
+            margin-bottom: 35px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-list {
+            list-style: none;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-list li {
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .feature-list li i {
+            font-size: 20px;
+            width: 28px;
+        }
+
+        /* right form side */
+        .auth-form-container {
+            padding: 55px 50px;
+            background: white;
+        }
+
+        .form-tabs {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 40px;
+            border-bottom: 2px solid #ffe0e8;
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            padding: 12px 8px;
+            cursor: pointer;
+            color: #ad8a96;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .tab-btn.active {
+            color: #d45a7a;
+        }
+
+        .tab-btn.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #d45a7a, #f3a6bb);
+            border-radius: 3px;
+        }
+
+        .form-panel {
+            display: none;
+            animation: fadeSlide 0.35s ease-out;
+        }
+
+        .form-panel.active-panel {
+            display: block;
+        }
+
+        @keyframes fadeSlide {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .input-group {
+            margin-bottom: 28px;
+            position: relative;
+        }
+
+        .input-group i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #d45a7a;
+            font-size: 18px;
+            opacity: 0.7;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 16px 20px 16px 52px;
+            border: 1.5px solid #f0d9e0;
+            border-radius: 60px;
+            font-size: 15px;
+            font-family: 'Montserrat', sans-serif;
+            transition: all 0.3s;
+            background: #fefafc;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #d45a7a;
+            box-shadow: 0 0 0 3px rgba(212, 90, 122, 0.1);
+        }
+
+        .password-wrapper {
+            position: relative;
+        }
+
+        .toggle-password {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            cursor: pointer;
+            color: #b38b98;
+            z-index: 2;
+        }
+
+        .form-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 32px;
+            font-size: 13px;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .forgot-link {
+            color: #d45a7a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .auth-btn {
+            width: 100%;
+            background: linear-gradient(95deg, #d45a7a, #b34262);
+            border: none;
+            padding: 16px;
+            border-radius: 60px;
+            color: white;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .auth-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 20px rgba(180, 60, 88, 0.3);
+        }
+
+        .social-login {
+            margin-top: 35px;
+            text-align: center;
+        }
+
+        .social-login p {
+            color: #8e6e7a;
+            font-size: 13px;
+            margin-bottom: 18px;
+            position: relative;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            width: 48px;
+            height: 48px;
+            background: #fff5f8;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #d45a7a;
+            font-size: 22px;
+            transition: 0.25s;
+            text-decoration: none;
+            border: 1px solid #ffdee8;
+        }
+
+        .social-icons a:hover {
+            background: #d45a7a;
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .register-note {
+            text-align: center;
+            margin-top: 28px;
+            font-size: 13px;
+        }
+
+        .register-note a {
+            color: #d45a7a;
+            text-decoration: none;
+            font-weight: 700;
+        }
+
+        /* message */
+        .form-message {
+            margin-top: 18px;
+            padding: 12px;
+            border-radius: 40px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 500;
+            display: none;
+        }
+
+        .form-message.success {
+            background: #e0f7e8;
+            color: #2e6b3e;
+            display: block;
+        }
+
+        .form-message.error {
+            background: #ffe6ea;
+            color: #c23b55;
+            display: block;
+        }
+
+        /* footer */
+        footer {
+            background: linear-gradient(125deg, #e25d83 0%, #b7355b 100%);
+            color: #fff;
+            padding: 50px 0 30px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        /* responsive */
+        .hamburger, .sidebar, .overlay {
+            display: none;
+        }
+
+        @media (max-width: 992px) {
+            .auth-wrapper {
+                grid-template-columns: 1fr;
+                border-radius: 48px;
+            }
+            .auth-brand {
+                padding: 45px 35px;
+                text-align: center;
+            }
+            .feature-list {
+                text-align: left;
+            }
+            .container {
+                padding: 0 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                z-index: 1001;
+            }
+            .hamburger span {
+                display: block;
+                width: 26px;
+                height: 2px;
+                background: #b34262;
+                margin: 6px 0;
+            }
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -300px;
+                width: 280px;
+                height: 100%;
+                background: white;
+                padding: 90px 28px 30px;
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
+                transition: 0.3s;
+                z-index: 10000;
+                box-shadow: 4px 0 20px rgba(0,0,0,0.1);
+            }
+            .sidebar.active {
+                left: 0;
+            }
+            .sidebar a {
+                color: #3e2a2f;
+                text-decoration: none;
+                font-size: 18px;
+                font-weight: 500;
+            }
+            .sidebar .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 24px;
+                font-size: 28px;
+                cursor: pointer;
+                color: #b34262;
+            }
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0,0,0,0.4);
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.3s;
+                z-index: 9999;
+                display: block;
+            }
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+            .nav-links {
+                display: none !important;
+            }
+            .auth-form-container {
+                padding: 40px 28px;
+            }
+            .tab-btn {
+                font-size: 24px;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .hamburger, .sidebar, .overlay {
+                display: none !important;
+            }
+            .nav-links {
+                display: flex !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+    <div class="nav-container">
+        <div class="logo"><img src="./images/logo.png" alt="Rose Embroidery"></div>
+        <div class="nav-links">
+            <a class="nav-attribute" href="index.html">Home</a>
+            <a class="nav-attribute" href="about.html">About</a>
+            <a class="nav-attribute" href="products.html">Product</a>
+            <a class="nav-attribute" href="gallery.html">Gallery</a>
+            <a class="nav-attribute active" href="login.html">Login</a>
+            <a class="nav-attribute" href="contact.html">Contact</a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+    </div>
+</nav>
+
+<div class="sidebar" id="sidebar">
+    <div class="close-btn" onclick="toggleMenu()">✕</div>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="products.html">Product</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="login.html">Login</a>
+    <a href="contact.html">Contact</a>
+</div>
+<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+<!-- Login + Register Section -->
+<section class="auth-section">
+    <div class="container">
+        <div class="auth-wrapper" data-aos="fade-up">
+            <!-- Left Branding -->
+            <div class="auth-brand">
+                <div class="brand-icon"><i class="fas fa-rose"></i> <i class="fas fa-thread"></i></div>
+                <h2>Embroidery Partner Hub</h2>
+                <p>Access exclusive Aari designs, premium material catalog, machine support & order history.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check-circle"></i> Track embroidery orders & service requests</li>
+                    <li><i class="fas fa-palette"></i> Download latest Aari & digitizing samples</li>
+                    <li><i class="fas fa-box-open"></i> Wholesale pricing on threads & stabilizers</li>
+                    <li><i class="fas fa-headset"></i> Priority support & machine maintenance plans</li>
+                </ul>
+            </div>
+
+            <!-- Right Forms -->
+            <div class="auth-form-container">
+                <div class="form-tabs">
+                    <button class="tab-btn active" id="loginTabBtn"><i class="fas fa-sign-in-alt"></i> Login</button>
+                    <button class="tab-btn" id="registerTabBtn"><i class="fas fa-user-plus"></i> Register</button>
+                </div>
+
+                <!-- LOGIN FORM -->
+                <div id="loginForm" class="form-panel active-panel">
+                    <form id="loginFormElement">
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="loginEmail" placeholder="Email address" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <div class="password-wrapper">
+                                <input type="password" id="loginPassword" placeholder="Password" required>
+                                <i class="fas fa-eye toggle-password" data-target="loginPassword"></i>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="rememberMe"> <span>Remember me</span>
+                            </label>
+                            <a href="#" class="forgot-link">Forgot password?</a>
+                        </div>
+                        <button type="submit" class="auth-btn"><i class="fas fa-arrow-right-to-bracket"></i> Sign In</button>
+                        <div id="loginMessage" class="form-message"></div>
+                    </form>
+                    <div class="social-login">
+                        <p>Or continue with</p>
+                        <div class="social-icons">
+                            <a href="#"><i class="fab fa-google"></i></a>
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-apple"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- REGISTER FORM -->
+                <div id="registerForm" class="form-panel">
+                    <form id="registerFormElement">
+                        <div class="input-group">
+                            <i class="fas fa-user"></i>
+                            <input type="text" id="regFullname" placeholder="Full name" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-envelope"></i>
+                            <input type="email" id="regEmail" placeholder="Email address" required>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-phone-alt"></i>
+                            <input type="tel" id="regPhone" placeholder="Phone number (optional)">
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-lock"></i>
+                            <div class="password-wrapper">
+                                <input type="password" id="regPassword" placeholder="Create password" required>
+                                <i class="fas fa-eye toggle-password" data-target="regPassword"></i>
+                            </div>
+                        </div>
+                        <div class="input-group">
+                            <i class="fas fa-check-circle"></i>
+                            <div class="password-wrapper">
+                                <input type="password" id="regConfirmPassword" placeholder="Confirm password" required>
+                                <i class="fas fa-eye toggle-password" data-target="regConfirmPassword"></i>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="termsCheckbox" required> <span>I agree to Rose Embroidery <a href="#" style="color:#d45a7a;">Terms & Privacy</a></span>
+                            </label>
+                        </div>
+                        <button type="submit" class="auth-btn"><i class="fas fa-user-check"></i> Create Account</button>
+                        <div id="registerMessage" class="form-message"></div>
+                    </form>
+                    <div class="register-note">
+                        Already have an account? <a href="#" id="switchToLogin">Sign in here</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <h4><i class="fas fa-rose"></i> Rose Embroidery</h4>
+        <p><i class="fas fa-phone-alt"></i> +91 902555206 &nbsp;|&nbsp; <i class="fas fa-envelope"></i> Drroslineg@gmail.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> 76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</p>
+        <p style="margin-top: 30px;"><i class="far fa-copyright"></i> 2026 Rose Embroidery — Precision. Craft. Trust.</p>
+    </div>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ duration: 700, easing: 'ease-out', once: true });
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        const navbar = document.getElementById('navbar');
+        if(window.scrollY > 50) navbar.classList.add('scrolled');
+        else navbar.classList.remove('scrolled');
+    });
+
+    function toggleMenu() {
+        document.getElementById("sidebar").classList.toggle("active");
+        document.getElementById("overlay").classList.toggle("active");
+    }
+    document.getElementById("overlay")?.addEventListener('click', () => {
+        document.getElementById("sidebar").classList.remove("active");
+        document.getElementById("overlay").classList.remove("active");
+    });
+
+    // Tab switching logic
+    const loginTabBtn = document.getElementById('loginTabBtn');
+    const registerTabBtn = document.getElementById('registerTabBtn');
+    const loginPanel = document.getElementById('loginForm');
+    const registerPanel = document.getElementById('registerForm');
+    const switchToLogin = document.getElementById('switchToLogin');
+
+    function activateLogin() {
+        loginTabBtn.classList.add('active');
+        registerTabBtn.classList.remove('active');
+        loginPanel.classList.add('active-panel');
+        registerPanel.classList.remove('active-panel');
+        clearMessages();
+    }
+
+    function activateRegister() {
+        registerTabBtn.classList.add('active');
+        loginTabBtn.classList.remove('active');
+        registerPanel.classList.add('active-panel');
+        loginPanel.classList.remove('active-panel');
+        clearMessages();
+    }
+
+    function clearMessages() {
+        document.getElementById('loginMessage').style.display = 'none';
+        document.getElementById('registerMessage').style.display = 'none';
+    }
+
+    loginTabBtn.addEventListener('click', activateLogin);
+    registerTabBtn.addEventListener('click', activateRegister);
+    if(switchToLogin) switchToLogin.addEventListener('click', (e) => {
+        e.preventDefault();
+        activateLogin();
+    });
+
+    // Toggle password visibility
+    document.querySelectorAll('.toggle-password').forEach(icon => {
+        icon.addEventListener('click', function() {
+            const targetId = this.getAttribute('data-target');
+            const input = document.getElementById(targetId);
+            if(input.type === 'password') {
+                input.type = 'text';
+                this.classList.remove('fa-eye');
+                this.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                this.classList.remove('fa-eye-slash');
+                this.classList.add('fa-eye');
+            }
+        });
+    });
+
+    // SIMULATED LOGIN (demo)
+    const loginForm = document.getElementById('loginFormElement');
+    const loginMessageDiv = document.getElementById('loginMessage');
+
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const email = document.getElementById('loginEmail').value.trim();
+        const password = document.getElementById('loginPassword').value.trim();
+        
+        if(!email || !password) {
+            showMessage(loginMessageDiv, 'Please fill both email and password.', 'error');
+            return;
+        }
+        // Demo validation (accept test@rose.com / any password non-empty)
+        if(email === 'demo@rose.com' && password === 'embroidery') {
+            showMessage(loginMessageDiv, 'Login successful! Redirecting to dashboard...', 'success');
+            setTimeout(() => {
+                alert('Welcome to Rose Embroidery Partner Hub! (Demo)');
+                // In real scenario redirect to dashboard
+            }, 800);
+        } else {
+            showMessage(loginMessageDiv, 'Invalid credentials. Try demo@rose.com / embroidery', 'error');
+        }
+    });
+
+    // REGISTER simulation (stores in localStorage demo)
+    const registerFormEl = document.getElementById('registerFormElement');
+    const regMessageDiv = document.getElementById('registerMessage');
+
+    registerFormEl.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const fullname = document.getElementById('regFullname').value.trim();
+        const email = document.getElementById('regEmail').value.trim();
+        const phone = document.getElementById('regPhone').value.trim();
+        const password = document.getElementById('regPassword').value;
+        const confirm = document.getElementById('regConfirmPassword').value;
+        const terms = document.getElementById('termsCheckbox').checked;
+
+        if(!fullname || !email || !password) {
+            showMessage(regMessageDiv, 'Please fill all required fields.', 'error');
+            return;
+        }
+        if(password !== confirm) {
+            showMessage(regMessageDiv, 'Passwords do not match.', 'error');
+            return;
+        }
+        if(password.length < 6) {
+            showMessage(regMessageDiv, 'Password must be at least 6 characters.', 'error');
+            return;
+        }
+        if(!terms) {
+            showMessage(regMessageDiv, 'You must accept Terms & Privacy.', 'error');
+            return;
+        }
+        // Save mock user (demo)
+        const userData = { fullname, email, phone, password: btoa(password) };
+        localStorage.setItem('rose_user_' + email, JSON.stringify(userData));
+        showMessage(regMessageDiv, 'Registration successful! Please login.', 'success');
+        setTimeout(() => {
+            activateLogin();
+            document.getElementById('loginEmail').value = email;
+            document.getElementById('loginPassword').value = '';
+            regMessageDiv.style.display = 'none';
+        }, 1500);
+    });
+
+    function showMessage(element, text, type) {
+        element.textContent = text;
+        element.className = `form-message ${type}`;
+        element.style.display = 'block';
+        setTimeout(() => {
+            if(element.style.display === 'block') element.style.display = 'none';
+        }, 3500);
+    }
+
+    // forgot password demo
+    const forgotLink = document.querySelector('.forgot-link');
+    if(forgotLink) {
+        forgotLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Password reset link sent to your registered email (demo feature).');
+        });
+    }
+</script>
+</body>
+</html>

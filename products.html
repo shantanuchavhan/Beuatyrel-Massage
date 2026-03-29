@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>All Products | Rose Embroidery Machines & Devices</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Font Awesome -->
+    <title>Rose Embroidery | Shop – Premium Machines & Accessories</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- AOS Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
         * {
@@ -19,24 +16,41 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            color: #333;
+            color: #2c2c2c;
             line-height: 1.6;
-            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 50%, #ffe4ec 100%);
+            background: linear-gradient(135deg, #ffffff 0%, #fef5f8 100%);
             overflow-x: hidden;
         }
 
-        h1, h2, h3, h4, .section-title {
+        h1, h2, h3, h4 {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 30px;
         }
 
-        /* Navbar - matching main theme (rose-inspired) */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(1.5); opacity: 0; }
+        }
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         .navbar {
             position: fixed;
             top: 0;
@@ -44,527 +58,542 @@
             width: 100%;
             z-index: 1000;
             transition: all 0.4s ease;
-             background: white;
-             padding-bottom: 0;
+            background: white;
         }
 
         .navbar.scrolled {
-            backdrop-filter: blur(10px);
-            padding: 8px 0;
-            box-shadow: 0 5px 20px rgba(212, 90, 122, 0.1);
+            backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.96);
+            padding: 10px 0;
+            box-shadow: 0 5px 25px rgba(212, 90, 122, 0.15);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 10px;
+            padding: 0 30px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         .logo img {
-            height: 80px;
-            transition: all 0.3s ease;
-            
-        }
-
-        .logo a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 28px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            font-family: 'Cormorant Garamond', serif;
-        }
-
-        .navbar.scrolled .logo a {
-            background: linear-gradient(135deg, #d45a7a, #b84363);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            height: 70px;
+            transition: 0.3s;
         }
 
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 32px;
         }
 
         .nav-attribute {
-            color: #130101;
+            color: #3e2a2f;
             text-decoration: none;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .navbar.scrolled .nav-attribute {
-            color: #5a3e4a;
-        }
-
-        .nav-attribute:hover {
-            color: #ffb6c1;
-        }
-
-        .navbar.scrolled .nav-attribute:hover {
-            color: #d45a7a;
-        }
-
-        .nav-attribute.active {
-            color: #ffb6c1;
-        }
-
-        .navbar.scrolled .nav-attribute.active {
-            color: #d45a7a;
-            font-weight: 600;
-        }
-
-        .nav-item {
             position: relative;
-            display: inline-block;
         }
-
-        .nav-item > .nav-attribute::after {
-            content: "❯";
-            font-size: 12px;
-            margin-left: 8px;
-            display: inline-block;
-            transition: transform 0.3s ease;
-            color: #ffb6c1;
-            font-weight: bold;
-        }
-
-        .navbar.scrolled .nav-item > .nav-attribute::after {
-            color: #d45a7a;
-        }
-
-        .nav-item:hover > .nav-attribute::after {
-            transform: rotate(90deg);
-        }
-
-        .dropdown-content {
-            position: absolute;
-            top: calc(100% + 5px);
-            left: 0;
-            background-color: #fff;
-            min-width: 200px;
-            box-shadow: 0 10px 30px rgba(212, 90, 122, 0.15);
-            border-radius: 12px;
-            z-index: 10000;
-            padding: 12px 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
-            pointer-events: none;
-            border: 1px solid rgba(212, 90, 122, 0.2);
-        }
-
-        .nav-item::after {
+        .nav-attribute::after {
             content: '';
             position: absolute;
-            top: 100%;
+            bottom: -5px;
             left: 0;
+            width: 0;
+            height: 2px;
+            background: #d45a7a;
+            transition: width 0.3s ease;
+        }
+        .nav-attribute:hover::after,
+        .nav-attribute.active::after {
             width: 100%;
-            height: 12px;
-            background: transparent;
-            pointer-events: auto;
+        }
+        .nav-attribute:hover, .nav-attribute.active {
+            color: #d45a7a;
         }
 
-        .nav-item:hover .dropdown-content,
-        .dropdown-content:hover {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-
-        .dropdown-content::before {
-            content: "";
-            position: absolute;
-            top: -8px;
-            left: 30px;
-            width: 16px;
-            height: 16px;
-            background: #fff;
-            transform: rotate(45deg);
-            border-top: 1px solid rgba(212, 90, 122, 0.2);
-            border-left: 1px solid rgba(212, 90, 122, 0.2);
-            border-radius: 4px 0 0 0;
-        }
-
-        .dropdown-content a {
-            color: #5a3e4a !important;
-            padding: 12px 25px;
-            margin: 0 !important;
-            display: block;
-            text-align: left;
-            font-size: 13px !important;
-            transition: all 0.25s ease;
-            text-decoration: none;
-            border-bottom: 1px solid rgba(212, 90, 122, 0.1);
-        }
-
-        .dropdown-content a:last-child {
-            border-bottom: none;
-        }
-
-        .dropdown-content a:hover {
-            background: linear-gradient(135deg, #d45a7a, #b84363);
-            color: white !important;
-            padding-left: 32px;
-        }
-
-        /* Mobile menu */
-        .hamburger, .sidebar, .overlay {
-            display: none;
-        }
-
-        /* Hero Section - matches theme gradient with rose overlay */
-        .products-hero {
-            height: 65vh;
-            min-height: 450px;
-            background: linear-gradient(135deg, rgba(243, 145, 171, 0.75) 0%, rgba(218, 86, 121, 0.85) 100%), url('https://www.singleheadembroidery.com/wp-content/themes/hsw5g/assets/img/breadcrumb/thumb-10.webp');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            margin-top: 0;
+        .cart-icon {
             position: relative;
         }
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -12px;
+            background: linear-gradient(135deg, #d45a7a, #b34262);
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
 
-        .products-hero h1 {
+        .shop-hero {
+            background: linear-gradient(135deg, rgba(212, 90, 122, 0.92), rgba(179, 66, 98, 0.92)), url('https://images.pexels.com/photos/3778010/pexels-photo-3778010.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center;
+            padding: 150px 0 70px;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        .shop-hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1%, transparent 1%);
+            background-size: 50px 50px;
+            animation: shimmer 20s linear infinite;
+        }
+        .floating-icon {
+            position: absolute;
+            font-size: 3rem;
+            opacity: 0.2;
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+        .shop-hero h1 {
             font-size: 64px;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-            font-family: 'Cormorant Garamond', serif;
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease;
         }
-
-        .products-hero p {
-            font-size: 18px;
+        .shop-hero h1 i {
+            margin-right: 15px;
+            animation: float 3s ease-in-out infinite;
+            display: inline-block;
+        }
+        .shop-hero p {
+            font-size: 20px;
             opacity: 0.95;
+            animation: fadeInUp 0.8s ease 0.2s backwards;
         }
 
-        /* Filter Section - elegant soft rose */
-        .filter-section {
-            padding: 50px 0 30px;
-            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+        .shop-main {
+            padding: 60px 0 80px;
         }
-
-        .filter-container {
+        .shop-layout {
             display: flex;
-            justify-content: center;
-            gap: 20px;
+            gap: 40px;
             flex-wrap: wrap;
-            margin-bottom: 30px;
         }
 
-        .filter-btn {
-            padding: 12px 28px;
-            border-radius: 40px;
-            background: linear-gradient(135deg, #d45a7a, #b84363);
-            color: #fff;
+        .filters-sidebar {
+            width: 300px;
+            flex-shrink: 0;
+            background: white;
+            border-radius: 16px;
+            padding: 30px 25px;
+            box-shadow: 0 10px 35px rgba(212, 90, 122, 0.08);
+            border: 2px solid #e8d5de;
+            height: fit-content;
+            position: sticky;
+            top: 100px;
+            transition: all 0.3s;
+        }
+        .filters-sidebar:hover {
+            border-color: #d45a7a;
+            box-shadow: 0 15px 40px rgba(212, 90, 122, 0.15);
+        }
+        .filter-section {
+            margin-bottom: 30px;
+            border-bottom: 2px solid #f0dfe7;
+            padding-bottom: 20px;
+        }
+        .filter-section:last-child {
+            border-bottom: none;
+        }
+        .filter-section h4 {
+            font-size: 18px;
+            color: #b34262;
+            margin-bottom: 18px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .filter-options {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+        .filter-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            cursor: pointer;
+            font-size: 14px;
+            color: #5a4a52;
+            transition: all 0.2s;
+            padding: 6px 0;
+        }
+        .filter-option:hover {
+            color: #d45a7a;
+            transform: translateX(5px);
+        }
+        .filter-option input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: #d45a7a;
+        }
+        .price-inputs {
+            display: flex;
+            gap: 12px;
+        }
+        .price-inputs input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 2px solid #e8d5de;
+            border-radius: 12px;
+            font-size: 13px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .price-inputs input:focus {
+            border-color: #d45a7a;
+        }
+        .apply-price {
+            background: linear-gradient(95deg, #d45a7a, #b34262);
+            color: white;
             border: none;
+            padding: 10px;
+            border-radius: 12px;
+            font-size: 13px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
-            font-size: 14px;
-            box-shadow: 0 4px 12px rgba(212, 90, 122, 0.3);
         }
-
-        .filter-btn.active {
-            background: #fff;
-            color: #d45a7a;
-            box-shadow: 0 4px 15px rgba(212, 90, 122, 0.2);
-            border: 1px solid #d45a7a;
-        }
-
-        .filter-btn:hover {
+        .apply-price:hover {
             transform: translateY(-2px);
-            opacity: 0.95;
+            box-shadow: 0 5px 15px rgba(212,90,122,0.3);
         }
-
-        .search-box {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
-        }
-
-        .search-box input {
+        .clear-filters {
             width: 100%;
-            max-width: 500px;
-            padding: 14px 25px;
-            border-radius: 50px;
+            background: transparent;
             border: 2px solid #d45a7a;
-            background: #fff;
-            color: #333;
-            font-size: 16px;
-            outline: none;
+            color: #d45a7a;
+            padding: 12px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
             transition: all 0.3s;
+            margin-top: 20px;
+        }
+        .clear-filters:hover {
+            background: #d45a7a;
+            color: white;
+            transform: translateY(-2px);
         }
 
-        .search-box input:focus {
-            border-color: #b84363;
-            box-shadow: 0 0 0 3px rgba(212, 90, 122, 0.2);
+        .products-area {
+            flex: 1;
+            min-width: 0;
         }
-
-        .search-box input::placeholder {
-            color: #aaa;
+        .shop-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 35px;
+            background: white;
+            padding: 18px 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            border: 2px solid #e8d5de;
         }
-
-        /* Products Grid - rose theme cards */
-        .products-section {
-            padding: 40px 0 80px;
-            background: linear-gradient(135deg, #ffffff 0%, #fff5f7 100%);
+        .search-wrapper {
+            flex: 1;
+            max-width: 400px;
+            position: relative;
+        }
+        .search-wrapper i {
+            position: absolute;
+            left: 18px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #d45a7a;
+        }
+        .search-wrapper input {
+            width: 100%;
+            padding: 12px 20px 12px 45px;
+            border: 2px solid #e8d5de;
+            border-radius: 12px;
+            font-size: 14px;
+            outline: none;
+            transition: 0.3s;
+        }
+        .search-wrapper input:focus {
+            border-color: #d45a7a;
+            box-shadow: 0 0 0 3px rgba(212,90,122,0.1);
+        }
+        .sort-select {
+            padding: 10px 20px;
+            border: 2px solid #e8d5de;
+            border-radius: 12px;
+            background: white;
+            font-weight: 500;
+            color: #5a3e4a;
+            cursor: pointer;
+            outline: none;
+            transition: 0.3s;
+        }
+        .sort-select:focus {
+            border-color: #d45a7a;
+        }
+        .results-count {
+            font-size: 14px;
+            color: #b38b98;
+            background: #fff0f5;
+            padding: 6px 15px;
+            border-radius: 20px;
         }
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            gap: 30px;
         }
-
         .product-card {
-            background: #fff;
-            border-radius: 24px;
+            background: white;
+            border-radius: 16px;
             overflow: hidden;
-            transition: all 0.3s;
-            cursor: pointer;
-            box-shadow: 0 10px 25px rgba(212, 90, 122, 0.1);
-            border: 1px solid rgba(212, 90, 122, 0.15);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 8px 25px rgba(212, 90, 122, 0.08);
+            border: 2px solid #e8d5de;
+            position: relative;
         }
-
         .product-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(212, 90, 122, 0.2);
+            box-shadow: 0 25px 45px rgba(212, 90, 122, 0.2);
             border-color: #d45a7a;
         }
-
         .product-badge {
             position: absolute;
             top: 15px;
             right: 15px;
-            background: linear-gradient(135deg, #d45a7a, #b84363);
-            color: #fff;
-            padding: 5px 14px;
-            border-radius: 25px;
+            background: linear-gradient(135deg, #d45a7a, #b34262);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 12px;
             font-size: 11px;
-            font-weight: 600;
-            z-index: 1;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            font-weight: 700;
+            z-index: 2;
+            animation: pulse 2s infinite;
         }
-
         .product-img {
             height: 240px;
             background-size: cover;
             background-position: center;
-            transition: transform 0.5s;
+            transition: transform 0.5s ease;
             position: relative;
+            overflow: hidden;
         }
-
+        .product-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(212,90,122,0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .product-card:hover .product-img::after {
+            opacity: 1;
+        }
         .product-card:hover .product-img {
-            transform: scale(1.02);
+            transform: scale(1.05);
         }
-
         .product-content {
-            padding: 25px;
+            padding: 22px;
         }
-
         .product-category {
             display: inline-block;
-            padding: 4px 14px;
-            background: rgba(212, 90, 122, 0.1);
-            border-radius: 30px;
+            padding: 5px 14px;
+            background: linear-gradient(135deg, #fff0f5, #ffe4ec);
+            border-radius: 10px;
             font-size: 11px;
             font-weight: 600;
+            color: #d45a7a;
             margin-bottom: 12px;
-            color: #d45a7a;
         }
-
         .product-content h3 {
-            font-size: 26px;
+            font-size: 24px;
             margin-bottom: 10px;
-            color: #d45a7a;
-            font-family: 'Cormorant Garamond', serif;
+            color: #b34262;
+            transition: color 0.3s;
         }
-
+        .product-card:hover .product-content h3 {
+            color: #d45a7a;
+        }
         .product-desc {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 15px;
+            font-size: 13px;
+            color: #6b5a62;
+            margin-bottom: 12px;
             line-height: 1.5;
         }
-
         .product-price {
-            font-size: 24px;
-            font-weight: 700;
+            font-size: 26px;
+            font-weight: 800;
             color: #d45a7a;
-            margin: 15px 0;
+            margin: 12px 0;
+            display: inline-block;
+            background: linear-gradient(135deg, #d45a7a, #b34262);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-
         .product-specs {
             list-style: none;
-            margin: 15px 0;
+            margin: 12px 0;
         }
-
         .product-specs li {
-            padding: 6px 0;
-            font-size: 13px;
-            color: #555;
+            font-size: 12px;
+            padding: 5px 0;
+            color: #7a6a72;
             display: flex;
             align-items: center;
             gap: 8px;
         }
-
         .product-specs li i {
             color: #d45a7a;
-            width: 18px;
-            font-size: 12px;
+            font-size: 11px;
         }
-
-        .btn-view {
-            display: inline-block;
-            padding: 10px 28px;
-            border: 2px solid #d45a7a;
-            color: #d45a7a;
-            text-decoration: none;
-            border-radius: 40px;
-            font-weight: 600;
-            font-size: 13px;
-            transition: 0.3s;
-            margin-top: 10px;
+        .button-group {
+            display: flex;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .btn-view-details {
+            flex: 1;
             background: transparent;
+            border: 2px solid #d45a7a;
+            padding: 10px;
+            border-radius: 12px;
+            color: #d45a7a;
+            font-weight: 700;
+            font-size: 12px;
             cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            text-decoration: none;
         }
-
-        .btn-view:hover {
-            background: linear-gradient(135deg, #d45a7a, #b84363);
-            color: #fff;
-            border-color: transparent;
-            transform: translateX(5px);
+        .btn-view-details:hover {
+            background: #d45a7a;
+            color: white;
+            transform: translateY(-2px);
         }
-
-        /* No Results */
+        .add-to-cart {
+            flex: 1;
+            background: linear-gradient(95deg, #d45a7a, #b34262);
+            border: none;
+            padding: 10px;
+            border-radius: 12px;
+            color: white;
+            font-weight: 700;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+        .add-to-cart::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+        .add-to-cart:hover::before {
+            left: 100%;
+        }
+        .add-to-cart:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212,90,122,0.4);
+        }
         .no-results {
             text-align: center;
             padding: 60px;
-            font-size: 18px;
+            background: white;
+            border-radius: 16px;
             color: #d45a7a;
-            background: rgba(212, 90, 122, 0.05);
-            border-radius: 30px;
+            font-size: 18px;
+            border: 2px solid #e8d5de;
+            animation: fadeInUp 0.5s ease;
         }
 
-   /* Footer */
-        footer { background: linear-gradient(125deg, #fa6992 0%, #ca3061 100%);color: #fff; padding: 60px 0 30px; text-align: center; }
-        footer h4 { font-size: 28px; margin-bottom: 20px; }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 30px 0;
-        }
-
-        .social-icons a {
+        footer {
+            background: linear-gradient(125deg, #fa6992 0%, #ca3061 100%);
             color: #fff;
-            font-size: 24px;
-            transition: 0.3s;
+            padding: 60px 0 30px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
         }
-
-        .social-icons a:hover {
-            transform: translateY(-3px);
+        footer::before {
+            content: '❀';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.05;
+            bottom: -50px;
+            right: -50px;
+            transform: rotate(-15deg);
         }
+        footer h4 { font-size: 32px; margin-bottom: 20px; }
+        footer h4 i { margin-right: 10px; }
 
+        .hamburger, .sidebar, .overlay { display: none; }
+        @media (max-width: 992px) {
+            .filters-sidebar { width: 280px; }
+        }
         @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-                cursor: pointer;
-                z-index: 1001;
-            }
-            .hamburger span {
-                display: block;
-                width: 25px;
-                height: 2px;
-                background: #fff;
-                margin: 5px 0;
-                transition: 0.3s;
-            }
-            .navbar.scrolled .hamburger span {
-                background: #d45a7a;
-            }
+            .hamburger { display: block; cursor: pointer; z-index: 1001; }
+            .hamburger span { display: block; width: 26px; height: 2px; background: #b34262; margin: 6px 0; transition: 0.3s; }
             .sidebar {
-                position: fixed;
-                top: 0;
-                left: -280px;
-                width: 280px;
-                height: 100%;
-                background: linear-gradient(135deg, #fff5f7, #ffe4ec);
-                padding: 80px 30px 30px;
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-                transition: 0.3s;
-                z-index: 10000;
-                box-shadow: 2px 0 20px rgba(212, 90, 122, 0.2);
+                position: fixed; top: 0; left: -300px; width: 280px; height: 100%;
+                background: white; padding: 90px 28px 30px; display: flex; flex-direction: column;
+                gap: 18px; transition: 0.3s; z-index: 10000; box-shadow: 4px 0 20px rgba(0,0,0,0.1);
             }
             .sidebar.active { left: 0; }
-            .sidebar a {
-                color: #5a3e4a;
-                text-decoration: none;
-                font-size: 16px;
-                padding: 12px 0;
-                border-bottom: 1px solid rgba(212, 90, 122, 0.2);
-            }
-            .sidebar .close-btn {
-                position: absolute;
-                top: 20px;
-                right: 20px;
-                font-size: 24px;
-                cursor: pointer;
-                color: #d45a7a;
-            }
-            .overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.5);
-                opacity: 0;
-                visibility: hidden;
-                transition: 0.3s;
-                z-index: 9999;
-                display: block;
-            }
-            .overlay.active {
-                opacity: 1;
-                visibility: visible;
-            }
-            .nav-links { display: none; }
-            .products-hero { 
-                height: 55vh; 
-                min-height: 380px; 
-                background-attachment: scroll;
-            }
-            .products-hero h1 { font-size: 42px; }
-            .products-hero p { font-size: 16px; }
-            .filter-container { gap: 12px; }
-            .filter-btn { padding: 10px 20px; font-size: 12px; }
-            .products-grid { grid-template-columns: 1fr; gap: 25px; }
+            .sidebar a { color: #3e2a2f; text-decoration: none; font-size: 18px; font-weight: 500; padding: 8px 0; }
+            .sidebar .close-btn { position: absolute; top: 20px; right: 24px; font-size: 28px; cursor: pointer; color: #b34262; }
+            .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: 0.3s; z-index: 9999; display: block; }
+            .overlay.active { opacity: 1; visibility: visible; }
+            .nav-links { display: none !important; }
+            .shop-layout { flex-direction: column; }
+            .filters-sidebar { width: 100%; position: static; }
+            .shop-hero { padding: 130px 0 50px; }
+            .shop-hero h1 { font-size: 40px; }
+            .container { padding: 0 20px; }
+            .shop-controls { flex-direction: column; align-items: stretch; }
+            .search-wrapper { max-width: 100%; }
+            .products-grid { grid-template-columns: 1fr; }
+            .button-group { flex-direction: column; }
         }
-
-        @media (min-width: 769px) and (max-width: 1024px) {
+        @media (min-width: 769px) {
             .hamburger, .sidebar, .overlay { display: none !important; }
             .nav-links { display: flex !important; }
-            .products-hero { height: 55vh; min-height: 420px; }
         }
     </style>
 </head>
@@ -572,19 +601,15 @@
 
 <nav class="navbar" id="navbar">
     <div class="nav-container">
-        <div class="logo"><img src="./images/logo.png" alt=""></div>
+        <div class="logo"><img src="./images/logo.png" alt="Rose Embroidery"></div>
         <div class="nav-links">
             <a class="nav-attribute" href="index.html">Home</a>
             <a class="nav-attribute" href="about.html">About</a>
-            <div class="nav-item">
-                <a class="nav-attribute active" href="products.html">Product</a>
-                <div class="dropdown-content">
-                    <a class="nav-attribute" href="products.html#machines">Machines</a>
-                    <a class="nav-attribute" href="products.html#devices">Devices</a>
-                </div>
-            </div>
+            <a class="nav-attribute active" href="products.html">Shop</a>
             <a class="nav-attribute" href="gallery.html">Gallery</a>
             <a class="nav-attribute" href="contact.html">Contact</a>
+            <a class="nav-attribute" href="login.html"><i class="fas fa-user"></i> Account</a>
+            <a class="nav-attribute cart-icon" href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count" id="cartCount">0</span></a>
         </div>
         <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </div>
@@ -594,182 +619,256 @@
     <div class="close-btn" onclick="toggleMenu()">✕</div>
     <a href="index.html">Home</a>
     <a href="about.html">About</a>
-    <a href="products.html#machines">Machines</a>
-    <a href="products.html#devices">Devices</a>
+    <a href="products.html">Shop</a>
     <a href="gallery.html">Gallery</a>
     <a href="contact.html">Contact</a>
+    <a href="login.html">Account</a>
 </div>
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
-<section class="products-hero">
-    <div class="container" data-aos="fade-up" data-aos-duration="1200">
-        <h1>Our Products</h1>
-        <p>Premium Embroidery Machines & Professional Accessories</p>
+<section class="shop-hero">
+    <div class="floating-icon" style="top: 15%; left: 5%; animation-delay: 0s;"><i class="fas fa-thread"></i></div>
+    <div class="floating-icon" style="top: 70%; left: 85%; animation-delay: 1s;"><i class="fas fa-rose"></i></div>
+    <div class="floating-icon" style="top: 30%; right: 8%; animation-delay: 2s;"><i class="fas fa-feather-alt"></i></div>
+    <div class="floating-icon" style="bottom: 10%; left: 15%; animation-delay: 1.5s;"><i class="fas fa-gem"></i></div>
+    <div class="container" data-aos="fade-up">
+        <h1><i class="fas fa-rose"></i> Embroidery Emporium</h1>
+        <p>Premium Machines • Aari Supplies • Designer Threads • Professional Accessories</p>
     </div>
 </section>
 
-<section class="filter-section">
+<section class="shop-main">
     <div class="container">
-        <div class="filter-container">
-            <button class="filter-btn" data-category="all">All Products</button>
-            <button class="filter-btn" data-category="machine">Embroidery Machines</button>
-            <button class="filter-btn" data-category="device">Accessories & Devices</button>
-        </div>
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="Search by name, features, or specifications..." onkeyup="filterProducts()">
+        <div class="shop-layout">
+            <aside class="filters-sidebar" data-aos="fade-right">
+                <div class="filter-section">
+                    <h4><i class="fas fa-tags"></i> Product Category</h4>
+                    <div class="filter-options" id="categoryFilters">
+                        <label class="filter-option"><input type="checkbox" value="machine"> <span>🪡 Embroidery Machines</span> <span class="count" id="machineCount"></span></label>
+                        <label class="filter-option"><input type="checkbox" value="device"> <span>🔧 Accessories & Devices</span> <span class="count" id="deviceCount"></span></label>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <h4><i class="fas fa-chart-line"></i> Price Range</h4>
+                    <div class="price-range">
+                        <div class="price-inputs">
+                            <input type="number" id="minPrice" placeholder="Min ₹" value="">
+                            <input type="number" id="maxPrice" placeholder="Max ₹" value="">
+                        </div>
+                        <button class="apply-price" id="applyPrice"><i class="fas fa-check"></i> Apply</button>
+                    </div>
+                </div>
+                <div class="filter-section">
+                    <h4><i class="fas fa-star"></i> Best Sellers</h4>
+                    <div class="filter-options">
+                        <label class="filter-option"><input type="checkbox" id="bestSellerFilter"> <span>🔥 Best Sellers Only</span></label>
+                    </div>
+                </div>
+                <button class="clear-filters" id="clearFilters"><i class="fas fa-undo-alt"></i> Clear All Filters</button>
+            </aside>
+
+            <div class="products-area">
+                <div class="shop-controls" data-aos="fade-down">
+                    <div class="search-wrapper">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Search by name, features, or brand...">
+                    </div>
+                    <select id="sortSelect" class="sort-select">
+                        <option value="default">Sort by: Featured</option>
+                        <option value="price-asc">Price: Low to High</option>
+                        <option value="price-desc">Price: High to Low</option>
+                        <option value="name">Name: A-Z</option>
+                    </select>
+                    <div class="results-count" id="resultsCount">Showing 0 products</div>
+                </div>
+
+                <div class="products-grid" id="productsGrid"></div>
+                <div id="noResults" class="no-results" style="display: none;">✨ No products found. Try adjusting filters or search!</div>
+            </div>
         </div>
     </div>
 </section>
 
-<section class="products-section">
-    <div class="container">
-        <div class="products-grid" id="productsGrid"></div>
-        <div id="noResults" class="no-results" style="display: none;">✨ No products found matching your criteria. Try another keyword!</div>
-    </div>
-</section>
 <footer>
     <div class="container">
-        <h4>Rose Embroidery</h4>
-        <p>+91 902555206 | Drroslineg@gmail.com</p>
-        <p>76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</p>
+        <h4><i class="fas fa-rose"></i> Rose Embroidery</h4>
+        <p><i class="fas fa-phone-alt"></i> +91 902555206 | <i class="fas fa-envelope"></i> Drroslineg@gmail.com</p>
+        <p><i class="fas fa-map-marker-alt"></i> 76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</p>
         <p style="margin-top: 30px;">© 2026 Rose Embroidery — Quality Precision Trust. All rights reserved.</p>
     </div>
 </footer>
 
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    AOS.init({ once: false, duration: 800, easing: 'ease-in-out', offset: 50 });
+    AOS.init({ duration: 600, easing: 'ease-out', once: true });
 
-    // Enhanced product database with rose embroidery theme
-    const productsData = [
-        // MACHINES - Rose Precision Series
-        { id: 'hsw-1216', name: 'HSW 5G 1216', category: 'machine', badge: 'Compact Rose', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg', description: 'Compact powerhouse for home studios and small businesses. Professional-grade with signature rose precision.', price: '₹3,25,000', specs: ['12x16" Embroidery Area', '12 Needles', '1000 SPM', 'USB & Wi-Fi', '10" Touch Screen', 'Cap Frame Compatible'], redirectUrl: 'machines.html#1216' },
-        { id: 'hsw-1632', name: 'HSW 5G 1632', category: 'machine', badge: 'Rose Performer', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg', description: 'Industrial-grade machine with expanded workspace, ideal for growing embroidery ateliers.', price: '₹4,10,000', specs: ['16x32" Embroidery Area', '12 Needles', '1000 SPM', 'Auto Thread Trimmer', 'Cording Support'], redirectUrl: 'machines.html#1632' },
-        { id: 'hsw-2032', name: 'HSW 5G 2032', category: 'machine', badge: 'Flagship Rose', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg', description: 'Industry 4.0 ready with AI thread tension and mobile alerts. Ultimate creativity tool.', price: '₹4,75,000', specs: ['20x32" Area', '12 Needles', '1200 SPM', 'Remote Monitoring', 'AI Tension Control'], redirectUrl: 'machines.html#2032' },
-        { id: 'hsw-2048', name: 'HSW 5G 2048', category: 'machine', badge: 'Saree Specialist', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg', description: 'Extended field for saree borders and bridal wear. Celebrated by traditional artisans.', price: '₹5,25,000', specs: ['20x48" Extended Area', '12 Needles', '1200 SPM', 'Saree Border Specialist', 'Bridal Wear Optimized'], redirectUrl: 'machines.html#2048' },
-        { id: 'hsw-2848', name: 'HSW 5G 2848', category: 'machine', badge: 'Industrial Rose', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-1.jpg', description: 'Heavy-duty large format machine for high-volume production with flawless stitch quality.', price: '₹5,90,000', specs: ['28x48" Large Area', '12 Needles', '1200 RPM', 'Photo to Embroidery', 'Twin Sequence Support'], redirectUrl: 'machines.html#2848' },
-        { id: 'hsw-3248', name: 'HSW 5G 3248', category: 'machine', badge: 'Ultimate Rose', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/3248-1.jpg', description: 'Maximum embroidery field for luxury production. The pinnacle of precision engineering.', price: '₹6,30,000', specs: ['32x48" Max Area', '12 Needles', '1200 RPM', 'Maximum Field Size', 'Industrial Grade'], redirectUrl: 'machines.html#3248' },
-        { id: 'baba-yuemei', name: 'BABA YUEMEI Computerized', category: 'machine', badge: 'Premium Rose', image: './images/machine1.jpeg', description: 'High-speed 12-needle with Dahao A25 touch monitor, Japanese shuttle, and Italian body structure.', price: '₹4,95,000', specs: ['12 Needles | Single Head', 'Max Speed: 1500 SPM', '20x48" Worktable', 'Japanese Shuttle', 'Auto Thread Trimmer', '2 Years Warranty'], redirectUrl: 'machines.html#baba-yuemei' },
-        // DEVICES & ACCESSORIES
-        { id: 'magnetic-hoop', name: 'Magnetic Hoop Pro', category: 'device', badge: 'Best Seller', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR878VKlZXIT7rcGYXe1G2Thh8jUDWCyL7tw&s', description: 'Advanced magnetic hooping eliminates fabric slipping. Reduces setup time by 70%.', price: '₹12,500', specs: ['7 Sizes Available', 'Quick-release', 'No Hoop Burn', 'Universal Compatibility'], redirectUrl: 'devices.html#magnetic-hoop' },
-        { id: 'digitizing-tablet', name: 'Digitizing Tablet Pro', category: 'device', badge: 'Professional', image: 'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600', description: '8192 pressure levels, wireless, battery-free pen for intricate embroidery digitizing.', price: '₹28,000', specs: ['15.6" Workspace', '8192 Pressure Levels', 'Wireless', '8 Express Keys'], redirectUrl: 'devices.html#digitizing-tablet' },
-        { id: 'smart-thread-manager', name: 'Smart Thread Manager', category: 'device', badge: 'IoT Enabled', image: 'https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png', description: 'Real-time tension monitoring with mobile alerts and predictive analytics.', price: '₹18,500', specs: ['Mobile App Notifications', 'Break Detection', 'Predictive maintainence', '12-Month Cloud'], redirectUrl: 'devices.html#smart-thread-manager' },
-        { id: 'olh-098a-sequin-beads', name: 'OLH-098A Twin Sequin + Beads', category: 'device', badge: 'Premium', image: 'https://image.made-in-china.com/202f0j00BnqbTUHaHeoh/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-for-Embroidery-Machine.webp', description: 'Twin sequin plus triple beads attachment for stunning embellishments.', price: '₹32,500', specs: ['Head Space: 72-118mm', 'Beads Size: 1.7-4.0mm', 'Max Speed: 1000 RPM', 'Lift Area: 70mm'], redirectUrl: 'devices.html#olh-098a' }
+    const products = [
+        { id: 1, name: "HSW 5G 1216", slug: "hsw-5g-1216", category: "machine", price: 325000, badge: "Compact Rose", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg", desc: "12x16\" area, 12 needles, 1000 SPM, USB & Wi-Fi", specs: ["12x16\" Area", "12 Needles", "1000 SPM"], bestSeller: true },
+        { id: 2, name: "HSW 5G 1632", slug: "hsw-5g-1632", category: "machine", price: 410000, badge: "Rose Performer", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg", desc: "16x32\" workspace, industrial-grade performance", specs: ["16x32\" Area", "12 Needles", "Auto Trimmer"], bestSeller: true },
+        { id: 3, name: "HSW 5G 2032", slug: "hsw-5g-2032", category: "machine", price: 475000, badge: "Flagship", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg", desc: "AI tension control, remote monitoring", specs: ["20x32\" Area", "1200 SPM", "AI Tension"], bestSeller: false },
+        { id: 4, name: "HSW 5G 2848", slug: "hsw-5g-2848", category: "machine", price: 590000, badge: "Industrial", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-1.jpg", desc: "Large format heavy-duty production", specs: ["28x48\" Area", "1200 RPM", "Industrial Grade"], bestSeller: true },
+        { id: 5, name: "BABA YUEMEI", slug: "baba-yuemei", category: "machine", price: 495000, badge: "Premium", image: "./images/machine1.jpeg", desc: "12-needle, Japanese shuttle, 1500 SPM", specs: ["12 Needles", "1500 SPM", "2 Yr Warranty"], bestSeller: false },
+        { id: 6, name: "Magnetic Hoop Pro", slug: "magnetic-hoop-pro", category: "device", price: 12500, badge: "Best Seller", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR878VKlZXIT7rcGYXe1G2Thh8jUDWCyL7tw&s", desc: "7 sizes, no hoop burn, quick release", specs: ["Magnetic", "7 Sizes", "Quick Release"], bestSeller: true },
+        { id: 7, name: "Digitizing Tablet Pro", slug: "digitizing-tablet-pro", category: "device", price: 28000, badge: "Pro", image: "https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "8192 pressure levels, wireless", specs: ["15.6\"", "8192 Levels", "Wireless"], bestSeller: false },
+        { id: 8, name: "Smart Thread Manager", slug: "smart-thread-manager", category: "device", price: 18500, badge: "IoT", image: "https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png", desc: "Real-time tension monitoring, mobile alerts", specs: ["Mobile App", "Break Detection", "Predictive"], bestSeller: true },
+        { id: 9, name: "OLH-098A Twin Sequin", slug: "olh-098a-twin-sequin", category: "device", price: 32500, badge: "Premium", image: "https://image.made-in-china.com/202f0j00BnqbTUHaHeoh/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-for-Embroidery-Machine.webp", desc: "Twin sequin + beads attachment", specs: ["1000 RPM", "Beads 1.7-4.0mm", "Twin Sequin"], bestSeller: false },
+        { id: 10, name: "HSW 5G 3248", slug: "hsw-5g-3248", category: "machine", price: 630000, badge: "Ultimate", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/3248-1.jpg", desc: "Maximum field luxury production", specs: ["32x48\"", "1200 RPM", "Max Field"], bestSeller: false },
+        { id: 11, name: "Premium Thread Set (50 Colors)", slug: "premium-thread-set", category: "device", price: 4500, badge: "Bestseller", image: "https://images.pexels.com/photos/459869/pexels-photo-459869.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Rayon threads, vibrant shades", specs: ["50 Colors", "Rayon", "High Tenacity"], bestSeller: true },
+        { id: 12, name: "Aari Needle Set", slug: "aari-needle-set", category: "device", price: 899, badge: "Essential", image: "https://images.pexels.com/photos/3769811/pexels-photo-3769811.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Professional Aari hooks & needles", specs: ["12 Sizes", "Ergonomic", "Steel"], bestSeller: false }
     ];
 
-    let currentCategory = 'all';
-    let currentSearch = '';
+    let cartCount = 0;
+    let currentFilters = { categories: [], minPrice: null, maxPrice: null, bestSeller: false, search: "" };
+    let currentSort = "default";
 
-    function getRedirectUrl(product) {
-        return product.redirectUrl || (product.category === 'machine' ? `machines.html#${product.id}` : `devices.html#${product.id}`);
+    const productsGrid = document.getElementById("productsGrid");
+    const noResultsDiv = document.getElementById("noResults");
+    const resultsCountSpan = document.getElementById("resultsCount");
+    const searchInput = document.getElementById("searchInput");
+    const sortSelect = document.getElementById("sortSelect");
+    const minPriceInput = document.getElementById("minPrice");
+    const maxPriceInput = document.getElementById("maxPrice");
+    const applyPriceBtn = document.getElementById("applyPrice");
+    const clearFiltersBtn = document.getElementById("clearFilters");
+    const bestSellerCheck = document.getElementById("bestSellerFilter");
+    const categoryCheckboxes = document.querySelectorAll("#categoryFilters input");
+    const cartCountSpan = document.getElementById("cartCount");
+
+    // MAKE FUNCTION GLOBAL so inline onclick can access it
+    window.navigateToProduct = function(productId) {
+        const product = products.find(p => p.id === productId);
+        if (product) {
+            if (product.category === 'machine') {
+                window.location.href = `machine.html#${product.slug}`;
+            } else {
+                window.location.href = `device.html#${product.slug}`;
+            }
+        }
+    };
+
+    window.addToCartGlobal = function(productId) {
+        cartCount++;
+        cartCountSpan.innerText = cartCount;
+        const product = products.find(p => p.id === productId);
+        
+        const toast = document.createElement('div');
+        toast.style.cssText = `
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(95deg, #d45a7a, #b34262);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-size: 14px;
+            font-weight: 600;
+            z-index: 10000;
+            animation: fadeInUp 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        `;
+        toast.innerHTML = `<i class="fas fa-check-circle"></i> ${product.name} added to cart!`;
+        document.body.appendChild(toast);
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => toast.remove(), 300);
+        }, 2000);
+    };
+
+    function updateCategoryCounts() {
+        document.getElementById("machineCount").innerText = `(${products.filter(p => p.category === "machine").length})`;
+        document.getElementById("deviceCount").innerText = `(${products.filter(p => p.category === "device").length})`;
     }
 
-    function renderProducts() {
-        const grid = document.getElementById('productsGrid');
-        const noResultsDiv = document.getElementById('noResults');
-        
-        let filtered = productsData.filter(product => {
-            const matchesCategory = currentCategory === 'all' || product.category === currentCategory;
-            const matchesSearch = currentSearch === '' || 
-                product.name.toLowerCase().includes(currentSearch) ||
-                product.description.toLowerCase().includes(currentSearch) ||
-                product.specs.some(spec => spec.toLowerCase().includes(currentSearch)) ||
-                product.price.toLowerCase().includes(currentSearch);
-            return matchesCategory && matchesSearch;
-        });
-
-        if (filtered.length === 0) {
-            grid.style.display = 'none';
-            noResultsDiv.style.display = 'block';
-            return;
+    function filterAndSortProducts() {
+        let filtered = [...products];
+        if (currentFilters.categories.length > 0) filtered = filtered.filter(p => currentFilters.categories.includes(p.category));
+        if (currentFilters.minPrice !== null) filtered = filtered.filter(p => p.price >= currentFilters.minPrice);
+        if (currentFilters.maxPrice !== null) filtered = filtered.filter(p => p.price <= currentFilters.maxPrice);
+        if (currentFilters.bestSeller) filtered = filtered.filter(p => p.bestSeller === true);
+        if (currentFilters.search) {
+            const searchLower = currentFilters.search.toLowerCase();
+            filtered = filtered.filter(p => p.name.toLowerCase().includes(searchLower) || p.desc.toLowerCase().includes(searchLower) || p.specs.some(s => s.toLowerCase().includes(searchLower)));
         }
+        if (currentSort === "price-asc") filtered.sort((a, b) => a.price - b.price);
+        else if (currentSort === "price-desc") filtered.sort((a, b) => b.price - a.price);
+        else if (currentSort === "name") filtered.sort((a, b) => a.name.localeCompare(b.name));
+        renderProducts(filtered);
+        resultsCountSpan.innerText = `Showing ${filtered.length} products`;
+        noResultsDiv.style.display = filtered.length === 0 ? "block" : "none";
+    }
 
-        grid.style.display = 'grid';
-        noResultsDiv.style.display = 'none';
-
-        grid.innerHTML = filtered.map(product => {
-            const redirectUrl = getRedirectUrl(product);
-            return `
-            <div class="product-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="product-img" style="background-image: url('${product.image}'); position: relative;">
-                   
-                </div>
+    function renderProducts(productsToRender) {
+        if (productsToRender.length === 0) { productsGrid.style.display = "none"; return; }
+        productsGrid.style.display = "grid";
+        productsGrid.innerHTML = productsToRender.map(product => `
+            <div class="product-card">
+              
+                <div class="product-img" style="background-image: url('${product.image}'); background-size: cover; background-position: center;"></div>
                 <div class="product-content">
-                    <span class="product-category">${product.category === 'machine' ? '🪡 Embroidery Machine' : '🔧 Accessory & Device'}</span>
+                    <span class="product-category">${product.category === 'machine' ? '🪡 Embroidery Machine' : '🔧 Accessory'}</span>
                     <h3>${product.name}</h3>
-                    <p class="product-desc">${product.description}</p>
-                   
-                    <ul class="product-specs">
-                        ${product.specs.slice(0, 4).map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}
-                        ${product.specs.length > 4 ? `<li><i class="fas fa-plus-circle"></i> +${product.specs.length - 4} more features</li>` : ''}
-                    </ul>
-                    <a href="${redirectUrl}" class="btn-view">View Details →</a>
+                    <p class="product-desc">${product.desc.substring(0, 80)}...</p>
+                    <div class="product-price">₹${product.price.toLocaleString('en-IN')}</div>
+                    <ul class="product-specs">${product.specs.slice(0, 3).map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}</ul>
+                    <div class="button-group">
+                        <button class="btn-view-details" onclick="navigateToProduct(${product.id})">
+                            <i class="fas fa-eye"></i> View Details
+                        </button>
+                        <button class="add-to-cart" onclick="addToCartGlobal(${product.id})">
+                            <i class="fas fa-shopping-cart"></i> Add to Cart
+                        </button>
+                    </div>
                 </div>
             </div>
-        `}).join('');
+        `).join('');
     }
 
-    function filterProducts() {
-        const searchInput = document.getElementById('searchInput');
-        currentSearch = searchInput.value.toLowerCase().trim();
-        renderProducts();
+    function updateFilters() {
+        const selectedCategories = [];
+        categoryCheckboxes.forEach(cb => { if (cb.checked) selectedCategories.push(cb.value); });
+        currentFilters.categories = selectedCategories;
+        currentFilters.bestSeller = bestSellerCheck.checked;
+        filterAndSortProducts();
     }
 
-    function filterByCategory(category) {
-        currentCategory = category;
-        document.querySelectorAll('.filter-btn').forEach(btn => {
-            if (btn.getAttribute('data-category') === category) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
-        const searchInput = document.getElementById('searchInput');
-        if (searchInput.value !== '') {
-            searchInput.value = '';
-            currentSearch = '';
-        }
-        renderProducts();
-        if (category === 'machine') window.location.hash = 'machines';
-        else if (category === 'device') window.location.hash = 'devices';
-        else history.pushState(null, '', 'products.html');
-    }
-
-    function handleHashTab() {
-        const hash = window.location.hash;
-        if (hash === '#machines') filterByCategory('machine');
-        else if (hash === '#devices') filterByCategory('device');
-        else filterByCategory('all');
-    }
+    categoryCheckboxes.forEach(cb => cb.addEventListener("change", updateFilters));
+    bestSellerCheck.addEventListener("change", updateFilters);
+    searchInput.addEventListener("input", (e) => { currentFilters.search = e.target.value; filterAndSortProducts(); });
+    sortSelect.addEventListener("change", (e) => { currentSort = e.target.value; filterAndSortProducts(); });
+    applyPriceBtn.addEventListener("click", () => {
+        currentFilters.minPrice = minPriceInput.value ? parseInt(minPriceInput.value) : null;
+        currentFilters.maxPrice = maxPriceInput.value ? parseInt(maxPriceInput.value) : null;
+        filterAndSortProducts();
+    });
+    clearFiltersBtn.addEventListener("click", () => {
+        categoryCheckboxes.forEach(cb => cb.checked = false);
+        bestSellerCheck.checked = false;
+        searchInput.value = "";
+        minPriceInput.value = "";
+        maxPriceInput.value = "";
+        sortSelect.value = "default";
+        currentFilters = { categories: [], minPrice: null, maxPrice: null, bestSeller: false, search: "" };
+        currentSort = "default";
+        filterAndSortProducts();
+    });
 
     function toggleMenu() {
-        document.getElementById('sidebar').classList.toggle('active');
-        document.getElementById('overlay').classList.toggle('active');
+        document.getElementById("sidebar").classList.toggle("active");
+        document.getElementById("overlay").classList.toggle("active");
     }
 
-    window.addEventListener('scroll', function() {
+    window.addEventListener('scroll', () => {
         const navbar = document.getElementById('navbar');
         if (window.scrollY > 50) navbar.classList.add('scrolled');
         else navbar.classList.remove('scrolled');
     });
-
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.addEventListener('click', function() {
-            const category = this.getAttribute('data-category');
-            filterByCategory(category);
-        });
+    document.getElementById("overlay")?.addEventListener('click', () => {
+        document.getElementById("sidebar").classList.remove("active");
+        document.getElementById("overlay").classList.remove("active");
     });
 
-    window.addEventListener('hashchange', handleHashTab);
-    document.querySelectorAll('.sidebar a').forEach(anchor => {
-        anchor.addEventListener('click', function() {
-            if (window.innerWidth <= 768) toggleMenu();
-        });
-    });
-
-    handleHashTab();
-    window.filterProducts = filterProducts;
-    window.filterByCategory = filterByCategory;
+    updateCategoryCounts();
+    filterAndSortProducts();
     window.toggleMenu = toggleMenu;
 </script>
 </body>

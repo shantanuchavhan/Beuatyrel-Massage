@@ -190,42 +190,6 @@
             accent-color: #333;
         }
 
-        .price-inputs {
-            display: flex;
-            gap: 12px;
-        }
-
-        .price-inputs input {
-            width: 100%;
-            padding: 10px 12px;
-            border: 2px solid #e8d5de;
-            border-radius: 12px;
-            font-size: 13px;
-            outline: none;
-            transition: 0.3s;
-        }
-
-        .price-inputs input:focus {
-            border-color: #d45a7a;
-        }
-
-        .apply-price {
-            background: linear-gradient(95deg, #d45a7a, #b34262);
-            color: white;
-            border: none;
-            padding: 10px;
-            border-radius: 12px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .apply-price:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(212, 90, 122, 0.3);
-        }
-
         .clear-filters {
             width: 100%;
             background: transparent;
@@ -1173,16 +1137,6 @@
                         </div>
                     </div>
                     <div class="filter-section">
-                        <h4>Price Range</h4>
-                        <div class="price-range">
-                            <div class="price-inputs">
-                                <input type="number" id="minPrice" placeholder="Min ₹" value="">
-                                <input type="number" id="maxPrice" placeholder="Max ₹" value="">
-                            </div>
-                            <button class="apply-price" id="applyPrice" style="width: 100%; margin-top: 10px; background: #212529; color: white;"><i class="fas fa-check"></i> Apply Filter</button>
-                        </div>
-                    </div>
-                    <div class="filter-section">
                         <h4>Best Sellers</h4>
                         <div class="filter-options">
                             <label class="filter-option"><input type="checkbox" id="bestSellerFilter"> <span>Best Sellers Only</span></label>
@@ -1272,7 +1226,7 @@
             { id: 3, name: "HSW 5G 2032", slug: "hsw-5g-2032", category: "machine", price: 475000, badge: "Flagship", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg", desc: "AI tension control, remote monitoring", specs: ["20x32\" Area", "1200 SPM", "AI Tension"], bestSeller: false },
             { id: 4, name: "HSW 5G 2848", slug: "hsw-5g-2848", category: "machine", price: 590000, badge: "Industrial", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-1.jpg", desc: "Large format heavy-duty production", specs: ["28x48\" Area", "1200 RPM", "Industrial Grade"], bestSeller: true },
             { id: 5, name: "BABA YUEMEI", slug: "baba-yuemei", category: "machine", price: 495000, badge: "Premium", image: "./images/machine1.jpeg", desc: "12-needle, Japanese shuttle, 1500 SPM", specs: ["12 Needles", "1500 SPM", "2 Yr Warranty"], bestSeller: false },
-            { id: 6, name: "Magnetic Hoop Pro", slug: "magnetic-hoop-pro", category: "device", price: 12500, badge: "Best Seller", image: "data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxITEhUSEhIVFhUXGBkYGBcXGRcYEhUXFhoWFhkVFRYYHSgjGholGxUeIjEiJSkrMC4uGh8zODMsOCguLisBCgoKDg0OGxAQGzEdHSYvLS0rMC0vMi0wMC0tLTUtLS0vLS0rLS0vLS0wLTUrLS0tLS0tKy0rLS81LS0tKy8tK//AABEIAOEA4QMBIgACEQEDEQH/xAAcAAEAAQUBAQAAAAAAAAAAAAAABgIDBAUHAQj/xABJEAACAQIDBQMFDQUGBgMAAAAAAQIDEQQSIQYxQVFhBRNxIiNiobEWMjNCUlNygZGTwdHwFCSCkuE0Q3Oys/EHY4Oio8IVRFT/xAAZAQEAAwEBAAAAAAAAAAAAAAAAAgMEAQX/xAAvEQEAAgEBBAgFBQEAAAAAAAAAAQIDEQQTIVESFDEyM0Gx8CJhcYGhQlKR0eEk/9oADAMBAAIRAxEAPwDuIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgsdqcQsT3bWaKxOKp5Uo5pQpU4ypxvw8tvX0WZ8NtoNPLh6rsk1rS8p5aE5RTzcFiI6vR2di3i9i3KrOrGuk5OUlGVNyheTxTaklNXTWIinuuqfXTVT2WxVNzjTWdRglGSVNKU3DC05OMJT0VqD8mT00alK9l6MRs1+XZ84Q4s7H7WyVKcYylGWd+eap2hH9pnSayXd8sKcvKa4Rvq3bMr7Xxo03OdKrOEO+TqebvP9nVS8lFNaydKemltHZJlunsfO6ffQSzKbXdvPdYieIUc+f3tqjja29KXQp7Y2LnXi4d/CKf7Vq6TlKP7S6zWR51a3fa782SO7hH/mmdJ7Nfn/R8S/HaxTapdzOnOUnC7dNqDz06KnpLyvOVVpyTfQ3/AGdRnCmo1J55LfL+vE0VPZWSrRqqtHScpNZPKyyqRq5Yyz+S7wUW7O8XJW10k5nyzj4RT3/KUa+YACh0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALEsbSW+pBfxR/Mi21G0TbeHw7blqpyjq+sIW483w9keobO4qSuqEl9K0X9kmiq2TjpWNWS+0z0tKR0nS6WLpydo1ISfJSTf2IvHNqWzmNi1KNNqSd01Ommn/ADGZm7Xms8KyUXussNON720lm58PaIyT5w7TPae9SU9Mat2hRg8s6tOL5OUU/sbIZh49rvyu+zxs7WWGjHlfMpPd0t4mvhs9ippTUFLN5WbvKbzJ65r5tbiclvKC+e/6aS6Au1aHz9L+eP5mYcwq7OYpLWi34OEvVGTN1sztDKlJYbE3jwhKaaceUZX4cnw3HIyTrpaNHKbTOul40TUAFzWAAAAAAAAAAAAAAAAAAAAAAAAGg7S7UU1OMand0oWVSr8Z3eXLSXHXyc3PRXe7M7XqSk44eDalUu5SW+FKNszXJttRXjfgajtCEYp1e9tRpxyU6ShF+VZWUXxjLTR6W10smozxV2nXWPLzZNPCRpwTw/d06LgpOq3vT+VK+aV730cbc+Bhy7VwtOam685tcFGOXjunKOZ6O3vnuID29tLVrSyxe7SKj7yPC1Nf+z1fhosCj2NVqWc5JZtUpSvN9VHe/qRVOXyrDJbatOFI4e/J0jB7QYKnUqVI95mqO8rtNceDn1NDGjgElGNauo6XuqTlpe1pXVt/JmhWy81vdnyyVG19kSv3Lz568u7q7+XvDm8s51nLy/H+pJ3vZ2aEu8r3hlt8Frk3XNl2htJgqsqcpOr5uWZZXFK+j1Sn09vNkI9zFTk78u7q7/HJYo9y1R7lJvh5qqr/AFuCSG8s51nLy/H+p8+2sHWlmdWrF8LxjJLomoycVrwaNhGhCcG6soVsPZtTvdQsrt5m3JbmrqTfgcor9iThqpK6V7axqW55ZWlb6jO7C7fq4eprK3B33PpUXFdd65iM37kq7VPZeHR+yu0VThGSqOrhW7RqO+ek72y1LpXhfTNw46akjRCcb27TiqdZSm4OMoywyjHu3JLylUm1u8uL01as7WbT2uynaKlFUr6Zc1O7u1C9pU78XCWl+MXB8S6OH0a6zppp2SkIAJLAAAAAAAAAAAY+MhdJXkvotp/ajBlhv+ZU/nl+ZsMRw/XIsyQEL7f7SxdBzccZmksr7vu0rRnNRXnMrV1e/U1UdqcZwrv640+S6Eo2wV8NNW+bd/8AqR4kAjF8dN3TgjNl1rPB52160mOjMx95bh7U43558fi01y9HqI7UYz56XDhDjb0epqcr58+C6HkU+fLguSKelbmy7y/OW2jtPjLX72XD5HFpfJ6nq2lxnz0uPyOFvR6mpinbfwXBc4lbT0158F6PQ70p5m8vzlNtmJVJ0atapKUp1JRp3eslBKN7ctZy+xEe/wCIePlHLQTs0lm4ecqLNN26RaS5ZmjedlU4SwNGNSlVqJ1ZPzaTyuMpLNNclYiW3+uMlf5UvVCkvYi+06Uhvy6V2eunn2+q/sT2A6slwbSebRuFO7WaKemZtWV+r1y2Op4HAU6MctOKW673ylZJJzk9ZOySu3wI7/w/pru5y0v5uPgowUkr+NRv+IlZPHWIjVZs1IikT5yAAsaAAAWMXhIVYuNSKknda9VZ2e9Oz3o5ntls/wB3LTXRyjL48oLKmpaWcouSV+Kab1udTI3txDzdN8c8o+KdKo2m+HvU/wCFFeWsTXVn2mkWpM+cIVsXkrSWHrXabsrNp3gnUg7rd5MZxfO66Eg2kwahhlOnFU5UarTcLxflrLJ3Wus1HV3vZXI1sdpiYv06frcl7GS7t2s54bFp0qkLShZyStPzm+Nm76+1fVXTjjlTh+LBaJ+f9oe+0q/ztT7yXUpfaNf52p95LqY7j48OC69Cl+PqX5FGrBrLJePr/O1PvJHn7fW+dqfeS6GM3r/seJr1fihqayyXja2nnam9fHn+ZuNm8LKvl7yribuU7Sg/NxUHopOV3d89NSPz3rXl9l0T3Yl/u0VznVf/AHtFuKNZ4tOyVi1pi3FJKEVBNRX+/PUqwVJRvzaV3xb5s8iXaO9mp6i8AALOI4FllzGxurdU/sadvUWnV9FLwf8AQDQ7Yr91nzvT+zvInPYW1+r2InG2Xfd1Ud4d15uy1z5s8btvkQmHHTl7EZc/bDztu7YUTiunH8NxUoLTRb1w68OR7O2mnPi78OSKlw4arfv37iljW4qNt3BcH8qPQrtHTTnwl6PQKTtu4Lj1j0Kk38nn8b6PohxNex6rj2dTcW15VbddNrLXa4aapP6iKbbq+Mn9KX+WmSvseDl2fTSi2262i1eqrrS3VpX6kV20X73P6UvZTNGTw49+Tfn8Cv29E12C+CqfSh/pUiUEX2C+Cqc88fD4KluJQW07sNWDw4AATWgAAEd21+Cpf4j/ANGuSIj22nwVLn3jty+BrXvz0uQyd2VWfw5QTZiPn1b5UPFO8txscRXxjpVY4jvcndJrNFqLfeUrOXk2U9d11x00uYey39ph9On7WSfthp4XFPXfHf8A48yrF3JZdm8G339EElbly/HoUyirbuD/AFuLuV+z8ehTJP1MzvPW1HV/0/Etz3v9cUX4LV/r8C3Nav8AXGIdeN6rxXDwOgbEL91j9Kp/mZAOMdOK9qJvsVRm6NOaqWhepeFlZtyet9+hdh7zXsXfn6JZFl6g9X+uZRGb4W+z+pVh42b66mp6a+AALOKdldmJnTejRk42N4r6UXz1i1JewtzrytuXrXtA0G2H9ln9Kn/niQGmt9/y4Inu17/dpr0qfj8JEgdJL9eCMufth523dsDj0f6setbtHv6lLUeK58H06CMY6acuEuS6FDE9VOVuO5fFXNdCru5dePxY9PRLShC25bl8WXNeiVd3DkuPxZdPROiQ0Ox6tbD4eUJKNlVhdyjFuTqytFJrf+rGi2hpSjVUZpKUVaVm2rqNNOzerRNuwKVOWCoZqcZZak/fK+W8pyulwdiJ7bxaxc/pP1xpy/E0X8OPt6N+fwK/b0TTYP4Kp9OH+lS3ciTkW2BqJ06i43g/FOEYp24e8a/hJSW07sNWDw4AATWgAAEf2zXm6f8AiO33Nb8CQEe20l5umuPeN+CVKrd+u38RDJ3ZVZ/DlCdln+8w+nT9rJT2zH91xWsffK6UlJp99J+Ulu0knZkW2TjfEw+nD1ZpP1Rf2En7bdP9nxjjQdN54RlJxt3jzp3Wmusn9rKsfcn35M2yxO4vP19EG058vxPJW58yu/Tl+J5foZ3nqE9X+aKG9+vDmvlRL1ldeTxjy6FvTlw/GIC2sfFfZdE92I/ssPGf+ZkCS1j4rhxuic7FV4LDU4Zo5m52jdZmlJ6pfUXYO817F35+iTxZeoPf+uZbVRpaWtx0K8OtZddfw/A1PTXwABarzaWnsb9hjVasmrZX/LIzgBzzt3B4mu5WwLjJuK7zvHK8YST0hZJXS58eJgU9ncX8xL63H8zqQKrYul2yzZNmjJPxTP4cv9zmM+Yf88Oh7HZvGfMPh8eHQ6eCO4qh1KnOXMVs1jLfAP7yHToVe5nGfMf+SHTp0OmA7uKnUqc59/ZCuxZuhQrUsSpQcHGpucm4yywtHLe+sbXW7MR3anExxLdWmndW5eW4qzksra1juSb94uZ0Lt7COUVUjHNKCknFb6lOStOn42Sa6xRosH2Lh6cJVnNTw84K8nFuve8bNSjuede9jFa79b3l0fh6KycWtN3/AB7/AAjuxnbndT5ppRa+M4Jt+TrZtOV0nzklvOn4bEwqRUoSTTt46q+qeqdnuZyft3ZqpS89SadOXlKXvYNPW9/7uXSVlyfAwaPatWl7+EovdmalCVulSFm19ZVW804Sy481sPw2h2sHHltRN/Hm/wDq1l6ozRX7pp/Kn97X9iqWJ76OS7rteTrwOP8AulqfOT+8rezPb6tx5HaWqv7yp95Wfqc7P6xvo5HXa8pddr14wi5TkopcWc62v7c7yWmiScYr4yi7NufJtxWm9JK+raWjqdqVqvvYSlpbNZydnwdSd7L6zY9gbOVaz7ydsu/M9aa43v8A3kui8nm+BXa834RCnJmtm+CkNjsTg3HNXkvebk+NSossIX5qMnfl3iNl27RqVKNPD0lnnVk5vl3dNKKlJvdfyXr1L+CxEHCLjVjHDQi+8UoSUqmrvPNKzu243jbjbVSTNv2PRk3LEVFadS2WL306Svki+ru5Pq7cC6K6V6LVXF0abvn2+/whPuRxnyYfzILZDGfJh/MjpII7iqHU8fzc2WyOM08mGlvjLhb8jxbHYz5MN1vfdU/wOlAbip1PH83NPcdi9PJhp6aNn2V2RjaEYxVCjJxbtKT8qKlq0mmicAlGKI7E6bNWk61mY9/RhxjK1mmrrUvUI79C8CxoAAAAAAAAAAAAAA0+Lwc6UpVcOsyetSjuU3xnTfxZ+p+JuAcmNUbV1R6n2vGtZ4epaaTUqU7KT/glpL+GS8eB5DBwlK0sJGL4uGenfTe2klfpmZj7VbO571qUfK3zhb3/AKSXyvb474jS7Qqx0jWqR6KpNRX8N7FVsnR4WhkvtHQno5K6pzhux6blUVSjljF+TLvqksy1u5K/k7vWaitUpqpZYOpKlvVZVK3duDu86e61le97dTRVO2q6TcsRUSW955WXrI/X2xxV/Iq1MvDNOd310kreBHeU5OV2jFPZX0TGWLknKX/x83BJ6Z697q1vLeiv4cV1N9+wU5Qozp4dzjUUZSvWnHJGSTuk35T13abjl9HbHF3WerUy8cs5qS66zd/A3tPtitJKUcRVae595P8AMb2vInaccfp9E4r4GEJ2p4WnK26U88mtOF4Nb/SRbxXa6oyzV6uqulRhZys76OEW7Pd5UpNaaJXIPU7Qqy0lWqSXJ1JuP2N2Jbsns5ltWqxs98INe99KS58lw8d0q5OlwrDtNom89HHVtMHg513GtiI5YxeanR35XwqVHxnZ6LcvE3QBbEaNda6AAOpAAAAAAAAAAAAAAAAAAAAAAAABj4vDKUJxSV5Ravbi01cyACY1cExOzPaEW4PC1pWe9Jyi92qadnuLXuZx7/8Ap1v5T6ABVuoZurV5uAw2V7Q//JV+xfmZOG2R7RlJRWGnHM97cVFdW8247qBuYOq15rWHoqMYrS6SV/BWLoBa0gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/Z", desc: "7 sizes, no hoop burn, quick release", specs: ["Magnetic", "7 Sizes", "Quick Release"], bestSeller: true },
+            { id: 6, name: "Magnetic Hoop Pro", slug: "magnetic-hoop-pro", category: "device", price: 12500, badge: "Best Seller", image: "data:image/jpeg;base64,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", desc: "7 sizes, no hoop burn, quick release", specs: ["Magnetic", "7 Sizes", "Quick Release"], bestSeller: true },
             { id: 7, name: "Digitizing Tablet Pro", slug: "digitizing-tablet-pro", category: "device", price: 28000, badge: "Pro", image: "https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "8192 pressure levels, wireless", specs: ["15.6\"", "8192 Levels", "Wireless"], bestSeller: false },
             { id: 8, name: "Smart Thread Manager", slug: "smart-thread-manager", category: "device", price: 18500, badge: "IoT", image: "https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png", desc: "Real-time tension monitoring, mobile alerts", specs: ["Mobile App", "Break Detection", "Predictive"], bestSeller: true },
             { id: 9, name: "OLH-098A Twin Sequin", slug: "olh-098a-twin-sequin", category: "device", price: 32500, badge: "Premium", image: "https://image.made-in-china.com/2f0j00AyOqEvhRkloc/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-Double-Sequin-with-Triple-Bead-Device.jpg", desc: "Twin sequin + beads attachment", specs: ["1000 RPM", "Beads 1.7-4.0mm", "Twin Sequin"], bestSeller: false },
@@ -1282,7 +1236,7 @@
         ];
 
         let cartCount = 0;
-        let currentFilters = { categories: [], minPrice: null, maxPrice: null, bestSeller: false, search: "" };
+        let currentFilters = { categories: [], bestSeller: false, search: "" };
         let currentSort = "default";
         let currentQuoteProduct = null;
 
@@ -1291,9 +1245,6 @@
         const resultsCountSpan = document.getElementById("resultsCount");
         const searchInput = document.getElementById("searchInput");
         const sortSelect = document.getElementById("sortSelect");
-        const minPriceInput = document.getElementById("minPrice");
-        const maxPriceInput = document.getElementById("maxPrice");
-        const applyPriceBtn = document.getElementById("applyPrice");
         const clearFiltersBtn = document.getElementById("clearFilters");
         const bestSellerCheck = document.getElementById("bestSellerFilter");
         const categoryCheckboxes = document.querySelectorAll("#categoryFilters input");
@@ -1400,8 +1351,6 @@
         function filterAndSortProducts() {
             let filtered = [...products];
             if (currentFilters.categories.length > 0) filtered = filtered.filter(p => currentFilters.categories.includes(p.category));
-            if (currentFilters.minPrice !== null) filtered = filtered.filter(p => p.price >= currentFilters.minPrice);
-            if (currentFilters.maxPrice !== null) filtered = filtered.filter(p => p.price <= currentFilters.maxPrice);
             if (currentFilters.bestSeller) filtered = filtered.filter(p => p.bestSeller === true);
             if (currentFilters.search) {
                 const searchLower = currentFilters.search.toLowerCase();
@@ -1455,19 +1404,12 @@
         bestSellerCheck.addEventListener("change", updateFilters);
         searchInput.addEventListener("input", (e) => { currentFilters.search = e.target.value; filterAndSortProducts(); });
         sortSelect.addEventListener("change", (e) => { currentSort = e.target.value; filterAndSortProducts(); });
-        applyPriceBtn.addEventListener("click", () => {
-            currentFilters.minPrice = minPriceInput.value ? parseInt(minPriceInput.value) : null;
-            currentFilters.maxPrice = maxPriceInput.value ? parseInt(maxPriceInput.value) : null;
-            filterAndSortProducts();
-        });
         clearFiltersBtn.addEventListener("click", () => {
             categoryCheckboxes.forEach(cb => cb.checked = false);
             bestSellerCheck.checked = false;
             searchInput.value = "";
-            minPriceInput.value = "";
-            maxPriceInput.value = "";
             sortSelect.value = "default";
-            currentFilters = { categories: [], minPrice: null, maxPrice: null, bestSeller: false, search: "" };
+            currentFilters = { categories: [], bestSeller: false, search: "" };
             currentSort = "default";
             filterAndSortProducts();
         });

@@ -6,7 +6,7 @@ footer_html = """<footer class="tetro-footer">
         <div class="tetro-footer-row">
             <div class="tetro-footer-col col-brand">
                 <a href="index.html" class="footer-brand">
-                    <h2>Rose <span>Embroidery</span></h2>
+                    <h2>Rose Embroidery</h2>
                 </a>
                 <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship with precision and quality.</p>
                 <div class="tetro-social-links">

@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Rose Embroidery Machines | About Us – Precision, Aari & Materials</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <style>
@@ -21,7 +24,10 @@
             background: linear-gradient(135deg, #ffffff 0%, #fef7f9 100%);
         }
 
-        h1, h2, h3, h4 {
+        h1,
+        h2,
+        h3,
+        h4 {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
             letter-spacing: -0.2px;
@@ -34,21 +40,19 @@
         }
 
         /* navbar */
-        
 
-        
 
-        
 
-        
 
-        
 
-        
 
-        .navbar.scrolled 
 
-        .nav-attribute:hover {
+
+
+
+
+
+        .navbar.scrolled .nav-attribute:hover {
             color: #d45a7a;
         }
 
@@ -76,7 +80,7 @@
             font-size: 68px;
             letter-spacing: 1px;
             font-weight: 600;
-            text-shadow: 2px 2px 12px rgba(0,0,0,0.2);
+            text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
         }
 
         .page-header p {
@@ -225,7 +229,7 @@
             font-size: 0.95rem;
             line-height: 1.6;
         }
-        
+
         /* special list inside cards for materials/aari details */
         .commitment-list {
             text-align: left;
@@ -233,6 +237,7 @@
             list-style: none;
             padding-left: 8px;
         }
+
         .commitment-list li {
             font-size: 0.85rem;
             margin-bottom: 8px;
@@ -241,6 +246,7 @@
             gap: 8px;
             color: #5e4350;
         }
+
         .commitment-list li i {
             font-size: 14px;
             background: none;
@@ -286,7 +292,7 @@
             border-radius: 48px;
             padding: 32px 28px;
             text-align: center;
-            box-shadow: 0 12px 24px rgba(0,0,0,0.02);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.02);
             border: 1px solid #ffdce6;
         }
 
@@ -320,7 +326,7 @@
             padding: 30px 20px;
             border-radius: 48px;
             transition: 0.25s;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
         }
 
         .team-card img {
@@ -346,47 +352,52 @@
         }
 
         /* Footer */
-        footer { background: linear-gradient(125deg, #fa6992 0%, #ca3061 100%);color: #fff; padding: 60px 0 30px; text-align: center; }
-        footer h4 { font-size: 28px; margin-bottom: 20px; }
+        footer {
+            background: linear-gradient(125deg, #fa6992 0%, #ca3061 100%);
+            color: #fff;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        footer h4 {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
 
         /* responsive */
-        
+
 
         @media (max-width: 768px) {
-            
-            
-            .navbar.scrolled 
-            
-            
-            
-            
-            
-            
-            
-            .page-header h1 {
+
+
+            .navbar.scrolled .page-header h1 {
                 font-size: 44px;
             }
+
             .about-grid {
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+
             .container {
                 padding: 0 24px;
             }
+
             .values-section h2 {
                 font-size: 38px;
             }
+
             .expertise-flex {
                 flex-direction: column;
             }
         }
 
-        @media (min-width: 769px) {
-            
-            
+        @media (min-width: 769px) {}
+
+        .cart-icon {
+            position: relative;
         }
-    
-        .cart-icon { position: relative; }
+
         .cart-count {
             position: absolute;
             top: -8px;
@@ -399,13 +410,22 @@
             border-radius: 50%;
             animation: pulse 1.5s infinite;
         }
+
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
-    
+
         /* Tetro-style Footer */
         .tetro-footer {
             background: linear-gradient(135deg, #d45a7a, #b34262);
@@ -414,21 +434,25 @@
             font-family: 'Montserrat', sans-serif;
             text-align: left;
         }
+
         .tetro-footer-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 30px;
         }
+
         .tetro-footer-row {
             display: flex;
             flex-wrap: wrap;
             gap: 40px;
             margin-bottom: 40px;
         }
+
         .tetro-footer-col {
             flex: 1;
             min-width: 280px;
         }
+
         .tetro-footer-col.col-brand p {
             color: #f8f9fa;
             line-height: 1.8;
@@ -436,11 +460,13 @@
             font-size: 15px;
             opacity: 0.9;
         }
+
         .footer-brand {
             text-decoration: none;
             display: inline-block;
             margin-bottom: 20px;
         }
+
         .footer-brand h2 {
             color: #fff;
             font-weight: 700;
@@ -448,13 +474,16 @@
             font-family: 'Montserrat', sans-serif;
             margin: 0;
         }
+
         .footer-brand span {
             color: #d45a7a;
         }
+
         .tetro-social-links {
             display: flex;
             gap: 12px;
         }
+
         .tetro-social-links a {
             display: flex;
             align-items: center;
@@ -468,11 +497,13 @@
             transition: all 0.3s ease;
             font-size: 18px;
         }
+
         .tetro-social-links a:hover {
             background: #d45a7a;
             color: #fff;
             transform: translateY(-3px);
         }
+
         .tetro-footer-col h3 {
             color: #d45a7a;
             font-size: 24px;
@@ -480,11 +511,13 @@
             font-weight: 600;
             font-family: 'Montserrat', sans-serif;
         }
+
         .tetro-quick-links {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
+
         .tetro-quick-links a {
             color: #fff;
             text-decoration: none;
@@ -494,40 +527,49 @@
             align-items: center;
             opacity: 0.9;
         }
+
         .tetro-quick-links a i {
             color: #d45a7a;
             margin-right: 12px;
             font-size: 12px;
         }
+
         .tetro-quick-links a:hover {
             color: #d45a7a;
             padding-left: 8px;
             opacity: 1;
         }
+
         .tetro-contact-info {
             display: flex;
             flex-direction: column;
             gap: 0;
         }
-        .tetro-contact-info a, .tetro-contact-info p {
+
+        .tetro-contact-info a,
+        .tetro-contact-info p {
             color: #fff;
             text-decoration: none;
             font-size: 15px;
             display: flex;
             align-items: flex-start;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
             padding: 16px 0;
             margin: 0;
             line-height: 1.5;
             opacity: 0.9;
         }
+
         .tetro-contact-info a:first-child {
             padding-top: 0;
         }
-        .tetro-contact-info a:last-child, .tetro-contact-info p:last-child {
+
+        .tetro-contact-info a:last-child,
+        .tetro-contact-info p:last-child {
             border-bottom: none;
             padding-bottom: 0;
         }
+
         .tetro-contact-info i {
             color: #d45a7a;
             margin-right: 15px;
@@ -535,16 +577,19 @@
             width: 16px;
             text-align: center;
         }
+
         .tetro-contact-info a:hover {
             color: #d45a7a;
             opacity: 1;
         }
+
         .tetro-footer-divider {
             border: none;
             height: 1px;
-            background: rgba(255,255,255,0.1);
+            background: rgba(255, 255, 255, 0.1);
             margin: 0 0 25px 0;
         }
+
         .tetro-footer-bottom {
             display: flex;
             justify-content: space-between;
@@ -552,30 +597,36 @@
             flex-wrap: wrap;
             gap: 15px;
         }
+
         .tetro-copyright {
             color: #fff;
             font-size: 14px;
             opacity: 0.8;
         }
+
         .tetro-copyright a {
             color: #d45a7a;
             text-decoration: none;
             font-weight: 500;
         }
+
         .tetro-copyright a:hover {
             text-decoration: underline;
         }
+
         .tetro-tagline {
             color: #fff;
             font-size: 14px;
             opacity: 0.8;
             font-weight: 500;
         }
+
         @media (max-width: 768px) {
             .tetro-footer-row {
                 flex-direction: column;
                 gap: 30px;
             }
+
             .tetro-footer-bottom {
                 flex-direction: column;
                 text-align: center;
@@ -583,273 +634,506 @@
             }
         }
 
-    
-/* UNIVERSAL NAVBAR STYLES */
-.navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 12px 0; z-index: 1000; transition: all 0.4s ease; background: rgba(255, 255, 255, 0.98); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-.navbar.scrolled { backdrop-filter: blur(10px); padding: 8px 0; box-shadow: 0 5px 20px rgba(212, 90, 122, 0.15); background: rgba(255,255,255,0.95); }
-.nav-container { max-width: 1200px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; }
-.logo img { height: 60px; transition: all 0.3s ease; }
-.nav-links { display: flex; align-items: center; gap: 28px; }
-.nav-attribute { color: #3e2a2f; text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s; position: relative; }
-.nav-attribute::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: #d45a7a; transition: width 0.3s ease; }
-.nav-attribute:hover::after, .nav-attribute.active::after { width: 100%; }
-.nav-attribute:hover, .nav-attribute.active { color: #d45a7a; }
-.cart-icon { position: relative; display: flex; align-items: center; }
-.cart-icon i { font-size: 16px; }
-.cart-count { position: absolute; top: -10px; right: -14px; background: linear-gradient(135deg, #d45a7a, #b34262); color: white; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 50%; animation: pulse 1.5s infinite; border: 2px solid white; }
-@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.15); } 100% { transform: scale(1); } }
-.hamburger, .sidebar, .overlay { display: none; }
-@media (max-width: 768px) {
-    .hamburger { display: block; cursor: pointer; z-index: 1001; }
-    .hamburger span { display: block; width: 26px; height: 2px; background: #b34262; margin: 6px 0; transition: 0.3s; border-radius: 2px; }
-    .navbar.scrolled .hamburger span { background: #d45a7a; }
-    .sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100%; background: linear-gradient(145deg, #fff9fb, #fff0f4); padding: 90px 28px 30px; display: flex; flex-direction: column; gap: 18px; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 10000; box-shadow: 4px 0 20px rgba(0,0,0,0.1); }
-    .sidebar.active { left: 0; }
-    .sidebar a { color: #3e2a2f; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 0; border-bottom: 1px solid rgba(212, 90, 122, 0.1); display: flex; align-items: center; gap: 12px; transition: 0.3s; }
-    .sidebar a:hover, .sidebar a.active { color: #d45a7a; padding-left: 5px; }
-    .sidebar .close-btn { position: absolute; top: 20px; right: 24px; font-size: 28px; cursor: pointer; color: #b34262; transition: 0.3s; }
-    .sidebar .close-btn:hover { transform: rotate(90deg); color: #d45a7a; }
-    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: 0.3s; z-index: 9999; backdrop-filter: blur(3px); }
-    .overlay.active { opacity: 1; visibility: visible; }
-    .nav-links { display: none !important; }
-}
-@media (min-width: 769px) { .hamburger, .sidebar, .overlay { display: none !important; } .nav-links { display: flex !important; } }
 
-</style>
+        /* UNIVERSAL NAVBAR STYLES */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 12px 0;
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .navbar.scrolled {
+            backdrop-filter: blur(10px);
+            padding: 8px 0;
+            box-shadow: 0 5px 20px rgba(212, 90, 122, 0.15);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .nav-attribute {
+            color: #3e2a2f;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .nav-attribute::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d45a7a;
+            transition: width 0.3s ease;
+        }
+
+        .nav-attribute:hover::after,
+        .nav-attribute.active::after {
+            width: 100%;
+        }
+
+        .nav-attribute:hover,
+        .nav-attribute.active {
+            color: #d45a7a;
+        }
+
+        .cart-icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .cart-icon i {
+            font-size: 16px;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -14px;
+            background: linear-gradient(135deg, #d45a7a, #b34262);
+            color: white;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+            border: 2px solid white;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .hamburger,
+        .sidebar,
+        .overlay {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                z-index: 1001;
+            }
+
+            .hamburger span {
+                display: block;
+                width: 26px;
+                height: 2px;
+                background: #b34262;
+                margin: 6px 0;
+                transition: 0.3s;
+                border-radius: 2px;
+            }
+
+            .navbar.scrolled .hamburger span {
+                background: #d45a7a;
+            }
+
+            .sidebar {
+                position: fixed;
+                top: 0;
+                left: -300px;
+                width: 280px;
+                height: 100%;
+                background: linear-gradient(145deg, #fff9fb, #fff0f4);
+                padding: 90px 28px 30px;
+                display: flex;
+                flex-direction: column;
+                gap: 18px;
+                transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                z-index: 10000;
+                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .sidebar.active {
+                left: 0;
+            }
+
+            .sidebar a {
+                color: #3e2a2f;
+                text-decoration: none;
+                font-size: 16px;
+                font-weight: 600;
+                padding: 12px 0;
+                border-bottom: 1px solid rgba(212, 90, 122, 0.1);
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                transition: 0.3s;
+            }
+
+            .sidebar a:hover,
+            .sidebar a.active {
+                color: #d45a7a;
+                padding-left: 5px;
+            }
+
+            .sidebar .close-btn {
+                position: absolute;
+                top: 20px;
+                right: 24px;
+                font-size: 28px;
+                cursor: pointer;
+                color: #b34262;
+                transition: 0.3s;
+            }
+
+            .sidebar .close-btn:hover {
+                transform: rotate(90deg);
+                color: #d45a7a;
+            }
+
+            .overlay {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                opacity: 0;
+                visibility: hidden;
+                transition: 0.3s;
+                z-index: 9999;
+                backdrop-filter: blur(3px);
+            }
+
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links {
+                display: none !important;
+            }
+        }
+
+        @media (min-width: 769px) {
+
+            .hamburger,
+            .sidebar,
+            .overlay {
+                display: none !important;
+            }
+
+            .nav-links {
+                display: flex !important;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<nav class="navbar" id="navbar">
-    <div class="nav-container">
-        <div class="logo"><img src="./images/logo.png" alt="Rose Embroidery"></div>
-        <div class="nav-links">
-            <a class="nav-attribute" href="index.html">Home</a>
-            <a class="nav-attribute active" href="about.html">About</a>
-            <a class="nav-attribute" href="products.html">Shop</a>
-            <a class="nav-attribute" href="gallery.html">Gallery</a>
-            <a class="nav-attribute" href="contact.html">Contact</a>
-            <a class="nav-attribute" href="login.html"><i class="fas fa-user"></i> Login</a>
-            <a class="nav-attribute cart-icon" href="cart.html">
-                <i class="fas fa-shopping-cart"></i> 
-                <span class="cart-count" id="cartCount">0</span>
-            </a>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-    </div>
-</nav>
-<div class="sidebar" id="sidebar">
-    <div class="close-btn" onclick="toggleMenu()">✕</div>
-    <a href="index.html"><i class="fas fa-home"></i> Home</a>
-    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-    <a href="products.html"><i class="fas fa-box"></i> Shop</a>
-    <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
-    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-    <a href="login.html"><i class="fas fa-user"></i> Login</a>
-    <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart <span id="mobileCartCount">0</span></a>
-</div>
-<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-
-<!-- Header -->
-<section class="page-header">
-    <div data-aos="fade-up">
-        <h1>About Rose Embroidery</h1>
-        <p>Embroidery machine sales • Expert service • Complete solutions</p>
-    </div>
-</section>
-
-<!-- Main about content -->
-<section class="about-content">
-    <div class="container">
-        <div class="about-grid">
-            <div class="about-text" data-aos="fade-right">
-                <h2>Trusted Embroidery Partners</h2>
-                <p><strong>Rose Embroidery Machines</strong> is a trusted provider of embroidery machine sales, service, and complete solutions. We supply high-quality machines along with expert repair, maintainence, and installation services to ensure smooth and efficient performance. Our offerings include Aari work, embroidery design samples, and customized embroidery services for businesses and individuals.</p>
-                <p>We take pride in our success by delivering reliable products and easy machine setup with clear guidelines, making it simple for clients to get started. Our strong maintainence support ensures long-lasting performance and minimal downtime. We have built a base of happy clients who trust our quality and service.</p>
-                <p>We also stay updated with the latest embroidery design trends, helping customers create impactful and high-selling designs. Our goal is to support creativity, improve productivity, and help our clients grow successfully in the embroidery business.</p>
-            </div>
-            <div class="about-image" data-aos="fade-left">
-                <img src="https://images.pexels.com/photos/4614264/pexels-photo-4614264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Rose Embroidery Workshop">
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Mission & Vision section -->
-<section class="mission-section">
-    <div class="container" data-aos="fade-up">
-        <h2>Our Mission: Empower Creativity, Elevate Business</h2>
-        <p>To deliver unmatched embroidery solutions—from premium machine sales to precision maintainence—that fuel business growth, artistic expression, and long-term reliability. We combine technical expertise with design innovation, ensuring every client gains a competitive edge with minimal downtime and maximum output.</p>
-    </div>
-</section>
-
-<!-- WHY WE STAND OUT | Our Core Commitments (EXPANDED: now includes Aari Works & Embroidery Materials) -->
-<section class="values-section">
-    <div class="container">
-        <div class="section-header" data-aos="fade-up">
-            <div class="subtitle">WHY WE STAND OUT</div>
-            <h2>Our Core Commitments</h2>
-        </div>
-        <div class="values-grid">
-            <!-- Commitment 1: Reliable Machines & Setup -->
-            <div class="value-card" data-aos="fade-up" data-aos-delay="100">
-                <i class="fas fa-cogs"></i>
-                <h3>Reliable Machines & Setup</h3>
-                <p>Easy machine installation with clear guidelines, plus rugged equipment built for continuous production and flawless embroidery.</p>
-            </div>
-            <!-- Commitment 2: Expert Maintenance Support -->
-            <div class="value-card" data-aos="fade-up" data-aos-delay="150">
-                <i class="fas fa-tools"></i>
-                <h3>Expert Maintenance Support</h3>
-                <p>Minimize downtime with our responsive service team, repair expertise, and preventive maintainence plans that extend machine life.</p>
-            </div>
-            <!-- Commitment 3: Design-Driven Innovation -->
-            <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-                <i class="fas fa-palette"></i>
-                <h3>Design-Driven Innovation</h3>
-                <p>Latest embroidery design trends, Aari work samples, and customized digitizing to help you create high-selling collections.</p>
-            </div>
-            <!-- Commitment 4: Client Success First -->
-            <div class="value-card" data-aos="fade-up" data-aos-delay="250">
-                <i class="fas fa-smile"></i>
-                <h3>Client Success First</h3>
-                <p>Hundreds of happy clients trust our end-to-end solutions—from small businesses to large production units. We grow together.</p>
-            </div>
-            <!-- NEW Commitment 5: Masterful Aari Craftsmanship (added inside core commitments) -->
-            <div class="value-card" data-aos="fade-up" data-aos-delay="300">
-                <i class="fas fa-hand-sparkles"></i>
-                <h3>Masterful Aari Craftsmanship</h3>
-                <p>Specialized Aari work that blends heritage techniques with modern flair. From intricate thread work to mirror embellishments, our artisans deliver perfection for bridal, festive, and high-fashion collections.</p>
-            
-            </div>
-            <!-- NEW Commitment 6: Premium Embroidery Materials (added inside core commitments) -->
-            <div class="value-card" data-aos="fade-up" data-aos-delay="350">
-                <i class="fas fa-ribbon"></i>
-                <h3>Premium Embroidery Materials</h3>
-                <p>Only the finest threads, stabilizers, needles, and accessories. Our premium supplies reduce thread breaks, enhance tension control, and ensure vibrant, durable embroidery results.</p>
-            
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- extra: expertise & trend-driven success (reinforcing aari + materials) -->
-<section class="expertise-showcase">
-    <div class="container" style="max-width: fit-content; padding: 0% 14%;">
-        <div class="expertise-flex">
-            <div class="expertise-text" data-aos="fade-right">
-                <h3>Design trends & custom Aari work</h3>
-                <p>We constantly scout global embroidery trends to offer exclusive design samples and Aari work patterns that captivate the market. Whether you need wedding trousseau embellishments, fashion embroidery, or commercial bulk orders — our design library and customization help you stand out.</p>
-                <p><i class="fas fa-check-circle" style="color:#d45a7a; margin-right: 8px;"></i> Custom embroidery service & digitizing<br>
-                <i class="fas fa-check-circle" style="color:#d45a7a; margin-right: 8px;"></i> Quick turnaround samples & prototyping<br>
-                <i class="fas fa-check-circle" style="color:#d45a7a; margin-right: 8px;"></i> High-selling commercial design packages</p>
-            </div>
-            <div class="expertise-badge" data-aos="fade-left">
-                <i class="fas fa-chart-line"></i>
-                <h4>Boosting productivity</h4>
-                <p>Our comprehensive solutions improve output by 40%+ with reliable machinery, training, and responsive maintainence. Let us help you scale your embroidery business with confidence.</p>
-                <div style="margin-top: 20px;"><i class="fas fa-star" style="color:#f3b33d;"></i><i class="fas fa-star" style="color:#f3b33d;"></i><i class="fas fa-star" style="color:#f3b33d;"></i><i class="fas fa-star" style="color:#f3b33d;"></i><i class="fas fa-star" style="color:#f3b33d;"></i> <span style="font-size: 14px;">Trusted by 500+ happy clients</span></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Footer with exact details -->
-<footer class="tetro-footer">
-    <div class="tetro-footer-container">
-        <div class="tetro-footer-row">
-            <div class="tetro-footer-col col-brand">
-                <a href="index.html" class="footer-brand">
-                    <h2>Rose <span>Embroidery</span></h2>
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo"><img src="./images/logo.png" alt="Rose Embroidery"></div>
+            <div class="nav-links">
+                <a class="nav-attribute" href="index.html">Home</a>
+                <a class="nav-attribute active" href="about.html">About</a>
+                <a class="nav-attribute" href="products.html">Shop</a>
+                <a class="nav-attribute" href="gallery.html">Gallery</a>
+                <a class="nav-attribute" href="contact.html">Contact</a>
+                <a class="nav-attribute" href="login.html"><i class="fas fa-user"></i> Login</a>
+                <a class="nav-attribute cart-icon" href="cart.html">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count" id="cartCount">0</span>
                 </a>
-                <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship with precision and quality.</p>
-                <div class="tetro-social-links">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
             </div>
-            
-            <div class="tetro-footer-col col-links">
-                <h3>Quick Links</h3>
-                                <div class="tetro-quick-links">
-                    <a href="about.html"><i class="fas fa-angle-right"></i>About Us</a>
-                    <a href="products.html"><i class="fas fa-angle-right"></i>Shop Products</a>
-                    <a href="gallery.html"><i class="fas fa-angle-right"></i>Gallery</a>
-                    <a href="contact.html"><i class="fas fa-angle-right"></i>Contact Us</a>
-                    <a href="#"><i class="fas fa-angle-right"></i>Terms & Conditions</a>
-                    <a href="#"><i class="fas fa-angle-right"></i>Privacy Policy</a>
-                    <a href="#"><i class="fas fa-angle-right"></i>Refund & Return Policy</a>
-                </div>
-            </div>
-            
-            <div class="tetro-footer-col col-contact">
-                <h3>Contact Info</h3>
-                <div class="tetro-contact-info">
-                    <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</a>
-                    <a href="tel:+91902555206"><i class="fas fa-phone-alt"></i>+91 902555206</a>
-                    <a href="mailto:Drroslineg@gmail.com"><i class="fas fa-envelope"></i>Drroslineg@gmail.com</a>
-                    <p><i class="fas fa-clock"></i>Mon-Sat: 9AM - 7PM</p>
-                </div>
-            </div>
+            <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
         </div>
-        <hr class="tetro-footer-divider">
-        <div class="tetro-footer-bottom">
-            <div class="tetro-copyright">
-                <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose Embroidery</a>. All rights reserved.
-            </div>
-            <div class="tetro-tagline">
-                Quality Precision Trust
-            </div>
-        </div>
+    </nav>
+    <div class="sidebar" id="sidebar">
+        <div class="close-btn" onclick="toggleMenu()">✕</div>
+        <a href="index.html"><i class="fas fa-home"></i> Home</a>
+        <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+        <a href="products.html"><i class="fas fa-box"></i> Shop</a>
+        <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+        <a href="login.html"><i class="fas fa-user"></i> Login</a>
+        <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart <span id="mobileCartCount">0</span></a>
     </div>
-</footer>
+    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>
-    AOS.init({ duration: 750, easing: 'ease-out', once: true });
+    <!-- Header -->
+    <section class="page-header">
+        <div data-aos="fade-up">
+            <h1>About Rose Embroidery</h1>
+            <p>Embroidery machine sales • Expert service • Complete solutions</p>
+        </div>
+    </section>
 
-    window.addEventListener('scroll', function() {
-        const navbar = document.getElementById('navbar');
-        if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
+    <!-- Main about content -->
+    <section class="about-content">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text" data-aos="fade-right">
+                    <h2>Trusted Embroidery Partners</h2>
+                    <p><strong>Rose Embroidery Machines</strong> is a trusted provider of embroidery machine sales,
+                        service, and complete solutions. We supply high-quality machines along with expert repair,
+                        maintainence, and installation services to ensure smooth and efficient performance. Our
+                        offerings include Aari work, embroidery design samples, and customized embroidery services for
+                        businesses and individuals.</p>
+                    <p>We take pride in our success by delivering reliable products and easy machine setup with clear
+                        guidelines, making it simple for clients to get started. Our strong maintainence support ensures
+                        long-lasting performance and minimal downtime. We have built a base of happy clients who trust
+                        our quality and service.</p>
+                    <p>We also stay updated with the latest embroidery design trends, helping customers create impactful
+                        and high-selling designs. Our goal is to support creativity, improve productivity, and help our
+                        clients grow successfully in the embroidery business.</p>
+                </div>
+                <div class="about-image" data-aos="fade-left">
+                    <img src="https://images.pexels.com/photos/4614264/pexels-photo-4614264.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                        alt="Rose Embroidery Workshop">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision section -->
+    <section class="mission-section">
+        <div class="container" data-aos="fade-up">
+            <h2>Our Mission: Empower Creativity, Elevate Business</h2>
+            <p>To deliver unmatched embroidery solutions—from premium machine sales to precision maintainence—that fuel
+                business growth, artistic expression, and long-term reliability. We combine technical expertise with
+                design innovation, ensuring every client gains a competitive edge with minimal downtime and maximum
+                output.</p>
+        </div>
+    </section>
+
+    <!-- WHY WE STAND OUT | Our Core Commitments (EXPANDED: now includes Aari Works & Embroidery Materials) -->
+    <section class="values-section">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <div class="subtitle">WHY WE STAND OUT</div>
+                <h2>Our Core Commitments</h2>
+            </div>
+            <div class="values-grid">
+                <!-- Commitment 1: Reliable Machines & Setup -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Reliable Machines & Setup</h3>
+                    <p>Easy machine installation with clear guidelines, plus rugged equipment built for continuous
+                        production and flawless embroidery.</p>
+                </div>
+                <!-- Commitment 2: Expert Maintenance Support -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="150">
+                    <i class="fas fa-tools"></i>
+                    <h3>Expert Maintenance Support</h3>
+                    <p>Minimize downtime with our responsive service team, repair expertise, and preventive maintainence
+                        plans that extend machine life.</p>
+                </div>
+                <!-- Commitment 3: Design-Driven Innovation -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-palette"></i>
+                    <h3>Design-Driven Innovation</h3>
+                    <p>Latest embroidery design trends, Aari work samples, and customized digitizing to help you create
+                        high-selling collections.</p>
+                </div>
+                <!-- Commitment 4: Client Success First -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="250">
+                    <i class="fas fa-smile"></i>
+                    <h3>Client Success First</h3>
+                    <p>Hundreds of happy clients trust our end-to-end solutions—from small businesses to large
+                        production units. We grow together.</p>
+                </div>
+                <!-- NEW Commitment 5: Masterful Aari Craftsmanship (added inside core commitments) -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-hand-sparkles"></i>
+                    <h3>Masterful Aari Craftsmanship</h3>
+                    <p>Specialized Aari work that blends heritage techniques with modern flair. From intricate thread
+                        work to mirror embellishments, our artisans deliver perfection for bridal, festive, and
+                        high-fashion collections.</p>
+
+                </div>
+                <!-- NEW Commitment 6: Premium Embroidery Materials (added inside core commitments) -->
+                <div class="value-card" data-aos="fade-up" data-aos-delay="350">
+                    <i class="fas fa-ribbon"></i>
+                    <h3>Premium Embroidery Materials</h3>
+                    <p>Only the finest threads, stabilizers, needles, and accessories. Our premium supplies reduce
+                        thread breaks, enhance tension control, and ensure vibrant, durable embroidery results.</p>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- extra: expertise & trend-driven success (reinforcing aari + materials) -->
+    <section class="expertise-showcase">
+        <div class="container" style="max-width: fit-content; padding: 0% 14%;">
+            <div class="expertise-flex">
+                <div class="expertise-text" data-aos="fade-right">
+                    <h3>Design trends & custom Aari work</h3>
+                    <p>We constantly scout global embroidery trends to offer exclusive design samples and Aari work
+                        patterns that captivate the market. Whether you need wedding trousseau embellishments, fashion
+                        embroidery, or commercial bulk orders — our design library and customization help you stand out.
+                    </p>
+                    <p><i class="fas fa-check-circle" style="color:#d45a7a; margin-right: 8px;"></i> Custom embroidery
+                        service & digitizing<br>
+                        <i class="fas fa-check-circle" style="color:#d45a7a; margin-right: 8px;"></i> Quick turnaround
+                        samples & prototyping<br>
+                        <i class="fas fa-check-circle" style="color:#d45a7a; margin-right: 8px;"></i> High-selling
+                        commercial design packages
+                    </p>
+                </div>
+                <div class="expertise-badge" data-aos="fade-left">
+                    <i class="fas fa-chart-line"></i>
+                    <h4>Boosting productivity</h4>
+                    <p>Our comprehensive solutions improve output by 40%+ with reliable machinery, training, and
+                        responsive maintainence. Let us help you scale your embroidery business with confidence.</p>
+                    <div style="margin-top: 20px;"><i class="fas fa-star" style="color:#f3b33d;"></i><i
+                            class="fas fa-star" style="color:#f3b33d;"></i><i class="fas fa-star"
+                            style="color:#f3b33d;"></i><i class="fas fa-star" style="color:#f3b33d;"></i><i
+                            class="fas fa-star" style="color:#f3b33d;"></i> <span style="font-size: 14px;">Trusted by
+                            500+ happy clients</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer with exact details -->
+    <footer class="tetro-footer">
+        <div class="tetro-footer-container">
+            <div class="tetro-footer-row">
+                <div class="tetro-footer-col col-brand">
+                    <a href="index.html" class="footer-brand">
+                        <h2>Rose Embroidery</h2>
+                    </a>
+                    <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship
+                        with precision and quality.</p>
+                    <div class="tetro-social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="tetro-footer-col col-links">
+                    <h3>Quick Links</h3>
+                    <div class="tetro-quick-links">
+                        <a href="about.html"><i class="fas fa-angle-right"></i>About Us</a>
+                        <a href="products.html"><i class="fas fa-angle-right"></i>Shop Products</a>
+                        <a href="gallery.html"><i class="fas fa-angle-right"></i>Gallery</a>
+                        <a href="contact.html"><i class="fas fa-angle-right"></i>Contact Us</a>
+                        <a href="#"><i class="fas fa-angle-right"></i>Terms & Conditions</a>
+                        <a href="#"><i class="fas fa-angle-right"></i>Privacy Policy</a>
+                        <a href="#"><i class="fas fa-angle-right"></i>Refund & Return Policy</a>
+                    </div>
+                </div>
+
+                <div class="tetro-footer-col col-contact">
+                    <h3>Contact Info</h3>
+                    <div class="tetro-contact-info">
+                        <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu
+                            madhuravoyal chennai 600095</a>
+                        <a href="tel:+91902555206"><i class="fas fa-phone-alt"></i>+91 902555206</a>
+                        <a href="mailto:Drroslineg@gmail.com"><i class="fas fa-envelope"></i>Drroslineg@gmail.com</a>
+                        <p><i class="fas fa-clock"></i>Mon-Sat: 9AM - 7PM</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="tetro-footer-divider">
+            <div class="tetro-footer-bottom">
+                <div class="tetro-copyright">
+                    <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose
+                        Embroidery</a>. All rights reserved.
+                </div>
+                <div class="tetro-tagline">
+                    Quality Precision Trust
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 750, easing: 'ease-out', once: true });
+
+        window.addEventListener('scroll', function () {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        function toggleMenu() {
+            const sidebar = document.getElementById("sidebar");
+            const overlay = document.getElementById("overlay");
+            sidebar.classList.toggle("active");
+            overlay.classList.toggle("active");
         }
-    });
 
-    function toggleMenu() {
-        const sidebar = document.getElementById("sidebar");
-        const overlay = document.getElementById("overlay");
-        sidebar.classList.toggle("active");
-        overlay.classList.toggle("active");
-    }
-
-    document.getElementById("overlay")?.addEventListener('click', function() {
-        document.getElementById("sidebar").classList.remove("active");
-        this.classList.remove("active");
-    });
-</script>
-<script>
-    // Update cart count from localStorage
-    function updateCartCount() {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-        const cartCountSpan = document.getElementById('cartCount');
-        const mobileCartSpan = document.getElementById('mobileCartCount');
-        if (cartCountSpan) cartCountSpan.innerText = totalItems;
-        if (mobileCartSpan) mobileCartSpan.innerText = totalItems;
-    }
-    
-    // Initialize cart count
-    updateCartCount();
-    
-    // Listen for storage changes (when cart updates from other pages)
-    window.addEventListener('storage', function(e) {
-        if (e.key === 'cart') {
-            updateCartCount();
+        document.getElementById("overlay")?.addEventListener('click', function () {
+            document.getElementById("sidebar").classList.remove("active");
+            this.classList.remove("active");
+        });
+    </script>
+    <script>
+        // Update cart count from localStorage
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartCountSpan = document.getElementById('cartCount');
+            const mobileCartSpan = document.getElementById('mobileCartCount');
+            if (cartCountSpan) cartCountSpan.innerText = totalItems;
+            if (mobileCartSpan) mobileCartSpan.innerText = totalItems;
         }
-    });
-</script>
+
+        // Initialize cart count
+        updateCartCount();
+
+        // Listen for storage changes (when cart updates from other pages)
+        window.addEventListener('storage', function (e) {
+            if (e.key === 'cart') {
+                updateCartCount();
+            }
+        });
+    </script>
 </body>
+
 </html>

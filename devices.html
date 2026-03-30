@@ -1113,7 +1113,29 @@
     }
 
     function loadDevice(deviceId) {
-      const device = devicesDatabase[deviceId];
+      let device = devicesDatabase[deviceId];
+      
+      // Fallback to dynamic loading from products database in localStorage
+      if (!device) {
+        const storedProducts = JSON.parse(localStorage.getItem('rose_products') || '[]');
+        const dynamicProduct = storedProducts.find(p => p.slug === deviceId);
+        
+        if (dynamicProduct) {
+            device = {
+                id: dynamicProduct.slug,
+                name: dynamicProduct.name,
+                shortName: dynamicProduct.name,
+                category: dynamicProduct.category === 'machine' ? 'Embroidery Machine' : 'Attachment Device',
+                badge: dynamicProduct.badge || 'New Arrival',
+                image: dynamicProduct.image,
+                description: dynamicProduct.desc,
+                features: dynamicProduct.specs.map(s => `<i class="fas fa-check-circle"></i> ${s}`),
+                techSpecs: dynamicProduct.specs,
+                compatibility: 'Compatible with Rose Embroidery ecosystem'
+            };
+        }
+      }
+
       if (!device) return;
 
       document.getElementById('heroCategory').innerText = device.category;

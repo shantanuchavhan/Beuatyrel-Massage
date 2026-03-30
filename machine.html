@@ -244,6 +244,7 @@
       overflow: hidden;
       box-shadow: 0 15px 35px rgba(212, 90, 122, 0.15);
       background: #fff;
+      height: fit-content;
     }
 
     .gallery-main img {
@@ -864,7 +865,7 @@
       <hr class="tetro-footer-divider">
       <div class="tetro-footer-bottom">
         <div class="tetro-copyright">
-          <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose Embroidery</a>. All rights reserved.
+          <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a style="text-decoration: none; color: white;" href="index.html">Rose Embroidery</a>. All rights reserved.
         </div>
         <div class="tetro-tagline">Quality Precision Trust</div>
       </div>
@@ -930,7 +931,7 @@
       // Update product info
       document.getElementById('productBadge').innerHTML = `<i class="fas fa-${product.category === 'machine' ? 'microchip' : 'tools'}"></i> ${product.category === 'machine' ? 'Embroidery Machine' : 'Attachment Device'}`;
       document.getElementById('productName').innerText = product.name;
-      document.getElementById('productPrice').innerHTML = `₹${product.price.toLocaleString('en-IN')}`;
+      // document.getElementById('productPrice').innerHTML = `₹${product.price.toLocaleString('en-IN')}`;
       document.getElementById('mainImage').src = product.image;
       
       // Feature list

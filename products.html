@@ -1245,7 +1245,7 @@
             <hr class="tetro-footer-divider">
             <div class="tetro-footer-bottom">
                 <div class="tetro-copyright">
-                    <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose Embroidery</a>. All rights reserved.
+                    <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a style="text-decoration: none; color: white;" href="index.html">Rose Embroidery</a>. All rights reserved.
                 </div>
                 <div class="tetro-tagline">
                     Quality Precision Trust
@@ -1417,7 +1417,7 @@
                         <span class="product-category">${product.category === 'machine' ? '🪡 Embroidery Machine' : '🔧 Accessory'}</span>
                         <h3>${product.name}</h3>
                         <p class="product-desc">${product.desc.substring(0, 80)}...</p>
-                        <div class="product-price">₹${product.price.toLocaleString()}</div>
+
                         <ul class="product-specs">${product.specs.slice(0, 3).map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}</ul>
                         <div class="button-group">
                             <button class="btn-view-details" onclick="navigateToProduct(${product.id})">
@@ -1503,6 +1503,6 @@
         window.toggleMenu = toggleMenu;
         window.closeQuoteModal = closeQuoteModal;
     </script>
-</body>
+</body> 
 
 </html>

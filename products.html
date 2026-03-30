@@ -51,70 +51,20 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: all 0.4s ease;
-            background: white;
-        }
+        
 
-        .navbar.scrolled {
-            backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.96);
-            padding: 10px 0;
-            box-shadow: 0 5px 25px rgba(212, 90, 122, 0.15);
-        }
+        
 
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        
 
-        .logo img {
-            height: 70px;
-            transition: 0.3s;
-        }
+        
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 32px;
-        }
+        
 
-        .nav-attribute {
-            color: #3e2a2f;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s;
-            position: relative;
-        }
-        .nav-attribute::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #d45a7a;
-            transition: width 0.3s ease;
-        }
-        .nav-attribute:hover::after,
-        .nav-attribute.active::after {
-            width: 100%;
-        }
-        .nav-attribute:hover, .nav-attribute.active {
-            color: #d45a7a;
-        }
+        
+        
+        
+        
 
         .cart-icon {
             position: relative;
@@ -186,64 +136,54 @@
         }
 
         .filters-sidebar {
-            width: 300px;
+            width: 250px;
             flex-shrink: 0;
-            background: white;
-            border-radius: 16px;
-            padding: 30px 25px;
-            box-shadow: 0 10px 35px rgba(212, 90, 122, 0.08);
-            border: 2px solid #e8d5de;
+            background: transparent;
+            padding: 0;
             height: fit-content;
             position: sticky;
             top: 100px;
-            transition: all 0.3s;
-        }
-        .filters-sidebar:hover {
-            border-color: #d45a7a;
-            box-shadow: 0 15px 40px rgba(212, 90, 122, 0.15);
         }
         .filter-section {
-            margin-bottom: 30px;
-            border-bottom: 2px solid #f0dfe7;
-            padding-bottom: 20px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #e0e0e0;
+            padding-bottom: 25px;
         }
         .filter-section:last-child {
             border-bottom: none;
         }
         .filter-section h4 {
-            font-size: 18px;
-            color: #b34262;
-            margin-bottom: 18px;
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 15px;
             font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
+        .filter-section h4 i { display: none; }
         .filter-options {
             display: flex;
             flex-direction: column;
-            gap: 14px;
+            gap: 12px;
         }
         .filter-option {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             cursor: pointer;
             font-size: 14px;
-            color: #5a4a52;
+            color: #555;
             transition: all 0.2s;
-            padding: 6px 0;
         }
         .filter-option:hover {
             color: #d45a7a;
-            transform: translateX(5px);
         }
         .filter-option input {
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             cursor: pointer;
-            accent-color: #d45a7a;
+            accent-color: #333;
         }
         .price-inputs {
             display: flex;
@@ -365,17 +305,17 @@
         }
         .product-card {
             background: white;
-            border-radius: 16px;
+            border-radius: 12px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-            box-shadow: 0 8px 25px rgba(212, 90, 122, 0.08);
-            border: 2px solid #e8d5de;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            border: 1px solid #eee;
             position: relative;
         }
         .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 45px rgba(212, 90, 122, 0.2);
-            border-color: #d45a7a;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
+            border-color: transparent;
         }
         .product-badge {
             position: absolute;
@@ -429,10 +369,12 @@
             margin-bottom: 12px;
         }
         .product-content h3 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            color: #b34262;
+            font-size: 20px;
+            margin-bottom: 8px;
+            color: #212529;
             transition: color 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
         .product-card:hover .product-content h3 {
             color: #d45a7a;
@@ -444,15 +386,11 @@
             line-height: 1.5;
         }
         .product-price {
-            font-size: 26px;
-            font-weight: 800;
-            color: #d45a7a;
+            font-size: 20px;
+            font-weight: 700;
+            color: #212529;
             margin: 12px 0;
             display: inline-block;
-            background: linear-gradient(135deg, #d45a7a, #b34262);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
         }
         .product-specs {
             list-style: none;
@@ -472,40 +410,41 @@
         }
         .button-group {
             display: flex;
-            gap: 12px;
-            margin-top: 15px;
+            gap: 10px;
+            margin-top: 18px;
         }
         .btn-view-details {
             flex: 1;
-            background: transparent;
-            border: 2px solid #d45a7a;
-            padding: 10px;
-            border-radius: 12px;
-            color: #d45a7a;
-            font-weight: 700;
-            font-size: 12px;
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 12px;
+            border-radius: 6px;
+            color: #333;
+            font-weight: 600;
+            font-size: 13px;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             text-decoration: none;
+            letter-spacing: 0.5px;
         }
         .btn-view-details:hover {
-            background: #d45a7a;
-            color: white;
-            transform: translateY(-2px);
+            background: #f8f9fa;
+            border-color: #d45a7a;
+            color: #d45a7a;
         }
         .add-to-cart {
             flex: 1;
-            background: linear-gradient(95deg, #d45a7a, #b34262);
-            border: none;
-            padding: 10px;
-            border-radius: 12px;
+            background: #212529;
+            border: 1px solid #212529;
+            padding: 12px;
+            border-radius: 6px;
             color: white;
-            font-weight: 700;
-            font-size: 12px;
+            font-weight: 600;
+            font-size: 13px;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
@@ -530,7 +469,9 @@
         }
         .add-to-cart:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(212,90,122,0.4);
+            box-shadow: 0 5px 15px rgba(212, 90, 122, 0.4);
+            background: #d45a7a;
+            border-color: #d45a7a;
         }
         .no-results {
             text-align: center;
@@ -563,24 +504,20 @@
         footer h4 { font-size: 32px; margin-bottom: 20px; }
         footer h4 i { margin-right: 10px; }
 
-        .hamburger, .sidebar, .overlay { display: none; }
+        
         @media (max-width: 992px) {
             .filters-sidebar { width: 280px; }
         }
         @media (max-width: 768px) {
-            .hamburger { display: block; cursor: pointer; z-index: 1001; }
-            .hamburger span { display: block; width: 26px; height: 2px; background: #b34262; margin: 6px 0; transition: 0.3s; }
-            .sidebar {
-                position: fixed; top: 0; left: -300px; width: 280px; height: 100%;
-                background: white; padding: 90px 28px 30px; display: flex; flex-direction: column;
-                gap: 18px; transition: 0.3s; z-index: 10000; box-shadow: 4px 0 20px rgba(0,0,0,0.1);
-            }
-            .sidebar.active { left: 0; }
-            .sidebar a { color: #3e2a2f; text-decoration: none; font-size: 18px; font-weight: 500; padding: 8px 0; }
-            .sidebar .close-btn { position: absolute; top: 20px; right: 24px; font-size: 28px; cursor: pointer; color: #b34262; }
-            .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: 0.3s; z-index: 9999; display: block; }
-            .overlay.active { opacity: 1; visibility: visible; }
-            .nav-links { display: none !important; }
+            
+            
+            
+            
+            
+            
+            
+            
+            
             .shop-layout { flex-direction: column; }
             .filters-sidebar { width: 100%; position: static; }
             .shop-hero { padding: 130px 0 50px; }
@@ -592,10 +529,220 @@
             .button-group { flex-direction: column; }
         }
         @media (min-width: 769px) {
-            .hamburger, .sidebar, .overlay { display: none !important; }
-            .nav-links { display: flex !important; }
+            
+            
         }
-    </style>
+    
+        /* Tetro-style Footer */
+        .tetro-footer {
+            background: #142435;
+            color: #fff;
+            padding: 70px 0 30px;
+            font-family: 'Montserrat', sans-serif;
+            text-align: left;
+        }
+        .tetro-footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+        .tetro-footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .tetro-footer-col {
+            flex: 1;
+            min-width: 280px;
+        }
+        .tetro-footer-col.col-brand p {
+            color: #f8f9fa;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: 15px;
+            opacity: 0.9;
+        }
+        .footer-brand {
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .footer-brand h2 {
+            color: #fff;
+            font-weight: 700;
+            font-size: 32px;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+        }
+        .footer-brand span {
+            color: #d45a7a;
+        }
+        .tetro-social-links {
+            display: flex;
+            gap: 12px;
+        }
+        .tetro-social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #fff;
+            color: #d45a7a;
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 18px;
+        }
+        .tetro-social-links a:hover {
+            background: #d45a7a;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+        .tetro-footer-col h3 {
+            color: #d45a7a;
+            font-size: 24px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .tetro-quick-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .tetro-quick-links a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            opacity: 0.9;
+        }
+        .tetro-quick-links a i {
+            color: #d45a7a;
+            margin-right: 12px;
+            font-size: 12px;
+        }
+        .tetro-quick-links a:hover {
+            color: #d45a7a;
+            padding-left: 8px;
+            opacity: 1;
+        }
+        .tetro-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+        .tetro-contact-info a, .tetro-contact-info p {
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            display: flex;
+            align-items: flex-start;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding: 16px 0;
+            margin: 0;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+        .tetro-contact-info a:first-child {
+            padding-top: 0;
+        }
+        .tetro-contact-info a:last-child, .tetro-contact-info p:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .tetro-contact-info i {
+            color: #d45a7a;
+            margin-right: 15px;
+            margin-top: 4px;
+            width: 16px;
+            text-align: center;
+        }
+        .tetro-contact-info a:hover {
+            color: #d45a7a;
+            opacity: 1;
+        }
+        .tetro-footer-divider {
+            border: none;
+            height: 1px;
+            background: rgba(255,255,255,0.1);
+            margin: 0 0 25px 0;
+        }
+        .tetro-footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        .tetro-copyright {
+            color: #fff;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        .tetro-copyright a {
+            color: #d45a7a;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .tetro-copyright a:hover {
+            text-decoration: underline;
+        }
+        .tetro-tagline {
+            color: #fff;
+            font-size: 14px;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+        @media (max-width: 768px) {
+            .tetro-footer-row {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .tetro-footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+        }
+
+    
+/* UNIVERSAL NAVBAR STYLES */
+.navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 12px 0; z-index: 1000; transition: all 0.4s ease; background: rgba(255, 255, 255, 0.98); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+.navbar.scrolled { backdrop-filter: blur(10px); padding: 8px 0; box-shadow: 0 5px 20px rgba(212, 90, 122, 0.15); background: rgba(255,255,255,0.95); }
+.nav-container { max-width: 1200px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; }
+.logo img { height: 60px; transition: all 0.3s ease; }
+.nav-links { display: flex; align-items: center; gap: 28px; }
+.nav-attribute { color: #3e2a2f; text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s; position: relative; }
+.nav-attribute::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: #d45a7a; transition: width 0.3s ease; }
+.nav-attribute:hover::after, .nav-attribute.active::after { width: 100%; }
+.nav-attribute:hover, .nav-attribute.active { color: #d45a7a; }
+.cart-icon { position: relative; display: flex; align-items: center; }
+.cart-icon i { font-size: 16px; }
+.cart-count { position: absolute; top: -10px; right: -14px; background: linear-gradient(135deg, #d45a7a, #b34262); color: white; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 50%; animation: pulse 1.5s infinite; border: 2px solid white; }
+@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.15); } 100% { transform: scale(1); } }
+.hamburger, .sidebar, .overlay { display: none; }
+@media (max-width: 768px) {
+    .hamburger { display: block; cursor: pointer; z-index: 1001; }
+    .hamburger span { display: block; width: 26px; height: 2px; background: #b34262; margin: 6px 0; transition: 0.3s; border-radius: 2px; }
+    .navbar.scrolled .hamburger span { background: #d45a7a; }
+    .sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100%; background: linear-gradient(145deg, #fff9fb, #fff0f4); padding: 90px 28px 30px; display: flex; flex-direction: column; gap: 18px; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 10000; box-shadow: 4px 0 20px rgba(0,0,0,0.1); }
+    .sidebar.active { left: 0; }
+    .sidebar a { color: #3e2a2f; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 0; border-bottom: 1px solid rgba(212, 90, 122, 0.1); display: flex; align-items: center; gap: 12px; transition: 0.3s; }
+    .sidebar a:hover, .sidebar a.active { color: #d45a7a; padding-left: 5px; }
+    .sidebar .close-btn { position: absolute; top: 20px; right: 24px; font-size: 28px; cursor: pointer; color: #b34262; transition: 0.3s; }
+    .sidebar .close-btn:hover { transform: rotate(90deg); color: #d45a7a; }
+    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: 0.3s; z-index: 9999; backdrop-filter: blur(3px); }
+    .overlay.active { opacity: 1; visibility: visible; }
+    .nav-links { display: none !important; }
+}
+@media (min-width: 769px) { .hamburger, .sidebar, .overlay { display: none !important; } .nav-links { display: flex !important; } }
+
+</style>
 </head>
 <body>
 
@@ -608,21 +755,24 @@
             <a class="nav-attribute active" href="products.html">Shop</a>
             <a class="nav-attribute" href="gallery.html">Gallery</a>
             <a class="nav-attribute" href="contact.html">Contact</a>
-            <a class="nav-attribute" href="login.html"><i class="fas fa-user"></i> Account</a>
-            <a class="nav-attribute cart-icon" href="cart.html"><i class="fas fa-shopping-cart"></i> <span class="cart-count" id="cartCount">0</span></a>
+            <a class="nav-attribute" href="login.html"><i class="fas fa-user"></i> Login</a>
+            <a class="nav-attribute cart-icon" href="cart.html">
+                <i class="fas fa-shopping-cart"></i> 
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
         </div>
         <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </div>
 </nav>
-
 <div class="sidebar" id="sidebar">
     <div class="close-btn" onclick="toggleMenu()">✕</div>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="products.html">Shop</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="contact.html">Contact</a>
-    <a href="login.html">Account</a>
+    <a href="index.html"><i class="fas fa-home"></i> Home</a>
+    <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+    <a href="products.html"><i class="fas fa-box"></i> Shop</a>
+    <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+    <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+    <a href="login.html"><i class="fas fa-user"></i> Login</a>
+    <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart <span id="mobileCartCount">0</span></a>
 </div>
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
@@ -641,30 +791,33 @@
     <div class="container">
         <div class="shop-layout">
             <aside class="filters-sidebar" data-aos="fade-right">
+                <div class="filter-section" style="border-bottom: 2px solid #212529; margin-bottom: 30px;">
+                    <h2 style="font-size: 22px; margin-bottom: 5px; color: #212529;">FILTER BY</h2>
+                </div>
                 <div class="filter-section">
-                    <h4><i class="fas fa-tags"></i> Product Category</h4>
+                    <h4>Category</h4>
                     <div class="filter-options" id="categoryFilters">
-                        <label class="filter-option"><input type="checkbox" value="machine"> <span>🪡 Embroidery Machines</span> <span class="count" id="machineCount"></span></label>
-                        <label class="filter-option"><input type="checkbox" value="device"> <span>🔧 Accessories & Devices</span> <span class="count" id="deviceCount"></span></label>
+                        <label class="filter-option"><input type="checkbox" value="machine"> <span>Embroidery Machines</span> <span class="count" id="machineCount"></span></label>
+                        <label class="filter-option"><input type="checkbox" value="device"> <span>Accessories & Devices</span> <span class="count" id="deviceCount"></span></label>
                     </div>
                 </div>
                 <div class="filter-section">
-                    <h4><i class="fas fa-chart-line"></i> Price Range</h4>
+                    <h4>Price Range</h4>
                     <div class="price-range">
                         <div class="price-inputs">
                             <input type="number" id="minPrice" placeholder="Min ₹" value="">
                             <input type="number" id="maxPrice" placeholder="Max ₹" value="">
                         </div>
-                        <button class="apply-price" id="applyPrice"><i class="fas fa-check"></i> Apply</button>
+                        <button class="apply-price" id="applyPrice" style="width: 100%; margin-top: 10px; background: #212529; color: white;"><i class="fas fa-check"></i> Apply Filter</button>
                     </div>
                 </div>
                 <div class="filter-section">
-                    <h4><i class="fas fa-star"></i> Best Sellers</h4>
+                    <h4>Best Sellers</h4>
                     <div class="filter-options">
-                        <label class="filter-option"><input type="checkbox" id="bestSellerFilter"> <span>🔥 Best Sellers Only</span></label>
+                        <label class="filter-option"><input type="checkbox" id="bestSellerFilter"> <span>Best Sellers Only</span></label>
                     </div>
                 </div>
-                <button class="clear-filters" id="clearFilters"><i class="fas fa-undo-alt"></i> Clear All Filters</button>
+                <button class="clear-filters" id="clearFilters" style="border: 1px solid #ddd; color: #555; background: #f8f9fa;">Clear All Filters</button>
             </aside>
 
             <div class="products-area">
@@ -689,12 +842,52 @@
     </div>
 </section>
 
-<footer>
-    <div class="container">
-        <h4><i class="fas fa-rose"></i> Rose Embroidery</h4>
-        <p><i class="fas fa-phone-alt"></i> +91 902555206 | <i class="fas fa-envelope"></i> Drroslineg@gmail.com</p>
-        <p><i class="fas fa-map-marker-alt"></i> 76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</p>
-        <p style="margin-top: 30px;">© 2026 Rose Embroidery — Quality Precision Trust. All rights reserved.</p>
+<footer class="tetro-footer">
+    <div class="tetro-footer-container">
+        <div class="tetro-footer-row">
+            <div class="tetro-footer-col col-brand">
+                <a href="index.html" class="footer-brand">
+                    <h2>Rose <span>Embroidery</span></h2>
+                </a>
+                <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship with precision and quality.</p>
+                <div class="tetro-social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            
+            <div class="tetro-footer-col col-links">
+                <h3>Quick Links</h3>
+                <div class="tetro-quick-links">
+                    <a href="about.html"><i class="fas fa-angle-right"></i>About Us</a>
+                    <a href="products.html"><i class="fas fa-angle-right"></i>Shop Products</a>
+                    <a href="gallery.html"><i class="fas fa-angle-right"></i>Gallery</a>
+                    <a href="contact.html"><i class="fas fa-angle-right"></i>Contact Us</a>
+                    <a href="#"><i class="fas fa-angle-right"></i>Privacy Policy</a>
+                </div>
+            </div>
+            
+            <div class="tetro-footer-col col-contact">
+                <h3>Contact Info</h3>
+                <div class="tetro-contact-info">
+                    <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</a>
+                    <a href="tel:+91902555206"><i class="fas fa-phone-alt"></i>+91 902555206</a>
+                    <a href="mailto:Drroslineg@gmail.com"><i class="fas fa-envelope"></i>Drroslineg@gmail.com</a>
+                    <p><i class="fas fa-clock"></i>Mon-Sat: 9AM - 7PM</p>
+                </div>
+            </div>
+        </div>
+        <hr class="tetro-footer-divider">
+        <div class="tetro-footer-bottom">
+            <div class="tetro-copyright">
+                <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose Embroidery</a>. All rights reserved.
+            </div>
+            <div class="tetro-tagline">
+                Quality Precision Trust
+            </div>
+        </div>
     </div>
 </footer>
 
@@ -741,7 +934,7 @@
             if (product.category === 'machine') {
                 window.location.href = `machine.html#${product.slug}`;
             } else {
-                window.location.href = `device.html#${product.slug}`;
+                window.location.href = `devices.html#${product.slug}`;
             }
         }
     };
@@ -808,7 +1001,7 @@
                     <span class="product-category">${product.category === 'machine' ? '🪡 Embroidery Machine' : '🔧 Accessory'}</span>
                     <h3>${product.name}</h3>
                     <p class="product-desc">${product.desc.substring(0, 80)}...</p>
-                    <div class="product-price">₹${product.price.toLocaleString('en-IN')}</div>
+
                     <ul class="product-specs">${product.specs.slice(0, 3).map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}</ul>
                     <div class="button-group">
                         <button class="btn-view-details" onclick="navigateToProduct(${product.id})">
@@ -869,6 +1062,27 @@
 
     updateCategoryCounts();
     filterAndSortProducts();
+    
+    // Update cart count from localStorage
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        const cartCountSpan = document.getElementById('cartCount');
+        const mobileCartSpan = document.getElementById('mobileCartCount');
+        if (cartCountSpan) cartCountSpan.innerText = totalItems;
+        if (mobileCartSpan) mobileCartSpan.innerText = totalItems;
+    }
+    
+    // Initialize cart count
+    updateCartCount();
+    
+    // Listen for storage changes (when cart updates from other pages)
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'cart') {
+            updateCartCount();
+        }
+    });
+
     window.toggleMenu = toggleMenu;
 </script>
 </body>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Users - Rose Embroidery Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #fef5f8 0%, #fff0f5 100%); min-height: 100vh; }
+        .admin-container { display: flex; min-height: 100vh; }
+        .admin-sidebar {
+            width: 280px;
+            background: linear-gradient(135deg, #d45a7a, #b34262);
+            color: white;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .admin-logo { padding: 30px 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); }
+        .admin-logo h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; }
+        .admin-menu { padding: 30px 0; }
+        .admin-menu-item {
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .admin-menu-item:hover, .admin-menu-item.active { background: rgba(255,255,255,0.15); color: white; padding-left: 35px; }
+        .admin-menu-item i { width: 24px; }
+        .admin-main { flex: 1; margin-left: 280px; padding: 20px; }
+        .admin-header {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .admin-header h1 { font-size: 24px; color: #b34262; }
+        .admin-user { display: flex; align-items: center; gap: 15px; }
+        .logout-btn { background: #d45a7a; color: white; border: none; padding: 8px 20px; border-radius: 30px; cursor: pointer; }
+        .data-table {
+            background: white;
+            border-radius: 20px;
+            overflow-x: auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .data-table table { width: 100%; border-collapse: collapse; }
+        .data-table th, .data-table td { padding: 15px 20px; text-align: left; border-bottom: 1px solid #eee; }
+        .data-table th { background: #fff5f8; color: #b34262; font-weight: 600; }
+        .status-active { background: #4caf50; color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; display: inline-block; }
+        .status-inactive { background: #f44336; color: white; padding: 4px 12px; border-radius: 20px; font-size: 12px; display: inline-block; }
+        .btn-view { background: #2196f3; color: white; border: none; padding: 6px 12px; border-radius: 20px; cursor: pointer; margin: 0 3px; }
+        .btn-toggle { background: #ff9800; color: white; border: none; padding: 6px 12px; border-radius: 20px; cursor: pointer; }
+        @media (max-width: 768px) { .admin-sidebar { left: -280px; } .admin-main { margin-left: 0; } }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-sidebar">
+            <div class="admin-logo">
+                <h2><i class="fas fa-rose"></i> Rose Admin</h2>
+                <p>Embroidery Management System</p>
+            </div>
+            <div class="admin-menu">
+                <a href="index.html" class="admin-menu-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="products.html" class="admin-menu-item"><i class="fas fa-box"></i> Products</a>
+                <a href="orders.html" class="admin-menu-item"><i class="fas fa-shopping-cart"></i> Orders</a>
+                <a href="users.html" class="admin-menu-item active"><i class="fas fa-users"></i> Users</a>
+            </div>
+        </div>
+
+        <div class="admin-main">
+            <div class="admin-header">
+                <h1><i class="fas fa-users"></i> User Management</h1>
+                <div class="admin-user">
+                    <span><i class="fas fa-user"></i> Admin</span>
+                    <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </div>
+            </div>
+            
+            <div class="data-table">
+                <table>
+                    <thead>
+                        <tr><th>ID</th><th>Name</th><th>Email</th><th>Phone</th><th>Orders</th><th>Total Spent</th><th>Status</th><th>Joined</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="usersTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="userModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); z-index:1000; justify-content:center; align-items:center;">
+        <div class="modal-content" style="background:white; border-radius:20px; width:90%; max-width:500px; padding:30px;">
+            <div class="modal-header" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+                <h3 style="color:#b34262;">User Details</h3>
+                <span class="close-modal" onclick="closeModal()" style="font-size:24px; cursor:pointer;">&times;</span>
+            </div>
+            <div id="userDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        let users = JSON.parse(localStorage.getItem('rose_users')) || [
+            { id: 1, name: "John Doe", email: "john@example.com", phone: "9876543210", orders: 2, total: 325000, status: "active", joined: "2024-01-15" },
+            { id: 2, name: "Jane Smith", email: "jane@example.com", phone: "9876543211", orders: 1, total: 12500, status: "active", joined: "2024-02-20" }
+        ];
+
+        function renderUsers() {
+            const tbody = document.getElementById('usersTable');
+            tbody.innerHTML = users.map(user => `
+                <tr>
+                    <td>${user.id}</td>
+                    <td>${user.name}</td>
+                    <td>${user.email}</td>
+                    <td>${user.phone}</td>
+                    <td>${user.orders}</td>
+                    <td>₹${user.total.toLocaleString()}</td>
+                    <td><span class="status-${user.status}">${user.status}</span></td>
+                    <td>${user.joined}</td>
+                    <td>
+                        <button class="btn-view" onclick="viewUser(${user.id})"><i class="fas fa-eye"></i> View</button>
+                        <button class="btn-toggle" onclick="toggleUserStatus(${user.id})"><i class="fas fa-${user.status === 'active' ? 'ban' : 'check'}"></i> ${user.status === 'active' ? 'Deactivate' : 'Activate'}</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function viewUser(id) {
+            const user = users.find(u => u.id === id);
+            if (user) {
+                document.getElementById('userDetails').innerHTML = `
+                    <div style="padding:10px 0; border-bottom:1px solid #f0d9e0;"><strong>Name:</strong> ${user.name}</div>
+                    <div style="padding:10px 0; border-bottom:1px solid #f0d9e0;"><strong>Email:</strong> ${user.email}</div>
+                    <div style="padding:10px 0; border-bottom:1px solid #f0d9e0;"><strong>Phone:</strong> ${user.phone}</div>
+                    <div style="padding:10px 0; border-bottom:1px solid #f0d9e0;"><strong>Total Orders:</strong> ${user.orders}</div>
+                    <div style="padding:10px 0; border-bottom:1px solid #f0d9e0;"><strong>Total Spent:</strong> ₹${user.total.toLocaleString()}</div>
+                    <div style="padding:10px 0; border-bottom:1px solid #f0d9e0;"><strong>Status:</strong> ${user.status}</div>
+                    <div style="padding:10px 0;"><strong>Joined:</strong> ${user.joined}</div>
+                `;
+                document.getElementById('userModal').style.display = 'flex';
+            }
+        }
+
+        function toggleUserStatus(id) {
+            const user = users.find(u => u.id === id);
+            if (user) {
+                user.status = user.status === 'active' ? 'inactive' : 'active';
+                localStorage.setItem('rose_users', JSON.stringify(users));
+                renderUsers();
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('userModal').style.display = 'none';
+        }
+
+        function logout() {
+            localStorage.removeItem('admin_logged_in');
+            window.location.href = 'login.html';
+        }
+
+        function checkAuth() {
+            if (!localStorage.getItem('admin_logged_in')) {
+                window.location.href = 'login.html';
+            }
+        }
+
+        checkAuth();
+        renderUsers();
+        window.viewUser = viewUser;
+        window.toggleUserStatus = toggleUserStatus;
+        window.closeModal = closeModal;
+        window.logout = logout;
+    </script>
+</body>
+</html>

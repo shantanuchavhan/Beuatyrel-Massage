@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Orders - Rose Embroidery Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; background: linear-gradient(135deg, #fef5f8 0%, #fff0f5 100%); min-height: 100vh; }
+        .admin-container { display: flex; min-height: 100vh; }
+        .admin-sidebar {
+            width: 280px;
+            background: linear-gradient(135deg, #d45a7a, #b34262);
+            color: white;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+        }
+        .admin-logo { padding: 30px 20px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.2); }
+        .admin-logo h2 { font-family: 'Cormorant Garamond', serif; font-size: 28px; }
+        .admin-menu { padding: 30px 0; }
+        .admin-menu-item {
+            padding: 12px 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        .admin-menu-item:hover, .admin-menu-item.active { background: rgba(255,255,255,0.15); color: white; padding-left: 35px; }
+        .admin-menu-item i { width: 24px; }
+        .admin-main { flex: 1; margin-left: 280px; padding: 20px; }
+        .admin-header {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .admin-header h1 { font-size: 24px; color: #b34262; }
+        .admin-user { display: flex; align-items: center; gap: 15px; }
+        .logout-btn { background: #d45a7a; color: white; border: none; padding: 8px 20px; border-radius: 30px; cursor: pointer; }
+        .data-table {
+            background: white;
+            border-radius: 20px;
+            overflow-x: auto;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+        .data-table table { width: 100%; border-collapse: collapse; }
+        .data-table th, .data-table td { padding: 15px 20px; text-align: left; border-bottom: 1px solid #eee; }
+        .data-table th { background: #fff5f8; color: #b34262; font-weight: 600; }
+        .status-badge {
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .status-pending { background: #ff9800; color: white; }
+        .status-processing { background: #2196f3; color: white; }
+        .status-shipped { background: #9c27b0; color: white; }
+        .status-delivered { background: #4caf50; color: white; }
+        .status-cancelled { background: #f44336; color: white; }
+        .btn-view {
+            background: #2196f3;
+            color: white;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            width: 90%;
+            max-width: 800px;
+            padding: 30px;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+        .modal-header h3 { color: #b34262; }
+        .close-modal { font-size: 24px; cursor: pointer; color: #999; }
+        .order-detail-row { display: flex; padding: 10px 0; border-bottom: 1px solid #f0d9e0; }
+        .order-detail-label { width: 120px; font-weight: 600; color: #b34262; }
+        .order-detail-value { flex: 1; }
+        .items-list { margin-top: 20px; }
+        .items-list table { width: 100%; border-collapse: collapse; }
+        .items-list th, .items-list td { padding: 10px; text-align: left; border-bottom: 1px solid #f0d9e0; }
+        @media (max-width: 768px) { .admin-sidebar { left: -280px; } .admin-main { margin-left: 0; } }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-sidebar">
+            <div class="admin-logo">
+                <h2><i class="fas fa-rose"></i> Rose Admin</h2>
+                <p>Embroidery Management System</p>
+            </div>
+            <div class="admin-menu">
+                <a href="index.html" class="admin-menu-item"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                <a href="products.html" class="admin-menu-item"><i class="fas fa-box"></i> Products</a>
+                <a href="orders.html" class="admin-menu-item active"><i class="fas fa-shopping-cart"></i> Orders</a>
+                <a href="users.html" class="admin-menu-item"><i class="fas fa-users"></i> Users</a>
+            </div>
+        </div>
+
+        <div class="admin-main">
+            <div class="admin-header">
+                <h1><i class="fas fa-shopping-cart"></i> Order Management</h1>
+                <div class="admin-user">
+                    <span><i class="fas fa-user"></i> Admin</span>
+                    <button class="logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </div>
+            </div>
+            
+            <div class="data-table">
+                <table>
+                    <thead>
+                        <tr><th>Order ID</th><th>Customer</th><th>Email</th><th>Items</th><th>Total</th><th>Status</th><th>Date</th><th>Actions</th></tr>
+                    </thead>
+                    <tbody id="ordersTable"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="orderModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Order Details</h3>
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+            </div>
+            <div id="orderDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        let orders = JSON.parse(localStorage.getItem('rose_orders')) || [];
+
+        function getStatusClass(status) {
+            const classes = {
+                pending: 'status-pending',
+                processing: 'status-processing',
+                shipped: 'status-shipped',
+                delivered: 'status-delivered',
+                cancelled: 'status-cancelled'
+            };
+            return classes[status] || 'status-pending';
+        }
+
+        function renderOrders() {
+            const tbody = document.getElementById('ordersTable');
+            tbody.innerHTML = orders.map(order => `
+                <tr>
+                    <td>#${order.id}</td>
+                    <td>${order.customer}</td>
+                    <td>${order.email}</td>
+                    <td>${order.items}</td>
+                    <td>₹${order.total.toLocaleString()}</td>
+                    <td><span class="status-badge ${getStatusClass(order.status)}">${order.status}</span></td>
+                    <td>${order.date}</td>
+                    <td><button class="btn-view" onclick="viewOrder(${order.id})"><i class="fas fa-eye"></i> View</button></td>
+                </tr>
+            `).join('');
+        }
+
+        function updateOrderStatus(id, status) {
+            const order = orders.find(o => o.id === id);
+            if (order) {
+                order.status = status;
+                localStorage.setItem('rose_orders', JSON.stringify(orders));
+                renderOrders();
+            }
+        }
+
+        function viewOrder(id) {
+            const order = orders.find(o => o.id === id);
+            if (order) {
+                document.getElementById('orderDetails').innerHTML = `
+                    <div class="order-detail-row">
+                        <div class="order-detail-label">Order ID:</div>
+                        <div class="order-detail-value">#${order.id}</div>
+                    </div>
+                    <div class="order-detail-row">
+                        <div class="order-detail-label">Customer Name:</div>
+                        <div class="order-detail-value">${order.customer}</div>
+                    </div>
+                    <div class="order-detail-row">
+                        <div class="order-detail-label">Email:</div>
+                        <div class="order-detail-value">${order.email}</div>
+                    </div>
+                    <div class="order-detail-row">
+                        <div class="order-detail-label">Phone:</div>
+                        <div class="order-detail-value">${order.phone || 'N/A'}</div>
+                    </div>
+                    <div class="order-detail-row">
+                        <div class="order-detail-label">Address:</div>
+                        <div class="order-detail-value">${order.address || 'N/A'}</div>
+                    </div>
+                    <div class="order-detail-row">
+                        <div class="order-detail-label">Order Date:</div>
+                        <div class="order-detail-value">${order.date}</div>
+                    </div>
+                    <div class="order-detail-row">
+                        <div class="order-detail-label">Status:</div>
+                        <div class="order-detail-value">
+                            <select onchange="updateOrderStatus(${order.id}, this.value)" style="padding:8px; border-radius:20px;">
+                                <option value="pending" ${order.status === 'pending' ? 'selected' : ''}>Pending</option>
+                                <option value="processing" ${order.status === 'processing' ? 'selected' : ''}>Processing</option>
+                                <option value="shipped" ${order.status === 'shipped' ? 'selected' : ''}>Shipped</option>
+                                <option value="delivered" ${order.status === 'delivered' ? 'selected' : ''}>Delivered</option>
+                                <option value="cancelled" ${order.status === 'cancelled' ? 'selected' : ''}>Cancelled</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="order-detail-row">
+                        <div class="order-detail-label">Subtotal:</div>
+                        <div class="order-detail-value">₹${order.subtotal ? order.subtotal.toLocaleString() : order.total.toLocaleString()}</div>
+                    </div>
+                    <div class="order-detail-row">
+                        <div class="order-detail-label">Shipping:</div>
+                        <div class="order-detail-value">₹${order.shipping ? order.shipping.toLocaleString() : '0'}</div>
+                    </div>
+                    <div class="order-detail-row">
+                        <div class="order-detail-label">Total:</div>
+                        <div class="order-detail-value"><strong>₹${order.total.toLocaleString()}</strong></div>
+                    </div>
+                    ${order.itemsList ? `
+                        <div class="items-list">
+                            <h4>Items Ordered:</h4>
+                            <table>
+                                <thead><tr><th>Product</th><th>Quantity</th><th>Price</th><th>Total</th></tr></thead>
+                                <tbody>
+                                    ${order.itemsList.map(item => `
+                                        <tr><td>${item.name}</td><td>${item.quantity}</td><td>₹${item.price.toLocaleString()}</td><td>₹${(item.price * item.quantity).toLocaleString()}</td></tr>
+                                    `).join('')}
+                                </tbody>
+                            </table>
+                        </div>
+                    ` : ''}
+                `;
+                document.getElementById('orderModal').style.display = 'flex';
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+
+        function logout() {
+            localStorage.removeItem('admin_logged_in');
+            window.location.href = 'login.html';
+        }
+
+        function checkAuth() {
+            if (!localStorage.getItem('admin_logged_in')) {
+                window.location.href = 'login.html';
+            }
+        }
+
+        checkAuth();
+        renderOrders();
+        window.updateOrderStatus = updateOrderStatus;
+        window.viewOrder = viewOrder;
+        window.closeModal = closeModal;
+        window.logout = logout;
+    </script>
+</body>
+</html>

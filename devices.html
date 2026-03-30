@@ -28,7 +28,11 @@
       overflow-x: hidden;
     }
 
-    h1, h2, h3, h4, .section-title {
+    h1,
+    h2,
+    h3,
+    h4,
+    .section-title {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 600;
     }
@@ -40,21 +44,19 @@
     }
 
     /* Navbar - Rose Theme matching main template */
-    
 
-    
 
-    
 
-    
 
-    
 
-    
 
-    .navbar.scrolled 
 
-    .nav-attribute:hover {
+
+
+
+
+
+    .navbar.scrolled .nav-attribute:hover {
       color: #ffb6c1;
     }
 
@@ -76,13 +78,7 @@
       display: inline-block;
     }
 
-    .nav-item>
-
-    .navbar.scrolled .nav-item>
-
-    .nav-item:hover>
-
-    .dropdown-content {
+    .nav-item>.navbar.scrolled .nav-item>.nav-item:hover>.dropdown-content {
       position: absolute;
       top: calc(100% + 5px);
       left: 0;
@@ -155,7 +151,7 @@
       padding-left: 32px;
     }
 
-    
+
 
     /* Hero Section - Rose gradient overlay */
     .hero-section {
@@ -267,7 +263,8 @@
 
     .gallery-main img {
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
       display: block;
     }
 
@@ -355,55 +352,7 @@
       font-size: 14px;
     }
 
-    /* Accordion */
-    .accordion {
-      margin-top: 30px;
-    }
 
-    .accordion-item {
-      border: 1px solid rgba(212, 90, 122, 0.2);
-      border-radius: 16px;
-      margin-bottom: 15px;
-      overflow: hidden;
-      background: #fff;
-    }
-
-    .accordion-header {
-      background: #fff;
-      padding: 18px 24px;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      font-size: 16px;
-      color: #d45a7a;
-    }
-
-    .accordion-header i {
-      transition: transform 0.3s;
-      color: #d45a7a;
-    }
-
-    .accordion-header.collapsed i {
-      transform: rotate(0deg);
-    }
-
-    .accordion-header:not(.collapsed) i {
-      transform: rotate(45deg);
-    }
-
-    .accordion-body {
-      padding: 0 24px 24px 24px;
-      color: #666;
-      line-height: 1.7;
-      display: none;
-      border-top: 1px solid rgba(212, 90, 122, 0.1);
-    }
-
-    .accordion-body.show {
-      display: block;
-    }
 
     /* Tech Specs Section */
     .tech-specs-section {
@@ -520,9 +469,18 @@
       color: #888;
     }
 
-   /* Footer */
-        footer { background: linear-gradient(125deg, #fa6992 0%, #ca3061 100%);color: #fff; padding: 60px 0 30px; text-align: center; }
-        footer h4 { font-size: 28px; margin-bottom: 20px; }
+    /* Footer */
+    footer {
+      background: linear-gradient(125deg, #fa6992 0%, #ca3061 100%);
+      color: #fff;
+      padding: 60px 0 30px;
+      text-align: center;
+    }
+
+    footer h4 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
 
 
     .social-icons {
@@ -563,284 +521,540 @@
 
     /* Mobile Responsive */
     @media (max-width: 768px) {
-      
-      
-      .navbar.scrolled 
-      
-      
-      
-      
-      
-      
-      
-      .hero-section { height: 55vh; min-height: 400px; background-attachment: scroll; }
-      .hero-content h1 { font-size: 32px; }
-      .hero-content p { font-size: 14px; }
-      .product-grid { grid-template-columns: 1fr; gap: 40px; }
-      .product-gallery { flex-direction: column-reverse; }
-      .gallery-thumbs { flex-direction: row; width: 100%; justify-content: center; }
-      .tech-specs-section { padding: 25px; }
-      .related-section h2 { font-size: 32px; }
+
+
+      .navbar.scrolled .hero-section {
+        height: 55vh;
+        min-height: 400px;
+        background-attachment: scroll;
+      }
+
+      .hero-content h1 {
+        font-size: 32px;
+      }
+
+      .hero-content p {
+        font-size: 14px;
+      }
+
+      .product-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .product-gallery {
+        flex-direction: column-reverse;
+      }
+
+      .gallery-thumbs {
+        flex-direction: row;
+        width: 100%;
+        justify-content: center;
+      }
+
+      .tech-specs-section {
+        padding: 25px;
+      }
+
+      .related-section h2 {
+        font-size: 32px;
+      }
     }
 
-    @media (min-width: 769px) and (max-width: 1024px) {
-      
-      
+    @media (min-width: 769px) and (max-width: 1024px) {}
+
+    .cart-icon {
+      position: relative;
     }
-  
-        .cart-icon { position: relative; }
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -12px;
-            background: linear-gradient(135deg, #d45a7a, #b34262);
-            color: white;
-            font-size: 10px;
-            font-weight: bold;
-            padding: 2px 6px;
-            border-radius: 50%;
-            animation: pulse 1.5s infinite;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
-        }
 
-    
-        /* Tetro-style Footer */
-        .tetro-footer {
-            background: #142435;
-            color: #fff;
-            padding: 70px 0 30px;
-            font-family: 'Montserrat', sans-serif;
-            text-align: left;
-        }
-        .tetro-footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-        .tetro-footer-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-        .tetro-footer-col {
-            flex: 1;
-            min-width: 280px;
-        }
-        .tetro-footer-col.col-brand p {
-            color: #f8f9fa;
-            line-height: 1.8;
-            margin-bottom: 25px;
-            font-size: 15px;
-            opacity: 0.9;
-        }
-        .footer-brand {
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-        .footer-brand h2 {
-            color: #fff;
-            font-weight: 700;
-            font-size: 32px;
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-        }
-        .footer-brand span {
-            color: #d45a7a;
-        }
-        .tetro-social-links {
-            display: flex;
-            gap: 12px;
-        }
-        .tetro-social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: #fff;
-            color: #d45a7a;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 18px;
-        }
-        .tetro-social-links a:hover {
-            background: #d45a7a;
-            color: #fff;
-            transform: translateY(-3px);
-        }
-        .tetro-footer-col h3 {
-            color: #d45a7a;
-            font-size: 24px;
-            margin-bottom: 25px;
-            font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
-        }
-        .tetro-quick-links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .tetro-quick-links a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 15px;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            opacity: 0.9;
-        }
-        .tetro-quick-links a i {
-            color: #d45a7a;
-            margin-right: 12px;
-            font-size: 12px;
-        }
-        .tetro-quick-links a:hover {
-            color: #d45a7a;
-            padding-left: 8px;
-            opacity: 1;
-        }
-        .tetro-contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-        .tetro-contact-info a, .tetro-contact-info p {
-            color: #fff;
-            text-decoration: none;
-            font-size: 15px;
-            display: flex;
-            align-items: flex-start;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            padding: 16px 0;
-            margin: 0;
-            line-height: 1.5;
-            opacity: 0.9;
-        }
-        .tetro-contact-info a:first-child {
-            padding-top: 0;
-        }
-        .tetro-contact-info a:last-child, .tetro-contact-info p:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-        .tetro-contact-info i {
-            color: #d45a7a;
-            margin-right: 15px;
-            margin-top: 4px;
-            width: 16px;
-            text-align: center;
-        }
-        .tetro-contact-info a:hover {
-            color: #d45a7a;
-            opacity: 1;
-        }
-        .tetro-footer-divider {
-            border: none;
-            height: 1px;
-            background: rgba(255,255,255,0.1);
-            margin: 0 0 25px 0;
-        }
-        .tetro-footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .tetro-copyright {
-            color: #fff;
-            font-size: 14px;
-            opacity: 0.8;
-        }
-        .tetro-copyright a {
-            color: #d45a7a;
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .tetro-copyright a:hover {
-            text-decoration: underline;
-        }
-        .tetro-tagline {
-            color: #fff;
-            font-size: 14px;
-            opacity: 0.8;
-            font-weight: 500;
-        }
-        @media (max-width: 768px) {
-            .tetro-footer-row {
-                flex-direction: column;
-                gap: 30px;
-            }
-            .tetro-footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-        }
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -12px;
+      background: linear-gradient(135deg, #d45a7a, #b34262);
+      color: white;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+    }
 
-    
-/* UNIVERSAL NAVBAR STYLES */
-.navbar { position: fixed; top: 0; left: 0; width: 100%; padding: 12px 0; z-index: 1000; transition: all 0.4s ease; background: rgba(255, 255, 255, 0.98); box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-.navbar.scrolled { backdrop-filter: blur(10px); padding: 8px 0; box-shadow: 0 5px 20px rgba(212, 90, 122, 0.15); background: rgba(255,255,255,0.95); }
-.nav-container { max-width: 1200px; margin: 0 auto; padding: 0 30px; display: flex; justify-content: space-between; align-items: center; }
-.logo img { height: 60px; transition: all 0.3s ease; }
-.nav-links { display: flex; align-items: center; gap: 28px; }
-.nav-attribute { color: #3e2a2f; text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s; position: relative; }
-.nav-attribute::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: #d45a7a; transition: width 0.3s ease; }
-.nav-attribute:hover::after, .nav-attribute.active::after { width: 100%; }
-.nav-attribute:hover, .nav-attribute.active { color: #d45a7a; }
-.cart-icon { position: relative; display: flex; align-items: center; }
-.cart-icon i { font-size: 16px; }
-.cart-count { position: absolute; top: -10px; right: -14px; background: linear-gradient(135deg, #d45a7a, #b34262); color: white; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 50%; animation: pulse 1.5s infinite; border: 2px solid white; }
-@keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.15); } 100% { transform: scale(1); } }
-.hamburger, .sidebar, .overlay { display: none; }
-@media (max-width: 768px) {
-    .hamburger { display: block; cursor: pointer; z-index: 1001; }
-    .hamburger span { display: block; width: 26px; height: 2px; background: #b34262; margin: 6px 0; transition: 0.3s; border-radius: 2px; }
-    .navbar.scrolled .hamburger span { background: #d45a7a; }
-    .sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100%; background: linear-gradient(145deg, #fff9fb, #fff0f4); padding: 90px 28px 30px; display: flex; flex-direction: column; gap: 18px; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 10000; box-shadow: 4px 0 20px rgba(0,0,0,0.1); }
-    .sidebar.active { left: 0; }
-    .sidebar a { color: #3e2a2f; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 0; border-bottom: 1px solid rgba(212, 90, 122, 0.1); display: flex; align-items: center; gap: 12px; transition: 0.3s; }
-    .sidebar a:hover, .sidebar a.active { color: #d45a7a; padding-left: 5px; }
-    .sidebar .close-btn { position: absolute; top: 20px; right: 24px; font-size: 28px; cursor: pointer; color: #b34262; transition: 0.3s; }
-    .sidebar .close-btn:hover { transform: rotate(90deg); color: #d45a7a; }
-    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: 0.3s; z-index: 9999; backdrop-filter: blur(3px); }
-    .overlay.active { opacity: 1; visibility: visible; }
-    .nav-links { display: none !important; }
-}
-@media (min-width: 769px) { .hamburger, .sidebar, .overlay { display: none !important; } .nav-links { display: flex !important; } }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
 
-</style>
+      50% {
+        transform: scale(1.2);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+
+    /* Tetro-style Footer */
+    .tetro-footer {
+      background: linear-gradient(135deg, #d45a7a, #b34262);
+      color: #fff;
+      padding: 70px 0 30px;
+      font-family: 'Montserrat', sans-serif;
+      text-align: left;
+    }
+
+    .tetro-footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 30px;
+    }
+
+    .tetro-footer-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .tetro-footer-col {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .tetro-footer-col.col-brand p {
+      color: #f8f9fa;
+      line-height: 1.8;
+      margin-bottom: 25px;
+      font-size: 15px;
+      opacity: 0.9;
+    }
+
+    .footer-brand {
+      text-decoration: none;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+
+    .footer-brand h2 {
+      color: #fff;
+      font-weight: 700;
+      font-size: 32px;
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+    }
+
+    .footer-brand span {
+      color: #d45a7a;
+    }
+
+    .tetro-social-links {
+      display: flex;
+      gap: 12px;
+    }
+
+    .tetro-social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: #fff;
+      color: #d45a7a;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 18px;
+    }
+
+    .tetro-social-links a:hover {
+      background: #d45a7a;
+      color: #fff;
+      transform: translateY(-3px);
+    }
+
+    .tetro-footer-col h3 {
+      color: #d45a7a;
+      font-size: 24px;
+      margin-bottom: 25px;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .tetro-quick-links {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .tetro-quick-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      transition: 0.3s;
+      display: flex;
+      align-items: center;
+      opacity: 0.9;
+    }
+
+    .tetro-quick-links a i {
+      color: #d45a7a;
+      margin-right: 12px;
+      font-size: 12px;
+    }
+
+    .tetro-quick-links a:hover {
+      color: #d45a7a;
+      padding-left: 8px;
+      opacity: 1;
+    }
+
+    .tetro-contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .tetro-contact-info a,
+    .tetro-contact-info p {
+      color: #fff;
+      text-decoration: none;
+      font-size: 15px;
+      display: flex;
+      align-items: flex-start;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 16px 0;
+      margin: 0;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+
+    .tetro-contact-info a:first-child {
+      padding-top: 0;
+    }
+
+    .tetro-contact-info a:last-child,
+    .tetro-contact-info p:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .tetro-contact-info i {
+      color: #d45a7a;
+      margin-right: 15px;
+      margin-top: 4px;
+      width: 16px;
+      text-align: center;
+    }
+
+    .tetro-contact-info a:hover {
+      color: #d45a7a;
+      opacity: 1;
+    }
+
+    .tetro-footer-divider {
+      border: none;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.1);
+      margin: 0 0 25px 0;
+    }
+
+    .tetro-footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .tetro-copyright {
+      color: #fff;
+      font-size: 14px;
+      opacity: 0.8;
+    }
+
+    .tetro-copyright a {
+      color: #d45a7a;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .tetro-copyright a:hover {
+      text-decoration: underline;
+    }
+
+    .tetro-tagline {
+      color: #fff;
+      font-size: 14px;
+      opacity: 0.8;
+      font-weight: 500;
+    }
+
+    @media (max-width: 768px) {
+      .tetro-footer-row {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .tetro-footer-bottom {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+      }
+    }
+
+
+    /* UNIVERSAL NAVBAR STYLES */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 12px 0;
+      z-index: 1000;
+      transition: all 0.4s ease;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .navbar.scrolled {
+      backdrop-filter: blur(10px);
+      padding: 8px 0;
+      box-shadow: 0 5px 20px rgba(212, 90, 122, 0.15);
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo img {
+      height: 60px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-attribute {
+      color: #3e2a2f;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: all 0.3s;
+      position: relative;
+    }
+
+    .nav-attribute::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #d45a7a;
+      transition: width 0.3s ease;
+    }
+
+    .nav-attribute:hover::after,
+    .nav-attribute.active::after {
+      width: 100%;
+    }
+
+    .nav-attribute:hover,
+    .nav-attribute.active {
+      color: #d45a7a;
+    }
+
+    .cart-icon {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .cart-icon i {
+      font-size: 16px;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -10px;
+      right: -14px;
+      background: linear-gradient(135deg, #d45a7a, #b34262);
+      color: white;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+      border: 2px solid white;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.15);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .hamburger,
+    .sidebar,
+    .overlay {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+        cursor: pointer;
+        z-index: 1001;
+      }
+
+      .hamburger span {
+        display: block;
+        width: 26px;
+        height: 2px;
+        background: #b34262;
+        margin: 6px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+      }
+
+      .navbar.scrolled .hamburger span {
+        background: #d45a7a;
+      }
+
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -300px;
+        width: 280px;
+        height: 100%;
+        background: linear-gradient(145deg, #fff9fb, #fff0f4);
+        padding: 90px 28px 30px;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+        transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 10000;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .sidebar.active {
+        left: 0;
+      }
+
+      .sidebar a {
+        color: #3e2a2f;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 12px 0;
+        border-bottom: 1px solid rgba(212, 90, 122, 0.1);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        transition: 0.3s;
+      }
+
+      .sidebar a:hover,
+      .sidebar a.active {
+        color: #d45a7a;
+        padding-left: 5px;
+      }
+
+      .sidebar .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        font-size: 28px;
+        cursor: pointer;
+        color: #b34262;
+        transition: 0.3s;
+      }
+
+      .sidebar .close-btn:hover {
+        transform: rotate(90deg);
+        color: #d45a7a;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s;
+        z-index: 9999;
+        backdrop-filter: blur(3px);
+      }
+
+      .overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .nav-links {
+        display: none !important;
+      }
+    }
+
+    @media (min-width: 769px) {
+
+      .hamburger,
+      .sidebar,
+      .overlay {
+        display: none !important;
+      }
+
+      .nav-links {
+        display: flex !important;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-        <div class="logo"><img src="./images/logo.png" alt="Rose Embroidery"></div>
-        <div class="nav-links">
-            <a class="nav-attribute" href="index.html">Home</a>
-            <a class="nav-attribute" href="about.html">About</a>
-            <a class="nav-attribute" href="products.html">Shop</a>
-            <a class="nav-attribute" href="gallery.html">Gallery</a>
-            <a class="nav-attribute" href="contact.html">Contact</a>
-            <a class="nav-attribute" href="login.html"><i class="fas fa-user"></i> Login</a>
-            <a class="nav-attribute cart-icon" href="cart.html">
-                <i class="fas fa-shopping-cart"></i> 
-                <span class="cart-count" id="cartCount">0</span>
-            </a>
-        </div>
-        <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+      <div class="logo"><img src="./images/logo.png" alt="Rose Embroidery"></div>
+      <div class="nav-links">
+        <a class="nav-attribute" href="index.html">Home</a>
+        <a class="nav-attribute" href="about.html">About</a>
+        <a class="nav-attribute" href="products.html">Shop</a>
+        <a class="nav-attribute" href="gallery.html">Gallery</a>
+        <a class="nav-attribute" href="contact.html">Contact</a>
+        <a class="nav-attribute" href="login.html"><i class="fas fa-user"></i> Login</a>
+        <a class="nav-attribute cart-icon" href="cart.html">
+          <i class="fas fa-shopping-cart"></i>
+          <span class="cart-count" id="cartCount">0</span>
+        </a>
+      </div>
+      <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
     </div>
-</nav>
-<div class="sidebar" id="sidebar">
+  </nav>
+  <div class="sidebar" id="sidebar">
     <div class="close-btn" onclick="toggleMenu()">✕</div>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
     <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
@@ -849,8 +1063,8 @@
     <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
     <a href="login.html"><i class="fas fa-user"></i> Login</a>
     <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart <span id="mobileCartCount">0</span></a>
-</div>
-<div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+  </div>
+  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
   <!-- Hero Section -->
   <section class="hero-section">
@@ -858,7 +1072,8 @@
       <h2 id="heroCategory">Premium Attachment Device</h2>
       <h1 id="heroTitle">OLH-098A</h1>
       <p id="heroSubtitle">Twin Sequin + Triple Beads Device for Embroidery Machines</p>
-      <div class="hero-badge" id="heroBadge"><i class="fas fa-gem"></i> Premium Attachment • ISO9001:2000 Certified</div>
+      <div class="hero-badge" id="heroBadge"><i class="fas fa-gem"></i> Premium Attachment • ISO9001:2000 Certified
+      </div>
     </div>
   </section>
 
@@ -876,7 +1091,9 @@
         <div class="product-info" data-aos="fade-left">
           <div class="device-badge" id="deviceBadge"><i class="fas fa-microchip"></i> Premium Attachment Device</div>
           <h2 id="productName">Loading...</h2>
-          <button class="btn-enquire" onclick="alert('📞 For purchase inquiries, contact +91 90255 52206 or email Drroslineg@gmail.com')">Enquire Now <i class="fas fa-arrow-right"></i></button>
+          <button class="btn-enquire"
+            onclick="alert('📞 For purchase inquiries, contact +91 90255 52206 or email Drroslineg@gmail.com')">Enquire
+            Now <i class="fas fa-arrow-right"></i></button>
           <ul class="feature-list" id="featureList"></ul>
           <div class="product-messages">
             <span><i class="fas fa-check-circle"></i> 1 Year Warranty</span>
@@ -885,35 +1102,7 @@
             <span><i class="fas fa-globe"></i> Worldwide Shipping</span>
           </div>
 
-          <div class="accordion">
-            <div class="accordion-item">
-              <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
-                <span>Terms and Conditions</span>
-                <i class="fas fa-plus"></i>
-              </div>
-              <div class="accordion-body">
-                <p>Rose Embroidery provides products, consultancy, and export-import services. By using our website or making a purchase, you agree to our Terms and Conditions. Product details are as accurate as possible but may vary. Orders may be cancelled for errors or unavailability. Returns are accepted per our Return Policy.</p>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
-                <span>Privacy Policy</span>
-                <i class="fas fa-plus"></i>
-              </div>
-              <div class="accordion-body">
-                <p>We respect your privacy and protect your personal data. Information is used to process orders and improve services. Your data is secured with encryption and shared only with trusted partners when necessary.</p>
-              </div>
-            </div>
-            <div class="accordion-item">
-              <div class="accordion-header collapsed" onclick="toggleAccordion(this)">
-                <span>Refund & Return Policy</span>
-                <i class="fas fa-plus"></i>
-              </div>
-              <div class="accordion-body">
-                <p>Return requests accepted within 7 days of delivery for unused products in original packaging. Manufacturing defects, wrong items, or shipping damage qualify for returns. Refunds processed within 7-10 business days after inspection.</p>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
 
@@ -935,54 +1124,59 @@
       <div class="related-grid" id="relatedGrid"></div>
     </div>
   </section>
-<footer class="tetro-footer">
+  <footer class="tetro-footer">
     <div class="tetro-footer-container">
-        <div class="tetro-footer-row">
-            <div class="tetro-footer-col col-brand">
-                <a href="index.html" class="footer-brand">
-                    <h2>Rose <span>Embroidery</span></h2>
-                </a>
-                <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship with precision and quality.</p>
-                <div class="tetro-social-links">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                </div>
-            </div>
-            
-            <div class="tetro-footer-col col-links">
-                <h3>Quick Links</h3>
-                <div class="tetro-quick-links">
-                    <a href="about.html"><i class="fas fa-angle-right"></i>About Us</a>
-                    <a href="products.html"><i class="fas fa-angle-right"></i>Shop Products</a>
-                    <a href="gallery.html"><i class="fas fa-angle-right"></i>Gallery</a>
-                    <a href="contact.html"><i class="fas fa-angle-right"></i>Contact Us</a>
-                    <a href="#"><i class="fas fa-angle-right"></i>Privacy Policy</a>
-                </div>
-            </div>
-            
-            <div class="tetro-footer-col col-contact">
-                <h3>Contact Info</h3>
-                <div class="tetro-contact-info">
-                    <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</a>
-                    <a href="tel:+91902555206"><i class="fas fa-phone-alt"></i>+91 902555206</a>
-                    <a href="mailto:Drroslineg@gmail.com"><i class="fas fa-envelope"></i>Drroslineg@gmail.com</a>
-                    <p><i class="fas fa-clock"></i>Mon-Sat: 9AM - 7PM</p>
-                </div>
-            </div>
+      <div class="tetro-footer-row">
+        <div class="tetro-footer-col col-brand">
+          <a href="index.html" class="footer-brand">
+            <h2>Rose <span>Embroidery</span></h2>
+          </a>
+          <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship with
+            precision and quality.</p>
+          <div class="tetro-social-links">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
         </div>
-        <hr class="tetro-footer-divider">
-        <div class="tetro-footer-bottom">
-            <div class="tetro-copyright">
-                <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose Embroidery</a>. All rights reserved.
-            </div>
-            <div class="tetro-tagline">
-                Quality Precision Trust
-            </div>
+
+        <div class="tetro-footer-col col-links">
+          <h3>Quick Links</h3>
+          <div class="tetro-quick-links">
+            <a href="about.html"><i class="fas fa-angle-right"></i>About Us</a>
+            <a href="products.html"><i class="fas fa-angle-right"></i>Shop Products</a>
+            <a href="gallery.html"><i class="fas fa-angle-right"></i>Gallery</a>
+            <a href="contact.html"><i class="fas fa-angle-right"></i>Contact Us</a>
+            <a href="#"><i class="fas fa-angle-right"></i>Terms & Conditions</a>
+            <a href="#"><i class="fas fa-angle-right"></i>Privacy Policy</a>
+            <a href="#"><i class="fas fa-angle-right"></i>Refund & Return Policy</a>
+          </div>
         </div>
+
+        <div class="tetro-footer-col col-contact">
+          <h3>Contact Info</h3>
+          <div class="tetro-contact-info">
+            <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu madhuravoyal
+              chennai 600095</a>
+            <a href="tel:+91902555206"><i class="fas fa-phone-alt"></i>+91 902555206</a>
+            <a href="mailto:Drroslineg@gmail.com"><i class="fas fa-envelope"></i>Drroslineg@gmail.com</a>
+            <p><i class="fas fa-clock"></i>Mon-Sat: 9AM - 7PM</p>
+          </div>
+        </div>
+      </div>
+      <hr class="tetro-footer-divider">
+      <div class="tetro-footer-bottom">
+        <div class="tetro-copyright">
+          <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose
+            Embroidery</a>. All rights reserved.
+        </div>
+        <div class="tetro-tagline">
+          Quality Precision Trust
+        </div>
+      </div>
     </div>
-</footer>
+  </footer>
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
@@ -1108,31 +1302,31 @@
 
     function getCurrentDeviceId() {
       const hash = window.location.hash.substring(1);
-      if (hash && devicesDatabase[hash]) return hash;
+      if (hash) return hash;
       return 'olh-098a';
     }
 
     function loadDevice(deviceId) {
       let device = devicesDatabase[deviceId];
-      
+
       // Fallback to dynamic loading from products database in localStorage
       if (!device) {
         const storedProducts = JSON.parse(localStorage.getItem('rose_products') || '[]');
         const dynamicProduct = storedProducts.find(p => p.slug === deviceId);
-        
+
         if (dynamicProduct) {
-            device = {
-                id: dynamicProduct.slug,
-                name: dynamicProduct.name,
-                shortName: dynamicProduct.name,
-                category: dynamicProduct.category === 'machine' ? 'Embroidery Machine' : 'Attachment Device',
-                badge: dynamicProduct.badge || 'New Arrival',
-                image: dynamicProduct.image,
-                description: dynamicProduct.desc,
-                features: dynamicProduct.specs.map(s => `<i class="fas fa-check-circle"></i> ${s}`),
-                techSpecs: dynamicProduct.specs,
-                compatibility: 'Compatible with Rose Embroidery ecosystem'
-            };
+          device = {
+            id: dynamicProduct.slug,
+            name: dynamicProduct.name,
+            shortName: dynamicProduct.name,
+            category: dynamicProduct.category === 'machine' ? 'Embroidery Machine' : 'Attachment Device',
+            badge: dynamicProduct.badge || 'New Arrival',
+            image: dynamicProduct.image,
+            description: dynamicProduct.desc,
+            features: dynamicProduct.specs.map(s => `<i class="fas fa-check-circle"></i> ${s}`),
+            techSpecs: dynamicProduct.specs,
+            compatibility: 'Compatible with Rose Embroidery ecosystem'
+          };
         }
       }
 
@@ -1145,19 +1339,19 @@
       document.getElementById('deviceBadge').innerHTML = `<i class="fas fa-microchip"></i> ${device.category}`;
       document.getElementById('productName').innerText = device.name;
       document.getElementById('mainImage').src = device.image;
-      
+
       const featureList = document.getElementById('featureList');
       featureList.innerHTML = device.features.map(f => `<li>${f}</li>`).join('');
-      
+
       const techGrid = document.getElementById('techSpecsGrid');
       const half = Math.ceil(device.techSpecs.length / 2);
       techGrid.innerHTML = `
         <div class="spec-card"><ul>${device.techSpecs.slice(0, half).map(s => `<li><i class="fas fa-microchip"></i> ${s}</li>`).join('')}</ul></div>
         <div class="spec-card"><ul>${device.techSpecs.slice(half).map(s => `<li><i class="fas fa-plug"></i> ${s}</li>`).join('')}<li><i class="fas fa-tools"></i> Warranty: 1 Year Comprehensive</li></ul></div>
       `;
-      
+
       document.getElementById('compatibilityInfo').innerHTML = `<i class="fas fa-exchange-alt"></i> ${device.compatibility}`;
-      
+
       const galleryThumbs = document.getElementById('galleryThumbs');
       const thumbImages = [device.image, device.image, device.image];
       galleryThumbs.innerHTML = thumbImages.map((img, idx) => `
@@ -1228,25 +1422,25 @@
 
     window.changeImage = changeImage;
     window.toggleAccordion = toggleAccordion;
-    
+
     // Update cart count from localStorage
     function updateCartCount() {
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
-        let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-        const cartCountSpan = document.getElementById('cartCount');
-        const mobileCartSpan = document.getElementById('mobileCartCount');
-        if (cartCountSpan) cartCountSpan.innerText = totalItems;
-        if (mobileCartSpan) mobileCartSpan.innerText = totalItems;
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const cartCountSpan = document.getElementById('cartCount');
+      const mobileCartSpan = document.getElementById('mobileCartCount');
+      if (cartCountSpan) cartCountSpan.innerText = totalItems;
+      if (mobileCartSpan) mobileCartSpan.innerText = totalItems;
     }
-    
+
     // Initialize cart count
     updateCartCount();
-    
+
     // Listen for storage changes (when cart updates from other pages)
-    window.addEventListener('storage', function(e) {
-        if (e.key === 'cart') {
-            updateCartCount();
-        }
+    window.addEventListener('storage', function (e) {
+      if (e.key === 'cart') {
+        updateCartCount();
+      }
     });
 
     window.toggleMenu = toggleMenu;

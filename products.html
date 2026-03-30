@@ -25,10 +25,7 @@
             overflow-x: hidden;
         }
 
-        h1,
-        h2,
-        h3,
-        h4 {
+        h1, h2, h3, h4 {
             font-family: 'Cormorant Garamond', serif;
             font-weight: 600;
         }
@@ -40,67 +37,25 @@
         }
 
         @keyframes float {
-            0% {
-                transform: translateY(0px) rotate(0deg);
-            }
-
-            50% {
-                transform: translateY(-20px) rotate(5deg);
-            }
-
-            100% {
-                transform: translateY(0px) rotate(0deg);
-            }
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
         }
 
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 0.3;
-            }
-
-            100% {
-                transform: scale(1.5);
-                opacity: 0;
-            }
+            0% { transform: scale(1); opacity: 0.3; }
+            100% { transform: scale(1.5); opacity: 0; }
         }
 
         @keyframes shimmer {
-            0% {
-                background-position: -200% 0;
-            }
-
-            100% {
-                background-position: 200% 0;
-            }
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         .cart-icon {
             position: relative;
@@ -206,10 +161,6 @@
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-        }
-
-        .filter-section h4 i {
-            display: none;
         }
 
         .filter-options {
@@ -368,7 +319,7 @@
 
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 30px;
         }
 
@@ -495,19 +446,20 @@
 
         .button-group {
             display: flex;
-            gap: 10px;
+            gap: 8px;
             margin-top: 18px;
+            flex-wrap: wrap;
         }
 
         .btn-view-details {
             flex: 1;
             background: #fff;
             border: 1px solid #ddd;
-            padding: 12px;
+            padding: 10px 8px;
             border-radius: 6px;
             color: #333;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 12px;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
@@ -528,17 +480,17 @@
             flex: 1;
             background: #212529;
             border: 1px solid #212529;
-            padding: 12px;
+            padding: 10px 8px;
             border-radius: 6px;
             color: white;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 12px;
             cursor: pointer;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 6px;
             position: relative;
             overflow: hidden;
         }
@@ -563,6 +515,30 @@
             box-shadow: 0 5px 15px rgba(212, 90, 122, 0.4);
             background: #d45a7a;
             border-color: #d45a7a;
+        }
+
+        .btn-request-quote {
+            flex: 1;
+            background: #ffc107;
+            border: 1px solid #ffc107;
+            padding: 10px 8px;
+            border-radius: 6px;
+            color: #212529;
+            font-weight: 600;
+            font-size: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .btn-request-quote:hover {
+            background: #e0a800;
+            border-color: #e0a800;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.4);
         }
 
         .no-results {
@@ -604,63 +580,154 @@
             margin-right: 10px;
         }
 
+        /* Quote Modal */
+        .quote-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .quote-modal-content {
+            background: white;
+            border-radius: 24px;
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            animation: fadeInUp 0.3s ease;
+        }
+
+        .quote-modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0d9e0;
+        }
+
+        .quote-modal-header h3 {
+            color: #b34262;
+            font-size: 24px;
+        }
+
+        .quote-modal-header .close-quote {
+            font-size: 28px;
+            cursor: pointer;
+            color: #999;
+            transition: 0.3s;
+        }
+
+        .quote-modal-header .close-quote:hover {
+            color: #d45a7a;
+        }
+
+        .quote-product-info {
+            background: #fff5f7;
+            padding: 15px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .quote-product-info img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+
+        .quote-product-info h4 {
+            color: #b34262;
+            margin-bottom: 5px;
+            font-size: 16px;
+        }
+
+        .quote-product-info p {
+            font-size: 14px;
+            color: #d45a7a;
+            font-weight: 600;
+        }
+
+        .quote-form-group {
+            margin-bottom: 18px;
+        }
+
+        .quote-form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #555;
+            font-size: 13px;
+        }
+
+        .quote-form-group input,
+        .quote-form-group textarea,
+        .quote-form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #f0d9e0;
+            border-radius: 12px;
+            font-family: inherit;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .quote-form-group input:focus,
+        .quote-form-group textarea:focus,
+        .quote-form-group select:focus {
+            outline: none;
+            border-color: #d45a7a;
+        }
+
+        .quote-form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .submit-quote-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #d45a7a, #b34262);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 10px;
+        }
+
+        .submit-quote-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 90, 122, 0.4);
+        }
 
         @media (max-width: 992px) {
-            .filters-sidebar {
-                width: 280px;
-            }
+            .filters-sidebar { width: 280px; }
         }
 
         @media (max-width: 768px) {
-
-
-
-
-
-
-
-
-
-            .shop-layout {
-                flex-direction: column;
-            }
-
-            .filters-sidebar {
-                width: 100%;
-                position: static;
-            }
-
-            .shop-hero {
-                padding: 130px 0 50px;
-            }
-
-            .shop-hero h1 {
-                font-size: 40px;
-            }
-
-            .container {
-                padding: 0 20px;
-            }
-
-            .shop-controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .search-wrapper {
-                max-width: 100%;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .button-group {
-                flex-direction: column;
-            }
+            .shop-layout { flex-direction: column; }
+            .filters-sidebar { width: 100%; position: static; }
+            .shop-hero { padding: 130px 0 50px; }
+            .shop-hero h1 { font-size: 40px; }
+            .container { padding: 0 20px; }
+            .shop-controls { flex-direction: column; align-items: stretch; }
+            .search-wrapper { max-width: 100%; }
+            .products-grid { grid-template-columns: 1fr; }
+            .button-group { flex-direction: column; }
+            .btn-view-details, .add-to-cart, .btn-request-quote { width: 100%; }
         }
-
-        @media (min-width: 769px) {}
 
         /* Tetro-style Footer */
         .tetro-footer {
@@ -709,10 +776,6 @@
             font-size: 32px;
             font-family: 'Montserrat', sans-serif;
             margin: 0;
-        }
-
-        .footer-brand span {
-            color: #d45a7a;
         }
 
         .tetro-social-links {
@@ -765,13 +828,11 @@
         }
 
         .tetro-quick-links a i {
-          
             margin-right: 12px;
             font-size: 12px;
         }
 
         .tetro-quick-links a:hover {
-          
             padding-left: 8px;
             opacity: 1;
         }
@@ -814,11 +875,6 @@
             text-align: center;
         }
 
-        .tetro-contact-info a:hover {
-            color: #d45a7a;
-            opacity: 1;
-        }
-
         .tetro-footer-divider {
             border: none;
             height: 1px;
@@ -840,16 +896,6 @@
             opacity: 0.8;
         }
 
-        .tetro-copyright a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .tetro-copyright a:hover {
-            text-decoration: underline;
-        }
-
         .tetro-tagline {
             color: #fff;
             font-size: 14px;
@@ -857,21 +903,7 @@
             font-weight: 500;
         }
 
-        @media (max-width: 768px) {
-            .tetro-footer-row {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .tetro-footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-        }
-
-
-        /* UNIVERSAL NAVBAR STYLES */
+        /* Navbar Styles */
         .navbar {
             position: fixed;
             top: 0;
@@ -943,47 +975,7 @@
             color: #d45a7a;
         }
 
-        .cart-icon {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .cart-icon i {
-            font-size: 16px;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -10px;
-            right: -14px;
-            background: linear-gradient(135deg, #d45a7a, #b34262);
-            color: white;
-            font-size: 10px;
-            font-weight: bold;
-            padding: 2px 6px;
-            border-radius: 50%;
-            animation: pulse 1.5s infinite;
-            border: 2px solid white;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.15);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .hamburger,
-        .sidebar,
-        .overlay {
+        .hamburger, .sidebar, .overlay {
             display: none;
         }
 
@@ -993,7 +985,6 @@
                 cursor: pointer;
                 z-index: 1001;
             }
-
             .hamburger span {
                 display: block;
                 width: 26px;
@@ -1003,11 +994,9 @@
                 transition: 0.3s;
                 border-radius: 2px;
             }
-
             .navbar.scrolled .hamburger span {
                 background: #d45a7a;
             }
-
             .sidebar {
                 position: fixed;
                 top: 0;
@@ -1023,11 +1012,9 @@
                 z-index: 10000;
                 box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
             }
-
             .sidebar.active {
                 left: 0;
             }
-
             .sidebar a {
                 color: #3e2a2f;
                 text-decoration: none;
@@ -1038,15 +1025,7 @@
                 display: flex;
                 align-items: center;
                 gap: 12px;
-                transition: 0.3s;
             }
-
-            .sidebar a:hover,
-            .sidebar a.active {
-                color: #d45a7a;
-                padding-left: 5px;
-            }
-
             .sidebar .close-btn {
                 position: absolute;
                 top: 20px;
@@ -1054,14 +1033,7 @@
                 font-size: 28px;
                 cursor: pointer;
                 color: #b34262;
-                transition: 0.3s;
             }
-
-            .sidebar .close-btn:hover {
-                transform: rotate(90deg);
-                color: #d45a7a;
-            }
-
             .overlay {
                 position: fixed;
                 top: 0;
@@ -1075,25 +1047,19 @@
                 z-index: 9999;
                 backdrop-filter: blur(3px);
             }
-
             .overlay.active {
                 opacity: 1;
                 visibility: visible;
             }
-
             .nav-links {
                 display: none !important;
             }
         }
 
         @media (min-width: 769px) {
-
-            .hamburger,
-            .sidebar,
-            .overlay {
+            .hamburger, .sidebar, .overlay {
                 display: none !important;
             }
-
             .nav-links {
                 display: flex !important;
             }
@@ -1133,13 +1099,51 @@
     </div>
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
+    <!-- Quote Modal -->
+    <div id="quoteModal" class="quote-modal">
+        <div class="quote-modal-content">
+            <div class="quote-modal-header">
+                <h3><i class="fas fa-file-invoice-dollar"></i> Request a Quote</h3>
+                <span class="close-quote" onclick="closeQuoteModal()">&times;</span>
+            </div>
+            <div id="quoteProductInfo" class="quote-product-info"></div>
+            <form id="quoteForm">
+                <div class="quote-form-group">
+                    <label><i class="fas fa-user"></i> Full Name *</label>
+                    <input type="text" id="quoteName" placeholder="Enter your full name" required>
+                </div>
+                <div class="quote-form-group">
+                    <label><i class="fas fa-envelope"></i> Email Address *</label>
+                    <input type="email" id="quoteEmail" placeholder="Enter your email" required>
+                </div>
+                <div class="quote-form-group">
+                    <label><i class="fas fa-phone"></i> Phone Number</label>
+                    <input type="tel" id="quotePhone" placeholder="Enter your phone number">
+                </div>
+                <div class="quote-form-group">
+                    <label><i class="fas fa-box"></i> Quantity</label>
+                    <select id="quoteQuantity">
+                        <option value="1">1 Unit</option>
+                        <option value="2">2 Units</option>
+                        <option value="3">3 Units</option>
+                        <option value="4">4 Units</option>
+                        <option value="5">5+ Units (Bulk Order)</option>
+                    </select>
+                </div>
+                <div class="quote-form-group">
+                    <label><i class="fas fa-comment"></i> Message / Requirements</label>
+                    <textarea id="quoteMessage" placeholder="Tell us about your specific requirements..."></textarea>
+                </div>
+                <button type="submit" class="submit-quote-btn"><i class="fas fa-paper-plane"></i> Send Quote Request</button>
+            </form>
+        </div>
+    </div>
+
     <section class="shop-hero">
         <div class="floating-icon" style="top: 15%; left: 5%; animation-delay: 0s;"><i class="fas fa-thread"></i></div>
         <div class="floating-icon" style="top: 70%; left: 85%; animation-delay: 1s;"><i class="fas fa-rose"></i></div>
-        <div class="floating-icon" style="top: 30%; right: 8%; animation-delay: 2s;"><i class="fas fa-feather-alt"></i>
-        </div>
-        <div class="floating-icon" style="bottom: 10%; left: 15%; animation-delay: 1.5s;"><i class="fas fa-gem"></i>
-        </div>
+        <div class="floating-icon" style="top: 30%; right: 8%; animation-delay: 2s;"><i class="fas fa-feather-alt"></i></div>
+        <div class="floating-icon" style="bottom: 10%; left: 15%; animation-delay: 1.5s;"><i class="fas fa-gem"></i></div>
         <div class="container" data-aos="fade-up">
             <h1><i class="fas fa-rose"></i> Embroidery Emporium</h1>
             <p>Premium Machines • Aari Supplies • Designer Threads • Professional Accessories</p>
@@ -1156,10 +1160,8 @@
                     <div class="filter-section">
                         <h4>Category</h4>
                         <div class="filter-options" id="categoryFilters">
-                            <label class="filter-option"><input type="checkbox" value="machine"> <span>Embroidery
-                                    Machines</span> <span class="count" id="machineCount"></span></label>
-                            <label class="filter-option"><input type="checkbox" value="device"> <span>Accessories &
-                                    Devices</span> <span class="count" id="deviceCount"></span></label>
+                            <label class="filter-option"><input type="checkbox" value="machine"> <span>Embroidery Machines</span> <span class="count" id="machineCount"></span></label>
+                            <label class="filter-option"><input type="checkbox" value="device"> <span>Accessories & Devices</span> <span class="count" id="deviceCount"></span></label>
                         </div>
                     </div>
                     <div class="filter-section">
@@ -1169,20 +1171,16 @@
                                 <input type="number" id="minPrice" placeholder="Min ₹" value="">
                                 <input type="number" id="maxPrice" placeholder="Max ₹" value="">
                             </div>
-                            <button class="apply-price" id="applyPrice"
-                                style="width: 100%; margin-top: 10px; background: #212529; color: white;"><i
-                                    class="fas fa-check"></i> Apply Filter</button>
+                            <button class="apply-price" id="applyPrice" style="width: 100%; margin-top: 10px; background: #212529; color: white;"><i class="fas fa-check"></i> Apply Filter</button>
                         </div>
                     </div>
                     <div class="filter-section">
                         <h4>Best Sellers</h4>
                         <div class="filter-options">
-                            <label class="filter-option"><input type="checkbox" id="bestSellerFilter"> <span>Best
-                                    Sellers Only</span></label>
+                            <label class="filter-option"><input type="checkbox" id="bestSellerFilter"> <span>Best Sellers Only</span></label>
                         </div>
                     </div>
-                    <button class="clear-filters" id="clearFilters"
-                        style="border: 1px solid #ddd; color: #555; background: #f8f9fa;">Clear All Filters</button>
+                    <button class="clear-filters" id="clearFilters" style="border: 1px solid #ddd; color: #555; background: #f8f9fa;">Clear All Filters</button>
                 </aside>
 
                 <div class="products-area">
@@ -1201,8 +1199,7 @@
                     </div>
 
                     <div class="products-grid" id="productsGrid"></div>
-                    <div id="noResults" class="no-results" style="display: none;">✨ No products found. Try adjusting
-                        filters or search!</div>
+                    <div id="noResults" class="no-results" style="display: none;">✨ No products found. Try adjusting filters or search!</div>
                 </div>
             </div>
         </div>
@@ -1215,8 +1212,7 @@
                     <a href="index.html" class="footer-brand">
                         <h2>Rose Embroidery</h2>
                     </a>
-                    <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship
-                        with precision and quality.</p>
+                    <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship with precision and quality.</p>
                     <div class="tetro-social-links">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -1224,7 +1220,6 @@
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-
                 <div class="tetro-footer-col col-links">
                     <h3>Quick Links</h3>
                     <div class="tetro-quick-links">
@@ -1237,12 +1232,10 @@
                         <a href="#"><i class="fas fa-angle-right"></i>Refund & Return Policy</a>
                     </div>
                 </div>
-
                 <div class="tetro-footer-col col-contact">
                     <h3>Contact Info</h3>
                     <div class="tetro-contact-info">
-                        <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu
-                            madhuravoyal chennai 600095</a>
+                        <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</a>
                         <a href="tel:+91902555206"><i class="fas fa-phone-alt"></i>+91 902555206</a>
                         <a href="mailto:Drroslineg@gmail.com"><i class="fas fa-envelope"></i>Drroslineg@gmail.com</a>
                         <p><i class="fas fa-clock"></i>Mon-Sat: 9AM - 7PM</p>
@@ -1252,8 +1245,7 @@
             <hr class="tetro-footer-divider">
             <div class="tetro-footer-bottom">
                 <div class="tetro-copyright">
-                    <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose
-                        Embroidery</a>. All rights reserved.
+                    <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose Embroidery</a>. All rights reserved.
                 </div>
                 <div class="tetro-tagline">
                     Quality Precision Trust
@@ -1284,6 +1276,7 @@
         let cartCount = 0;
         let currentFilters = { categories: [], minPrice: null, maxPrice: null, bestSeller: false, search: "" };
         let currentSort = "default";
+        let currentQuoteProduct = null;
 
         const productsGrid = document.getElementById("productsGrid");
         const noResultsDiv = document.getElementById("noResults");
@@ -1298,7 +1291,58 @@
         const categoryCheckboxes = document.querySelectorAll("#categoryFilters input");
         const cartCountSpan = document.getElementById("cartCount");
 
-        // MAKE FUNCTION GLOBAL so inline onclick can access it
+        function openQuoteModal(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                currentQuoteProduct = product;
+                const quoteProductInfo = document.getElementById('quoteProductInfo');
+                quoteProductInfo.innerHTML = `
+                    <img src="${product.image}" alt="${product.name}">
+                    <div>
+                        <h4>${product.name}</h4>
+                        <p>Price: ₹${product.price.toLocaleString()}</p>
+                    </div>
+                `;
+                document.getElementById('quoteModal').style.display = 'flex';
+                document.getElementById('quoteForm').reset();
+            }
+        }
+
+        function closeQuoteModal() {
+            document.getElementById('quoteModal').style.display = 'none';
+            currentQuoteProduct = null;
+        }
+
+        function sendQuoteRequest(e) {
+            e.preventDefault();
+            const name = document.getElementById('quoteName').value;
+            const email = document.getElementById('quoteEmail').value;
+            const phone = document.getElementById('quotePhone').value;
+            const quantity = document.getElementById('quoteQuantity').value;
+            const message = document.getElementById('quoteMessage').value;
+            
+            if (!name || !email) {
+                alert('Please fill in your name and email address');
+                return;
+            }
+            
+            const quoteData = {
+                product: currentQuoteProduct,
+                customer: { name, email, phone },
+                quantity: quantity,
+                message: message,
+                date: new Date().toISOString()
+            };
+            
+            // Store in localStorage for admin
+            let quotes = JSON.parse(localStorage.getItem('rose_quotes')) || [];
+            quotes.push(quoteData);
+            localStorage.setItem('rose_quotes', JSON.stringify(quotes));
+            
+            alert(`Thank you ${name}! Your quote request for ${currentQuoteProduct.name} has been submitted. Our team will contact you within 24 hours.`);
+            closeQuoteModal();
+        }
+
         window.navigateToProduct = function (productId) {
             const product = products.find(p => p.id === productId);
             if (product) {
@@ -1317,19 +1361,19 @@
 
             const toast = document.createElement('div');
             toast.style.cssText = `
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: linear-gradient(95deg, #d45a7a, #b34262);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 12px;
-            font-size: 14px;
-            font-weight: 600;
-            z-index: 10000;
-            animation: fadeInUp 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-        `;
+                position: fixed;
+                bottom: 30px;
+                right: 30px;
+                background: linear-gradient(95deg, #d45a7a, #b34262);
+                color: white;
+                padding: 12px 24px;
+                border-radius: 12px;
+                font-size: 14px;
+                font-weight: 600;
+                z-index: 10000;
+                animation: fadeInUp 0.3s ease;
+                box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            `;
             toast.innerHTML = `<i class="fas fa-check-circle"></i> ${product.name} added to cart!`;
             document.body.appendChild(toast);
             setTimeout(() => {
@@ -1337,6 +1381,8 @@
                 setTimeout(() => toast.remove(), 300);
             }, 2000);
         };
+
+        window.openQuoteModal = openQuoteModal;
 
         function updateCategoryCounts() {
             document.getElementById("machineCount").innerText = `(${products.filter(p => p.category === "machine").length})`;
@@ -1365,26 +1411,28 @@
             if (productsToRender.length === 0) { productsGrid.style.display = "none"; return; }
             productsGrid.style.display = "grid";
             productsGrid.innerHTML = productsToRender.map(product => `
-            <div class="product-card">
-              
-                <div class="product-img" style="background-image: url('${product.image}'); background-size: cover; background-position: center;"></div>
-                <div class="product-content">
-                    <span class="product-category">${product.category === 'machine' ? '🪡 Embroidery Machine' : '🔧 Accessory'}</span>
-                    <h3>${product.name}</h3>
-                    <p class="product-desc">${product.desc.substring(0, 80)}...</p>
-
-                    <ul class="product-specs">${product.specs.slice(0, 3).map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}</ul>
-                    <div class="button-group">
-                        <button class="btn-view-details" onclick="navigateToProduct(${product.id})">
-                            <i class="fas fa-eye"></i> View Details
-                        </button>
-                        <button class="add-to-cart" onclick="addToCartGlobal(${product.id})">
-                            <i class="fas fa-shopping-cart"></i> Add to Cart
-                        </button>
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('${product.image}'); background-size: cover; background-position: center;"></div>
+                    <div class="product-content">
+                        <span class="product-category">${product.category === 'machine' ? '🪡 Embroidery Machine' : '🔧 Accessory'}</span>
+                        <h3>${product.name}</h3>
+                        <p class="product-desc">${product.desc.substring(0, 80)}...</p>
+                        <div class="product-price">₹${product.price.toLocaleString()}</div>
+                        <ul class="product-specs">${product.specs.slice(0, 3).map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}</ul>
+                        <div class="button-group">
+                            <button class="btn-view-details" onclick="navigateToProduct(${product.id})">
+                                <i class="fas fa-eye"></i> View
+                            </button>
+                            <button class="btn-request-quote" onclick="openQuoteModal(${product.id})">
+                                <i class="fas fa-file-invoice-dollar"></i> Quote
+                            </button>
+                            <button class="add-to-cart" onclick="addToCartGlobal(${product.id})">
+                                <i class="fas fa-shopping-cart"></i> Cart
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
-        `).join('');
+            `).join('');
         }
 
         function updateFilters() {
@@ -1416,6 +1464,8 @@
             filterAndSortProducts();
         });
 
+        document.getElementById('quoteForm').addEventListener('submit', sendQuoteRequest);
+
         function toggleMenu() {
             document.getElementById("sidebar").classList.toggle("active");
             document.getElementById("overlay").classList.toggle("active");
@@ -1431,10 +1481,6 @@
             document.getElementById("overlay").classList.remove("active");
         });
 
-        updateCategoryCounts();
-        filterAndSortProducts();
-
-        // Update cart count from localStorage
         function updateCartCount() {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -1444,10 +1490,10 @@
             if (mobileCartSpan) mobileCartSpan.innerText = totalItems;
         }
 
-        // Initialize cart count
+        updateCategoryCounts();
+        filterAndSortProducts();
         updateCartCount();
 
-        // Listen for storage changes (when cart updates from other pages)
         window.addEventListener('storage', function (e) {
             if (e.key === 'cart') {
                 updateCartCount();
@@ -1455,6 +1501,7 @@
         });
 
         window.toggleMenu = toggleMenu;
+        window.closeQuoteModal = closeQuoteModal;
     </script>
 </body>
 

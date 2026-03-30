@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Rose Embroidery | Premium Embroidery Devices & Attachments</title>
+  <title>Rose Embroidery | Premium Embroidery Products</title>
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
@@ -28,11 +28,7 @@
       overflow-x: hidden;
     }
 
-    h1,
-    h2,
-    h3,
-    h4,
-    .section-title {
+    h1, h2, h3, h4, .section-title {
       font-family: 'Cormorant Garamond', serif;
       font-weight: 600;
     }
@@ -43,107 +39,105 @@
       padding: 0 30px;
     }
 
-    /* Navbar - Rose Theme matching main template */
-
-
-
-
-    .navbar.scrolled .nav-attribute:hover {
-      color: #ffb6c1;
-    }
-
-    .navbar.scrolled .nav-attribute:hover {
-      color: #d45a7a;
-    }
-
-    .nav-attribute.active {
-      color: #ffb6c1;
-    }
-
-    .navbar.scrolled .nav-attribute.active {
-      color: #d45a7a;
-      font-weight: 600;
-    }
-
-    .nav-item {
-      position: relative;
-      display: inline-block;
-    }
-
-    .nav-item>.navbar.scrolled .nav-item>.nav-item:hover>.dropdown-content {
-      position: absolute;
-      top: calc(100% + 5px);
-      left: 0;
-      background-color: #fff;
-      min-width: 220px;
-      box-shadow: 0 10px 30px rgba(212, 90, 122, 0.15);
-      border-radius: 12px;
-      z-index: 10000;
-      padding: 12px 0;
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(-10px);
-      transition: opacity 0.25s ease, visibility 0.25s ease, transform 0.25s ease;
-      pointer-events: none;
-      border: 1px solid rgba(212, 90, 122, 0.2);
-    }
-
-    .nav-item::after {
-      content: '';
-      position: absolute;
-      top: 100%;
+    /* Navbar Styles */
+    .navbar {
+      position: fixed;
+      top: 0;
       left: 0;
       width: 100%;
-      height: 12px;
-      background: transparent;
-      pointer-events: auto;
+      padding: 12px 0;
+      z-index: 1000;
+      transition: all 0.4s ease;
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     }
 
-    .nav-item:hover .dropdown-content,
-    .dropdown-content:hover {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-      pointer-events: auto;
+    .navbar.scrolled {
+      backdrop-filter: blur(10px);
+      padding: 8px 0;
+      box-shadow: 0 5px 20px rgba(212, 90, 122, 0.15);
+      background: rgba(255, 255, 255, 0.95);
     }
 
-    .dropdown-content::before {
-      content: "";
-      position: absolute;
-      top: -8px;
-      left: 30px;
-      width: 16px;
-      height: 16px;
-      background: #fff;
-      transform: rotate(45deg);
-      border-top: 1px solid rgba(212, 90, 122, 0.2);
-      border-left: 1px solid rgba(212, 90, 122, 0.2);
-      border-radius: 4px 0 0 0;
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    .dropdown-content a {
-      color: #5a3e4a !important;
-      padding: 12px 25px;
-      margin: 0 !important;
-      display: block;
-      text-align: left;
-      font-size: 13px !important;
-      transition: all 0.25s ease;
+    .logo img {
+      height: 60px;
+      transition: all 0.3s ease;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+
+    .nav-attribute {
+      color: #3e2a2f;
       text-decoration: none;
-      border-bottom: 1px solid rgba(212, 90, 122, 0.1);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      transition: all 0.3s;
+      position: relative;
     }
 
-    .dropdown-content a:last-child {
-      border-bottom: none;
+    .nav-attribute::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #d45a7a;
+      transition: width 0.3s ease;
     }
 
-    .dropdown-content a:hover {
-      background: linear-gradient(135deg, #d45a7a, #b84363);
-      color: white !important;
-      padding-left: 32px;
+    .nav-attribute:hover::after,
+    .nav-attribute.active::after {
+      width: 100%;
     }
 
+    .nav-attribute:hover,
+    .nav-attribute.active {
+      color: #d45a7a;
+    }
 
+    .cart-icon {
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .cart-count {
+      position: absolute;
+      top: -10px;
+      right: -14px;
+      background: linear-gradient(135deg, #d45a7a, #b34262);
+      color: white;
+      font-size: 10px;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 50%;
+      animation: pulse 1.5s infinite;
+      border: 2px solid white;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.15); }
+      100% { transform: scale(1); }
+    }
+
+    .hamburger, .sidebar, .overlay { display: none; }
 
     /* Hero Section */
     .hero-section {
@@ -158,7 +152,7 @@
       color: #fff;
       margin-top: 0;
       position: relative;
-      padding: 100px 0;
+      padding: 140px 0 80px;
     }
 
     .hero-content {
@@ -207,7 +201,7 @@
     .product-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 100px;
+      gap: 60px;
     }
 
     /* Gallery */
@@ -254,8 +248,7 @@
 
     .gallery-main img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
       display: block;
     }
 
@@ -267,7 +260,7 @@
       font-family: 'Cormorant Garamond', serif;
     }
 
-    .device-badge {
+    .product-badge-custom {
       display: inline-block;
       background: linear-gradient(135deg, #d45a7a, #b84363);
       color: #fff;
@@ -278,7 +271,14 @@
       margin-bottom: 20px;
     }
 
-    .btn-enquire {
+    .product-price-large {
+      font-size: 32px;
+      font-weight: 800;
+      color: #d45a7a;
+      margin: 20px 0;
+    }
+
+    .btn-enquire, .btn-add-cart {
       display: inline-block;
       background: linear-gradient(135deg, #d45a7a, #b84363);
       color: #fff;
@@ -289,13 +289,22 @@
       font-size: 14px;
       cursor: pointer;
       transition: all 0.3s;
-      margin: 20px 0 25px;
+      margin: 20px 10px 25px 0;
       box-shadow: 0 5px 15px rgba(212, 90, 122, 0.3);
     }
 
-    .btn-enquire:hover {
+    .btn-enquire:hover, .btn-add-cart:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 20px rgba(212, 90, 122, 0.4);
+    }
+
+    .btn-add-cart {
+      background: #212529;
+      box-shadow: none;
+    }
+
+    .btn-add-cart:hover {
+      background: #d45a7a;
     }
 
     .feature-list {
@@ -339,56 +348,6 @@
     .product-messages span i {
       color: #d45a7a;
       font-size: 14px;
-    }
-
-    /* Accordion */
-    .accordion {
-      margin-top: 30px;
-    }
-
-    .accordion-item {
-      border: 1px solid rgba(212, 90, 122, 0.2);
-      border-radius: 16px;
-      margin-bottom: 15px;
-      overflow: hidden;
-      background: #fff;
-    }
-
-    .accordion-header {
-      background: #fff;
-      padding: 18px 24px;
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 600;
-      font-size: 16px;
-      color: #d45a7a;
-    }
-
-    .accordion-header i {
-      transition: transform 0.3s;
-      color: #d45a7a;
-    }
-
-    .accordion-header.collapsed i {
-      transform: rotate(0deg);
-    }
-
-    .accordion-header:not(.collapsed) i {
-      transform: rotate(45deg);
-    }
-
-    .accordion-body {
-      padding: 0 24px 24px 24px;
-      color: #666;
-      line-height: 1.7;
-      display: none;
-      border-top: 1px solid rgba(212, 90, 122, 0.1);
-    }
-
-    .accordion-body.show {
-      display: block;
     }
 
     /* Tech Specs Section */
@@ -506,94 +465,6 @@
       color: #888;
     }
 
-    footer {
-      background: linear-gradient(125deg, #fa6992 0%, #ca3061 100%);
-      color: #fff;
-      padding: 60px 0 30px;
-      text-align: center;
-    }
-
-    footer h4 {
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-
-    /* Mobile Responsive */
-    @media (max-width: 768px) {
-
-
-      .navbar.scrolled .hero-section {
-        height: 55vh;
-        min-height: 400px;
-        background-attachment: scroll;
-      }
-
-      .hero-content h1 {
-        font-size: 32px;
-      }
-
-      .hero-content p {
-        font-size: 14px;
-      }
-
-      .product-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .product-gallery {
-        flex-direction: column-reverse;
-      }
-
-      .gallery-thumbs {
-        flex-direction: row;
-        width: 100%;
-        justify-content: center;
-      }
-
-      .tech-specs-section {
-        padding: 25px;
-      }
-
-      .related-section h2 {
-        font-size: 32px;
-      }
-    }
-
-    @media (min-width: 769px) and (max-width: 1024px) {}
-
-    .cart-icon {
-      position: relative;
-    }
-
-    .cart-count {
-      position: absolute;
-      top: -8px;
-      right: -12px;
-      background: linear-gradient(135deg, #d45a7a, #b34262);
-      color: white;
-      font-size: 10px;
-      font-weight: bold;
-      padding: 2px 6px;
-      border-radius: 50%;
-      animation: pulse 1.5s infinite;
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.2);
-      }
-
-      100% {
-        transform: scale(1);
-      }
-    }
-
-
     /* Tetro-style Footer */
     .tetro-footer {
       background: linear-gradient(135deg, #d45a7a, #b34262);
@@ -643,10 +514,6 @@
       margin: 0;
     }
 
-    .footer-brand span {
-      color: #d45a7a;
-    }
-
     .tetro-social-links {
       display: flex;
       gap: 12px;
@@ -673,12 +540,12 @@
     }
 
     .tetro-footer-col h3 {
-            color: #ffffff;
-            font-size: 24px;
-            margin-bottom: 25px;
-            font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
-        }
+      color: #ffffff;
+      font-size: 24px;
+      margin-bottom: 25px;
+      font-weight: 600;
+      font-family: 'Montserrat', sans-serif;
+    }
 
     .tetro-quick-links {
       display: flex;
@@ -697,21 +564,13 @@
     }
 
     .tetro-quick-links a i {
-  
       margin-right: 12px;
       font-size: 12px;
     }
 
     .tetro-quick-links a:hover {
-
       padding-left: 8px;
       opacity: 1;
-    }
-
-    .tetro-contact-info {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
     }
 
     .tetro-contact-info a,
@@ -732,23 +591,12 @@
       padding-top: 0;
     }
 
-    .tetro-contact-info a:last-child,
-    .tetro-contact-info p:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
     .tetro-contact-info i {
       color: #d45a7a;
       margin-right: 15px;
       margin-top: 4px;
       width: 16px;
       text-align: center;
-    }
-
-    .tetro-contact-info a:hover {
-      color: #d45a7a;
-      opacity: 1;
     }
 
     .tetro-footer-divider {
@@ -772,16 +620,6 @@
       opacity: 0.8;
     }
 
-    .tetro-copyright a {
-      color: white;
-      text-decoration: none;
-      font-weight: 500;
-    }
-
-    .tetro-copyright a:hover {
-      text-decoration: underline;
-    }
-
     .tetro-tagline {
       color: #fff;
       font-size: 14px;
@@ -789,134 +627,25 @@
       font-weight: 500;
     }
 
-    @media (max-width: 768px) {
-      .tetro-footer-row {
-        flex-direction: column;
-        gap: 30px;
-      }
-
-      .tetro-footer-bottom {
-        flex-direction: column;
-        text-align: center;
-        gap: 10px;
-      }
-    }
-
-
-    /* UNIVERSAL NAVBAR STYLES */
-    .navbar {
+    /* Toast Notification */
+    .toast-notification {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 12px 0;
-      z-index: 1000;
-      transition: all 0.4s ease;
-      background: rgba(255, 255, 255, 0.98);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-    }
-
-    .navbar.scrolled {
-      backdrop-filter: blur(10px);
-      padding: 8px 0;
-      box-shadow: 0 5px 20px rgba(212, 90, 122, 0.15);
-      background: rgba(255, 255, 255, 0.95);
-    }
-
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 30px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo img {
-      height: 60px;
-      transition: all 0.3s ease;
-    }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    .nav-attribute {
-      color: #3e2a2f;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      transition: all 0.3s;
-      position: relative;
-    }
-
-    .nav-attribute::after {
-      content: '';
-      position: absolute;
-      bottom: -6px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: #d45a7a;
-      transition: width 0.3s ease;
-    }
-
-    .nav-attribute:hover::after,
-    .nav-attribute.active::after {
-      width: 100%;
-    }
-
-    .nav-attribute:hover,
-    .nav-attribute.active {
-      color: #d45a7a;
-    }
-
-    .cart-icon {
-      position: relative;
-      display: flex;
-      align-items: center;
-    }
-
-    .cart-icon i {
-      font-size: 16px;
-    }
-
-    .cart-count {
-      position: absolute;
-      top: -10px;
-      right: -14px;
-      background: linear-gradient(135deg, #d45a7a, #b34262);
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(95deg, #d45a7a, #b34262);
       color: white;
-      font-size: 10px;
-      font-weight: bold;
-      padding: 2px 6px;
-      border-radius: 50%;
-      animation: pulse 1.5s infinite;
-      border: 2px solid white;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      z-index: 10000;
+      animation: fadeInUp 0.3s ease;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
     }
 
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-      }
-
-      50% {
-        transform: scale(1.15);
-      }
-
-      100% {
-        transform: scale(1);
-      }
-    }
-
-    .hamburger,
-    .sidebar,
-    .overlay {
-      display: none;
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     @media (max-width: 768px) {
@@ -925,7 +654,6 @@
         cursor: pointer;
         z-index: 1001;
       }
-
       .hamburger span {
         display: block;
         width: 26px;
@@ -935,11 +663,6 @@
         transition: 0.3s;
         border-radius: 2px;
       }
-
-      .navbar.scrolled .hamburger span {
-        background: #d45a7a;
-      }
-
       .sidebar {
         position: fixed;
         top: 0;
@@ -955,11 +678,7 @@
         z-index: 10000;
         box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
       }
-
-      .sidebar.active {
-        left: 0;
-      }
-
+      .sidebar.active { left: 0; }
       .sidebar a {
         color: #3e2a2f;
         text-decoration: none;
@@ -970,15 +689,7 @@
         display: flex;
         align-items: center;
         gap: 12px;
-        transition: 0.3s;
       }
-
-      .sidebar a:hover,
-      .sidebar a.active {
-        color: #d45a7a;
-        padding-left: 5px;
-      }
-
       .sidebar .close-btn {
         position: absolute;
         top: 20px;
@@ -986,14 +697,7 @@
         font-size: 28px;
         cursor: pointer;
         color: #b34262;
-        transition: 0.3s;
       }
-
-      .sidebar .close-btn:hover {
-        transform: rotate(90deg);
-        color: #d45a7a;
-      }
-
       .overlay {
         position: fixed;
         top: 0;
@@ -1007,28 +711,25 @@
         z-index: 9999;
         backdrop-filter: blur(3px);
       }
-
       .overlay.active {
         opacity: 1;
         visibility: visible;
       }
-
-      .nav-links {
-        display: none !important;
-      }
+      .nav-links { display: none !important; }
+      .hero-section { padding: 120px 0 60px; background-attachment: scroll; }
+      .hero-content h1 { font-size: 32px; }
+      .hero-content p { font-size: 14px; }
+      .product-grid { grid-template-columns: 1fr; gap: 40px; }
+      .product-gallery { flex-direction: column-reverse; }
+      .gallery-thumbs { flex-direction: row; width: 100%; justify-content: center; }
+      .tech-specs-section { padding: 25px; }
+      .related-section h2 { font-size: 32px; }
+      .tetro-footer-row { flex-direction: column; gap: 30px; }
     }
 
     @media (min-width: 769px) {
-
-      .hamburger,
-      .sidebar,
-      .overlay {
-        display: none !important;
-      }
-
-      .nav-links {
-        display: flex !important;
-      }
+      .hamburger, .sidebar, .overlay { display: none !important; }
+      .nav-links { display: flex !important; }
     }
   </style>
 </head>
@@ -1068,11 +769,10 @@
   <!-- Hero Section -->
   <section class="hero-section">
     <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
-      <h2 id="heroCategory">Premium Attachment Device</h2>
-      <h1 id="heroTitle">OLH-098A</h1>
-      <p id="heroSubtitle">Twin Sequin + Triple Beads Device for Embroidery Machines</p>
-      <div class="hero-badge" id="heroBadge"><i class="fas fa-gem"></i> Premium Attachment • ISO9001:2000 Certified
-      </div>
+      <h2 id="heroCategory">Premium Product</h2>
+      <h1 id="heroTitle">Loading...</h1>
+      <p id="heroSubtitle">Please wait while we load product details</p>
+      <div class="hero-badge" id="heroBadge"><i class="fas fa-gem"></i> Premium Quality</div>
     </div>
   </section>
 
@@ -1083,25 +783,25 @@
         <div class="product-gallery" data-aos="fade-right">
           <div class="gallery-thumbs" id="galleryThumbs"></div>
           <div class="gallery-main">
-            <img id="mainImage" src="" alt="Device Image">
+            <img id="mainImage" src="" alt="Product Image">
           </div>
         </div>
 
         <div class="product-info" data-aos="fade-left">
-          <div class="device-badge" id="deviceBadge"><i class="fas fa-microchip"></i> Premium Attachment Device</div>
+          <div class="product-badge-custom" id="productBadge"><i class="fas fa-microchip"></i> Premium Product</div>
           <h2 id="productName">Loading...</h2>
-          <button class="btn-enquire"
-            onclick="alert('📞 For purchase inquiries, contact +91 90255 52206 or email Drroslineg@gmail.com')">Enquire
-            Now <i class="fas fa-arrow-right"></i></button>
+          <div class="product-price-large" id="productPrice"></div>
+          <div class="button-group">
+            <button class="btn-add-cart" id="addToCartBtn" onclick="addToCart()"><i class="fas fa-shopping-cart"></i> Add to Cart</button>
+            <button class="btn-enquire" onclick="enquireNow()"><i class="fas fa-envelope"></i> Enquire Now</button>
+          </div>
           <ul class="feature-list" id="featureList"></ul>
           <div class="product-messages">
             <span><i class="fas fa-check-circle"></i> 1 Year Warranty</span>
             <span><i class="fas fa-truck"></i> Free Installation Support</span>
-            <span><i class="fas fa-headset"></i> Video Call Support</span>
+            <span><i class="fas fa-headset"></i> 24/7 Support</span>
             <span><i class="fas fa-globe"></i> Worldwide Shipping</span>
           </div>
-
-
         </div>
       </div>
 
@@ -1131,8 +831,7 @@
           <a href="index.html" class="footer-brand">
             <h2>Rose Embroidery</h2>
           </a>
-          <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship with
-            precision and quality.</p>
+          <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship with precision and quality.</p>
           <div class="tetro-social-links">
             <a href="#"><i class="fab fa-instagram"></i></a>
             <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -1140,7 +839,6 @@
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
           </div>
         </div>
-
         <div class="tetro-footer-col col-links">
           <h3>Quick Links</h3>
           <div class="tetro-quick-links">
@@ -1153,12 +851,10 @@
             <a href="#"><i class="fas fa-angle-right"></i>Refund & Return Policy</a>
           </div>
         </div>
-
         <div class="tetro-footer-col col-contact">
           <h3>Contact Info</h3>
           <div class="tetro-contact-info">
-            <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu madhuravoyal
-              chennai 600095</a>
+            <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</a>
             <a href="tel:+91902555206"><i class="fas fa-phone-alt"></i>+91 902555206</a>
             <a href="mailto:Drroslineg@gmail.com"><i class="fas fa-envelope"></i>Drroslineg@gmail.com</a>
             <p><i class="fas fa-clock"></i>Mon-Sat: 9AM - 7PM</p>
@@ -1168,12 +864,9 @@
       <hr class="tetro-footer-divider">
       <div class="tetro-footer-bottom">
         <div class="tetro-copyright">
-          <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose
-            Embroidery</a>. All rights reserved.
+          <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose Embroidery</a>. All rights reserved.
         </div>
-        <div class="tetro-tagline">
-          Quality Precision Trust
-        </div>
+        <div class="tetro-tagline">Quality Precision Trust</div>
       </div>
     </div>
   </footer>
@@ -1182,179 +875,81 @@
   <script>
     AOS.init({ once: false, duration: 800, easing: 'ease-in-out', offset: 50 });
 
-    // Device Database - Keys match the slugs from products page
-    const devicesDatabase = {
-      // Full slug matches from products page
-      'olh-098a-twin-sequin': {
-        id: 'olh-098a-twin-sequin',
-        name: 'OLH-098A Twin Sequin + Triple Beads Device',
-        shortName: 'OLH-098A',
-        category: 'Premium Attachment Device',
-        badge: 'Premium Attachment • ISO9001:2000 Certified',
-        image: 'https://image.made-in-china.com/202f0j00BnqbTUHaHeoh/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-for-Embroidery-Machine.webp',
-        description: 'Twin Sequin + Triple Beads Device for Embroidery Machines',
-        features: [
-          '<i class="fas fa-gem"></i> Twin Sequin + Triple Beads Functionality',
-          '<i class="fas fa-expand-alt"></i> Head Space: 72mm (One Side) / 118mm (Both Sides)',
-          '<i class="fas fa-ruler"></i> Beads Size: 1.7-2.5mm | Pearl: 3.0-4.0mm | Pipe: 2.5×3.0mm - 2.5×4.0mm',
-          '<i class="fas fa-tachometer-alt"></i> Max Speed: 700-950 RPM (Beads) / 1000 RPM (2-5mm Sequins)',
-          '<i class="fas fa-arrow-up"></i> Lift Area: 70mm',
-          '<i class="fas fa-microchip"></i> Compatible with DAHAO & Justelec Drive Cards',
-          '<i class="fas fa-cog"></i> X Direction Space: 98mm | Y Direction Space: 120mm',
-          '<i class="fas fa-certificate"></i> ISO9001:2000 Certified'
-        ],
-        techSpecs: [
-          'Head Space (One Side): 72mm',
-          'Head Space (Both Sides): 118mm',
-          'X Direction Space: 98mm',
-          'Y Direction Space: 120mm',
-          'Beads Size Range: 1.7-2.5mm',
-          'Pearl Size Range: 3.0-4.0mm',
-          'Max Speed (Beads): 700-950 RPM',
-          'Max Speed (Sequins 2-5mm): 1000 RPM',
-          'Lift Area: 70mm'
-        ],
-        compatibility: 'Compatible with: HSW, Tajima, Barudan, Happy, ZSK, and all major embroidery machines | Easy retrofit installation'
-      },
-      'magnetic-hoop-pro': {
-        id: 'magnetic-hoop-pro',
-        name: 'Magnetic Hoop Pro',
-        shortName: 'Magnetic Hoop Pro',
-        category: 'Precision Hooping System',
-        badge: 'Best Seller • No Fabric Slippage',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR878VKlZXIT7rcGYXe1G2Thh8jUDWCyL7tw&s',
-        description: 'Advanced magnetic hooping system for perfect fabric grip',
-        features: [
-          '<i class="fas fa-magnet"></i> Strong Neodymium Magnetic System',
-          '<i class="fas fa-expand-alt"></i> Available in 7 different sizes',
-          '<i class="fas fa-clock"></i> 70% Faster Setup Time',
-          '<i class="fas fa-hand-peace"></i> No Hoop Burn on Delicate Fabrics',
-          '<i class="fas fa-sync-alt"></i> Quick-release Mechanism',
-          '<i class="fas fa-check-circle"></i> Compatible with All Major Brands'
-        ],
-        techSpecs: [
-          'Material: Aircraft-grade Aluminum',
-          'Magnet Type: Neodymium N52',
-          'Available Sizes: 4x4", 5x7", 6x10", 8x12", 10x14", 12x16", 14x18"',
-          'Finish: Anodized Anti-scratch Coating'
-        ],
-        compatibility: 'Compatible with HSW, Tajima, Barudan, Happy, Melco, ZSK, and all standard embroidery machines'
-      },
-      'digitizing-tablet-pro': {
-        id: 'digitizing-tablet-pro',
-        name: 'Digitizing Tablet Pro',
-        shortName: 'Digitizing Tablet Pro',
-        category: 'Professional Design Tool',
-        badge: 'Professional Grade • 8192 Pressure Levels',
-        image: 'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600',
-        description: 'Professional drawing tablet for precise embroidery design creation',
-        features: [
-          '<i class="fas fa-pen-fancy"></i> 8192 Levels of Pressure Sensitivity',
-          '<i class="fas fa-expand-alt"></i> 15.6" Large Active Workspace',
-          '<i class="fas fa-bluetooth-b"></i> Wireless Bluetooth Connectivity',
-          '<i class="fas fa-battery-full"></i> Battery-free Pen Technology',
-          '<i class="fas fa-keyboard"></i> 8 Programmable Express Keys',
-          '<i class="fas fa-sync-alt"></i> Tilt Recognition Support'
-        ],
-        techSpecs: [
-          'Active Area: 15.6 inches (345 x 194 mm)',
-          'Pressure Levels: 8192',
-          'Resolution: 5080 LPI',
-          'Report Rate: 266 RPS',
-          'Pen: Battery-free with tilt support',
-          'Connectivity: USB-C & Bluetooth 5.0'
-        ],
-        compatibility: 'Fully compatible with Wilcom, Hatch, Adobe Illustrator, Photoshop, CorelDRAW, and all digitizing software'
-      },
-      'smart-thread-manager': {
-        id: 'smart-thread-manager',
-        name: 'Smart Thread Manager',
-        shortName: 'Smart Thread Manager',
-        category: 'IoT Smart Device',
-        badge: 'IoT Enabled • Real-time Monitoring',
-        image: 'https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png',
-        description: 'IoT-enabled thread tension monitoring with real-time alerts',
-        features: [
-          '<i class="fas fa-mobile-alt"></i> Mobile App Notifications',
-          '<i class="fas fa-chart-line"></i> Real-time Thread Tension Analytics',
-          '<i class="fas fa-exclamation-triangle"></i> Automatic Break Detection',
-          '<i class="fas fa-chart-bar"></i> Production Analytics Dashboard',
-          '<i class="fas fa-cloud-upload-alt"></i> 12-Month Cloud Storage',
-          '<i class="fas fa-microchip"></i> Predictive maintainence Alerts'
-        ],
-        techSpecs: [
-          'Sensors: Optical Thread Break Detection',
-          'Connectivity: Wi-Fi 802.11 b/g/n',
-          'Power: USB-C Powered',
-          'App Support: iOS & Android',
-          'Data Storage: Cloud-based with 12 months retention'
-        ],
-        compatibility: 'Compatible with all HSW, Tajima, Barudan, and most single-head and multi-head embroidery machines'
+    // Global product variable
+    let currentProduct = null;
+
+    // Get all products from localStorage or use default
+    function getAllProducts() {
+      const stored = localStorage.getItem('rose_products');
+      if (stored) {
+        return JSON.parse(stored);
       }
-    };
-
-    const allRelatedProducts = [
-      { id: '2032', name: 'HSW 5G 2032', type: 'Embroidery Machine', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg', url: 'machines.html#hsw-5g-2032' },
-      { id: '2048', name: 'HSW 5G 2048', type: 'Embroidery Machine', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg', url: 'machines.html#hsw-5g-2048' },
-      { id: 'magnetic-hoop-pro', name: 'Magnetic Hoop Pro', type: 'Accessory', image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR878VKlZXIT7rcGYXe1G2Thh8jUDWCyL7tw&s', url: 'devices.html#magnetic-hoop-pro' },
-      { id: 'digitizing-tablet-pro', name: 'Digitizing Tablet Pro', type: 'Accessory', image: 'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600', url: 'devices.html#digitizing-tablet-pro' },
-      { id: 'smart-thread-manager', name: 'Smart Thread Manager', type: 'Accessory', image: 'https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png', url: 'devices.html#smart-thread-manager' }
-    ];
-
-    function getCurrentDeviceId() {
-      const hash = window.location.hash.substring(1);
-      if (hash) return hash;
-      return 'olh-098a-twin-sequin';
+      // Default products
+      return [
+        { id: 1, name: "HSW 5G 1216", slug: "hsw-5g-1216", category: "machine", price: 325000, badge: "Compact Rose", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg", desc: "12x16\" area, 12 needles, 1000 SPM, USB & Wi-Fi", specs: ["12x16\" Area", "12 Needles", "1000 SPM", "USB & Wi-Fi", "10\" Touch Screen"], bestSeller: true },
+        { id: 2, name: "HSW 5G 1632", slug: "hsw-5g-1632", category: "machine", price: 410000, badge: "Rose Performer", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg", desc: "16x32\" workspace, industrial-grade performance", specs: ["16x32\" Area", "12 Needles", "Auto Thread Trimmer", "Cording Support"], bestSeller: true },
+        { id: 3, name: "HSW 5G 2032", slug: "hsw-5g-2032", category: "machine", price: 475000, badge: "Flagship", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg", desc: "AI tension control, remote monitoring", specs: ["20x32\" Area", "1200 SPM", "AI Tension Control", "Remote Monitoring"], bestSeller: false },
+        { id: 4, name: "HSW 5G 2848", slug: "hsw-5g-2848", category: "machine", price: 590000, badge: "Industrial", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-1.jpg", desc: "Large format heavy-duty production", specs: ["28x48\" Area", "1200 RPM", "Industrial Grade", "Photo to Embroidery"], bestSeller: true },
+        { id: 5, name: "BABA YUEMEI", slug: "baba-yuemei", category: "machine", price: 495000, badge: "Premium", image: "./images/machine1.jpeg", desc: "12-needle, Japanese shuttle, 1500 SPM", specs: ["12 Needles", "1500 SPM", "Japanese Shuttle", "2 Yr Warranty"], bestSeller: false },
+        { id: 6, name: "Magnetic Hoop Pro", slug: "magnetic-hoop-pro", category: "device", price: 12500, badge: "Best Seller", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR878VKlZXIT7rcGYXe1G2Thh8jUDWCyL7tw&s", desc: "7 sizes, no hoop burn, quick release", specs: ["Magnetic", "7 Sizes", "Quick Release", "No Hoop Burn"], bestSeller: true },
+        { id: 7, name: "Digitizing Tablet Pro", slug: "digitizing-tablet-pro", category: "device", price: 28000, badge: "Pro", image: "https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "8192 pressure levels, wireless", specs: ["15.6\" Workspace", "8192 Pressure Levels", "Wireless", "8 Express Keys"], bestSeller: false },
+        { id: 8, name: "Smart Thread Manager", slug: "smart-thread-manager", category: "device", price: 18500, badge: "IoT", image: "https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png", desc: "Real-time tension monitoring, mobile alerts", specs: ["Mobile App", "Break Detection", "Predictive Analytics", "Cloud Storage"], bestSeller: true },
+        { id: 9, name: "OLH-098A Twin Sequin", slug: "olh-098a-twin-sequin", category: "device", price: 32500, badge: "Premium", image: "https://image.made-in-china.com/202f0j00BnqbTUHaHeoh/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-for-Embroidery-Machine.webp", desc: "Twin sequin + beads attachment", specs: ["1000 RPM", "Beads 1.7-4.0mm", "Twin Sequin", "Triple Beads"], bestSeller: false },
+        { id: 10, name: "HSW 5G 3248", slug: "hsw-5g-3248", category: "machine", price: 630000, badge: "Ultimate", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/3248-1.jpg", desc: "Maximum field luxury production", specs: ["32x48\" Area", "1200 RPM", "Max Field Size", "Industrial Grade"], bestSeller: false },
+        { id: 11, name: "Premium Thread Set (50 Colors)", slug: "premium-thread-set", category: "device", price: 4500, badge: "Bestseller", image: "https://images.pexels.com/photos/459869/pexels-photo-459869.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Rayon threads, vibrant shades", specs: ["50 Colors", "Rayon", "High Tenacity", "Fade Resistant"], bestSeller: true },
+        { id: 12, name: "Aari Needle Set", slug: "aari-needle-set", category: "device", price: 899, badge: "Essential", image: "https://images.pexels.com/photos/3769811/pexels-photo-3769811.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Professional Aari hooks & needles", specs: ["12 Sizes", "Ergonomic", "Steel", "Carry Case"], bestSeller: false }
+      ];
     }
 
-    function loadDevice(deviceId) {
-      let device = devicesDatabase[deviceId];
+    function getProductBySlug(slug) {
+      const products = getAllProducts();
+      return products.find(p => p.slug === slug);
+    }
 
-      // Fallback to dynamic loading from products database in localStorage
-      if (!device) {
-        const storedProducts = JSON.parse(localStorage.getItem('rose_products') || '[]');
-        const dynamicProduct = storedProducts.find(p => p.slug === deviceId);
+    function getCurrentProductId() {
+      const hash = window.location.hash.substring(1);
+      return hash || 'hsw-5g-1216';
+    }
 
-        if (dynamicProduct) {
-          device = {
-            id: dynamicProduct.slug,
-            name: dynamicProduct.name,
-            shortName: dynamicProduct.name,
-            category: dynamicProduct.category === 'machine' ? 'Embroidery Machine' : 'Attachment Device',
-            badge: dynamicProduct.badge || 'New Arrival',
-            image: dynamicProduct.image,
-            description: dynamicProduct.desc,
-            features: dynamicProduct.specs.map(s => `<i class="fas fa-check-circle"></i> ${s}`),
-            techSpecs: dynamicProduct.specs,
-            compatibility: 'Compatible with Rose Embroidery ecosystem'
-          };
-        }
+    function loadProduct(productSlug) {
+      const product = getProductBySlug(productSlug);
+      if (!product) {
+        // Fallback to default
+        loadProduct('hsw-5g-1216');
+        return;
       }
-
-      if (!device) return;
-
-      document.getElementById('heroCategory').innerText = device.category;
-      document.getElementById('heroTitle').innerText = device.shortName;
-      document.getElementById('heroSubtitle').innerText = device.description;
-      document.getElementById('heroBadge').innerHTML = `<i class="fas fa-gem"></i> ${device.badge}`;
-      document.getElementById('deviceBadge').innerHTML = `<i class="fas fa-microchip"></i> ${device.category}`;
-      document.getElementById('productName').innerText = device.name;
-      document.getElementById('mainImage').src = device.image;
-
+      
+      currentProduct = product;
+      
+      // Update hero section
+      document.getElementById('heroCategory').innerText = product.category === 'machine' ? 'Embroidery Machine' : 'Premium Attachment Device';
+      document.getElementById('heroTitle').innerText = product.name;
+      document.getElementById('heroSubtitle').innerText = product.desc;
+      document.getElementById('heroBadge').innerHTML = `<i class="fas fa-gem"></i> ${product.badge || 'Premium Quality'}`;
+      
+      // Update product info
+      document.getElementById('productBadge').innerHTML = `<i class="fas fa-${product.category === 'machine' ? 'microchip' : 'tools'}"></i> ${product.category === 'machine' ? 'Embroidery Machine' : 'Attachment Device'}`;
+      document.getElementById('productName').innerText = product.name;
+      document.getElementById('productPrice').innerHTML = `₹${product.price.toLocaleString('en-IN')}`;
+      document.getElementById('mainImage').src = product.image;
+      
+      // Feature list
       const featureList = document.getElementById('featureList');
-      featureList.innerHTML = device.features.map(f => `<li>${f}</li>`).join('');
-
+      featureList.innerHTML = product.specs.map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('');
+      
+      // Tech specs grid
       const techGrid = document.getElementById('techSpecsGrid');
-      const half = Math.ceil(device.techSpecs.length / 2) || 1;
+      const half = Math.ceil(product.specs.length / 2);
       techGrid.innerHTML = `
-        <div class="spec-card"><ul>${device.techSpecs.slice(0, half).map(s => `<li><i class="fas fa-microchip"></i> ${s}</li>`).join('')}</ul></div>
-        <div class="spec-card"><ul>${device.techSpecs.slice(half).map(s => `<li><i class="fas fa-plug"></i> ${s}</li>`).join('')}<li><i class="fas fa-tools"></i> Warranty: 1 Year Comprehensive</li></ul></div>
+        <div class="spec-card"><ul>${product.specs.slice(0, half).map(s => `<li><i class="fas fa-microchip"></i> ${s}</li>`).join('')}</ul></div>
+        <div class="spec-card"><ul>${product.specs.slice(half).map(s => `<li><i class="fas fa-plug"></i> ${s}</li>`).join('')}<li><i class="fas fa-tools"></i> Warranty: 1 Year Comprehensive</li></ul></div>
       `;
-
-      document.getElementById('compatibilityInfo').innerHTML = `<i class="fas fa-exchange-alt"></i> ${device.compatibility}`;
-
+      
+      document.getElementById('compatibilityInfo').innerHTML = `<i class="fas fa-exchange-alt"></i> Compatible with all major embroidery machines and software`;
+      
+      // Gallery thumbs
       const galleryThumbs = document.getElementById('galleryThumbs');
-      const thumbImages = [device.image, device.image, device.image];
+      const thumbImages = [product.image, product.image, product.image];
       galleryThumbs.innerHTML = thumbImages.map((img, idx) => `
         <div class="thumb-btn ${idx === 0 ? 'active' : ''}" onclick="changeImage(this, '${img}')">
           <img src="${img}" alt="Thumb ${idx + 1}" style="width: 100%; height: 100%; object-fit: cover;">
@@ -1362,20 +957,21 @@
       `).join('');
     }
 
-    function renderRelated(currentId) {
+    function renderRelated(currentSlug) {
+      const products = getAllProducts();
+      const filtered = products.filter(p => p.slug !== currentSlug).slice(0, 4);
       const grid = document.getElementById('relatedGrid');
-      const filtered = allRelatedProducts.filter(p => p.id !== currentId);
       grid.innerHTML = filtered.map(product => `
-        <div class="related-card" onclick="navigateToProduct('${product.url}')">
+        <div class="related-card" onclick="navigateToProduct('${product.slug}')">
           <img src="${product.image}" alt="${product.name}" onerror="this.src='https://placehold.co/400x220/f5e6e8/d45a7a?text=Rose'">
           <h4>${product.name}</h4>
-          <p>${product.type}</p>
+          <p>${product.category === 'machine' ? 'Embroidery Machine' : 'Accessory'} • ₹${product.price.toLocaleString()}</p>
         </div>
       `).join('');
     }
 
-    function navigateToProduct(url) {
-      window.location.href = url;
+    function navigateToProduct(slug) {
+      window.location.href = `devices.html#${slug}`;
     }
 
     function changeImage(el, src) {
@@ -1384,20 +980,51 @@
       el.classList.add('active');
     }
 
-    function toggleAccordion(header) {
-      const body = header.nextElementSibling;
-      const isCollapsed = header.classList.contains('collapsed');
-      if (isCollapsed) {
-        header.classList.remove('collapsed');
-        body.classList.add('show');
-        header.querySelector('i').classList.remove('fa-plus');
-        header.querySelector('i').classList.add('fa-minus');
+    function addToCart() {
+      if (!currentProduct) return;
+      
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      const existingItem = cart.find(item => item.id === currentProduct.id);
+      
+      if (existingItem) {
+        existingItem.quantity += 1;
       } else {
-        header.classList.add('collapsed');
-        body.classList.remove('show');
-        header.querySelector('i').classList.remove('fa-minus');
-        header.querySelector('i').classList.add('fa-plus');
+        cart.push({
+          id: currentProduct.id,
+          name: currentProduct.name,
+          price: currentProduct.price,
+          image: currentProduct.image,
+          quantity: 1
+        });
       }
+      
+      localStorage.setItem('cart', JSON.stringify(cart));
+      updateCartCount();
+      
+      // Show toast notification
+      const toast = document.createElement('div');
+      toast.className = 'toast-notification';
+      toast.innerHTML = `<i class="fas fa-check-circle"></i> ${currentProduct.name} added to cart!`;
+      document.body.appendChild(toast);
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.remove(), 300);
+      }, 2000);
+    }
+
+    function enquireNow() {
+      if (currentProduct) {
+        alert(`📞 For purchase inquiries about ${currentProduct.name}\nContact: +91 90255 52206\nEmail: Drroslineg@gmail.com`);
+      }
+    }
+
+    function updateCartCount() {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+      const cartCountSpan = document.getElementById('cartCount');
+      const mobileCartSpan = document.getElementById('mobileCartCount');
+      if (cartCountSpan) cartCountSpan.innerText = totalItems;
+      if (mobileCartSpan) mobileCartSpan.innerText = totalItems;
     }
 
     function toggleMenu() {
@@ -1412,40 +1039,27 @@
     });
 
     window.addEventListener('hashchange', () => {
-      const deviceId = getCurrentDeviceId();
-      loadDevice(deviceId);
-      renderRelated(deviceId);
+      const slug = getCurrentProductId();
+      loadProduct(slug);
+      renderRelated(slug);
     });
 
-    const initialId = getCurrentDeviceId();
-    loadDevice(initialId);
-    renderRelated(initialId);
-
-    window.changeImage = changeImage;
-    window.toggleAccordion = toggleAccordion;
-
-    // Update cart count from localStorage
-    function updateCartCount() {
-      let cart = JSON.parse(localStorage.getItem('cart')) || [];
-      let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-      const cartCountSpan = document.getElementById('cartCount');
-      const mobileCartSpan = document.getElementById('mobileCartCount');
-      if (cartCountSpan) cartCountSpan.innerText = totalItems;
-      if (mobileCartSpan) mobileCartSpan.innerText = totalItems;
-    }
-
-    // Initialize cart count
+    // Initialize
+    const initialSlug = getCurrentProductId();
+    loadProduct(initialSlug);
+    renderRelated(initialSlug);
     updateCartCount();
 
-    // Listen for storage changes (when cart updates from other pages)
-    window.addEventListener('storage', function (e) {
-      if (e.key === 'cart') {
-        updateCartCount();
-      }
+    window.addEventListener('storage', (e) => {
+      if (e.key === 'cart') updateCartCount();
     });
 
+    // Make functions global
+    window.changeImage = changeImage;
     window.toggleMenu = toggleMenu;
     window.navigateToProduct = navigateToProduct;
+    window.addToCart = addToCart;
+    window.enquireNow = enquireNow;
   </script>
 </body>
 

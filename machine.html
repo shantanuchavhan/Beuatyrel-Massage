@@ -68,14 +68,6 @@
       align-items: center;
     }
 
-
-         .logo {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            justify-content: space-between;
-        }
-
     .logo img {
       height: 60px;
       transition: all 0.3s ease;
@@ -730,7 +722,7 @@
       .hero-content p { font-size: 14px; }
       .product-grid { grid-template-columns: 1fr; gap: 40px; }
       .product-gallery { flex-direction: column-reverse; }
-      .gallery-thumbs { flex-direction: row; width: 100%; justify-content: center; }
+      .gallery-thumbs { flex-direction: row; width: 100%; justify-content: center; overflow-x: auto; padding-bottom: 10px; }
       .tech-specs-section { padding: 25px; }
       .related-section h2 { font-size: 32px; }
       .tetro-footer-row { flex-direction: column; gap: 30px; }
@@ -747,7 +739,7 @@
 
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <div class="logo"><a href="./index.html"><img src="./images/logo.png" alt="Rose Embroidery"></a></a><div></div>
+      <div class="logo"><a href="./index.html"><img src="./images/logo.png" alt="Rose Embroidery"></a></div>
       <div class="nav-links">
         <a class="nav-attribute" href="index.html">Home</a>
         <a class="nav-attribute" href="about.html">About</a>
@@ -873,7 +865,7 @@
       <hr class="tetro-footer-divider">
       <div class="tetro-footer-bottom">
         <div class="tetro-copyright">
-          <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a style="text-decoration: none; color: white;" href="index.html">Rose Embroidery</a>. All rights reserved.
+          <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html" style="text-decoration: none; color: white;">Rose Embroidery</a>. All rights reserved.
         </div>
         <div class="tetro-tagline">Quality Precision Trust</div>
       </div>
@@ -887,27 +879,32 @@
     // Global product variable
     let currentProduct = null;
 
-    // Get all products from localStorage or use default
+    // Complete product database with MULTIPLE IMAGES for each product
+    const productDatabase = [
+      { id: 1, name: "HSW 5G 1216", slug: "hsw-5g-1216", category: "machine", price: 325000, badge: "Compact Rose", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg", images: ["https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg", "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-2.jpg", "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-3.jpg"], desc: "12x16\" area, 12 needles, 1000 SPM, USB & Wi-Fi", specs: ["12x16\" Area", "12 Needles", "1000 SPM", "USB & Wi-Fi", "10\" Touch Screen"], bestSeller: true },
+      { id: 2, name: "HSW 5G 1632", slug: "hsw-5g-1632", category: "machine", price: 410000, badge: "Rose Performer", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg", images: ["https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg", "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632-2.jpg", "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632-3.jpg"], desc: "16x32\" workspace, industrial-grade performance", specs: ["16x32\" Area", "12 Needles", "Auto Thread Trimmer", "Cording Support"], bestSeller: true },
+      { id: 3, name: "HSW 5G 2032", slug: "hsw-5g-2032", category: "machine", price: 475000, badge: "Flagship", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg", images: ["https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg", "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-2.jpg", "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-3.jpg"], desc: "AI tension control, remote monitoring", specs: ["20x32\" Area", "1200 SPM", "AI Tension Control", "Remote Monitoring"], bestSeller: false },
+      { id: 4, name: "HSW 5G 2848", slug: "hsw-5g-2848", category: "machine", price: 590000, badge: "Industrial", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-1.jpg", images: ["https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-1.jpg", "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-2.jpg", "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-3.jpg"], desc: "Large format heavy-duty production", specs: ["28x48\" Area", "1200 RPM", "Industrial Grade", "Photo to Embroidery"], bestSeller: true },
+      { id: 5, name: "BABA YUEMEI", slug: "baba-yuemei", category: "machine", price: 495000, badge: "Premium", image: "./images/machine1.jpeg", images: ["./images/machine1.jpeg"], desc: "12-needle, Japanese shuttle, 1500 SPM", specs: ["12 Needles", "1500 SPM", "Japanese Shuttle", "2 Yr Warranty"], bestSeller: false },
+      { id: 6, name: "Magnetic Hoop Pro", slug: "magnetic-hoop-pro", category: "device", price: 12500, badge: "Best Seller", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR878VKlZXIT7rcGYXe1G2Thh8jUDWCyL7tw&s", images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR878VKlZXIT7rcGYXe1G2Thh8jUDWCyL7tw&s", "https://m.media-amazon.com/images/I/71X5hPpN0pL._AC_SL1500_.jpg", "https://m.media-amazon.com/images/I/71mUuR8Q2UL._AC_SL1500_.jpg"], desc: "7 sizes, no hoop burn, quick release", specs: ["Magnetic", "7 Sizes", "Quick Release", "No Hoop Burn"], bestSeller: true },
+      { id: 7, name: "Digitizing Tablet Pro", slug: "digitizing-tablet-pro", category: "device", price: 28000, badge: "Pro", image: "https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600", images: ["https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600", "https://m.media-amazon.com/images/I/71c-0TpHLXL._AC_SL1500_.jpg", "https://m.media-amazon.com/images/I/71ZQN5L2S9L._AC_SL1500_.jpg"], desc: "8192 pressure levels, wireless", specs: ["15.6\" Workspace", "8192 Pressure Levels", "Wireless", "8 Express Keys"], bestSeller: false },
+      { id: 8, name: "Smart Thread Manager", slug: "smart-thread-manager", category: "device", price: 18500, badge: "IoT", image: "https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png", images: ["https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png"], desc: "Real-time tension monitoring, mobile alerts", specs: ["Mobile App", "Break Detection", "Predictive Analytics", "Cloud Storage"], bestSeller: true },
+      { id: 9, name: "OLH-098A Twin Sequin", slug: "olh-098a-twin-sequin", category: "device", price: 32500, badge: "Premium", image: "https://image.made-in-china.com/2f0j00AyOqEvhRkloc/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-Double-Sequin-with-Triple-Bead-Device.jpg", images: ["https://image.made-in-china.com/2f0j00AyOqEvhRkloc/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-Double-Sequin-with-Triple-Bead-Device.jpg", "https://sc04.alicdn.com/kf/H1b17c932a865442798675d2ef9e670c6b.jpg", "https://sc04.alicdn.com/kf/Hb48c9d1b1d224cb6b5c8e6c9b8d7c6b1F.jpg"], desc: "Twin sequin + beads attachment", specs: ["1000 RPM", "Beads 1.7-4.0mm", "Twin Sequin", "Triple Beads"], bestSeller: false },
+      { id: 10, name: "HSW 5G 3248", slug: "hsw-5g-3248", category: "machine", price: 630000, badge: "Ultimate", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/3248-1.jpg", images: ["https://www.singleheadembroidery.com/wp-content/uploads/2024/08/3248-1.jpg"], desc: "Maximum field luxury production", specs: ["32x48\" Area", "1200 RPM", "Max Field Size", "Industrial Grade"], bestSeller: false },
+      { id: 11, name: "Premium Thread Set (50 Colors)", slug: "premium-thread-set", category: "device", price: 4500, badge: "Bestseller", image: "https://m.media-amazon.com/images/I/71LLvUE2-VL.jpg", images: ["https://m.media-amazon.com/images/I/71LLvUE2-VL.jpg"], desc: "Rayon threads, vibrant shades", specs: ["50 Colors", "Rayon", "High Tenacity", "Fade Resistant"], bestSeller: true },
+      { id: 12, name: "Aari Needle Set", slug: "aari-needle-set", category: "device", price: 899, badge: "Essential", image: "https://m.media-amazon.com/images/I/41BbkcD4S6L._SX679_.jpg", images: ["https://m.media-amazon.com/images/I/41BbkcD4S6L._SX679_.jpg"], desc: "Professional Aari hooks & needles", specs: ["12 Sizes", "Ergonomic", "Steel", "Carry Case"], bestSeller: false }
+    ];
+
     function getAllProducts() {
       const stored = localStorage.getItem('rose_products');
       if (stored) {
-        return JSON.parse(stored);
+        const storedProducts = JSON.parse(stored);
+        return storedProducts.map(p => {
+          const dbProduct = productDatabase.find(db => db.slug === p.slug);
+          return { ...p, images: dbProduct && dbProduct.images ? dbProduct.images : [p.image] };
+        });
       }
-      // Default products
-      return [
-        { id: 1, name: "HSW 5G 1216", slug: "hsw-5g-1216", category: "machine", price: 325000, badge: "Compact Rose", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg", desc: "12x16\" area, 12 needles, 1000 SPM, USB & Wi-Fi", specs: ["12x16\" Area", "12 Needles", "1000 SPM", "USB & Wi-Fi", "10\" Touch Screen"], bestSeller: true },
-        { id: 2, name: "HSW 5G 1632", slug: "hsw-5g-1632", category: "machine", price: 410000, badge: "Rose Performer", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg", desc: "16x32\" workspace, industrial-grade performance", specs: ["16x32\" Area", "12 Needles", "Auto Thread Trimmer", "Cording Support"], bestSeller: true },
-        { id: 3, name: "HSW 5G 2032", slug: "hsw-5g-2032", category: "machine", price: 475000, badge: "Flagship", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg", desc: "AI tension control, remote monitoring", specs: ["20x32\" Area", "1200 SPM", "AI Tension Control", "Remote Monitoring"], bestSeller: false },
-        { id: 4, name: "HSW 5G 2848", slug: "hsw-5g-2848", category: "machine", price: 590000, badge: "Industrial", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-1.jpg", desc: "Large format heavy-duty production", specs: ["28x48\" Area", "1200 RPM", "Industrial Grade", "Photo to Embroidery"], bestSeller: true },
-        { id: 5, name: "BABA YUEMEI", slug: "baba-yuemei", category: "machine", price: 495000, badge: "Premium", image: "./images/machine1.jpeg", desc: "12-needle, Japanese shuttle, 1500 SPM", specs: ["12 Needles", "1500 SPM", "Japanese Shuttle", "2 Yr Warranty"], bestSeller: false },
-        { id: 6, name: "Magnetic Hoop Pro", slug: "magnetic-hoop-pro", category: "device", price: 12500, badge: "Best Seller", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR878VKlZXIT7rcGYXe1G2Thh8jUDWCyL7tw&s", desc: "7 sizes, no hoop burn, quick release", specs: ["Magnetic", "7 Sizes", "Quick Release", "No Hoop Burn"], bestSeller: true },
-        { id: 7, name: "Digitizing Tablet Pro", slug: "digitizing-tablet-pro", category: "device", price: 28000, badge: "Pro", image: "https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "8192 pressure levels, wireless", specs: ["15.6\" Workspace", "8192 Pressure Levels", "Wireless", "8 Express Keys"], bestSeller: false },
-        { id: 8, name: "Smart Thread Manager", slug: "smart-thread-manager", category: "device", price: 18500, badge: "IoT", image: "https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png", desc: "Real-time tension monitoring, mobile alerts", specs: ["Mobile App", "Break Detection", "Predictive Analytics", "Cloud Storage"], bestSeller: true },
-        { id: 9, name: "OLH-098A Twin Sequin", slug: "olh-098a-twin-sequin", category: "device", price: 32500, badge: "Premium", image: "https://image.made-in-china.com/202f0j00BnqbTUHaHeoh/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-for-Embroidery-Machine.webp", desc: "Twin sequin + beads attachment", specs: ["1000 RPM", "Beads 1.7-4.0mm", "Twin Sequin", "Triple Beads"], bestSeller: false },
-        { id: 10, name: "HSW 5G 3248", slug: "hsw-5g-3248", category: "machine", price: 630000, badge: "Ultimate", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/3248-1.jpg", desc: "Maximum field luxury production", specs: ["32x48\" Area", "1200 RPM", "Max Field Size", "Industrial Grade"], bestSeller: false },
-        { id: 11, name: "Premium Thread Set (50 Colors)", slug: "premium-thread-set", category: "device", price: 4500, badge: "Bestseller", image: "https://images.pexels.com/photos/459869/pexels-photo-459869.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Rayon threads, vibrant shades", specs: ["50 Colors", "Rayon", "High Tenacity", "Fade Resistant"], bestSeller: true },
-        { id: 12, name: "Aari Needle Set", slug: "aari-needle-set", category: "device", price: 899, badge: "Essential", image: "https://images.pexels.com/photos/3769811/pexels-photo-3769811.jpeg?auto=compress&cs=tinysrgb&w=600", desc: "Professional Aari hooks & needles", specs: ["12 Sizes", "Ergonomic", "Steel", "Carry Case"], bestSeller: false }
-      ];
+      return productDatabase;
     }
 
     function getProductBySlug(slug) {
@@ -923,7 +920,6 @@
     function loadProduct(productSlug) {
       const product = getProductBySlug(productSlug);
       if (!product) {
-        // Fallback to default
         loadProduct('hsw-5g-1216');
         return;
       }
@@ -939,7 +935,7 @@
       // Update product info
       document.getElementById('productBadge').innerHTML = `<i class="fas fa-${product.category === 'machine' ? 'microchip' : 'tools'}"></i> ${product.category === 'machine' ? 'Embroidery Machine' : 'Attachment Device'}`;
       document.getElementById('productName').innerText = product.name;
-      // document.getElementById('productPrice').innerHTML = `₹${product.price.toLocaleString('en-IN')}`;
+      document.getElementById('productPrice').innerHTML = `₹${product.price.toLocaleString('en-IN')}`;
       document.getElementById('mainImage').src = product.image;
       
       // Feature list
@@ -954,14 +950,17 @@
         <div class="spec-card"><ul>${product.specs.slice(half).map(s => `<li><i class="fas fa-plug"></i> ${s}</li>`).join('')}<li><i class="fas fa-tools"></i> Warranty: 1 Year Comprehensive</li></ul></div>
       `;
       
-      document.getElementById('compatibilityInfo').innerHTML = `<i class="fas fa-exchange-alt"></i> Compatible with all major embroidery machines and software`;
+      document.getElementById('compatibilityInfo').innerHTML = `<i class="fas fa-exchange-alt"></i> Compatible with all major embroidery machines and software | Easy installation and setup`;
       
-      // Gallery thumbs
+      // Gallery thumbs - DYNAMIC based on actual number of images
       const galleryThumbs = document.getElementById('galleryThumbs');
-      const thumbImages = [product.image, product.image, product.image];
-      galleryThumbs.innerHTML = thumbImages.map((img, idx) => `
+      const availableImages = product.images && product.images.length > 0 ? product.images : [product.image];
+      const imageCount = availableImages.length;
+      
+      // Generate thumbnails based on actual image count (only show as many as there are images)
+      galleryThumbs.innerHTML = availableImages.map((img, idx) => `
         <div class="thumb-btn ${idx === 0 ? 'active' : ''}" onclick="changeImage(this, '${img}')">
-          <img src="${img}" alt="Thumb ${idx + 1}" style="width: 100%; height: 100%; object-fit: cover;">
+          <img src="${img}" alt="View ${idx + 1}" style="width: 100%; height: 100%; object-fit: cover;" onerror="this.src='${product.image}'">
         </div>
       `).join('');
     }
@@ -1010,7 +1009,6 @@
       localStorage.setItem('cart', JSON.stringify(cart));
       updateCartCount();
       
-      // Show toast notification
       const toast = document.createElement('div');
       toast.className = 'toast-notification';
       toast.innerHTML = `<i class="fas fa-check-circle"></i> ${currentProduct.name} added to cart!`;
@@ -1023,7 +1021,7 @@
 
     function enquireNow() {
       if (currentProduct) {
-        alert(`📞 For purchase inquiries about ${currentProduct.name}\nContact: +91 90255 52206\nEmail: Drroslineg@gmail.com`);
+        alert(`📞 For purchase inquiries about ${currentProduct.name}\n\nContact: +91 90255 52206\nEmail: Drroslineg@gmail.com\n\nWe'll get back to you within 24 hours with the best price and offers.`);
       }
     }
 

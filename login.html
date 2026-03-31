@@ -733,16 +733,6 @@
             position: relative;
         }
 
-        .nav-attribute::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #d45a7a;
-            transition: width 0.3s ease;
-        }
 
         .nav-attribute:hover::after,
         .nav-attribute.active::after {
@@ -752,6 +742,7 @@
         .nav-attribute:hover,
         .nav-attribute.active {
             color: #d45a7a;
+            border-bottom: none;
         }
 
         .cart-icon {

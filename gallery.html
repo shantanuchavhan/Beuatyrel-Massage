@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>Rose Embroidery | Gallery - Machines & Devices</title>
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -29,12 +29,6 @@
             padding: 0 30px;
         }
 
-
-
-
-
-
-
         .nav-attribute:hover {
             color: #d45a7a;
         }
@@ -42,13 +36,13 @@
         .nav-attribute.active {
             color: #d45a7a;
             font-weight: 600;
-      
+            border-bottom: 2px solid #d45a7a;
             padding-bottom: 4px;
         }
 
         .page-header {
             height: 45vh;
-           background: linear-gradient(135deg, rgb(0 0 0 / 80%) 0%, rgb(0 0 0 / 95%) 100%), url('https://images.pexels.com/photos/3778010/pexels-photo-3778010.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background: linear-gradient(135deg, rgb(0 0 0 / 80%) 0%, rgb(0 0 0 / 95%) 100%), url('https://images.pexels.com/photos/3778010/pexels-photo-3778010.jpeg?auto=compress&cs=tinysrgb&w=1600');
             background-size: cover;
             background-position: center;
             display: flex;
@@ -71,27 +65,6 @@
 
         .gallery-section {
             padding: 80px 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .section-header .subtitle {
-            font-size: 14px;
-            letter-spacing: 5px;
-            color: #d45a7a;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .section-header h2 {
-            font-size: 48px;
-            background: linear-gradient(135deg, #d45a7a, #b84363);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .category-tabs {
@@ -172,64 +145,31 @@
         .gallery-overlay p {
             font-size: 13px;
             opacity: 0.9;
+            margin-bottom: 6px;
         }
-
-        .gallery-overlay .price-tag {
-            font-size: 18px;
-            font-weight: 700;
-            color: #ffb6c1;
-            margin-top: 8px;
-            display: inline-block;
-        }
-
-        footer {
-            background: linear-gradient(125deg, #fa6992 0%, #ca3061 100%);
-            color: #fff;
-            padding: 60px 0 30px;
-            text-align: center;
-        }
-
-        footer h4 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
 
         @media (max-width: 768px) {
-
-
-            .navbar.scrolled .page-header h1 {
+            .page-header h1 {
                 font-size: 42px;
             }
-
             .page-header p {
                 font-size: 14px;
             }
-
-            .section-header h2 {
-                font-size: 32px;
-            }
-
             .container {
                 padding: 0 20px;
             }
-
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
-
             .category-btn {
                 padding: 8px 20px;
                 font-size: 12px;
             }
         }
 
-        @media (min-width: 769px) {}
-
         .cart-icon {
             position: relative;
         }
-
         .cart-count {
             position: absolute;
             top: -8px;
@@ -242,49 +182,34 @@
             border-radius: 50%;
             animation: pulse 1.5s infinite;
         }
-
         @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.2);
-            }
-
-            100% {
-                transform: scale(1);
-            }
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
         }
 
-
-        /* Tetro-style Footer */
         .tetro-footer {
-               background: linear-gradient(135deg, #191a2c, #1f010a);
-    color: #fff;
-    padding: 70px 0 30px;
-    font-family: 'Montserrat', sans-serif;
-    text-align: left;
+            background: linear-gradient(135deg, #191a2c, #1f010a);
+            color: #fff;
+            padding: 70px 0 30px;
+            font-family: 'Montserrat', sans-serif;
+            text-align: left;
         }
-
         .tetro-footer-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 30px;
         }
-
         .tetro-footer-row {
             display: flex;
             flex-wrap: wrap;
             gap: 40px;
             margin-bottom: 40px;
         }
-
         .tetro-footer-col {
             flex: 1;
             min-width: 280px;
         }
-
         .tetro-footer-col.col-brand p {
             color: #f8f9fa;
             line-height: 1.8;
@@ -292,13 +217,11 @@
             font-size: 15px;
             opacity: 0.9;
         }
-
         .footer-brand {
             text-decoration: none;
             display: inline-block;
             margin-bottom: 20px;
         }
-
         .footer-brand h2 {
             color: #fff;
             font-weight: 700;
@@ -306,16 +229,10 @@
             font-family: 'Montserrat', sans-serif;
             margin: 0;
         }
-
-        .footer-brand span {
-            color: #d45a7a;
-        }
-
         .tetro-social-links {
             display: flex;
             gap: 12px;
         }
-
         .tetro-social-links a {
             display: flex;
             align-items: center;
@@ -329,27 +246,23 @@
             transition: all 0.3s ease;
             font-size: 18px;
         }
-
         .tetro-social-links a:hover {
             background: #d45a7a;
             color: #fff;
             transform: translateY(-3px);
         }
-
-         .tetro-footer-col h3 {
+        .tetro-footer-col h3 {
             color: #ffffff;
             font-size: 24px;
             margin-bottom: 25px;
             font-weight: 600;
             font-family: 'Montserrat', sans-serif;
         }
-
         .tetro-quick-links {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-
         .tetro-quick-links a {
             color: #fff;
             text-decoration: none;
@@ -359,27 +272,20 @@
             align-items: center;
             opacity: 0.9;
         }
-
         .tetro-quick-links a i {
- 
             margin-right: 12px;
             font-size: 12px;
         }
-
         .tetro-quick-links a:hover {
-
             padding-left: 8px;
             opacity: 1;
         }
-
         .tetro-contact-info {
             display: flex;
             flex-direction: column;
             gap: 0;
         }
-
-        .tetro-contact-info a,
-        .tetro-contact-info p {
+        .tetro-contact-info a, .tetro-contact-info p {
             color: #fff;
             text-decoration: none;
             font-size: 15px;
@@ -391,17 +297,8 @@
             line-height: 1.5;
             opacity: 0.9;
         }
-
-        .tetro-contact-info a:first-child {
-            padding-top: 0;
-        }
-
-        .tetro-contact-info a:last-child,
-        .tetro-contact-info p:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
+        .tetro-contact-info a:first-child { padding-top: 0; }
+        .tetro-contact-info a:last-child, .tetro-contact-info p:last-child { border-bottom: none; padding-bottom: 0; }
         .tetro-contact-info i {
             color: #d45a7a;
             margin-right: 15px;
@@ -409,19 +306,12 @@
             width: 16px;
             text-align: center;
         }
-
-        .tetro-contact-info a:hover {
-            color: #d45a7a;
-            opacity: 1;
-        }
-
         .tetro-footer-divider {
             border: none;
             height: 1px;
             background: rgba(255, 255, 255, 0.1);
             margin: 0 0 25px 0;
         }
-
         .tetro-footer-bottom {
             display: flex;
             justify-content: space-between;
@@ -429,23 +319,16 @@
             flex-wrap: wrap;
             gap: 15px;
         }
-
         .tetro-copyright {
             color: #fff;
             font-size: 14px;
             opacity: 0.8;
         }
-
         .tetro-copyright a {
-              color: white;
+            color: white;
             text-decoration: none;
             font-weight: 500;
         }
-
-        .tetro-copyright a:hover {
-            text-decoration: underline;
-        }
-
         .tetro-tagline {
             color: #fff;
             font-size: 14px;
@@ -453,21 +336,6 @@
             font-weight: 500;
         }
 
-        @media (max-width: 768px) {
-            .tetro-footer-row {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .tetro-footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-        }
-
-
-        /* UNIVERSAL NAVBAR STYLES */
         .navbar {
             position: fixed;
             top: 0;
@@ -479,14 +347,12 @@
             background: rgba(255, 255, 255, 0.98);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
-
         .navbar.scrolled {
             backdrop-filter: blur(10px);
             padding: 8px 0;
             box-shadow: 0 5px 20px rgba(212, 90, 122, 0.15);
             background: rgba(255, 255, 255, 0.95);
         }
-
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -495,25 +361,21 @@
             justify-content: space-between;
             align-items: center;
         }
-
-             .logo {
+        .logo {
             display: flex;
             align-items: center;
             width: 100%;
             justify-content: space-between;
         }
-
         .logo a img {
             height: 60px;
             transition: all 0.3s ease;
         }
-
         .nav-links {
             display: flex;
             align-items: center;
             gap: 28px;
         }
-
         .nav-attribute {
             color: #3e2a2f;
             text-decoration: none;
@@ -524,66 +386,26 @@
             transition: all 0.3s;
             position: relative;
         }
-
-     
-
-
-        .nav-attribute:hover,
-        .nav-attribute.active {
-            color: #d45a7a;
+        .nav-attribute::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #d45a7a;
+            transition: width 0.3s ease;
         }
-
+        .nav-attribute:hover::after, .nav-attribute.active::after { width: 100%; }
+        .nav-attribute:hover, .nav-attribute.active { color: #d45a7a; }
         .cart-icon {
             position: relative;
             display: flex;
             align-items: center;
         }
-
-        .cart-icon i {
-            font-size: 16px;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -10px;
-            right: -14px;
-            background: linear-gradient(135deg, #d45a7a, #b34262);
-            color: white;
-            font-size: 10px;
-            font-weight: bold;
-            padding: 2px 6px;
-            border-radius: 50%;
-            animation: pulse 1.5s infinite;
-            border: 2px solid white;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.15);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-        .hamburger,
-        .sidebar,
-        .overlay {
-            display: none;
-        }
-
+        .hamburger, .sidebar, .overlay { display: none; }
         @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-                cursor: pointer;
-                z-index: 1001;
-            }
-
+            .hamburger { display: block; cursor: pointer; z-index: 1001; }
             .hamburger span {
                 display: block;
                 width: 26px;
@@ -593,11 +415,6 @@
                 transition: 0.3s;
                 border-radius: 2px;
             }
-
-            .navbar.scrolled .hamburger span {
-                background: #d45a7a;
-            }
-
             .sidebar {
                 position: fixed;
                 top: 0;
@@ -613,11 +430,7 @@
                 z-index: 10000;
                 box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
             }
-
-            .sidebar.active {
-                left: 0;
-            }
-
+            .sidebar.active { left: 0; }
             .sidebar a {
                 color: #3e2a2f;
                 text-decoration: none;
@@ -628,15 +441,7 @@
                 display: flex;
                 align-items: center;
                 gap: 12px;
-                transition: 0.3s;
             }
-
-            .sidebar a:hover,
-            .sidebar a.active {
-                color: #d45a7a;
-                padding-left: 5px;
-            }
-
             .sidebar .close-btn {
                 position: absolute;
                 top: 20px;
@@ -644,14 +449,7 @@
                 font-size: 28px;
                 cursor: pointer;
                 color: #b34262;
-                transition: 0.3s;
             }
-
-            .sidebar .close-btn:hover {
-                transform: rotate(90deg);
-                color: #d45a7a;
-            }
-
             .overlay {
                 position: fixed;
                 top: 0;
@@ -665,28 +463,12 @@
                 z-index: 9999;
                 backdrop-filter: blur(3px);
             }
-
-            .overlay.active {
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .nav-links {
-                display: none !important;
-            }
+            .overlay.active { opacity: 1; visibility: visible; }
+            .nav-links { display: none !important; }
         }
-
         @media (min-width: 769px) {
-
-            .hamburger,
-            .sidebar,
-            .overlay {
-                display: none !important;
-            }
-
-            .nav-links {
-                display: flex !important;
-            }
+            .hamburger, .sidebar, .overlay { display: none !important; }
+            .nav-links { display: flex !important; }
         }
     </style>
 </head>
@@ -694,7 +476,7 @@
 <body>
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <div class="logo"><a href="./index.html"><img src="./images/logo.png" alt="Rose Embroidery"></a></a><div></div>
+            <div class="logo"><a href="./index.html"><img src="./images/logo.png" alt="Rose Embroidery"></a></div>
             <div class="nav-links">
                 <a class="nav-attribute" href="index.html">Home</a>
                 <a class="nav-attribute" href="about.html">About</a>
@@ -731,15 +513,12 @@
 
     <section class="gallery-section" id="gallery">
         <div class="container">
-        
-
             <div class="category-tabs" data-aos="fade-up">
                 <button class="category-btn active" data-category="all">All Products</button>
                 <button class="category-btn" data-category="machines">Embroidery Machines</button>
                 <button class="category-btn" data-category="devices">Devices & Accessories</button>
                 <button class="category-btn" data-category="samples">Embroidery Samples</button>
             </div>
-
             <div class="gallery-grid" id="galleryGrid"></div>
         </div>
     </section>
@@ -748,11 +527,8 @@
         <div class="tetro-footer-container">
             <div class="tetro-footer-row">
                 <div class="tetro-footer-col col-brand">
-                    <a href="index.html" class="footer-brand">
-                        <h2>Rose Embroidery</h2>
-                    </a>
-                    <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship
-                        with precision and quality.</p>
+                    <a href="index.html" class="footer-brand"><h2>Rose Embroidery</h2></a>
+                    <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship with precision and quality.</p>
                     <div class="tetro-social-links">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -760,7 +536,6 @@
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-
                 <div class="tetro-footer-col col-links">
                     <h3>Quick Links</h3>
                     <div class="tetro-quick-links">
@@ -773,12 +548,10 @@
                         <a href="#"><i class="fas fa-angle-right"></i>Refund & Return Policy</a>
                     </div>
                 </div>
-
                 <div class="tetro-footer-col col-contact">
                     <h3>Contact Info</h3>
                     <div class="tetro-contact-info">
-                        <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu
-                            madhuravoyal chennai 600095</a>
+                        <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</a>
                         <a href="tel:+91902555206"><i class="fas fa-phone-alt"></i>+91 902555206</a>
                         <a href="mailto:Drroslineg@gmail.com"><i class="fas fa-envelope"></i>Drroslineg@gmail.com</a>
                         <p><i class="fas fa-clock"></i>Mon-Sat: 9AM - 7PM</p>
@@ -787,13 +560,8 @@
             </div>
             <hr class="tetro-footer-divider">
             <div class="tetro-footer-bottom">
-                <div class="tetro-copyright">
-                    <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose
-                        Embroidery</a>. All rights reserved.
-                </div>
-                <div class="tetro-tagline">
-                    Quality Precision Trust
-                </div>
+                <div class="tetro-copyright"><i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose Embroidery</a>. All rights reserved.</div>
+                <div class="tetro-tagline">Quality Precision Trust</div>
             </div>
         </div>
     </footer>
@@ -802,74 +570,80 @@
     <script>
         AOS.init({ duration: 800, once: true });
 
-        // Gallery Data
-        const galleryData = {
-            machines: [
-                { id: 'hsw-1216', name: 'HSW 5G 1216', slug: 'hsw-5g-1216', category: 'machines', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg', description: 'Compact 12-needle embroidery machine with 12x16" area', price: '₹3,25,000', badge: 'Compact Rose' },
-                { id: 'hsw-1632', name: 'HSW 5G 1632', slug: 'hsw-5g-1632', category: 'machines', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg', description: 'Industrial-grade 16x32" workspace with auto thread trimmer', price: '₹4,10,000', badge: 'Rose Performer' },
-                { id: 'hsw-2032', name: 'HSW 5G 2032', slug: 'hsw-5g-2032', category: 'machines', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2032-1.jpg', description: 'AI tension control, remote monitoring, 20x32" area', price: '₹4,75,000', badge: 'Flagship Rose' },
-                { id: 'hsw-2048', name: 'HSW 5G 2048', slug: 'hsw-5g-2048', category: 'machines', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2048-1.jpg', description: 'Extended 20x48" field for saree borders & bridal wear', price: '₹5,25,000', badge: 'Saree Specialist' },
-                { id: 'hsw-2848', name: 'HSW 5G 2848', slug: 'hsw-5g-2848', category: 'machines', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/2848-1.jpg', description: 'Heavy-duty large format for high-volume production', price: '₹5,90,000', badge: 'Industrial Rose' },
-                { id: 'hsw-3248', name: 'HSW 5G 3248', slug: 'hsw-5g-3248', category: 'machines', image: 'https://www.singleheadembroidery.com/wp-content/uploads/2024/08/3248-1.jpg', description: 'Maximum 32x48" field for luxury production', price: '₹6,30,000', badge: 'Ultimate Rose' },
-                { id: 'baba-yuemei', name: 'BABA YUEMEI', slug: 'baba-yuemei', category: 'machines', image: './images/machine1.jpeg', description: '12-needle with Japanese shuttle, 1500 SPM speed', price: '₹4,95,000', badge: 'Premium Rose' }
-            ],
-            devices: [
-                { id: 'magnetic-hoop', name: 'Magnetic Hoop Pro', slug: 'magnetic-hoop-pro', category: 'devices', image: 'https://cdn.shopify.com/s/files/1/0621/4208/7329/files/1_b16c8683-cced-4970-b847-a31c05540912.jpg', description: 'Magnetic hooping system, 70% faster setup', price: '₹12,500', badge: 'Best Seller' },
-                { id: 'digitizing-tablet', name: 'Digitizing Tablet Pro', slug: 'digitizing-tablet-pro', category: 'devices', image: 'https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600', description: '8192 pressure levels, wireless digitizing', price: '₹28,000', badge: 'Professional' },
-                { id: 'smart-thread', name: 'Smart Thread Manager', slug: 'smart-thread-manager', category: 'devices', image: 'https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png', description: 'IoT-enabled thread tension monitoring', price: '₹18,500', badge: 'IoT Enabled' },
-                { id: 'olh-098a', name: 'OLH-098A Twin Sequin', slug: 'olh-098a-twin-sequin', category: 'devices', image: 'https://image.made-in-china.com/2f0j00AyOqEvhRkloc/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-Double-Sequin-with-Triple-Bead-Device.jpg', description: 'Twin sequin + triple beads attachment', price: '₹32,500', badge: 'Premium' }
-            ],
-            samples: [
-                { id: 'sample1', name: 'Floral Embroidery', category: 'samples', image: "https://img.freepik.com/free-psd/vibrant-embroidery-floral-bouquet-colorful-tapestry-stitched-blooms_632498-25772.jpg?semt=ais_incoming&w=740&q=80", description: 'Intricate floral patterns with vibrant thread colors', price: 'Design Sample' },
-                { id: 'sample2', name: 'Aari Work Masterpiece', category: 'samples', image: 'https://dressupandblossom.in/wp-content/uploads/2024/09/picsart_24-09-26_14-16-01-420.jpg?w=720', description: 'Traditional Aari embroidery with mirror work', price: 'Custom Design' },
-                { id: 'sample3', name: '3D Puff Embroidery', category: 'samples', image: 'https://blog.hatchembroidery.com/wp-content/uploads/2019/10/Mainpower.jpg', description: 'Dimensional designs with perfect foam application', price: 'Sample' },
-                { id: 'sample4', name: 'Cap Embroidery', category: 'samples', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRSjl4L1sClUYg5sKz4ArNkVnvSwt3e7t-sVpe_Z2Hsh9h7pQ3UnGcO3Us4RrK5FtGXfEaYCf51VtTOGZbtPGZ97mO0ebhKPHHS1CK8JxYO-5FH-1MokPRVNPiApvlVTw&usqp=CAc', description: 'Specialized headwear designs with perfect curvature', price: 'Sample' }
-            ]
-        };
+        // ========== COMPLETE GALLERY DATA (NO HSW MACHINES, NO PRICE DISPLAY) ==========
+        // Includes: All BABA machines (from shop) + All Devices/Accessories + Embroidery Samples
+        // HSW products have been completely removed as requested.
+        
+        const galleryItems = [
+            // ---------- ALL BABA MACHINES (from shop, no HSW, no prices) ----------
+            { id: 101, name: "BABA 42 Head Computerized Embroidery Machine", slug: "baba-42-head", category: "machines", image: "https://5.imimg.com/data5/GLADMIN/Default/2023/5/307329784/KO/MN/UK/6538775/baba-42-head-computerized-embroidery-machine-500x500.jpg", description: "42-head, 4-needle multi-head machine for large-scale production. Core parts from Japan with Dahao system." },
+            { id: 102, name: "BABA 21 Head High Speed Computerized Embroidery Machine", slug: "baba-21-head-high-speed", category: "machines", image: "https://5.imimg.com/data5/OC/XV/VJ/SELLER-6538775/21-head-high-speed-computerized-embroidery-machine.jpg", description: "21-head, 9-needle machine for efficient, high-speed production. Max speed 1200 rpm." },
+            { id: 103, name: "BABA 21 Head High Speed with Easy Cording Device", slug: "baba-21-head-cording", category: "machines", image: "https://5.imimg.com/data5/GLADMIN/Default/2023/2/CC/ZM/WE/6538775/baba-21-head-high-speed-computerized-embroidery-machine-with-easy-cording-device-500x500.jpg", description: "21-head machine with easy cording device for decorative stitching." },
+            { id: 104, name: "BABA 15 Head High Speed Computerized Embroidery Machine", slug: "baba-15-head-high-speed", category: "machines", image: "https://5.imimg.com/data5/JM/XR/EE/SELLER-6538775/hs-a915-400-800-1200-500x500.jpg", description: "15-head, 9-needle machine with high-speed sequin device." },
+            { id: 105, name: "BABA Mini Schiffli 88 Head 176 Needle Machine", slug: "baba-mini-schiffli", category: "machines", image: "https://5.imimg.com/data5/DY/MN/TU/SELLER-6538775/hs-n1176-55-600-1520-500x500.jpg", description: "Specialized mini schiffli machine for lace, border, and large-scale embroidery." },
+            { id: 106, name: "BABA 15 Head Computerized Embroidery Machine", slug: "baba-15-head", category: "machines", image: "https://5.imimg.com/data5/GLADMIN/Default/2023/5/307531299/HJ/XL/LN/6538775/baba-15-head-computerized-embroidery-machine-500x500.jpg", description: "15-head machine with easy cording and sequin devices." },
+            { id: 107, name: "BABA Bridge Laser Multi-head Embroidery Machine", slug: "baba-bridge-laser", category: "machines", image: "https://5.imimg.com/data5/MR/LW/ZF/SELLER-6538775/bridge-laser-for-multi-head-embroidery-machine-500x500.jpg", description: "Italian technology bridge laser machine for cutting and embroidery." },
+            { id: 108, name: "BABA Laser Cutting Aplique Work Machine", slug: "baba-laser-cutting", category: "machines", image: "https://5.imimg.com/data5/SELLER/Default/2023/11/359146277/BE/XW/JK/6538775/baba-laser-cutting-embroidery-machine-500x500.jpg", description: "6-head laser embroidery machine for aplique work." },
+            { id: 109, name: "BABA 1600 Rpm BOLT Super High Speed Machine", slug: "baba-bolt-super-high-speed", category: "machines", image: "https://5.imimg.com/data5/IOS/Default/2023/10/349516529/TX/IC/HE/6538775/product-jpeg-500x500.png", description: "Super high-speed machine with mist oiling and C5 pantograph." },
+            { id: 110, name: "Multi Needle Sequin Embroidery Machine", slug: "multi-needle-sequin", category: "machines", image: "https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png", description: "Computerized sequin embroidery machine with motorized sequin device." },
+            { id: 111, name: "BABA 24 Head Computerized Embroidery Machine", slug: "baba-24-head", category: "machines", image: "https://5.imimg.com/data5/SELLER/Default/2023/7/323505887/FY/LY/HN/6538775/baba-mix-chenile-aari-multi-high-speed-computerized-embroidery-machine.jpg", description: "24-head machine with touch screen and world-class efficiency." },
+            { id: 112, name: "BABA 21 Head High Speed Chain Stitch Machine", slug: "baba-21-head-chain-stitch", category: "machines", image: "https://5.imimg.com/data5/JY/KY/GQ/SELLER-6538775/0002.jpg", description: "21-head, 6-color machine specialized for chain stitch and Aari work." },
+            { id: 113, name: "BABA Embroidery Flat Bed Machine", slug: "baba-flat-bed-machine", category: "machines", image: "https://5.imimg.com/data5/SELLER/Default/2025/3/495481863/CK/TE/JE/6538775/42-head-super-high-speed-computerized-embroidery-machine-500x500.jpg", description: "High-speed flat bed machine supports beads, sequin, cording, laser." },
+            { id: 114, name: "BABA 42 Head Super High Speed Machine", slug: "baba-42-head-super-high-speed", category: "machines", image: "https://5.imimg.com/data5/SELLER/Default/2025/3/495481837/RZ/QY/CA/6538775/42-head-super-high-speed-computerized-embroidery-machine-1000x1000.jpg", description: "42-head super high-speed machine for massive production." },
+            { id: 115, name: "BABA 18 Head Super High Speed Bolt Max", slug: "baba-18-head-bolt-max", category: "machines", image: "https://5.imimg.com/data5/SELLER/Default/2025/3/495692072/AH/XC/ZT/6538775/18-head-super-high-speed-embroidery-machine.jpg", description: "18-head bolt max model with beads and sequin devices." },
+            { id: 116, name: "BABA YUEMEI Computerized", slug: "baba-yuemei", category: "machines", image: "./images/machine1.jpeg", description: "12-needle, Japanese shuttle machine with 1500 SPM. Premium quality." },
+            
+            // ---------- DEVICES & ACCESSORIES (from shop, no prices) ----------
+            { id: 6, name: "Magnetic Hoop Pro", slug: "magnetic-hoop-pro", category: "devices", image: "https://cdn.shopify.com/s/files/1/0621/4208/7329/files/1_b16c8683-cced-4970-b847-a31c05540912.jpg", description: "7 sizes, no hoop burn, quick release magnetic hoop system." },
+            { id: 7, name: "Digitizing Tablet Pro", slug: "digitizing-tablet-pro", category: "devices", image: "https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600", description: "8192 pressure levels, wireless digitizing tablet for embroidery design." },
+            { id: 8, name: "Smart Thread Manager", slug: "smart-thread-manager", category: "devices", image: "https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png", description: "Real-time tension monitoring, mobile alerts for thread breaks." },
+            { id: 9, name: "OLH-098A Twin Sequin", slug: "olh-098a-twin-sequin", category: "devices", image: "https://image.made-in-china.com/2f0j00AyOqEvhRkloc/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-Double-Sequin-with-Triple-Bead-Device.jpg", description: "Twin sequin + beads attachment for embroidery machines." },
+            { id: 11, name: "Premium Thread Set (50 Colors)", slug: "premium-thread-set", category: "devices", image: "https://m.media-amazon.com/images/I/71LLvUE2-VL.jpg", description: "Rayon threads, vibrant shades for professional embroidery." },
+            { id: 12, name: "Aari Needle Set", slug: "aari-needle-set", category: "devices", image: "https://m.media-amazon.com/images/I/41BbkcD4S6L._SX679_.jpg", description: "Professional Aari hooks & needles for chain stitch work." },
+            
+            // ---------- EMBROIDERY SAMPLES (kept as original) ----------
+            { id: 'sample1', name: 'Floral Embroidery', category: 'samples', image: "https://img.freepik.com/free-psd/vibrant-embroidery-floral-bouquet-colorful-tapestry-stitched-blooms_632498-25772.jpg?semt=ais_incoming&w=740&q=80", description: 'Intricate floral patterns with vibrant thread colors' },
+            { id: 'sample2', name: 'Aari Work Masterpiece', category: 'samples', image: 'https://dressupandblossom.in/wp-content/uploads/2024/09/picsart_24-09-26_14-16-01-420.jpg?w=720', description: 'Traditional Aari embroidery with mirror work' },
+            { id: 'sample3', name: '3D Puff Embroidery', category: 'samples', image: 'https://blog.hatchembroidery.com/wp-content/uploads/2019/10/Mainpower.jpg', description: 'Dimensional designs with perfect foam application' },
+            { id: 'sample4', name: 'Cap Embroidery', category: 'samples', image: 'https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRSjl4L1sClUYg5sKz4ArNkVnvSwt3e7t-sVpe_Z2Hsh9h7pQ3UnGcO3Us4RrK5FtGXfEaYCf51VtTOGZbtPGZ97mO0ebhKPHHS1CK8JxYO-5FH-1MokPRVNPiApvlVTw&usqp=CAc', description: 'Specialized headwear designs with perfect curvature' }
+        ];
 
         let currentCategory = 'all';
 
-        function renderGallery() {
-            const grid = document.getElementById('galleryGrid');
-            let items = [];
-
-            if (currentCategory === 'all') {
-                items = [...galleryData.machines, ...galleryData.devices, ...galleryData.samples];
-            } else {
-                items = galleryData[currentCategory] || [];
-            }
-
-            grid.innerHTML = items.map(item => `
-            <div class="gallery-card" data-aos="fade-up" onclick="navigateToProduct('${item.category}', '${item.slug || item.id}')">
-                <div class="gallery-img" style="background-image: url('${item.image}'); background-size: cover; background-position: center;"></div>
-                <div class="gallery-overlay">
-                    <h4>${item.name}</h4>
-                    <p>${item.description}</p>
-                    
-                </div>
-            </div>
-        `).join('');
-        }
-
         function navigateToProduct(category, slug) {
-            if (category === 'machines') {
-                window.location.href = `machines.html#${slug}`;
-            } else if (category === 'devices') {
-                window.location.href = `devices.html#${slug}`;
+            if (category === 'machines' || category === 'devices') {
+                if (category === 'machines') window.location.href = `machine.html#${slug}`;
+                else window.location.href = `devices.html#${slug}`;
             } else {
-                // For samples, just show an alert
                 alert('For more details about this embroidery sample, please contact us at +91 902555206');
             }
+        }
+
+        function renderGallery() {
+            const grid = document.getElementById('galleryGrid');
+            let filtered = [];
+            if (currentCategory === 'all') {
+                filtered = [...galleryItems];
+            } else {
+                filtered = galleryItems.filter(item => item.category === currentCategory);
+            }
+            
+            grid.innerHTML = filtered.map(item => `
+                <div class="gallery-card" data-aos="fade-up" onclick="navigateToProduct('${item.category}', '${item.slug || item.id}')">
+                    <div class="gallery-img" style="background-image: url('${item.image}'); background-size: cover; background-position: center;"></div>
+                    <div class="gallery-overlay">
+                        <h4>${item.name}</h4>
+                        <p>${item.description.substring(0, 80)}${item.description.length > 80 ? '...' : ''}</p>
+                    </div>
+                </div>
+            `).join('');
         }
 
         function filterByCategory(category) {
             currentCategory = category;
             document.querySelectorAll('.category-btn').forEach(btn => {
-                if (btn.getAttribute('data-category') === category) {
-                    btn.classList.add('active');
-                } else {
-                    btn.classList.remove('active');
-                }
+                if (btn.getAttribute('data-category') === category) btn.classList.add('active');
+                else btn.classList.remove('active');
             });
             renderGallery();
         }
@@ -887,15 +661,10 @@
 
         document.querySelectorAll('.category-btn').forEach(btn => {
             btn.addEventListener('click', function () {
-                const category = this.getAttribute('data-category');
-                filterByCategory(category);
+                filterByCategory(this.getAttribute('data-category'));
             });
         });
 
-        // Initialize
-        renderGallery();
-
-        // Update cart count from localStorage
         function updateCartCount() {
             let cart = JSON.parse(localStorage.getItem('cart')) || [];
             let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
@@ -905,16 +674,9 @@
             if (mobileCartSpan) mobileCartSpan.innerText = totalItems;
         }
 
-        // Initialize cart count
+        renderGallery();
         updateCartCount();
-
-        // Listen for storage changes (when cart updates from other pages)
-        window.addEventListener('storage', function (e) {
-            if (e.key === 'cart') {
-                updateCartCount();
-            }
-        });
-
+        window.addEventListener('storage', function(e) { if (e.key === 'cart') updateCartCount(); });
         window.toggleMenu = toggleMenu;
         window.navigateToProduct = navigateToProduct;
     </script>

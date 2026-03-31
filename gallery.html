@@ -36,7 +36,6 @@
         .nav-attribute.active {
             color: #d45a7a;
             font-weight: 600;
-            border-bottom: 2px solid #d45a7a;
             padding-bottom: 4px;
         }
 
@@ -152,15 +151,19 @@
             .page-header h1 {
                 font-size: 42px;
             }
+
             .page-header p {
                 font-size: 14px;
             }
+
             .container {
                 padding: 0 20px;
             }
+
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
+
             .category-btn {
                 padding: 8px 20px;
                 font-size: 12px;
@@ -170,6 +173,7 @@
         .cart-icon {
             position: relative;
         }
+
         .cart-count {
             position: absolute;
             top: -8px;
@@ -182,10 +186,19 @@
             border-radius: 50%;
             animation: pulse 1.5s infinite;
         }
+
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.2); }
-            100% { transform: scale(1); }
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
         }
 
         .footer-footer {
@@ -195,21 +208,25 @@
             font-family: 'Montserrat', sans-serif;
             text-align: left;
         }
+
         .footer-footer-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 30px;
         }
+
         .footer-footer-row {
             display: flex;
             flex-wrap: wrap;
             gap: 40px;
             margin-bottom: 40px;
         }
+
         .footer-footer-col {
             flex: 1;
             min-width: 280px;
         }
+
         .footer-footer-col.col-brand p {
             color: #f8f9fa;
             line-height: 1.8;
@@ -217,11 +234,13 @@
             font-size: 15px;
             opacity: 0.9;
         }
+
         .footer-brand {
             text-decoration: none;
             display: inline-block;
             margin-bottom: 20px;
         }
+
         .footer-brand h2 {
             color: #fff;
             font-weight: 700;
@@ -229,10 +248,12 @@
             font-family: 'Montserrat', sans-serif;
             margin: 0;
         }
+
         .footer-social-links {
             display: flex;
             gap: 12px;
         }
+
         .footer-social-links a {
             display: flex;
             align-items: center;
@@ -246,11 +267,13 @@
             transition: all 0.3s ease;
             font-size: 18px;
         }
+
         .footer-social-links a:hover {
             background: #d45a7a;
             color: #fff;
             transform: translateY(-3px);
         }
+
         .footer-footer-col h3 {
             color: #ffffff;
             font-size: 24px;
@@ -258,11 +281,13 @@
             font-weight: 600;
             font-family: 'Montserrat', sans-serif;
         }
+
         .footer-quick-links {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
+
         .footer-quick-links a {
             color: #fff;
             text-decoration: none;
@@ -272,20 +297,25 @@
             align-items: center;
             opacity: 0.9;
         }
+
         .footer-quick-links a i {
             margin-right: 12px;
             font-size: 12px;
         }
+
         .footer-quick-links a:hover {
             padding-left: 8px;
             opacity: 1;
         }
+
         .footer-contact-info {
             display: flex;
             flex-direction: column;
             gap: 0;
         }
-        .footer-contact-info a, .footer-contact-info p {
+
+        .footer-contact-info a,
+        .footer-contact-info p {
             color: #fff;
             text-decoration: none;
             font-size: 15px;
@@ -297,8 +327,17 @@
             line-height: 1.5;
             opacity: 0.9;
         }
-        .footer-contact-info a:first-child { padding-top: 0; }
-        .footer-contact-info a:last-child, .footer-contact-info p:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .footer-contact-info a:first-child {
+            padding-top: 0;
+        }
+
+        .footer-contact-info a:last-child,
+        .footer-contact-info p:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
         .footer-contact-info i {
             color: #E0A800;
             margin-right: 15px;
@@ -306,12 +345,14 @@
             width: 16px;
             text-align: center;
         }
+
         .footer-footer-divider {
             border: none;
             height: 1px;
             background: rgba(255, 255, 255, 0.1);
             margin: 0 0 25px 0;
         }
+
         .footer-footer-bottom {
             display: flex;
             justify-content: space-between;
@@ -319,16 +360,19 @@
             flex-wrap: wrap;
             gap: 15px;
         }
+
         .footer-copyright {
             color: #fff;
             font-size: 14px;
             opacity: 0.8;
         }
+
         .footer-copyright a {
             color: white;
             text-decoration: none;
             font-weight: 500;
         }
+
         .footer-tagline {
             color: #fff;
             font-size: 14px;
@@ -347,12 +391,14 @@
             background: rgba(255, 255, 255, 0.98);
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
+
         .navbar.scrolled {
             backdrop-filter: blur(10px);
             padding: 8px 0;
             box-shadow: 0 5px 20px rgba(212, 90, 122, 0.15);
             background: rgba(255, 255, 255, 0.95);
         }
+
         .nav-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -361,21 +407,25 @@
             justify-content: space-between;
             align-items: center;
         }
+
         .logo {
             display: flex;
             align-items: center;
             width: 100%;
             justify-content: space-between;
         }
+
         .logo a img {
             height: 60px;
             transition: all 0.3s ease;
         }
+
         .nav-links {
             display: flex;
             align-items: center;
             gap: 28px;
         }
+
         .nav-attribute {
             color: #3e2a2f;
             text-decoration: none;
@@ -386,26 +436,38 @@
             transition: all 0.3s;
             position: relative;
         }
-        .nav-attribute::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #d45a7a;
-            transition: width 0.3s ease;
+
+
+
+        .nav-attribute:hover::after,
+        .nav-attribute.active::after {
+            width: 100%;
         }
-        .nav-attribute:hover::after, .nav-attribute.active::after { width: 100%; }
-        .nav-attribute:hover, .nav-attribute.active { color: #d45a7a; }
+
+        .nav-attribute:hover,
+        .nav-attribute.active {
+            color: #d45a7a;
+        }
+
         .cart-icon {
             position: relative;
             display: flex;
             align-items: center;
         }
-        .hamburger, .sidebar, .overlay { display: none; }
+
+        .hamburger,
+        .sidebar,
+        .overlay {
+            display: none;
+        }
+
         @media (max-width: 768px) {
-            .hamburger { display: block; cursor: pointer; z-index: 1001; }
+            .hamburger {
+                display: block;
+                cursor: pointer;
+                z-index: 1001;
+            }
+
             .hamburger span {
                 display: block;
                 width: 26px;
@@ -415,6 +477,7 @@
                 transition: 0.3s;
                 border-radius: 2px;
             }
+
             .sidebar {
                 position: fixed;
                 top: 0;
@@ -430,7 +493,11 @@
                 z-index: 10000;
                 box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
             }
-            .sidebar.active { left: 0; }
+
+            .sidebar.active {
+                left: 0;
+            }
+
             .sidebar a {
                 color: #3e2a2f;
                 text-decoration: none;
@@ -442,6 +509,7 @@
                 align-items: center;
                 gap: 12px;
             }
+
             .sidebar .close-btn {
                 position: absolute;
                 top: 20px;
@@ -450,6 +518,7 @@
                 cursor: pointer;
                 color: #b34262;
             }
+
             .overlay {
                 position: fixed;
                 top: 0;
@@ -463,12 +532,28 @@
                 z-index: 9999;
                 backdrop-filter: blur(3px);
             }
-            .overlay.active { opacity: 1; visibility: visible; }
-            .nav-links { display: none !important; }
+
+            .overlay.active {
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links {
+                display: none !important;
+            }
         }
+
         @media (min-width: 769px) {
-            .hamburger, .sidebar, .overlay { display: none !important; }
-            .nav-links { display: flex !important; }
+
+            .hamburger,
+            .sidebar,
+            .overlay {
+                display: none !important;
+            }
+
+            .nav-links {
+                display: flex !important;
+            }
         }
     </style>
 </head>
@@ -483,7 +568,8 @@
                 <a class="nav-attribute" href="products.html">Shop</a>
                 <a class="nav-attribute active" href="gallery.html">Gallery</a>
                 <a class="nav-attribute" href="contact.html">Contact</a>
-                <a class="nav-attribute" href="login.html"><i class="fas fa-user"></i> Login</a>
+                <a class="nav-attribute" style="display: flex; gap: 6px; align-items: center; justify-content: center;"
+                    href="login.html"><i class="fas fa-user"></i> Login</a>
                 <a class="nav-attribute cart-icon" href="cart.html">
                     <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count" id="cartCount">0</span>
@@ -527,8 +613,11 @@
         <div class="footer-footer-container">
             <div class="footer-footer-row">
                 <div class="footer-footer-col col-brand">
-                    <a href="index.html" class="footer-brand"><h2>Rose Embroidery</h2></a>
-                    <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship with precision and quality.</p>
+                    <a href="index.html" class="footer-brand">
+                        <h2>Rose Embroidery</h2>
+                    </a>
+                    <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship
+                        with precision and quality.</p>
                     <div class="footer-social-links">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
@@ -551,7 +640,8 @@
                 <div class="footer-footer-col col-contact">
                     <h3>Contact Info</h3>
                     <div class="footer-contact-info">
-                        <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</a>
+                        <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu
+                            madhuravoyal chennai 600095</a>
                         <a href="tel:+91902555206"><i class="fas fa-phone-alt"></i>+91 902555206</a>
                         <a href="mailto:Drroslineg@gmail.com"><i class="fas fa-envelope"></i>Drroslineg@gmail.com</a>
                         <p><i class="fas fa-clock"></i>Mon-Sat: 9AM - 7PM</p>
@@ -560,7 +650,8 @@
             </div>
             <hr class="footer-footer-divider">
             <div class="footer-footer-bottom">
-                <div class="footer-copyright"><i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose Embroidery</a>. All rights reserved.</div>
+                <div class="footer-copyright"><i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a
+                        href="index.html">Rose Embroidery</a>. All rights reserved.</div>
                 <div class="footer-tagline">Quality Precision Trust</div>
             </div>
         </div>
@@ -573,7 +664,7 @@
         // ========== COMPLETE GALLERY DATA (NO HSW MACHINES, NO PRICE DISPLAY) ==========
         // Includes: All BABA machines (from shop) + All Devices/Accessories + Embroidery Samples
         // HSW products have been completely removed as requested.
-        
+
         const galleryItems = [
             // ---------- ALL BABA MACHINES (from shop, no HSW, no prices) ----------
             { id: 101, name: "BABA 42 Head Computerized Embroidery Machine", slug: "baba-42-head", category: "machines", image: "https://5.imimg.com/data5/GLADMIN/Default/2023/5/307329784/KO/MN/UK/6538775/baba-42-head-computerized-embroidery-machine-500x500.jpg", description: "42-head, 4-needle multi-head machine for large-scale production. Core parts from Japan with Dahao system." },
@@ -592,7 +683,7 @@
             { id: 114, name: "BABA 42 Head Super High Speed Machine", slug: "baba-42-head-super-high-speed", category: "machines", image: "https://5.imimg.com/data5/SELLER/Default/2025/3/495481837/RZ/QY/CA/6538775/42-head-super-high-speed-computerized-embroidery-machine-1000x1000.jpg", description: "42-head super high-speed machine for massive production." },
             { id: 115, name: "BABA 18 Head Super High Speed Bolt Max", slug: "baba-18-head-bolt-max", category: "machines", image: "https://5.imimg.com/data5/SELLER/Default/2025/3/495692072/AH/XC/ZT/6538775/18-head-super-high-speed-embroidery-machine.jpg", description: "18-head bolt max model with beads and sequin devices." },
             { id: 116, name: "BABA YUEMEI Computerized", slug: "baba-yuemei", category: "machines", image: "./images/machine1.jpeg", description: "12-needle, Japanese shuttle machine with 1500 SPM. Premium quality." },
-            
+
             // ---------- DEVICES & ACCESSORIES (from shop, no prices) ----------
             { id: 6, name: "Magnetic Hoop Pro", slug: "magnetic-hoop-pro", category: "devices", image: "https://cdn.shopify.com/s/files/1/0621/4208/7329/files/1_b16c8683-cced-4970-b847-a31c05540912.jpg", description: "7 sizes, no hoop burn, quick release magnetic hoop system." },
             { id: 7, name: "Digitizing Tablet Pro", slug: "digitizing-tablet-pro", category: "devices", image: "https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600", description: "8192 pressure levels, wireless digitizing tablet for embroidery design." },
@@ -600,7 +691,7 @@
             { id: 9, name: "OLH-098A Twin Sequin", slug: "olh-098a-twin-sequin", category: "devices", image: "https://image.made-in-china.com/2f0j00AyOqEvhRkloc/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-Double-Sequin-with-Triple-Bead-Device.jpg", description: "Twin sequin + beads attachment for embroidery machines." },
             { id: 11, name: "Premium Thread Set (50 Colors)", slug: "premium-thread-set", category: "devices", image: "https://m.media-amazon.com/images/I/71LLvUE2-VL.jpg", description: "Rayon threads, vibrant shades for professional embroidery." },
             { id: 12, name: "Aari Needle Set", slug: "aari-needle-set", category: "devices", image: "https://m.media-amazon.com/images/I/41BbkcD4S6L._SX679_.jpg", description: "Professional Aari hooks & needles for chain stitch work." },
-            
+
             // ---------- EMBROIDERY SAMPLES (kept as original) ----------
             { id: 'sample1', name: 'Floral Embroidery', category: 'samples', image: "https://img.freepik.com/free-psd/vibrant-embroidery-floral-bouquet-colorful-tapestry-stitched-blooms_632498-25772.jpg?semt=ais_incoming&w=740&q=80", description: 'Intricate floral patterns with vibrant thread colors' },
             { id: 'sample2', name: 'Aari Work Masterpiece', category: 'samples', image: 'https://dressupandblossom.in/wp-content/uploads/2024/09/picsart_24-09-26_14-16-01-420.jpg?w=720', description: 'Traditional Aari embroidery with mirror work' },
@@ -627,7 +718,7 @@
             } else {
                 filtered = galleryItems.filter(item => item.category === currentCategory);
             }
-            
+
             grid.innerHTML = filtered.map(item => `
                 <div class="gallery-card" data-aos="fade-up" onclick="navigateToProduct('${item.category}', '${item.slug || item.id}')">
                     <div class="gallery-img" style="background-image: url('${item.image}'); background-size: cover; background-position: center;"></div>
@@ -676,7 +767,7 @@
 
         renderGallery();
         updateCartCount();
-        window.addEventListener('storage', function(e) { if (e.key === 'cart') updateCartCount(); });
+        window.addEventListener('storage', function (e) { if (e.key === 'cart') updateCartCount(); });
         window.toggleMenu = toggleMenu;
         window.navigateToProduct = navigateToProduct;
     </script>

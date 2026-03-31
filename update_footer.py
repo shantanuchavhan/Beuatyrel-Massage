@@ -1,15 +1,15 @@
 import os
 import re
 
-footer_html = """<footer class="tetro-footer">
-    <div class="tetro-footer-container">
-        <div class="tetro-footer-row">
-            <div class="tetro-footer-col col-brand">
+footer_html = """<footer class="footer-footer">
+    <div class="footer-footer-container">
+        <div class="footer-footer-row">
+            <div class="footer-footer-col col-brand">
                 <a href="index.html" class="footer-brand">
                     <h2>Rose Embroidery</h2>
                 </a>
                 <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship with precision and quality.</p>
-                <div class="tetro-social-links">
+                <div class="footer-social-links">
                     <a href="#"><i class="fab fa-instagram"></i></a>
                     <a href="#"><i class="fab fa-facebook-f"></i></a>
                     <a href="#"><i class="fab fa-twitter"></i></a>
@@ -17,9 +17,9 @@ footer_html = """<footer class="tetro-footer">
                 </div>
             </div>
             
-            <div class="tetro-footer-col col-links">
+            <div class="footer-footer-col col-links">
                 <h3>Quick Links</h3>
-                <div class="tetro-quick-links">
+                <div class="footer-quick-links">
                     <a href="about.html"><i class="fas fa-angle-right"></i>About Us</a>
                     <a href="products.html"><i class="fas fa-angle-right"></i>Shop Products</a>
                     <a href="gallery.html"><i class="fas fa-angle-right"></i>Gallery</a>
@@ -28,9 +28,9 @@ footer_html = """<footer class="tetro-footer">
                 </div>
             </div>
             
-            <div class="tetro-footer-col col-contact">
+            <div class="footer-footer-col col-contact">
                 <h3>Contact Info</h3>
-                <div class="tetro-contact-info">
+                <div class="footer-contact-info">
                     <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</a>
                     <a href="tel:+91902555206"><i class="fas fa-phone-alt"></i>+91 902555206</a>
                     <a href="mailto:Drroslineg@gmail.com"><i class="fas fa-envelope"></i>Drroslineg@gmail.com</a>
@@ -38,12 +38,12 @@ footer_html = """<footer class="tetro-footer">
                 </div>
             </div>
         </div>
-        <hr class="tetro-footer-divider">
-        <div class="tetro-footer-bottom">
-            <div class="tetro-copyright">
+        <hr class="footer-footer-divider">
+        <div class="footer-footer-bottom">
+            <div class="footer-copyright">
                 <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose Embroidery</a>. All rights reserved.
             </div>
-            <div class="tetro-tagline">
+            <div class="footer-tagline">
                 Quality Precision Trust
             </div>
         </div>
@@ -51,30 +51,30 @@ footer_html = """<footer class="tetro-footer">
 </footer>"""
 
 css_addition = """
-        /* Tetro-style Footer */
-        .tetro-footer {
+        /* footer-style Footer */
+        .footer-footer {
             background: #212529;
             color: #fff;
             padding: 70px 0 30px;
             font-family: 'Montserrat', sans-serif;
             text-align: left;
         }
-        .tetro-footer-container {
+        .footer-footer-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 30px;
         }
-        .tetro-footer-row {
+        .footer-footer-row {
             display: flex;
             flex-wrap: wrap;
             gap: 40px;
             margin-bottom: 40px;
         }
-        .tetro-footer-col {
+        .footer-footer-col {
             flex: 1;
             min-width: 280px;
         }
-        .tetro-footer-col.col-brand p {
+        .footer-footer-col.col-brand p {
             color: #f8f9fa;
             line-height: 1.8;
             margin-bottom: 25px;
@@ -96,11 +96,11 @@ css_addition = """
         .footer-brand span {
             color: #d45a7a;
         }
-        .tetro-social-links {
+        .footer-social-links {
             display: flex;
             gap: 12px;
         }
-        .tetro-social-links a {
+        .footer-social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
@@ -113,24 +113,24 @@ css_addition = """
             transition: all 0.3s ease;
             font-size: 18px;
         }
-        .tetro-social-links a:hover {
+        .footer-social-links a:hover {
             background: #d45a7a;
             color: #fff;
             transform: translateY(-3px);
         }
-        .tetro-footer-col h3 {
+        .footer-footer-col h3 {
             color: #d45a7a;
             font-size: 24px;
             margin-bottom: 25px;
             font-weight: 600;
             font-family: 'Montserrat', sans-serif;
         }
-        .tetro-quick-links {
+        .footer-quick-links {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-        .tetro-quick-links a {
+        .footer-quick-links a {
             color: #fff;
             text-decoration: none;
             font-size: 15px;
@@ -139,22 +139,22 @@ css_addition = """
             align-items: center;
             opacity: 0.9;
         }
-        .tetro-quick-links a i {
+        .footer-quick-links a i {
             color: #d45a7a;
             margin-right: 12px;
             font-size: 12px;
         }
-        .tetro-quick-links a:hover {
+        .footer-quick-links a:hover {
             color: #d45a7a;
             padding-left: 8px;
             opacity: 1;
         }
-        .tetro-contact-info {
+        .footer-contact-info {
             display: flex;
             flex-direction: column;
             gap: 0;
         }
-        .tetro-contact-info a, .tetro-contact-info p {
+        .footer-contact-info a, .footer-contact-info p {
             color: #fff;
             text-decoration: none;
             font-size: 15px;
@@ -166,62 +166,62 @@ css_addition = """
             line-height: 1.5;
             opacity: 0.9;
         }
-        .tetro-contact-info a:first-child {
+        .footer-contact-info a:first-child {
             padding-top: 0;
         }
-        .tetro-contact-info a:last-child, .tetro-contact-info p:last-child {
+        .footer-contact-info a:last-child, .footer-contact-info p:last-child {
             border-bottom: none;
             padding-bottom: 0;
         }
-        .tetro-contact-info i {
+        .footer-contact-info i {
             color: #d45a7a;
             margin-right: 15px;
             margin-top: 4px;
             width: 16px;
             text-align: center;
         }
-        .tetro-contact-info a:hover {
+        .footer-contact-info a:hover {
             color: #d45a7a;
             opacity: 1;
         }
-        .tetro-footer-divider {
+        .footer-footer-divider {
             border: none;
             height: 1px;
             background: rgba(255,255,255,0.1);
             margin: 0 0 25px 0;
         }
-        .tetro-footer-bottom {
+        .footer-footer-bottom {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
             gap: 15px;
         }
-        .tetro-copyright {
+        .footer-copyright {
             color: #fff;
             font-size: 14px;
             opacity: 0.8;
         }
-        .tetro-copyright a {
+        .footer-copyright a {
             color: #d45a7a;
             text-decoration: none;
             font-weight: 500;
         }
-        .tetro-copyright a:hover {
+        .footer-copyright a:hover {
             text-decoration: underline;
         }
-        .tetro-tagline {
+        .footer-tagline {
             color: #fff;
             font-size: 14px;
             opacity: 0.8;
             font-weight: 500;
         }
         @media (max-width: 768px) {
-            .tetro-footer-row {
+            .footer-footer-row {
                 flex-direction: column;
                 gap: 30px;
             }
-            .tetro-footer-bottom {
+            .footer-footer-bottom {
                 flex-direction: column;
                 text-align: center;
                 gap: 10px;
@@ -230,7 +230,7 @@ css_addition = """
 """
 
 def update_file(filepath):
-    if not filepath.endswith('.html') or filepath.endswith('tetro.html'):
+    if not filepath.endswith('.html') or filepath.endswith('footer.html'):
         return
 
     with open(filepath, 'r') as f:
@@ -247,7 +247,7 @@ def update_file(filepath):
         content = pattern.sub(footer_html, content)
         
     # 2. Add CSS
-    if '.tetro-footer {' not in content:
+    if '.footer-footer {' not in content:
         content = content.replace('</style>', css_addition + '\n    </style>')
         
     with open(filepath, 'w') as f:
@@ -255,6 +255,6 @@ def update_file(filepath):
     print(f"Success: Updated {filepath}")
 
 if __name__ == '__main__':
-    html_files = [f for f in os.listdir('.') if f.endswith('.html') and f != 'tetro.html']
+    html_files = [f for f in os.listdir('.') if f.endswith('.html') and f != 'footer.html']
     for filename in html_files:
         update_file(filename)

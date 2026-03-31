@@ -35,7 +35,7 @@ navbar_css = """
 """
 
 def update_file(filepath):
-    if not filepath.endswith('.html') or filepath.endswith('tetro.html'):
+    if not filepath.endswith('.html') or filepath.endswith('footer.html'):
         return
 
     with open(filepath, 'r') as f:
@@ -81,6 +81,6 @@ def update_file(filepath):
     print(f"Updated CSS in {filepath}")
 
 if __name__ == '__main__':
-    html_files = [f for f in os.listdir('.') if f.endswith('.html') and f != 'tetro.html']
+    html_files = [f for f in os.listdir('.') if f.endswith('.html') and f != 'footer.html']
     for filename in html_files:
         update_file(filename)

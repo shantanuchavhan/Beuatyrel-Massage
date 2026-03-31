@@ -3,7 +3,7 @@ import re
 
 directory = '/Users/shantanu/Desktop/infotechproject/'
 
-new_quick_links = """                <div class="tetro-quick-links">
+new_quick_links = """                <div class="footer-quick-links">
                     <a href="about.html"><i class="fas fa-angle-right"></i>About Us</a>
                     <a href="products.html"><i class="fas fa-angle-right"></i>Shop Products</a>
                     <a href="gallery.html"><i class="fas fa-angle-right"></i>Gallery</a>
@@ -13,8 +13,8 @@ new_quick_links = """                <div class="tetro-quick-links">
                     <a href="#"><i class="fas fa-angle-right"></i>Refund & Return Policy</a>
                 </div>"""
 
-# Regex pattern to find the .tetro-quick-links block
-pattern = re.compile(r'<div class="tetro-quick-links">.*?</div>', re.DOTALL)
+# Regex pattern to find the .footer-quick-links block
+pattern = re.compile(r'<div class="footer-quick-links">.*?</div>', re.DOTALL)
 
 for filename in os.listdir(directory):
     if filename.endswith('.html'):

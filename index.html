@@ -296,8 +296,8 @@
 .info-card {
     background: #fff;
     padding: 40px 30px;
-    border-radius: 18px;
-    box-shadow: 0 10px 35px rgba(0,0,0,0.06);
+    border-radius: 8px;
+    box-shadow: 0 10px 35px rgba(42, 42, 42, 0.06);
     transition: 0.3s ease;
     text-align: left;
 }
@@ -808,11 +808,11 @@
     <section class="collection-section">
   <div class="collection-container">
     
-    <div class="collection-header">
+    <div class="collection-header" data-aos="fade-left">
       <h2>Explore <br>The Collection</h2>
     </div>
 
-    <div class="collection-grid">
+    <div class="collection-grid" data-aos="fade-down">
       <div class="product-card">
         <img src="./images/machine1.jpeg" alt="Bedside Table">
         <p>BABA Multi Head Computerized Embroidery Machine</p>
@@ -835,63 +835,47 @@
       </div>
     </div>
 
-    <div class="collection-footer">
+    <div class="collection-footer" data-aos="fade-right" data-aos-delay="400">
       <div class="nav-buttons">
         <button>&lt;</button>
         <button>&gt;</button>
       </div>
 
-      <button class="more-btn">More Product</button>
+      <a href="products.html" style="text-decoration: none; color: black;" class="more-btn">More Product</a>
     </div>
 
   </div>
 </section>
 
     <!-- Who are you? + What do you sell? + Why choose you? (Info Cards) -->
- <section class="info-section" id="about">
-    <div class="container">
-        
-        <div class="section-header" data-aos="fade-up">
-            <span class="subtitle">About Us</span>
-            <h2>Everything You Need to Know</h2>
-            <p class="section-desc">
-                Trusted embroidery solutions designed for creators, startups, and industrial manufacturers worldwide.
-            </p>
-        </div>
+   <section class="info-cards">
 
-        <div class="info-grid">
-            <div class="info-card" data-aos="fade-up">
-                <div class="icon-box">
-                    <i class="fas fa-building"></i>
-                </div>
-                <h3>Who We Are</h3>
-                <p>
-                    Rose Embroidery is a globally recognized brand in embroidery innovation, combining craftsmanship with advanced engineering to deliver reliable and efficient embroidery solutions.
-                </p>
+        <div class="container">
+            <div>
+                <div class="section-header" data-aos="fade-up">
+                    <div class="subtitle">About Us</div>
+                    <h2>Everything You Need to Know</h2>
             </div>
-
-            <div class="info-card" data-aos="fade-up" data-aos-delay="100">
-                <div class="icon-box">
-                    <i class="fas fa-tshirt"></i>
+            <div class="info-grid">
+                <div class="info-card" data-aos="fade-up">
+                    <i class="fas fa-building info-icon"></i>
+                    <h3>Who We Are</h3>
+                    <p>Rose Embroidery is a globally recognized brand in embroidery innovation — fusing traditional craftsmanship with cutting-edge engineering. With over a decade of experience, we empower entrepreneurs, designers, and large-scale manufacturers to achieve flawless embroidery outcomes through reliable technology and passionate service.</p>
                 </div>
-                <h3>What We Sell</h3>
-                <p>
-                    From industrial embroidery machines to hoops, threads, needles, digitizing tools, and maintenance accessories — we provide complete embroidery solutions.
-                </p>
-            </div>
-
-            <div class="info-card" data-aos="fade-up" data-aos-delay="200">
-                <div class="icon-box">
-                    <i class="fas fa-gem"></i>
+                <div class="info-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-tshirt info-icon"></i>
+                    <h3>What We Sell</h3>
+                    <p>We offer a complete ecosystem of embroidery solutions: high-speed industrial embroidery machines, single-head & multi-head systems, Aari embroidery tools, magnetic hoops, digitizing tablets, specialty threads, needles, and maintenance kits. Everything to turn creative visions into stitched reality.</p>
                 </div>
-                <h3>Why Choose Us</h3>
-                <p>
-                    Premium build quality, expert support, hands-on training, and long-lasting performance trusted by businesses across 30+ countries.
-                </p>
+                <div class="info-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-gem info-icon"></i>
+                    <h3>Why Choose Us</h3>
+                    <p>Uncompromising quality backed by ISO-certified manufacturing, 24/7 expert technical support, extensive training resources, and industry-leading warranty. Our machines deliver 1500+ SPM precision with energy efficiency and durability — trusted by thousands of businesses across 30+ countries.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
 
     <!-- What products you have? (Product highlights) -->
     <section class="products-showcase">

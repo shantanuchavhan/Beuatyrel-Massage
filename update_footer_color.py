@@ -5,7 +5,7 @@ directory = '/Users/shantanu/Desktop/infotechproject/'
 
 # Regex pattern to find the .footer-footer background and replace it
 pattern = re.compile(r'\.footer-footer\s*\{([^\}]*)background:\s*#142435;', re.DOTALL)
-replacement = r'.footer-footer {\1background: linear-gradient(135deg, #d45a7a, #b34262);'
+replacement = r'.footer-footer {\1background: #ff6b9d;'
 
 for filename in os.listdir(directory):
     if filename.endswith('.html'):

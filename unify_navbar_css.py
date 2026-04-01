@@ -14,7 +14,7 @@ navbar_css = """
 .nav-attribute:hover, .nav-attribute.active { color: #d45a7a; }
 .cart-icon { position: relative; display: flex; align-items: center; }
 .cart-icon i { font-size: 16px; }
-.cart-count { position: absolute; top: -10px; right: -14px; background: linear-gradient(135deg, #d45a7a, #b34262); color: white; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 50%; animation: pulse 1.5s infinite; border: 2px solid white; }
+.cart-count { position: absolute; top: -10px; right: -14px; background: #ff6b9d; color: white; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 50%; animation: pulse 1.5s infinite; border: 2px solid white; }
 @keyframes pulse { 0% { transform: scale(1); } 50% { transform: scale(1.15); } 100% { transform: scale(1); } }
 .hamburger, .sidebar, .overlay { display: none; }
 @media (max-width: 768px) {

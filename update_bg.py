@@ -4,7 +4,7 @@ import re
 directory = '/Users/shantanu/Desktop/infotechproject/'
 
 pattern = re.compile(r'\.footer-footer\s*\{\s*background:\s*#142435;')
-replacement = r'.footer-footer {\n      background: linear-gradient(135deg, #d45a7a, #b34262);'
+replacement = r'.footer-footer {\n      background: #ff6b9d;'
 
 for filename in os.listdir(directory):
     if filename.endswith('.html'):

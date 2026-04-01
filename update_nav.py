@@ -59,7 +59,7 @@ css_addition = """
             position: absolute;
             top: -8px;
             right: -12px;
-            background: linear-gradient(135deg, #d45a7a, #b34262);
+            background: #ff6b9d;
             color: white;
             font-size: 10px;
             font-weight: bold;

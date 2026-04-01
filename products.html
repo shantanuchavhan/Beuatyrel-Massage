@@ -65,7 +65,7 @@
             position: absolute;
             top: -8px;
             right: -12px;
-            background: linear-gradient(135deg, #D45A7A, #B34262);
+            background: #ff6b9d;
             color: white;
             font-size: 10px;
             font-weight: bold;
@@ -308,7 +308,7 @@
             position: absolute;
             top: 15px;
             right: 15px;
-            background: linear-gradient(135deg, #D45A7A, #B34262);
+            background: #ff6b9d;
             color: white;
             padding: 6px 16px;
             border-radius: 12px;
@@ -636,7 +636,7 @@
 
         .submit-quote-btn {
             width: 100%;
-            background: linear-gradient(135deg, #D45A7A, #B34262);
+            background: #ff6b9d;
             color: white;
             border: none;
             padding: 14px;
@@ -1188,292 +1188,177 @@
         const BABA_IMAGE_URL = "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp";
 
 const products = [
-  // ================= BABA MACHINES =================
-  { 
-    id: 101, 
-    name: "BABA 42 Head Computerized Embroidery Machine", 
-    slug: "baba-42-head", 
-    category: "machine", 
-    price: 0, 
-    badge: "Multi-Head", 
-    image: "https://5.imimg.com/data5/GLADMIN/Default/2023/5/307329784/KO/MN/UK/6538775/baba-42-head-computerized-embroidery-machine-500x500.jpg", 
-    desc: "42-head, 4-needle multi-head machine for large-scale production. Core parts from Japan with Dahao electronic system.", 
-    specs: ["42 Heads", "4 Needles per Head", "Max Speed: 850 RPM", "Core Parts from Japan", "Electronic System: Dahao"], 
-    bestSeller: false 
+  // ================= COMPUTERIZED EMBROIDERY MACHINES =================
+
+  {
+    id: 101,
+    name: "BABA Multi Head Computerized Embroidery Machine",
+    slug: "baba-multi-head-embroidery",
+    category: "machine",
+    price: 0,
+    badge: "Multi-Head",
+    image: "https://5.imimg.com/data5/GLADMIN/Default/2023/5/307329784/KO/MN/UK/6538775/baba-42-head-computerized-embroidery-machine-500x500.jpg",
+    desc: "High-performance multi-head computerized embroidery machine designed for bulk production with precision and stability.",
+    specs: [
+      "Multi Head",
+      "9 Needles per Head",
+      "Max Speed: 1200 RPM",
+      "Heavy Body Structure",
+      "Electronic System: Dahao"
+    ],
+    bestSeller: true
   },
 
-  { 
-    id: 102, 
-    name: "BABA 21 Head High Speed Computerized Embroidery Machine", 
-    slug: "baba-21-head-high-speed", 
-    category: "machine", 
-    price: 0, 
-    badge: "High Speed", 
-    image: "https://5.imimg.com/data5/OC/XV/VJ/SELLER-6538775/21-head-high-speed-computerized-embroidery-machine.jpg", 
-    desc: "21-head, 9-needle machine for efficient, high-speed production. Maximum speed 1200 rpm with heavy body structure.", 
-    specs: ["21 Heads", "9 Needles per Head", "Max Speed: 1200 RPM", "Core Parts from Japan", "Electronic System: Dahao"], 
-    bestSeller: true 
+  {
+    id: 102,
+    name: "BABA 42 Head Computerized Embroidery Machine",
+    slug: "baba-42-head",
+    category: "machine",
+    price: 0,
+    badge: "Production Scale",
+    image: "https://5.imimg.com/data5/GLADMIN/Default/2023/5/307329784/KO/MN/UK/6538775/baba-42-head-computerized-embroidery-machine-500x500.jpg",
+    desc: "Industrial 42-head machine built for large-scale embroidery production with high efficiency.",
+    specs: [
+      "42 Heads",
+      "9 Needles per Head",
+      "Max Speed: 1200 RPM",
+      "Daily Capacity: 7 Lakh stitches/head",
+      "Automatic Operation"
+    ],
+    bestSeller: false
   },
 
-  { 
-    id: 103, 
-    name: "BABA 21 Head High Speed with Easy Cording Device", 
-    slug: "baba-21-head-cording", 
-    category: "machine", 
-    price: 0, 
-    badge: "Cording Device", 
-    image: "https://5.imimg.com/data5/GLADMIN/Default/2023/2/CC/ZM/WE/6538775/baba-21-head-high-speed-computerized-embroidery-machine-with-easy-cording-device-500x500.jpg", 
-    desc: "21-head machine with easy cording device for decorative stitching. Perfect for adding corded accents to designs.", 
-    specs: ["21 Heads", "9 Needles", "Max Speed: 800 RPM", "Easy Cording Device from JIAYU", "Core Parts from Japan"], 
-    bestSeller: false 
+  {
+    id: 103,
+    name: "BABA 21 Head High Speed Embroidery Machine",
+    slug: "baba-21-head",
+    category: "machine",
+    price: 0,
+    badge: "High Speed",
+    image: "https://5.imimg.com/data5/OC/XV/VJ/SELLER-6538775/21-head-high-speed-computerized-embroidery-machine.jpg",
+    desc: "21-head high-speed embroidery machine designed for precision stitching and heavy production workloads.",
+    specs: [
+      "21 Heads",
+      "9 Needles",
+      "Max Speed: 1200 RPM",
+      "Heavy Body",
+      "Automatic Thread Cutter"
+    ],
+    bestSeller: true
   },
 
-  { 
-    id: 104, 
-    name: "BABA 15 Head High Speed Computerized Embroidery Machine", 
-    slug: "baba-15-head-high-speed", 
-    category: "machine", 
-    price: 0, 
-    badge: "Industrial", 
-    image: "https://5.imimg.com/data5/JM/XR/EE/SELLER-6538775/hs-a915-400-800-1200-500x500.jpg", 
-    desc: "15-head, 9-needle machine with high-speed sequin device. Champion sequin device for enhanced embellishments.", 
-    specs: ["15 Heads", "9 Needles per Head", "Max Speed: 1200 RPM", "Auto Thread Cutter", "High Speed Sequin Device - Champion"], 
-    bestSeller: false 
+  {
+    id: 104,
+    name: "BABA 21 Head Cording Embroidery Machine",
+    slug: "baba-21-head-cording",
+    category: "machine",
+    price: 0,
+    badge: "Cording",
+    image: "https://5.imimg.com/data5/GLADMIN/Default/2023/2/CC/ZM/WE/6538775/baba-21-head-high-speed-computerized-embroidery-machine-with-easy-cording-device-500x500.jpg",
+    desc: "Embroidery machine with advanced cording attachment for decorative and textured designs.",
+    specs: [
+      "21 Heads",
+      "9 Needles",
+      "Max Speed: 1200 RPM",
+      "Cording Attachment",
+      "Heavy Body Structure"
+    ],
+    bestSeller: false
   },
 
-  { 
-    id: 105, 
-    name: "BABA Mini Schiffli 88 Head 176 Needle Machine", 
-    slug: "baba-mini-schiffli", 
-    category: "machine", 
-    price: 0, 
-    badge: "Schiffli", 
-    image: "https://5.imimg.com/data5/DY/MN/TU/SELLER-6538775/hs-n1176-55-600-1520-500x500.jpg", 
-    desc: "Specialized mini schiffli machine for lace, border, and large-scale embroidery. Ideal for saree and ethnic wear.", 
-    specs: ["88 Heads", "176 Needles", "Max Speed: 1000-1500 SPM", "Embroidery Width: 1500 mm", "Application: Schiffli Design, Lace"], 
-    bestSeller: false 
+  {
+    id: 105,
+    name: "BABA 15 Head Computerized Embroidery Machine",
+    slug: "baba-15-head",
+    category: "machine",
+    price: 0,
+    badge: "Industrial",
+    image: "https://5.imimg.com/data5/JM/XR/EE/SELLER-6538775/hs-a915-400-800-1200-500x500.jpg",
+    desc: "15-head machine with Japanese core parts and Dahao system for stable and long-term production.",
+    specs: [
+      "15 Heads",
+      "9 Needles",
+      "Max Speed: 1000-1200 RPM",
+      "Japanese Core Parts",
+      "Dahao Control System"
+    ],
+    bestSeller: true
   },
 
-  { 
-    id: 106, 
-    name: "BABA 15 Head Computerized Embroidery Machine", 
-    slug: "baba-15-head", 
-    category: "machine", 
-    price: 0, 
-    badge: "Premium", 
-    image: "https://5.imimg.com/data5/GLADMIN/Default/2023/5/307531299/HJ/XL/LN/6538775/baba-15-head-computerized-embroidery-machine-500x500.jpg", 
-    desc: "15-head machine with easy cording and sequin devices. Versatile machine for multiple embroidery applications.", 
-    specs: ["15 Heads", "9 Needles", "Max Speed: 1200 RPM", "Easy Cording Device from JIAYU", "Sequin Device from CHAMPION"], 
-    bestSeller: false 
+  {
+    id: 106,
+    name: "BABA 18 Head Super High Speed (Bolt Max)",
+    slug: "baba-18-head-bolt-max",
+    category: "machine",
+    price: 0,
+    badge: "Super High Speed",
+    image: "https://5.imimg.com/data5/SELLER/Default/2025/3/495692072/AH/XC/ZT/6538775/18-head-super-high-speed-embroidery-machine.jpg",
+    desc: "Bolt Max model with ultra-fast speed and advanced embroidery precision for large-scale industries.",
+    specs: [
+      "18 Heads",
+      "9 Needles per Head",
+      "Max Speed: 1600 RPM",
+      "400 mm Head Distance",
+      "Automatic Thread Trimming"
+    ],
+    bestSeller: true
   },
 
-  { 
-    id: 107, 
-    name: "BABA Bridge Laser Multi-head Embroidery Machine", 
-    slug: "baba-bridge-laser", 
-    category: "machine", 
-    price: 0, 
-    badge: "Laser Technology", 
-    image: "https://5.imimg.com/data5/MR/LW/ZF/SELLER-6538775/bridge-laser-for-multi-head-embroidery-machine-500x500.jpg", 
-    desc: "Italian technology bridge laser machine for cutting and embroidery. Game-changing innovation for textile industry.", 
-    specs: ["CO2 Laser", "Laser Power: 400W", "Multi-Head", "High Precision", "Cutting accuracy: <0.01mm"], 
-    bestSeller: false 
+  {
+    id: 107,
+    name: "BABA Sequin Embroidery Machine",
+    slug: "baba-sequin-machine",
+    category: "machine",
+    price: 0,
+    badge: "Sequin",
+    image: "https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png",
+    desc: "Advanced sequin embroidery machine for decorative embellishments on garments and textiles.",
+    specs: [
+      "Multi Head",
+      "9 Needles",
+      "Max Speed: 1200 RPM",
+      "Sequin Device",
+      "Automatic Machine"
+    ],
+    bestSeller: false
   },
 
-  { 
-    id: 108, 
-    name: "BABA Laser Cutting Aplique Work Machine", 
-    slug: "baba-laser-cutting", 
-    category: "machine", 
-    price: 0, 
-    badge: "Laser", 
-    image: "https://5.imimg.com/data5/SELLER/Default/2023/11/359146277/BE/XW/JK/6538775/baba-laser-cutting-embroidery-machine-500x500.jpg", 
-    desc: "6-head laser embroidery machine for aplique work. Integrated CO2 laser cutting device for precise applique.", 
-    specs: ["6 Heads", "9 Needles", "Max Speed: 1200 RPM", "CO2 Laser", "Max Sewing Speed: 1400 RPM"], 
-    bestSeller: false 
+  {
+    id: 108,
+    name: "BABA Computerized Embroidery Machine (Standard)",
+    slug: "baba-standard-machine",
+    category: "machine",
+    price: 0,
+    badge: "Standard",
+    image: "https://5.imimg.com/data5/SELLER/Default/2023/7/323505887/FY/LY/HN/6538775/baba-mix-chenile-aari-multi-high-speed-computerized-embroidery-machine.jpg",
+    desc: "Standard computerized embroidery machine suitable for small to medium textile businesses.",
+    specs: [
+      "Multi Head",
+      "9 Needles",
+      "Max Speed: 1200 RPM",
+      "Automatic",
+      "ISI Certified"
+    ],
+    bestSeller: false
   },
 
-  { 
-    id: 109, 
-    name: "BABA 1600 Rpm BOLT Super High Speed Machine", 
-    slug: "baba-bolt-super-high-speed", 
-    category: "machine", 
-    price: 0, 
-    badge: "Super High Speed", 
-    image: "https://5.imimg.com/data5/IOS/Default/2023/10/349516529/TX/IC/HE/6538775/product-jpeg-500x500.png", 
-    desc: "Super high-speed machine with mist oiling and C5 pantograph. Redefines speed in embroidery technology.", 
-    specs: ["15 Needles", "Max Speed: 2000 SPM", "Mist Oiling System", "C5 Pantograph", "Improved Heavy Body Structure"], 
-    bestSeller: true 
-  },
-
-  { 
-    id: 110, 
-    name: "Multi Needle Sequin Embroidery Machine", 
-    slug: "multi-needle-sequin", 
-    category: "machine", 
-    price: 0, 
-    badge: "Sequin", 
-    image: "https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png", 
-    desc: "Computerized sequin embroidery machine with motorized sequin device. Adds dazzling sequin embellishments effortlessly.", 
-    specs: ["9 Needles", "Max Speed: 1200 RPM", "Koban Japanese Hook", "Motorized Sequin Device", "Touch Screen Monitor"], 
-    bestSeller: false 
-  },
-
-  { 
-    id: 111, 
-    name: "BABA 24 Head Computerized Embroidery Machine", 
-    slug: "baba-24-head", 
-    category: "machine", 
-    price: 0, 
-    badge: "Multi-Head", 
-    image: "https://5.imimg.com/data5/SELLER/Default/2023/7/323505887/FY/LY/HN/6538775/baba-mix-chenile-aari-multi-high-speed-computerized-embroidery-machine.jpg", 
-    desc: "24-head machine with touch screen and world-class efficiency. Highest production capabilities for large orders.", 
-    specs: ["24 Heads", "9 Needles per Head", "Max Speed: 1200 RPM", "Heavy Body Structure", "Touch Screen Monitor"], 
-    bestSeller: false 
-  },
-
-  { 
-    id: 112, 
-    name: "BABA 21 Head High Speed Chain Stitch Machine", 
-    slug: "baba-21-head-chain-stitch", 
-    category: "machine", 
-    price: 0, 
-    badge: "Chain Stitch/Aari", 
-    image: "https://5.imimg.com/data5/JY/KY/GQ/SELLER-6538775/0002.jpg", 
-    desc: "21-head, 6-color machine specialized for chain stitch and Aari work. Perfect for traditional embroidery designs.", 
-    specs: ["21 Heads", "6 Colors", "Max Speed: 1200 RPM", "Chain Stitch / Aari Work", "In-built Auto Thread Cutter"], 
-    bestSeller: false 
-  },
-
-  { 
-    id: 113, 
-    name: "BABA Embroidery Flat Bed Machine", 
-    slug: "baba-flat-bed-machine", 
-    category: "machine", 
-    price: 0, 
-    badge: "Flat Bed", 
-    image: "https://5.imimg.com/data5/SELLER/Default/2025/3/495481863/CK/TE/JE/6538775/42-head-super-high-speed-computerized-embroidery-machine-500x500.jpg", 
-    desc: "High-speed flat bed machine with customizable bed area. Supports beads, sequin, cording, laser, and towel devices.", 
-    specs: ["Max Speed: 1600 RPM", "Single Phase", "9 Needles", "Customisable Bed Area", "Supports Beads, Sequin, Cording, Laser, Towel Devices"], 
-    bestSeller: true 
-  },
-
-  { 
-    id: 114, 
-    name: "BABA 42 Head Super High Speed Machine", 
-    slug: "baba-42-head-super-high-speed", 
-    category: "machine", 
-    price: 0, 
-    badge: "Super High Speed", 
-    image: "https://5.imimg.com/data5/SELLER/Default/2025/3/495481837/RZ/QY/CA/6538775/42-head-super-high-speed-computerized-embroidery-machine-1000x1000.jpg", 
-    desc: "42-head super high-speed machine for massive production capacity. 7 lakh stitches per head daily capacity.", 
-    specs: ["42 Heads", "4 Needles per Head", "Max Speed: 1500 RPM", "Head Distance: 150mm", "Daily Capacity: 7 Lakh Stitches/Head"], 
-    bestSeller: false 
-  },
-
-  { 
-    id: 115, 
-    name: "BABA 18 Head Super High Speed Bolt Max", 
-    slug: "baba-18-head-bolt-max", 
-    category: "machine", 
-    price: 0, 
-    badge: "Bolt Max", 
-    image: "https://5.imimg.com/data5/SELLER/Default/2025/3/495692072/AH/XC/ZT/6538775/18-head-super-high-speed-embroidery-machine.jpg", 
-    desc: "18-head bolt max model with beads and sequin devices. 3 bead and 2 sequin devices for creative designs.", 
-    specs: ["18 Heads", "9 Needles per Head", "Max Speed: 1600 RPM", "3 Bead & 2 Sequin Devices", "400 mm Head-to-Head Distance"], 
-    bestSeller: false 
-  },
-
-  { 
-    id: 116, 
-    name: "BABA YUEMEI Computerized", 
-    slug: "baba-yuemei", 
-    category: "machine", 
-    price: 495000, 
-    badge: "Premium", 
-    image: "./images/machine1.jpeg", 
-    desc: "12-needle, Japanese shuttle machine with 1500 SPM. Premium quality with 2-year warranty.", 
-    specs: ["12 Needles", "1500 SPM", "Japanese Shuttle", "2 Yr Warranty"], 
-    bestSeller: false 
-  },
-
-  // ================= DEVICES =================
-  { 
-    id: 6, 
-    name: "Magnetic Hoop Pro", 
-    slug: "magnetic-hoop-pro", 
-    category: "device", 
-    price: 12500, 
-    badge: "Best Seller", 
-    image: "https://cdn.shopify.com/s/files/1/0621/4208/7329/files/1_b16c8683-cced-4970-b847-a31c05540912.jpg", 
-    desc: "7 sizes, no hoop burn, quick release magnetic hoop system.", 
-    specs: ["Magnetic", "7 Sizes", "Quick Release"], 
-    bestSeller: true 
-  },
-
-  { 
-    id: 7, 
-    name: "Digitizing Tablet Pro", 
-    slug: "digitizing-tablet-pro", 
-    category: "device", 
-    price: 28000, 
-    badge: "Pro", 
-    image: "https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600", 
-    desc: "8192 pressure levels, wireless digitizing tablet for embroidery design.", 
-    specs: ["15.6\"", "8192 Levels", "Wireless"], 
-    bestSeller: false 
-  },
-
-  { 
-    id: 8, 
-    name: "Smart Thread Manager", 
-    slug: "smart-thread-manager", 
-    category: "device", 
-    price: 18500, 
-    badge: "IoT", 
-    image: "https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png", 
-    desc: "Real-time tension monitoring, mobile alerts for thread breaks.", 
-    specs: ["Mobile App", "Break Detection", "Predictive"], 
-    bestSeller: true 
-  },
-
-  { 
-    id: 9, 
-    name: "OLH-098A Twin Sequin", 
-    slug: "olh-098a-twin-sequin", 
-    category: "device", 
-    price: 32500, 
-    badge: "Premium", 
-    image: "https://image.made-in-china.com/2f0j00AyOqEvhRkloc/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-Double-Sequin-with-Triple-Bead-Device.jpg", 
-    desc: "Twin sequin + beads attachment for embroidery machines.", 
-    specs: ["1000 RPM", "Beads 1.7-4.0mm", "Twin Sequin"], 
-    bestSeller: false 
-  },
-
-  { 
-    id: 11, 
-    name: "Premium Thread Set (50 Colors)", 
-    slug: "premium-thread-set", 
-    category: "device", 
-    price: 4500, 
-    badge: "Bestseller", 
-    image: "https://m.media-amazon.com/images/I/71LLvUE2-VL.jpg", 
-    desc: "Rayon threads, vibrant shades for professional embroidery.", 
-    specs: ["50 Colors", "Rayon", "High Tenacity"], 
-    bestSeller: true 
-  },
-
-  { 
-    id: 12, 
-    name: "Aari Needle Set", 
-    slug: "aari-needle-set", 
-    category: "device", 
-    price: 899, 
-    badge: "Essential", 
-    image: "https://m.media-amazon.com/images/I/41BbkcD4S6L._SX679_.jpg", 
-    desc: "Professional Aari hooks & needles for chain stitch work.", 
-    specs: ["12 Sizes", "Ergonomic", "Steel"], 
-    bestSeller: false 
+  {
+    id: 109,
+    name: "BABA Dori / Cording Embroidery Machine",
+    slug: "baba-dori-machine",
+    category: "machine",
+    price: 0,
+    badge: "Dori Work",
+    image: "https://5.imimg.com/data5/JY/KY/GQ/SELLER-6538775/0002.jpg",
+    desc: "Specialized embroidery machine for dori and textured embroidery designs.",
+    specs: [
+      "Multi Head",
+      "9 Needles",
+      "Max Speed: 1500 RPM",
+      "Dori Attachment",
+      "Automatic Operation"
+    ],
+    bestSeller: false
   }
 ];
 

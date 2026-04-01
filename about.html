@@ -1,1134 +1,1335 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Rose Embroidery Machines | About Us – Precision, Aari & Materials</title>
+<!doctype html>
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Rose Embroidery Machines | About Us</title>
+    <!-- Old fonts & AOS -->
     <link
-        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+    <!-- New fonts & Tailwind config from template -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+      /* New template styles */
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .kinetic-glow:hover {
+        box-shadow: 0 0 15px rgba(212, 90, 122, 0.15);
+        border: 1px solid rgba(212, 90, 122, 0.2);
+      }
+      .glass-card {
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+      }
+      @keyframes float {
+        0% {
+          transform: translate(0, 0) scale(1);
+        }
+        33% {
+          transform: translate(30px, -50px) scale(1.1);
+        }
+        66% {
+          transform: translate(-20px, 20px) scale(0.9);
+        }
+        100% {
+          transform: translate(0, 0) scale(1);
+        }
+      }
+      .animate-float {
+        animation: float 20s infinite ease-in-out;
+      }
+      .animate-float-delayed {
+        animation: float 25s infinite ease-in-out -5s;
+      }
+      .animate-float-slow {
+        animation: float 30s infinite ease-in-out -10s;
+      }
+      .pink-radial-glow {
+        background: radial-gradient(
+          circle at center,
+          rgba(212, 90, 122, 0.08) 0%,
+          transparent 70%
+        );
+      }
+      /* Timeline sequential reveal */
+      .tl-item {
+        opacity: 0;
+        transform: translateY(36px);
+        transition:
+          opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+          transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .tl-item.tl-visible {
+        opacity: 1;
+        transform: translateY(0) !important;
+      }
+      @media (min-width: 768px) {
+        .tl-item.tl-left {
+          transform: translateX(-44px);
+        }
+        .tl-item.tl-right {
+          transform: translateX(44px);
+        }
+      }
+
+      /* Old essential styles for Navbar and Footer */
+      body {
+        font-family: "Montserrat", sans-serif;
+        overflow-x: hidden;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        padding: 12px 0;
+        z-index: 1000;
+        transition: all 0.4s ease;
+        background: rgba(255, 255, 255, 0.98);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+      .navbar.scrolled {
+        backdrop-filter: blur(10px);
+        padding: 8px 0;
+        box-shadow: 0 5px 20px rgba(212, 90, 122, 0.15);
+        background: rgba(255, 255, 255, 0.95);
+      }
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+      .logo a img {
+        height: 60px;
+        transition: all 0.3s ease;
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 28px;
+      }
+      .nav-attribute {
+        color: #3e2a2f;
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        transition: all 0.3s;
+        position: relative;
+      }
+      .nav-attribute::after {
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #d45a7a;
+        transition: width 0.3s ease;
+      }
+      .nav-attribute:hover::after,
+      .nav-attribute.active::after {
+        width: 100%;
+      }
+      .nav-attribute:hover,
+      .nav-attribute.active {
+        color: #d45a7a;
+      }
+      .cart-icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+      .cart-icon i {
+        font-size: 16px;
+      }
+      .cart-count {
+        position: absolute;
+        top: -10px;
+        right: -14px;
+        background: linear-gradient(135deg, #d45a7a, #b34262);
+        color: white;
+        font-size: 10px;
+        font-weight: bold;
+        padding: 2px 6px;
+        border-radius: 50%;
+        animation: pulse 1.5s infinite;
+        border: 2px solid white;
+      }
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.15);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+      .hamburger,
+      .sidebar,
+      .overlay {
+        display: none;
+      }
+      @media (max-width: 768px) {
+        .hamburger {
+          display: block;
+          cursor: pointer;
+          z-index: 1001;
+        }
+        .hamburger span {
+          display: block;
+          width: 26px;
+          height: 2px;
+          background: #b34262;
+          margin: 6px 0;
+          transition: 0.3s;
+          border-radius: 2px;
+        }
+        .navbar.scrolled .hamburger span {
+          background: #d45a7a;
+        }
+        .sidebar {
+          position: fixed;
+          top: 0;
+          left: -300px;
+          width: 280px;
+          height: 100%;
+          background: linear-gradient(145deg, #fff9fb, #fff0f4);
+          padding: 90px 28px 30px;
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
+          transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          z-index: 10000;
+          box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar.active {
+          left: 0;
+        }
+        .sidebar a {
+          color: #3e2a2f;
+          text-decoration: none;
+          font-size: 16px;
+          font-weight: 600;
+          padding: 12px 0;
+          border-bottom: 1px solid rgba(212, 90, 122, 0.1);
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          transition: 0.3s;
+        }
+        .sidebar a:hover,
+        .sidebar a.active {
+          color: #d45a7a;
+          padding-left: 5px;
+        }
+        .sidebar .close-btn {
+          position: absolute;
+          top: 20px;
+          right: 24px;
+          font-size: 28px;
+          cursor: pointer;
+          color: #b34262;
+          transition: 0.3s;
+        }
+        .sidebar .close-btn:hover {
+          transform: rotate(90deg);
+          color: #d45a7a;
+        }
+        .overlay {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.5);
+          opacity: 0;
+          visibility: hidden;
+          transition: 0.3s;
+          z-index: 9999;
+          backdrop-filter: blur(3px);
+        }
+        .overlay.active {
+          opacity: 1;
+          visibility: visible;
         }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            color: #2c2c2c;
-            line-height: 1.6;
-            background: linear-gradient(135deg, #ffffff 0%, #fef7f9 100%);
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            letter-spacing: -0.2px;
-        }
-
-     
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        /* navbar */
-
-
-
-
-
-
-
-
-
-
-
-
-        .navbar.scrolled .nav-attribute:hover {
-            color: #d45a7a;
-        }
-
-        .nav-attribute.active {
-            color: #d45a7a;
-            border-bottom: 2px solid #d45a7a;
-            padding-bottom: 4px;
-        }
-
-        /* header */
-        .page-header {
-            height: 52vh;
-            background: linear-gradient(135deg, rgb(0 0 0 / 80%) 0%, rgb(0 0 0 / 95%) 100%), url('https://images.pexels.com/photos/3778010/pexels-photo-3778010.jpeg?auto=compress&cs=tinysrgb&w=1600');
-            background-size: cover;
-            background-position: center 40%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            padding-top: 80px;
-        }
-
-        .page-header h1 {
-            font-size: 68px;
-            letter-spacing: 1px;
-            font-weight: 600;
-            text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .page-header p {
-            font-size: 20px;
-            margin-top: 16px;
-            font-weight: 400;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            opacity: 0.95;
-        }
-
-        /* about content */
-        .about-content {
-            padding: 90px 0 70px;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 42px;
-            color: #b34262;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
-        }
-
-        .about-text h2:after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 70px;
-            height: 3px;
-            background: linear-gradient(90deg, #d45a7a, #f3a6bb);
-        }
-
-        .about-text p {
-            color: #4a3b40;
-            margin-bottom: 24px;
-            line-height: 1.8;
-            font-size: 1rem;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 28px;
-            box-shadow: 0 25px 40px rgba(180, 60, 88, 0.25);
-            transition: transform 0.4s;
-        }
-
-        .about-image img:hover {
-            transform: scale(1.02);
-        }
-
-        /* mission section (updated) */
-        .mission-section {
-            background: linear-gradient(125deg, #ffa1bc 0%, #ca3061 100%);
-            color: #fff;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .mission-section h2 {
-            font-size: 46px;
-            margin-bottom: 30px;
-            letter-spacing: -0.5px;
-        }
-
-        .mission-section p {
-            max-width: 850px;
-            margin: 0 auto;
-            font-size: 1.2rem;
-            line-height: 1.8;
-            font-weight: 400;
-        }
-
-        /* values section - expanded core commitments (now includes Aari + Materials) */
-        .values-section {
-            padding: 90px 0;
-            background: #fffbfc;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .subtitle {
-            font-size: 14px;
-            letter-spacing: 5px;
-            color: #300f18;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-            font-weight: 500;
-        }
-
-        .values-section h2 {
-            font-size: 52px;
-            color: #2d2327;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-            gap: 45px;
-            margin-top: 50px;
-        }
-
-        .value-card {
-            text-align: center;
-            padding: 42px 28px;
-            background: #ffffff;
-            border-radius: 32px;
-            box-shadow: 0 12px 28px rgba(180, 60, 88, 0.08);
-            transition: all 0.3s ease;
-            border: 1px solid rgba(212, 90, 122, 0.15);
-        }
-
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 25px 35px rgba(180, 60, 88, 0.18);
-        }
-
-        .value-card i {
-            font-size: 52px;
-            background: linear-gradient(135deg, #d45a7a, #aa3c5c);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 20px;
-        }
-
-        .value-card h3 {
-            font-size: 26px;
-            color: #b34262;
-            margin-bottom: 15px;
-        }
-
-        .value-card p {
-            color: #5b4b52;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* special list inside cards for materials/aari details */
-        .commitment-list {
-            text-align: left;
-            margin-top: 18px;
-            list-style: none;
-            padding-left: 8px;
-        }
-
-        .commitment-list li {
-            font-size: 0.85rem;
-            margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            color: #5e4350;
-        }
-
-        .commitment-list li i {
-            font-size: 14px;
-            background: none;
-            -webkit-text-fill-color: #d45a7a;
-            color: #d45a7a;
-            width: 20px;
-        }
-
-        /* extra: expertise showcase */
-        .expertise-showcase {
-            background: #ffffff;
-            padding: 60px 0 80px;
-            border-top: 1px solid #fad9e2;
-        }
-
-        .expertise-flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .expertise-text {
-            flex: 1;
-        }
-
-        .expertise-text h3 {
-            font-size: 34px;
-            color: #b34262;
-            margin-bottom: 18px;
-        }
-
-        .expertise-text p {
-            font-size: 1rem;
-            margin-bottom: 20px;
-            color: #4d3e44;
-        }
-
-        .expertise-badge {
-            flex: 1;
-            background: linear-gradient(125deg, #fdf2f5, #fff);
-            border-radius: 48px;
-            padding: 32px 28px;
-            text-align: center;
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.02);
-            border: 1px solid #ffdce6;
-        }
-
-        .expertise-badge i {
-            font-size: 56px;
-            color: #d45a7a;
-            margin-bottom: 18px;
-        }
-
-        .expertise-badge h4 {
-            font-size: 24px;
-            margin-bottom: 10px;
-        }
-
-        /* team section (happy clients) */
-        .team-section {
-            padding: 70px 0 90px;
-            background: #fef6f9;
-        }
-
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 45px;
-            margin-top: 50px;
-        }
-
-        .team-card {
-            text-align: center;
-            background: white;
-            padding: 30px 20px;
-            border-radius: 48px;
-            transition: 0.25s;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.02);
-        }
-
-        .team-card img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 22px;
-            box-shadow: 0 15px 25px rgba(212, 90, 122, 0.15);
-            border: 3px solid #ffe2ec;
-        }
-
-        .team-card h3 {
-            font-size: 22px;
-            color: #b34262;
-            margin-bottom: 6px;
-        }
-
-        .team-card p {
-            color: #7a616b;
-            font-weight: 500;
-            font-size: 0.9rem;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(125deg, #fa6992 0%, #ca3061 100%);
-            color: #fff;
-            padding: 60px 0 30px;
-            text-align: center;
-        }
-
-        footer h4 {
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
-
-        /* responsive */
-
-
-        @media (max-width: 768px) {
-
-
-            .navbar.scrolled .page-header h1 {
-                font-size: 44px;
-            }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
-            .container {
-                padding: 0 24px;
-            }
-
-            .values-section h2 {
-                font-size: 38px;
-            }
-
-            .expertise-flex {
-                flex-direction: column;
-            }
-        }
-
-        @media (min-width: 769px) {}
-
-        .cart-icon {
-            position: relative;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -8px;
-            right: -12px;
-            background: #ff6b9d;
-            color: white;
-            font-size: 10px;
-            font-weight: bold;
-            padding: 2px 6px;
-            border-radius: 50%;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.2);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
-
-        /* footer-style Footer */
-        .footer-footer {
-            background: linear-gradient(135deg, #191a2c, #1f010a);
-            color: #fff;
-            padding: 70px 0 30px;
-            font-family: 'Montserrat', sans-serif;
-            text-align: left;
-        }
-
-        .footer-footer-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-        }
-
-        .footer-footer-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-footer-col {
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .footer-footer-col.col-brand p {
-            color: #f8f9fa;
-            line-height: 1.8;
-            margin-bottom: 25px;
-            font-size: 15px;
-            opacity: 0.9;
-        }
-
-        .footer-brand {
-            text-decoration: none;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        .footer-brand h2 {
-            color: #fff;
-            font-weight: 700;
-            font-size: 32px;
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-        }
-
-        .footer-brand span {
-            color: #d45a7a;
-        }
-
-        .footer-social-links {
-            display: flex;
-            gap: 12px;
-        }
-
-        .footer-social-links a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background: #fff;
-            color: #d45a7a;
-            border-radius: 8px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 18px;
-        }
-
-        .footer-social-links a:hover {
-            background: #d45a7a;
-            color: #fff;
-            transform: translateY(-3px);
-        }
-
-        .footer-footer-col h3 {
-            color: #ffffff;
-            font-size: 24px;
-            margin-bottom: 25px;
-            font-weight: 600;
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        .footer-quick-links {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .footer-quick-links a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 15px;
-            transition: 0.3s;
-            display: flex;
-            align-items: center;
-            opacity: 0.9;
-        }
-
-        .footer-quick-links a i {
-
-            margin-right: 12px;
-            font-size: 12px;
-        }
-
-        .footer-quick-links a:hover {
-
-            padding-left: 8px;
-            opacity: 1;
-        }
-
-        .footer-contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 0;
-        }
-
-        .footer-contact-info a,
-        .footer-contact-info p {
-            color: #fff;
-            text-decoration: none;
-            font-size: 15px;
-            display: flex;
-            align-items: flex-start;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 16px 0;
-            margin: 0;
-            line-height: 1.5;
-            opacity: 0.9;
-        }
-
-        .footer-contact-info a:first-child {
-            padding-top: 0;
-        }
-
-        .footer-contact-info a:last-child,
-        .footer-contact-info p:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .footer-contact-info i {
-            color: #E0A800;
-            margin-right: 15px;
-            margin-top: 4px;
-            width: 16px;
-            text-align: center;
-        }
-
-        .footer-contact-info a:hover {
-            color: #d45a7a;
-            opacity: 1;
-        }
-
-        .footer-footer-divider {
-            border: none;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.1);
-            margin: 0 0 25px 0;
-        }
-
-        .footer-footer-bottom {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-
-        .footer-copyright {
-            color: #fff;
-            font-size: 14px;
-            opacity: 0.8;
-        }
-
-        .footer-copyright a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .footer-copyright a:hover {
-            text-decoration: underline;
-        }
-
-        .footer-tagline {
-            color: #fff;
-            font-size: 14px;
-            opacity: 0.8;
-            font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .footer-footer-row {
-                flex-direction: column;
-                gap: 30px;
-            }
-
-            .footer-footer-bottom {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-        }
-
-
-        /* UNIVERSAL NAVBAR STYLES */
-        .navbar {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            padding: 12px 0;
-            z-index: 1000;
-            transition: all 0.4s ease;
-            background: rgba(255, 255, 255, 0.98);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-
-        .navbar.scrolled {
-            backdrop-filter: blur(10px);
-            padding: 8px 0;
-            box-shadow: 0 5px 20px rgba(212, 90, 122, 0.15);
-            background: rgba(255, 255, 255, 0.95);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            justify-content: space-between;
-        }
-
-        .logo a img {
-            height: 60px;
-            transition: all 0.3s ease;
-        }
-
         .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 28px;
+          display: none !important;
         }
-
-        .nav-attribute {
-            color: #3e2a2f;
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: all 0.3s;
-            position: relative;
-        }
-
-
-
-
-
-        .nav-attribute:hover,
-        .nav-attribute.active {
-            color: #d45a7a;
-            border-bottom: none;
-        }
-
-        .cart-icon {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-
-        .cart-icon i {
-            font-size: 16px;
-        }
-
-        .cart-count {
-            position: absolute;
-            top: -10px;
-            right: -14px;
-            background: #ff6b9d;
-            color: white;
-            font-size: 10px;
-            font-weight: bold;
-            padding: 2px 6px;
-            border-radius: 50%;
-            animation: pulse 1.5s infinite;
-            border: 2px solid white;
-        }
-
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-            }
-
-            50% {
-                transform: scale(1.15);
-            }
-
-            100% {
-                transform: scale(1);
-            }
-        }
-
+      }
+      @media (min-width: 769px) {
         .hamburger,
         .sidebar,
         .overlay {
-            display: none;
+          display: none !important;
         }
-
-        @media (max-width: 768px) {
-            .hamburger {
-                display: block;
-                cursor: pointer;
-                z-index: 1001;
-            }
-
-            .hamburger span {
-                display: block;
-                width: 26px;
-                height: 2px;
-                background: #b34262;
-                margin: 6px 0;
-                transition: 0.3s;
-                border-radius: 2px;
-            }
-
-            .navbar.scrolled .hamburger span {
-                background: #d45a7a;
-            }
-
-            .sidebar {
-                position: fixed;
-                top: 0;
-                left: -300px;
-                width: 280px;
-                height: 100%;
-                background: linear-gradient(145deg, #fff9fb, #fff0f4);
-                padding: 90px 28px 30px;
-                display: flex;
-                flex-direction: column;
-                gap: 18px;
-                transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                z-index: 10000;
-                box-shadow: 4px 0 20px rgba(0, 0, 0, 0.1);
-            }
-
-            .sidebar.active {
-                left: 0;
-            }
-
-            .sidebar a {
-                color: #3e2a2f;
-                text-decoration: none;
-                font-size: 16px;
-                font-weight: 600;
-                padding: 12px 0;
-                border-bottom: 1px solid rgba(212, 90, 122, 0.1);
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                transition: 0.3s;
-            }
-
-            .sidebar a:hover,
-            .sidebar a.active {
-                color: #d45a7a;
-                padding-left: 5px;
-            }
-
-            .sidebar .close-btn {
-                position: absolute;
-                top: 20px;
-                right: 24px;
-                font-size: 28px;
-                cursor: pointer;
-                color: #b34262;
-                transition: 0.3s;
-            }
-
-            .sidebar .close-btn:hover {
-                transform: rotate(90deg);
-                color: #d45a7a;
-            }
-
-            .overlay {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.5);
-                opacity: 0;
-                visibility: hidden;
-                transition: 0.3s;
-                z-index: 9999;
-                backdrop-filter: blur(3px);
-            }
-
-            .overlay.active {
-                opacity: 1;
-                visibility: visible;
-            }
-
-            .nav-links {
-                display: none !important;
-            }
+        .nav-links {
+          display: flex !important;
         }
+      }
 
-        @media (min-width: 769px) {
-
-            .hamburger,
-            .sidebar,
-            .overlay {
-                display: none !important;
-            }
-
-            .nav-links {
-                display: flex !important;
-            }
+      .tetro-footer {
+        background: linear-gradient(135deg, #191a2c, #1f010a);
+        color: #fff;
+        padding: 70px 0 30px;
+        font-family: "Montserrat", sans-serif;
+        text-align: left;
+        margin-top: auto;
+      }
+      .tetro-footer-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 30px;
+      }
+      .tetro-footer-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        margin-bottom: 40px;
+      }
+      .tetro-footer-col {
+        flex: 1;
+        min-width: 280px;
+      }
+      .tetro-footer-col.col-brand p {
+        color: #f8f9fa;
+        line-height: 1.8;
+        margin-bottom: 25px;
+        font-size: 15px;
+        opacity: 0.9;
+      }
+      .footer-brand {
+        text-decoration: none;
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+      .footer-brand h2 {
+        color: #fff;
+        font-weight: 700;
+        font-size: 32px;
+        font-family: "Montserrat", sans-serif;
+        margin: 0;
+      }
+      .footer-brand span {
+        color: #d45a7a;
+      }
+      .tetro-social-links {
+        display: flex;
+        gap: 12px;
+      }
+      .tetro-social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        color: #d45a7a;
+        border-radius: 8px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        font-size: 18px;
+      }
+      .tetro-social-links a:hover {
+        background: #d45a7a;
+        color: #fff;
+        transform: translateY(-3px);
+      }
+      .tetro-footer-col h3 {
+        color: #ffffff;
+        font-size: 24px;
+        margin-bottom: 25px;
+        font-weight: 600;
+        font-family: "Montserrat", sans-serif;
+      }
+      .tetro-quick-links {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+      .tetro-quick-links a {
+        color: #fff;
+        text-decoration: none;
+        font-size: 15px;
+        transition: 0.3s;
+        display: flex;
+        align-items: center;
+        opacity: 0.9;
+      }
+      .tetro-quick-links a i {
+        margin-right: 12px;
+        font-size: 12px;
+      }
+      .tetro-quick-links a:hover {
+        padding-left: 8px;
+        opacity: 1;
+      }
+      .tetro-contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+      .tetro-contact-info a,
+      .tetro-contact-info p {
+        color: #fff;
+        text-decoration: none;
+        font-size: 15px;
+        display: flex;
+        align-items: flex-start;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 16px 0;
+        margin: 0;
+        line-height: 1.5;
+        opacity: 0.9;
+      }
+      .tetro-contact-info a:first-child {
+        padding-top: 0;
+      }
+      .tetro-contact-info a:last-child,
+      .tetro-contact-info p:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      .tetro-contact-info i {
+        color: #d45a7a;
+        margin-right: 15px;
+        margin-top: 4px;
+        width: 16px;
+        text-align: center;
+      }
+      .tetro-contact-info a:hover {
+        color: #d45a7a;
+        opacity: 1;
+      }
+      .tetro-footer-divider {
+        border: none;
+        height: 1px;
+        background: rgba(255, 255, 255, 0.1);
+        margin: 0 0 25px 0;
+      }
+      .tetro-footer-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+      .tetro-copyright {
+        color: #fff;
+        font-size: 14px;
+        opacity: 0.8;
+      }
+      .tetro-copyright a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+      }
+      .tetro-copyright a:hover {
+        text-decoration: underline;
+      }
+      .tetro-tagline {
+        color: #fff;
+        font-size: 14px;
+        opacity: 0.8;
+        font-weight: 500;
+      }
+      @media (max-width: 768px) {
+        .tetro-footer-row {
+          flex-direction: column;
+          gap: 30px;
         }
+        .tetro-footer-bottom {
+          flex-direction: column;
+          text-align: center;
+          gap: 10px;
+        }
+      }
     </style>
-</head>
 
-<body>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-high": "#e7e8e9",
+              "inverse-primary": "#ffb0cc",
+              primary: "#b34262",
+              tertiary: "#d45a7a",
+              surface: "#ffffff",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-low": "#fef6f9",
+              "on-surface": "#2c2c2c",
+              secondary: "#5e4350",
+              "on-secondary-container": "#4a3b40",
+            },
+            fontFamily: {
+              headline: ["Cormorant Garamond", "serif"],
+              body: ["Montserrat", "sans-serif"],
+              label: ["Montserrat", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.125rem",
+              lg: "0.25rem",
+              xl: "0.5rem",
+              full: "0.75rem",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="bg-surface font-body text-on-background selection:bg-primary/20 selection:text-primary overflow-x-hidden flex flex-col min-h-screen"
+  >
+    <!-- Background Elements -->
+    <div class="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+      <div
+        class="absolute top-[-10%] left-[-5%] w-[40%] h-[40%] bg-primary/5 rounded-full blur-[120px] animate-float"
+      ></div>
+      <div
+        class="absolute bottom-[10%] right-[-10%] w-[50%] h-[50%] bg-tertiary/5 rounded-full blur-[150px] animate-float-delayed"
+      ></div>
+    </div>
 
+    <!-- OLD NAVBAR PRESERVED -->
     <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <div class="logo"><a href="./index.html"><img src="./images/logo.png" alt="Rose Embroidery"></a></a>
-                <div>
-                    <div class="nav-links">
-                        <a class="nav-attribute" href="index.html">Home</a>
-                        <a class="nav-attribute active" href="about.html">About</a>
-                        <a class="nav-attribute" href="products.html">Shop</a>
-                        <a class="nav-attribute" href="gallery.html">Gallery</a>
-                        <a class="nav-attribute" href="contact.html">Contact</a>
-                        <a class="nav-attribute" href="login.html"><i class="fas fa-user"></i> Login</a>
-                        <a class="nav-attribute cart-icon" href="cart.html">
-                            <i class="fas fa-shopping-cart"></i>
-                            <span class="cart-count" id="cartCount">0</span>
-                        </a>
-                    </div>
-                    <div class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
-                </div>
+      <div class="nav-container">
+        <div class="logo">
+          <a href="./index.html"
+            ><img src="./images/logo.png" alt="Rose Embroidery"
+          /></a>
+        </div>
+        <div class="nav-links">
+          <a class="nav-attribute" href="index.html">Home</a>
+          <a class="nav-attribute active" href="about.html">About</a>
+          <a class="nav-attribute" href="products.html">Shop</a>
+          <a class="nav-attribute" href="gallery.html">Gallery</a>
+          <a class="nav-attribute" href="contact.html">Contact</a>
+          <a class="nav-attribute" href="login.html"
+            ><i class="fas fa-user"></i> Login</a
+          >
+          <a class="nav-attribute cart-icon" href="cart.html">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+          </a>
+        </div>
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
     </nav>
     <div class="sidebar" id="sidebar">
-        <div class="close-btn" onclick="toggleMenu()">✕</div>
-        <a href="index.html"><i class="fas fa-home"></i> Home</a>
-        <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-        <a href="products.html"><i class="fas fa-box"></i> Shop</a>
-        <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
-        <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-        <a href="login.html"><i class="fas fa-user"></i> Login</a>
-        <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart <span id="mobileCartCount">0</span></a>
+      <div class="close-btn" onclick="toggleMenu()">✕</div>
+      <a href="index.html"><i class="fas fa-home"></i> Home</a>
+      <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
+      <a href="products.html"><i class="fas fa-box"></i> Shop</a>
+      <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+      <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+      <a href="login.html"><i class="fas fa-user"></i> Login</a>
+      <a href="cart.html"
+        ><i class="fas fa-shopping-cart"></i> Cart
+        <span id="mobileCartCount">0</span></a
+      >
     </div>
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
-    <!-- Header -->
-    <section class="page-header">
-        <div data-aos="fade-up">
-            <h1>About Rose Embroidery</h1>
-            <p>Embroidery machine sales • Expert service • Complete solutions</p>
+    <!-- NEW MAIN CONTENT BASED ON TEMPLATE -->
+    <main class="pt-[80px] relative z-10 flex-grow">
+      <!-- Hero Section -->
+      <section
+        class="relative h-[614px] flex items-center overflow-hidden bg-surface-container-low"
+      >
+        <div class="absolute inset-0 z-0">
+          <img
+            alt="Industrial Machinery"
+            class="w-full h-full object-cover object-center opacity-35 grayscale"
+            data-alt="high-tech robotic arm in a sterile industrial clean room with blue ambient lighting and metallic surfaces"
+            src="https://5.imimg.com/data5/SELLER/Default/2025/3/495692072/AH/XC/ZT/6538775/18-head-super-high-speed-embroidery-machine-500x500.jpg"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-b from-surface/0 via-surface/50 to-surface"
+          ></div>
         </div>
-    </section>
+        <div class="container mx-auto px-8 relative z-10">
+          <div class="max-w-3xl" data-aos="fade-right" data-aos-duration="1000">
+            <span
+              class="font-label text-primary font-bold tracking-[0.2em] uppercase text-xs mb-4 block"
+              >Our Legacy</span
+            >
+            <h1
+              class="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-on-surface mb-6"
+            >
+              Trusted
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary"
+                >Embroidery</span
+              >
+              Partners.
+            </h1>
+            <p
+              class="font-body text-lg text-secondary leading-relaxed max-w-xl"
+            >
+              Embroidery machine sales • Expert service • Complete solutions. We
+              supply high-quality machines along with expert repair,
+              maintenance, and installation services.
+            </p>
+          </div>
+        </div>
+      </section>
 
-    <!-- Main about content -->
-    <section class="about-content">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-text" data-aos="fade-right">
-                    <h2>Trusted Embroidery Partners</h2>
-                    <p><strong>Rose Embroidery Machines</strong> is a trusted provider of embroidery machine sales,
-                        service, and complete solutions. We supply high-quality machines along with expert repair,
-                        maintainence, and installation services to ensure smooth and efficient performance. Our
-                        offerings include Aari work, embroidery design samples, and customized embroidery services for
-                        businesses and individuals.</p>
-                    <p>We take pride in our success by delivering reliable products and easy machine setup with clear
-                        guidelines, making it simple for clients to get started. Our strong maintainence support ensures
-                        long-lasting performance and minimal downtime. We have built a base of happy clients who trust
-                        our quality and service.</p>
-                    <p>We also stay updated with the latest embroidery design trends, helping customers create impactful
-                        and high-selling designs. Our goal is to support creativity, improve productivity, and help our
-                        clients grow successfully in the embroidery business.</p>
-                </div>
-                <div class="about-image" data-aos="fade-left">
-                    <img src="./images/machine1.jpeg" alt="Rose Embroidery Workshop">
-                </div>
+      <!-- Stats/Values Grid -->
+      <section class="py-20 bg-surface relative">
+        <div
+          class="absolute inset-0 pink-radial-glow pointer-events-none"
+        ></div>
+        <div class="container mx-auto px-8 relative z-10" data-aos="fade-up">
+          <div
+            class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center md:text-left"
+          >
+            <div
+              class="p-10 bg-surface-container-lowest/80 backdrop-blur-sm rounded-xl border border-surface-container-high transition-all kinetic-glow group shadow-sm"
+            >
+              <div
+                class="flex items-center gap-4 mb-4 justify-center md:justify-start"
+              >
+                <span class="text-primary text-4xl"
+                  ><i class="fas fa-cogs"></i
+                ></span>
+                <span
+                  class="font-headline text-3xl font-extrabold tracking-tighter"
+                  >Reliable Setup</span
+                >
+              </div>
+              <p class="font-body text-sm text-on-secondary-container">
+                Easy installation with clear guidelines, rugged equipment built
+                for continuous production.
+              </p>
             </div>
-        </div>
-    </section>
-
-    <!-- Mission & Vision section -->
-    <section class="mission-section">
-        <div class="container" data-aos="fade-up">
-            <h2>Our Mission: Empower Creativity, Elevate Business</h2>
-            <p>To deliver unmatched embroidery solutions—from premium machine sales to precision maintainence—that fuel
-                business growth, artistic expression, and long-term reliability. We combine technical expertise with
-                design innovation, ensuring every client gains a competitive edge with minimal downtime and maximum
-                output.</p>
-        </div>
-    </section>
-
-    <!-- WHY WE STAND OUT | Our Core Commitments (EXPANDED: now includes Aari Works & Embroidery Materials) -->
-    <section class="values-section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <div class="subtitle">WHY WE STAND OUT</div>
-                <h2>Our Core Commitments</h2>
+            <div
+              class="p-10 bg-surface-container-lowest/80 backdrop-blur-sm rounded-xl border border-surface-container-high transition-all kinetic-glow group shadow-sm"
+            >
+              <div
+                class="flex items-center gap-4 mb-4 justify-center md:justify-start"
+              >
+                <span class="text-primary text-4xl"
+                  ><i class="fas fa-smile"></i
+                ></span>
+                <span
+                  class="font-headline text-3xl font-extrabold tracking-tighter"
+                  >500+ Clients</span
+                >
+              </div>
+              <p class="font-body text-sm text-on-secondary-container">
+                Hundreds of happy clients trust our end-to-end solutions, from
+                small shops to large units.
+              </p>
             </div>
-            <div class="values-grid">
-                <!-- Commitment 1: Reliable Machines & Setup -->
-                <div class="value-card" data-aos="fade-up" data-aos-delay="100">
-
-                    <h3>Reliable Machines & Setup</h3>
-                    <p>Easy machine installation with clear guidelines, plus rugged equipment built for continuous
-                        production and flawless embroidery.</p>
-                </div>
-                <!-- Commitment 2: Expert Maintenance Support -->
-                <div class="value-card" data-aos="fade-up" data-aos-delay="150">
-
-                    <h3>Expert Maintenance Support</h3>
-                    <p>Minimize downtime with our responsive service team, repair expertise, and preventive maintainence
-                        plans that extend machine life.</p>
-                </div>
-                <!-- Commitment 3: Design-Driven Innovation -->
-                <div class="value-card" data-aos="fade-up" data-aos-delay="200">
-
-                    <h3>Design-Driven Innovation</h3>
-                    <p>Latest embroidery design trends, Aari work samples, and customized digitizing to help you create
-                        high-selling collections.</p>
-                </div>
-                <!-- Commitment 4: Client Success First -->
-                <div class="value-card" data-aos="fade-up" data-aos-delay="250">
-
-                    <h3>Client Success First</h3>
-                    <p>Hundreds of happy clients trust our end-to-end solutions—from small businesses to large
-                        production units. We grow together.</p>
-                </div>
-                <!-- NEW Commitment 5: Masterful Aari Craftsmanship (added inside core commitments) -->
-                <div class="value-card" data-aos="fade-up" data-aos-delay="300">
-
-                    <h3>Masterful Aari Craftsmanship</h3>
-                    <p>Specialized Aari work that blends heritage techniques with modern flair. From intricate thread
-                        work to mirror embellishments, our artisans deliver perfection for bridal, festive, and
-                        high-fashion collections.</p>
-
-                </div>
-                <!-- NEW Commitment 6: Premium Embroidery Materials (added inside core commitments) -->
-                <div class="value-card" data-aos="fade-up" data-aos-delay="350">
-
-                    <h3>Premium Embroidery Materials</h3>
-                    <p>Only the finest threads, stabilizers, needles, and accessories. Our premium supplies reduce
-                        thread breaks, enhance tension control, and ensure vibrant, durable embroidery results.</p>
-
-                </div>
+            <div
+              class="p-10 bg-surface-container-lowest/80 backdrop-blur-sm rounded-xl border border-surface-container-high transition-all kinetic-glow group shadow-sm"
+            >
+              <div
+                class="flex items-center gap-4 mb-4 justify-center md:justify-start"
+              >
+                <span class="text-primary text-4xl"
+                  ><i class="fas fa-palette"></i
+                ></span>
+                <span
+                  class="font-headline text-3xl font-extrabold tracking-tighter"
+                  >Design Driven</span
+                >
+              </div>
+              <p class="font-body text-sm text-on-secondary-container">
+                Latest embroidery trends, Aari work samples, and customization
+                to create high-selling collections.
+              </p>
             </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <!-- extra: expertise & trend-driven success (reinforcing aari + materials) -->
-    <section class="expertise-showcase">
-        <div class="container" style="max-width: fit-content; padding: 0% 14%;">
-            <div class="expertise-flex">
-                <div class="expertise-text" data-aos="fade-right">
-                    <h3>Design trends & custom Aari work</h3>
-                    <p>We constantly scout global embroidery trends to offer exclusive design samples and Aari work
-                        patterns that captivate the market. Whether you need wedding trousseau embellishments, fashion
-                        embroidery, or commercial bulk orders — our design library and customization help you stand out.
+      <!-- Information / Timeline replacement -->
+      <section
+        class="py-14 bg-surface-container-low overflow-hidden relative"
+        id="commitments-section"
+      >
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pink-radial-glow opacity-50 pointer-events-none"
+        ></div>
+        <div class="container mx-auto px-8 relative z-10">
+          <div class="text-center mb-12" data-aos="fade-up">
+            <h2
+              class="font-headline text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-primary"
+            >
+              Our Core Commitments
+            </h2>
+            <p
+              class="font-body text-base md:text-lg text-secondary max-w-2xl mx-auto font-medium"
+            >
+              Tracing our core values built on excellence and precision.
+            </p>
+          </div>
+
+          <!-- Timeline wrapper with real line + flame -->
+          <div class="relative mx-8 md:mx-20" id="timeline-wrapper">
+            <!-- The visible center line -->
+            <div
+              class="hidden md:block absolute left-1/2 -translate-x-px top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-primary/30 to-transparent"
+              id="timeline-line"
+            ></div>
+            <!-- Mobile left line -->
+            <div
+              class="md:hidden absolute left-5 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-primary/30 to-transparent"
+            ></div>
+
+            <!-- Animated flame particle removed -->
+
+            <div class="space-y-10">
+              <!-- Item 1 (LEFT) -->
+              <div
+                class="tl-item tl-left relative flex items-center group hover:-translate-y-2 transition-transform duration-500 cursor-default"
+              >
+                <div
+                  class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-primary/20 shadow-md z-10 shrink-0 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 group-hover:border-primary group-hover:scale-110"
+                >
+                  <span
+                    class="w-3 h-3 rounded-full bg-primary group-hover:bg-tertiary transition-colors duration-300"
+                  ></span>
+                </div>
+                <!-- Mobile dot -->
+                <div
+                  class="flex md:hidden items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-primary/20 shadow-md z-10 shrink-0 transition-all duration-300 group-hover:border-primary group-hover:scale-110"
+                >
+                  <span
+                    class="w-3 h-3 rounded-full bg-primary group-hover:bg-tertiary transition-colors duration-300"
+                  ></span>
+                </div>
+                <div
+                  class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2rem)] ml-3 md:ml-0 md:mr-auto p-5 bg-surface-container-lowest/90 backdrop-blur-sm rounded-xl shadow-sm border border-transparent transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-xl group-hover:shadow-primary/15 overflow-hidden"
+                >
+                  <time
+                    class="font-headline text-primary font-extrabold text-xl mb-1.5 block transition-colors group-hover:text-tertiary"
+                    ><i class="fas fa-cogs"></i
+                  ></time>
+                  <h4
+                    class="font-headline font-bold text-base text-on-surface mb-2 group-hover:text-primary transition-colors"
+                  >
+                    Reliable Machines &amp; Setup
+                  </h4>
+                  <p class="font-body text-sm text-secondary leading-relaxed">
+                    Easy machine installation with clear guidelines, plus rugged
+                    equipment built for continuous production and flawless
+                    embroidery.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 2 (RIGHT) -->
+              <div
+                class="tl-item tl-right relative flex items-center justify-end group hover:-translate-y-2 transition-transform duration-500 cursor-default"
+              >
+                <div
+                  class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-primary/20 shadow-md z-10 shrink-0 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 group-hover:border-primary group-hover:scale-110"
+                >
+                  <span
+                    class="w-3 h-3 rounded-full bg-primary group-hover:bg-tertiary transition-colors duration-300"
+                  ></span>
+                </div>
+                <!-- Mobile dot -->
+                <div
+                  class="flex md:hidden items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-primary/20 shadow-md z-10 shrink-0 transition-all duration-300 group-hover:border-primary group-hover:scale-110 order-first mr-3"
+                >
+                  <span
+                    class="w-3 h-3 rounded-full bg-primary group-hover:bg-tertiary transition-colors duration-300"
+                  ></span>
+                </div>
+                <div
+                  class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2rem)] md:ml-auto p-5 bg-surface-container-lowest/90 backdrop-blur-sm rounded-xl shadow-sm border border-transparent transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-xl group-hover:shadow-primary/15 overflow-hidden"
+                >
+                  <time
+                    class="font-headline text-primary font-extrabold text-xl mb-1.5 block transition-colors group-hover:text-tertiary"
+                    ><i class="fas fa-tools"></i
+                  ></time>
+                  <h4
+                    class="font-headline font-bold text-base text-on-surface mb-2 group-hover:text-primary transition-colors"
+                  >
+                    Expert Maintenance Support
+                  </h4>
+                  <p class="font-body text-sm text-secondary leading-relaxed">
+                    Minimize downtime with our responsive service team, repair
+                    expertise, and preventive maintenance plans that extend
+                    machine life.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 3 (LEFT) -->
+              <div
+                class="tl-item tl-left relative flex items-center group hover:-translate-y-2 transition-transform duration-500 cursor-default"
+              >
+                <div
+                  class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-primary/20 shadow-md z-10 shrink-0 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 group-hover:border-primary group-hover:scale-110"
+                >
+                  <span
+                    class="w-3 h-3 rounded-full bg-primary group-hover:bg-tertiary transition-colors duration-300"
+                  ></span>
+                </div>
+                <div
+                  class="flex md:hidden items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-primary/20 shadow-md z-10 shrink-0 transition-all duration-300 group-hover:border-primary group-hover:scale-110"
+                >
+                  <span
+                    class="w-3 h-3 rounded-full bg-primary group-hover:bg-tertiary transition-colors duration-300"
+                  ></span>
+                </div>
+                <div
+                  class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2rem)] ml-3 md:ml-0 md:mr-auto p-5 bg-surface-container-lowest/90 backdrop-blur-sm rounded-xl shadow-sm border border-transparent transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-xl group-hover:shadow-primary/15 overflow-hidden"
+                >
+                  <time
+                    class="font-headline text-primary font-extrabold text-xl mb-1.5 block transition-colors group-hover:text-tertiary"
+                    ><i class="fas fa-palette"></i
+                  ></time>
+                  <h4
+                    class="font-headline font-bold text-base text-on-surface mb-2 group-hover:text-primary transition-colors"
+                  >
+                    Design-Driven Innovation
+                  </h4>
+                  <p class="font-body text-sm text-secondary leading-relaxed">
+                    Latest embroidery design trends, Aari work samples, and
+                    customized digitizing to help you create high-selling
+                    collections.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 4 (RIGHT) -->
+              <div
+                class="tl-item tl-right relative flex items-center justify-end group hover:-translate-y-2 transition-transform duration-500 cursor-default"
+              >
+                <div
+                  class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-primary/20 shadow-md z-10 shrink-0 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 group-hover:border-primary group-hover:scale-110"
+                >
+                  <span
+                    class="w-3 h-3 rounded-full bg-primary group-hover:bg-tertiary transition-colors duration-300"
+                  ></span>
+                </div>
+                <div
+                  class="flex md:hidden items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-primary/20 shadow-md z-10 shrink-0 transition-all duration-300 group-hover:border-primary group-hover:scale-110 order-first mr-3"
+                >
+                  <span
+                    class="w-3 h-3 rounded-full bg-primary group-hover:bg-tertiary transition-colors duration-300"
+                  ></span>
+                </div>
+                <div
+                  class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2rem)] md:ml-auto p-5 bg-surface-container-lowest/90 backdrop-blur-sm rounded-xl shadow-sm border border-transparent transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-xl group-hover:shadow-primary/15 overflow-hidden"
+                >
+                  <time
+                    class="font-headline text-primary font-extrabold text-xl mb-1.5 block transition-colors group-hover:text-tertiary"
+                    ><i class="fas fa-smile"></i
+                  ></time>
+                  <h4
+                    class="font-headline font-bold text-base text-on-surface mb-2 group-hover:text-primary transition-colors"
+                  >
+                    Client Success First
+                  </h4>
+                  <p class="font-body text-sm text-secondary leading-relaxed">
+                    Hundreds of happy clients trust our end-to-end solutions —
+                    from small businesses to large production units. We grow
+                    together.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 5 (LEFT) -->
+              <div
+                class="tl-item tl-left relative flex items-center group hover:-translate-y-2 transition-transform duration-500 cursor-default"
+              >
+                <div
+                  class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-primary/20 shadow-md z-10 shrink-0 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 group-hover:border-primary group-hover:scale-110"
+                >
+                  <span
+                    class="w-3 h-3 rounded-full bg-primary group-hover:bg-tertiary transition-colors duration-300"
+                  ></span>
+                </div>
+                <div
+                  class="flex md:hidden items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-primary/20 shadow-md z-10 shrink-0 transition-all duration-300 group-hover:border-primary group-hover:scale-110"
+                >
+                  <span
+                    class="w-3 h-3 rounded-full bg-primary group-hover:bg-tertiary transition-colors duration-300"
+                  ></span>
+                </div>
+                <div
+                  class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2rem)] ml-3 md:ml-0 md:mr-auto p-5 bg-surface-container-lowest/90 backdrop-blur-sm rounded-xl shadow-sm border border-transparent transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-xl group-hover:shadow-primary/15 overflow-hidden"
+                >
+                  <time
+                    class="font-headline text-primary font-extrabold text-xl mb-1.5 block transition-colors group-hover:text-tertiary"
+                    ><i class="fas fa-hand-sparkles"></i
+                  ></time>
+                  <h4
+                    class="font-headline font-bold text-base text-on-surface mb-2 group-hover:text-primary transition-colors"
+                  >
+                    Masterful Aari Craftsmanship
+                  </h4>
+                  <p class="font-body text-sm text-secondary leading-relaxed">
+                    Specialized Aari work blending heritage techniques with
+                    modern flair — intricate thread work, mirror embellishments,
+                    bridal and festive collections.
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 6 (RIGHT) -->
+              <div
+                class="tl-item tl-right relative flex items-center justify-end group hover:-translate-y-2 transition-transform duration-500 cursor-default"
+              >
+                <div
+                  class="hidden md:flex items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-primary/20 shadow-md z-10 shrink-0 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-300 group-hover:border-primary group-hover:scale-110"
+                >
+                  <span
+                    class="w-3 h-3 rounded-full bg-primary group-hover:bg-tertiary transition-colors duration-300"
+                  ></span>
+                </div>
+                <div
+                  class="flex md:hidden items-center justify-center w-10 h-10 rounded-full bg-white border-2 border-primary/20 shadow-md z-10 shrink-0 transition-all duration-300 group-hover:border-primary group-hover:scale-110 order-first mr-3"
+                >
+                  <span
+                    class="w-3 h-3 rounded-full bg-primary group-hover:bg-tertiary transition-colors duration-300"
+                  ></span>
+                </div>
+                <div
+                  class="w-[calc(100%-3.5rem)] md:w-[calc(50%-2rem)] md:ml-auto p-5 bg-surface-container-lowest/90 backdrop-blur-sm rounded-xl shadow-sm border border-transparent transition-all duration-500 group-hover:border-primary/40 group-hover:shadow-xl group-hover:shadow-primary/15 overflow-hidden"
+                >
+                  <time
+                    class="font-headline text-primary font-extrabold text-xl mb-1.5 block transition-colors group-hover:text-tertiary"
+                    ><i class="fas fa-ribbon"></i
+                  ></time>
+                  <h4
+                    class="font-headline font-bold text-base text-on-surface mb-2 group-hover:text-primary transition-colors"
+                  >
+                    Premium Embroidery Materials
+                  </h4>
+                  <p class="font-body text-sm text-secondary leading-relaxed">
+                    The finest threads, stabilizers, needles and accessories.
+                    Our premium supplies reduce thread breaks and ensure
+                    vibrant, durable embroidery results.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- /space-y-10 -->
+          </div>
+          <!-- /timeline-wrapper -->
+        </div>
+      </section>
+
+      <!-- Trusted Embroidery Partners Section -->
+      <section
+        class="py-24 bg-surface relative overflow-hidden"
+        id="trusted-partners"
+      >
+        <!-- Decorative background blobs -->
+        <div
+          class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none animate-float"
+        ></div>
+        <div
+          class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-tertiary/5 rounded-full blur-[100px] pointer-events-none animate-float-delayed"
+        ></div>
+
+        <div class="container mx-auto px-8 relative z-10">
+          <!-- Section Header -->
+          <div
+            class="text-center mb-16"
+            data-aos="fade-up"
+            data-aos-duration="800"
+          >
+            <span
+              class="font-label text-primary font-bold tracking-[0.2em] uppercase text-xs mb-3 block"
+              data-aos="fade-up"
+              data-aos-delay="50"
+              >Who We Are</span
+            >
+            <h2
+              class="font-headline text-5xl md:text-6xl font-extrabold tracking-tight mb-5 text-on-surface"
+            >
+              Trusted
+              <span
+                class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-tertiary"
+                >Embroidery</span
+              >
+              Partners
+            </h2>
+            <div
+              class="w-16 h-1 bg-gradient-to-r from-primary to-tertiary mx-auto rounded-full mb-6"
+              data-aos="zoom-in"
+              data-aos-delay="200"
+            ></div>
+            <p
+              class="font-body text-lg text-secondary max-w-2xl mx-auto leading-relaxed"
+              data-aos="fade-up"
+              data-aos-delay="150"
+            >
+              A complete ecosystem for embroidery excellence — from
+              industry-grade machines to artisan craftsmanship.
+            </p>
+          </div>
+
+          <!-- Two Column Layout: Text + Visual Highlight -->
+          <div
+            class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-20"
+          >
+            <!-- Left: Rich content paragraphs -->
+            <div data-aos="fade-right" data-aos-duration="900">
+              <div class="space-y-6">
+                <div
+                  class="p-6 bg-surface-container-lowest rounded-xl border border-surface-container-high shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-400 group"
+                  data-aos="fade-right"
+                  data-aos-delay="100"
+                >
+                  <div class="flex items-start gap-4">
+                    <div
+                      class="w-10 h-10 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors"
+                    >
+                      <i class="fas fa-award text-primary"></i>
+                    </div>
+                    <p
+                      class="font-body text-base text-secondary leading-relaxed"
+                    >
+                      Rose Embroidery Machines is a
+                      <strong class="text-on-surface">trusted provider</strong>
+                      of embroidery machine sales, service, and complete
+                      solutions. We supply high-quality machines along with
+                      expert repair, maintenance, and installation services to
+                      ensure smooth and efficient performance.
                     </p>
-                    <p><i class="fas fa-check-circle" style="color:#d45a7a; margin-right: 8px;"></i> Custom embroidery
-                        service & digitizing<br>
-                        <i class="fas fa-check-circle" style="color:#d45a7a; margin-right: 8px;"></i> Quick turnaround
-                        samples & prototyping<br>
-                        <i class="fas fa-check-circle" style="color:#d45a7a; margin-right: 8px;"></i> High-selling
-                        commercial design packages
+                  </div>
+                </div>
+                <div
+                  class="p-6 bg-surface-container-lowest rounded-xl border border-surface-container-high shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-400 group"
+                  data-aos="fade-right"
+                  data-aos-delay="200"
+                >
+                  <div class="flex items-start gap-4">
+                    <div
+                      class="w-10 h-10 shrink-0 rounded-lg bg-tertiary/10 flex items-center justify-center group-hover:bg-tertiary/20 transition-colors"
+                    >
+                      <i class="fas fa-layer-group text-tertiary"></i>
+                    </div>
+                    <p
+                      class="font-body text-base text-secondary leading-relaxed"
+                    >
+                      Our offerings include
+                      <strong class="text-on-surface">Aari work</strong>,
+                      embroidery design samples, and customized embroidery
+                      services for businesses and individuals. We take pride in
+                      delivering reliable products with easy machine setup and
+                      clear guidelines.
                     </p>
+                  </div>
                 </div>
-                <div class="expertise-badge" data-aos="fade-left">
-                    <i style="color: rgb(255, 201, 40);" class="fas fa-chart-line"></i>
-                    <h4>Boosting productivity</h4>
-                    <p>Our comprehensive solutions improve output by 40%+ with reliable machinery, training, and
-                        responsive maintainence. Let us help you scale your embroidery business with confidence.</p>
-
+                <div
+                  class="p-6 bg-surface-container-lowest rounded-xl border border-surface-container-high shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-400 group"
+                  data-aos="fade-right"
+                  data-aos-delay="300"
+                >
+                  <div class="flex items-start gap-4">
+                    <div
+                      class="w-10 h-10 shrink-0 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors"
+                    >
+                      <i class="fas fa-users text-primary"></i>
+                    </div>
+                    <p
+                      class="font-body text-base text-secondary leading-relaxed"
+                    >
+                      We have built a base of
+                      <strong class="text-on-surface">happy clients</strong> who
+                      trust our quality and service. Our strong maintenance
+                      support ensures long-lasting performance and minimal
+                      downtime across all our client operations.
+                    </p>
+                  </div>
                 </div>
+              </div>
             </div>
+
+            <!-- Right: Bold statement card -->
+            <div
+              data-aos="fade-left"
+              data-aos-duration="900"
+              data-aos-delay="150"
+            >
+              <div
+                class="relative p-10 rounded-2xl overflow-hidden"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    #b34262 0%,
+                    #d45a7a 60%,
+                    #e87095 100%
+                  );
+                "
+              >
+                <!-- Decorative circles inside card -->
+                <div
+                  class="absolute top-[-30px] right-[-30px] w-32 h-32 bg-white/10 rounded-full"
+                ></div>
+                <div
+                  class="absolute bottom-[-20px] left-[-20px] w-24 h-24 bg-white/10 rounded-full"
+                ></div>
+                <div class="relative z-10">
+                  <i
+                    class="fas fa-quote-left text-white/30 text-5xl mb-4 block"
+                  ></i>
+                  <p
+                    class="font-headline text-white text-2xl md:text-3xl font-bold leading-snug mb-6"
+                  >
+                    "We also stay updated with the latest embroidery design
+                    trends, helping customers create impactful and high-selling
+                    designs."
+                  </p>
+                  <div class="flex items-center gap-4">
+                    <div
+                      class="w-12 h-12 rounded-full bg-white/20 flex items-center justify-center"
+                    >
+                      <i class="fas fa-store text-white text-lg"></i>
+                    </div>
+                    <div>
+                      <p class="text-white font-bold font-body">
+                        Rose Embroidery Machines
+                      </p>
+                      <p class="text-white/70 text-sm font-body">
+                        Our Mission & Vision
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Goal statement below the card -->
+              <div
+                class="mt-6 p-6 border border-primary/20 rounded-xl bg-primary/5"
+                data-aos="zoom-in"
+                data-aos-delay="350"
+              >
+                <p
+                  class="font-body text-base text-on-surface leading-relaxed text-center"
+                >
+                  <i class="fas fa-bullseye text-primary mr-2"></i>Our goal is
+                  to <strong>support creativity</strong>, improve productivity,
+                  and help our clients <strong>grow successfully</strong> in the
+                  embroidery business.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom Feature Strip -->
+          <div
+            class="grid grid-cols-2 md:grid-cols-4 gap-6"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="text-center p-6 rounded-xl bg-surface-container-low border border-surface-container-high hover:border-primary/30 hover:-translate-y-2 transition-all duration-300 shadow-sm group"
+            >
+              <div
+                class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors"
+              >
+                <i class="fas fa-cog text-primary text-xl"></i>
+              </div>
+              <p class="font-headline font-bold text-on-surface text-sm">
+                Machine Sales
+              </p>
+            </div>
+            <div
+              class="text-center p-6 rounded-xl bg-surface-container-low border border-surface-container-high hover:border-primary/30 hover:-translate-y-2 transition-all duration-300 shadow-sm group"
+              data-aos-delay="100"
+            >
+              <div
+                class="w-14 h-14 rounded-full bg-tertiary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-tertiary/20 transition-colors"
+              >
+                <i class="fas fa-wrench text-tertiary text-xl"></i>
+              </div>
+              <p class="font-headline font-bold text-on-surface text-sm">
+                Expert Repair
+              </p>
+            </div>
+            <div
+              class="text-center p-6 rounded-xl bg-surface-container-low border border-surface-container-high hover:border-primary/30 hover:-translate-y-2 transition-all duration-300 shadow-sm group"
+              data-aos-delay="200"
+            >
+              <div
+                class="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-primary/20 transition-colors"
+              >
+                <i class="fas fa-palette text-primary text-xl"></i>
+              </div>
+              <p class="font-headline font-bold text-on-surface text-sm">
+                Aari Work
+              </p>
+            </div>
+            <div
+              class="text-center p-6 rounded-xl bg-surface-container-low border border-surface-container-high hover:border-primary/30 hover:-translate-y-2 transition-all duration-300 shadow-sm group"
+              data-aos-delay="300"
+            >
+              <div
+                class="w-14 h-14 rounded-full bg-tertiary/10 flex items-center justify-center mx-auto mb-3 group-hover:bg-tertiary/20 transition-colors"
+              >
+                <i class="fas fa-graduation-cap text-tertiary text-xl"></i>
+              </div>
+              <p class="font-headline font-bold text-on-surface text-sm">
+                Design Training
+              </p>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- Footer with exact details -->
-    <footer class="footer-footer">
-        <div class="footer-footer-container">
-            <div class="footer-footer-row">
-                <div class="footer-footer-col col-brand">
-                    <a href="index.html" class="footer-brand">
-                        <h2>Rose Embroidery</h2>
-                    </a>
-                    <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship
-                        with precision and quality.</p>
-                    <div class="footer-social-links">
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-
-                <div class="footer-footer-col col-links">
-                    <h3>Quick Links</h3>
-                    <div class="footer-quick-links">
-                        <a href="about.html"><i class="fas fa-angle-right"></i>About Us</a>
-                        <a href="products.html"><i class="fas fa-angle-right"></i>Shop Products</a>
-                        <a href="gallery.html"><i class="fas fa-angle-right"></i>Gallery</a>
-                        <a href="contact.html"><i class="fas fa-angle-right"></i>Contact Us</a>
-                        <a href="#"><i class="fas fa-angle-right"></i>Terms & Conditions</a>
-                        <a href="#"><i class="fas fa-angle-right"></i>Privacy Policy</a>
-                        <a href="#"><i class="fas fa-angle-right"></i>Refund & Return Policy</a>
-                    </div>
-                </div>
-
-                <div class="footer-footer-col col-contact">
-                    <h3>Contact Info</h3>
-                    <div class="footer-contact-info">
-                        <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu
-                            madhuravoyal chennai 600095</a>
-                        <a href="tel:+91902555206"><i class="fas fa-phone-alt"></i>+91 902555206</a>
-                        <a href="mailto:Drroslineg@gmail.com"><i class="fas fa-envelope"></i>Drroslineg@gmail.com</a>
-                        <p><i class="fas fa-clock"></i>Mon-Sat: 9AM - 7PM</p>
-                    </div>
-                </div>
+    <!-- OLD FOOTER PRESERVED -->
+    <footer class="tetro-footer">
+      <div class="tetro-footer-container">
+        <div class="tetro-footer-row">
+          <div class="tetro-footer-col col-brand">
+            <a href="index.html" class="footer-brand">
+              <h2>Rose Embroidery</h2>
+            </a>
+            <p>
+              Trusted provider of high-performance embroidery machinery,
+              dedicated to elevating craftsmanship with precision and quality.
+            </p>
+            <div class="tetro-social-links">
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin-in"></i></a>
             </div>
-            <hr class="footer-footer-divider">
-            <div class="footer-footer-bottom">
-                <div class="footer-copyright">
-                    <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose
-                        Embroidery</a>. All rights reserved.
-                </div>
-                <div class="footer-tagline">
-                    Quality Precision Trust
-                </div>
+          </div>
+
+          <div class="tetro-footer-col col-links">
+            <h3>Quick Links</h3>
+            <div class="tetro-quick-links">
+              <a href="about.html"
+                ><i class="fas fa-angle-right"></i>About Us</a
+              >
+              <a href="products.html"
+                ><i class="fas fa-angle-right"></i>Shop Products</a
+              >
+              <a href="gallery.html"
+                ><i class="fas fa-angle-right"></i>Gallery</a
+              >
+              <a href="contact.html"
+                ><i class="fas fa-angle-right"></i>Contact Us</a
+              >
+              <a href="#"
+                ><i class="fas fa-angle-right"></i>Terms & Conditions</a
+              >
+              <a href="#"><i class="fas fa-angle-right"></i>Privacy Policy</a>
+              <a href="#"
+                ><i class="fas fa-angle-right"></i>Refund & Return Policy</a
+              >
             </div>
+          </div>
+
+          <div class="tetro-footer-col col-contact">
+            <h3>Contact Info</h3>
+            <div class="tetro-contact-info">
+              <a href="#"
+                ><i class="fas fa-map-marker-alt"></i>76 first avenue millenium
+                town adayalampattu madhuravoyal chennai 600095</a
+              >
+              <a href="tel:+91902555206"
+                ><i class="fas fa-phone-alt"></i>+91 902555206</a
+              >
+              <a href="mailto:Drroslineg@gmail.com"
+                ><i class="fas fa-envelope"></i>Drroslineg@gmail.com</a
+              >
+              <p><i class="fas fa-clock"></i>Mon-Sat: 9AM - 7PM</p>
+            </div>
+          </div>
         </div>
+        <hr class="tetro-footer-divider" />
+        <div class="tetro-footer-bottom">
+          <div class="tetro-copyright">
+            <i class="fas fa-copyright"></i>
+            <span id="copyright-year">2026</span>
+            <a href="index.html">Rose Embroidery</a>. All rights reserved.
+          </div>
+          <div class="tetro-tagline">Quality Precision Trust</div>
+        </div>
+      </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 750, easing: 'ease-out', once: true });
+      AOS.init({ duration: 750, easing: "ease-out", once: true });
 
-        window.addEventListener('scroll', function () {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
+      function toggleMenu() {
+        var sidebar = document.getElementById("sidebar");
+        var overlay = document.getElementById("overlay");
+        sidebar.classList.toggle("active");
+        overlay.classList.toggle("active");
+      }
+      // --- Per-item reveal when each enters viewport ---
+      (function () {
+        var items = document.querySelectorAll(".tl-item");
+        if (!items.length) return;
+        var obs = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (e) {
+              if (e.isIntersecting) {
+                e.target.classList.add("tl-visible");
+                obs.unobserve(e.target);
+              }
+            });
+          },
+          {
+            threshold: 0,
+            rootMargin: "0px 0px -100px 0px",
+          },
+        );
+        items.forEach(function (el) {
+          obs.observe(el);
         });
-
-        function toggleMenu() {
-            const sidebar = document.getElementById("sidebar");
-            const overlay = document.getElementById("overlay");
-            sidebar.classList.toggle("active");
-            overlay.classList.toggle("active");
-        }
-
-        document.getElementById("overlay")?.addEventListener('click', function () {
-            document.getElementById("sidebar").classList.remove("active");
-            this.classList.remove("active");
-        });
+      })();
     </script>
-    <script>
-        // Update cart count from localStorage
-        function updateCartCount() {
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            let totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-            const cartCountSpan = document.getElementById('cartCount');
-            const mobileCartSpan = document.getElementById('mobileCartCount');
-            if (cartCountSpan) cartCountSpan.innerText = totalItems;
-            if (mobileCartSpan) mobileCartSpan.innerText = totalItems;
-        }
-
-        // Initialize cart count
-        updateCartCount();
-
-        // Listen for storage changes (when cart updates from other pages)
-        window.addEventListener('storage', function (e) {
-            if (e.key === 'cart') {
-                updateCartCount();
-            }
-        });
-    </script>
-</body>
-
+  </body>
 </html>

@@ -5,7 +5,7 @@ directory = '/Users/shantanu/Desktop/infotechproject/'
 
 new_quick_links = """                <div class="footer-quick-links">
                     <a href="about.html"><i class="fas fa-angle-right"></i>About Us</a>
-                    <a href="products.html"><i class="fas fa-angle-right"></i>Shop Products</a>
+                    <a href="products.html"><i class="fas fa-angle-right"></i>Products Products</a>
                     <a href="gallery.html"><i class="fas fa-angle-right"></i>Gallery</a>
                     <a href="contact.html"><i class="fas fa-angle-right"></i>Contact Us</a>
                     <a href="#"><i class="fas fa-angle-right"></i>Terms & Conditions</a>

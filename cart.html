@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Shopping Cart - Rose Embroidery</title>
+    <title>Productsping Cart - Rose Embroidery</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -151,7 +151,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        .continue-shopping {
+        .continue-Productsping {
             color: #d45a7a;
             text-decoration: none;
             font-weight: 600;
@@ -161,7 +161,7 @@
             gap: 8px;
         }
 
-        .continue-shopping:hover {
+        .continue-Productsping:hover {
             transform: translateX(-5px);
             color: #b34262;
         }
@@ -386,7 +386,7 @@
             margin-bottom: 30px;
         }
 
-        .shop-now-btn {
+        .Products-now-btn {
             display: inline-block;
             background: #ff6b9d;
             color: white;
@@ -397,7 +397,7 @@
             transition: 0.3s;
         }
 
-        .shop-now-btn:hover {
+        .Products-now-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(212, 90, 122, 0.3);
         }
@@ -686,12 +686,12 @@
             <div class="nav-links">
                 <a class="nav-attribute" href="index.html">Home</a>
                 <a class="nav-attribute" href="about.html">About</a>
-                <a class="nav-attribute" href="products.html">Shop</a>
+                <a class="nav-attribute" href="products.html">Products</a>
                 <a class="nav-attribute" href="gallery.html">Gallery</a>
                 <a class="nav-attribute" href="contact.html">Contact</a>
                 <a class="nav-attribute" href="login.html"><i class="fas fa-user"></i> Login</a>
                 <a class="nav-attribute cart-icon" href="cart.html">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i class="fas fa-Productsping-cart"></i>
                     <span class="cart-count" id="cartCount">0</span>
                 </a>
             </div>
@@ -703,18 +703,18 @@
         <div class="close-btn" onclick="toggleMenu()">✕</div>
         <a href="index.html"><i class="fas fa-home"></i> Home</a>
         <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-        <a href="products.html"><i class="fas fa-box"></i> Shop</a>
+        <a href="products.html"><i class="fas fa-box"></i> Products</a>
         <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
         <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
         <a href="login.html"><i class="fas fa-user"></i> Login</a>
-        <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart <span id="mobileCartCount">0</span></a>
+        <a href="cart.html"><i class="fas fa-Productsping-cart"></i> Cart <span id="mobileCartCount">0</span></a>
     </div>
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
     <div class="container">
         <div class="cart-header">
-            <h1 class="cart-title"><i class="fas fa-shopping-cart"></i> Shopping Cart</h1>
-            <a href="products.html" class="continue-shopping"><i class="fas fa-arrow-left"></i> Continue Shopping</a>
+            <h1 class="cart-title"><i class="fas fa-Productsping-cart"></i> Productsping Cart</h1>
+            <a href="products.html" class="continue-Productsping"><i class="fas fa-arrow-left"></i> Continue Productsping</a>
         </div>
         <div id="cartContent"></div>
     </div>
@@ -740,7 +740,7 @@
                     <h3>Quick Links</h3>
                     <div class="footer-quick-links">
                         <a href="about.html"><i class="fas fa-angle-right"></i>About Us</a>
-                        <a href="products.html"><i class="fas fa-angle-right"></i>Shop Products</a>
+                        <a href="products.html"><i class="fas fa-angle-right"></i>Products Products</a>
                         <a href="gallery.html"><i class="fas fa-angle-right"></i>Gallery</a>
                         <a href="contact.html"><i class="fas fa-angle-right"></i>Contact Us</a>
                         <a href="#"><i class="fas fa-angle-right"></i>Terms & Conditions</a>
@@ -786,10 +786,10 @@
             if (cart.length === 0) {
                 container.innerHTML = `
                     <div class="empty-cart" data-aos="fade-up">
-                        <i class="fas fa-shopping-cart"></i>
+                        <i class="fas fa-Productsping-cart"></i>
                         <h3>Your cart is empty</h3>
-                        <p>Looks like you haven't added any items yet. Start shopping to see your items here!</p>
-                        <a href="products.html" class="shop-now-btn">Start Shopping <i class="fas fa-arrow-right"></i></a>
+                        <p>Looks like you haven't added any items yet. Start Productsping to see your items here!</p>
+                        <a href="products.html" class="Products-now-btn">Start Productsping <i class="fas fa-arrow-right"></i></a>
                     </div>
                 `;
                 return;

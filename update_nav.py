@@ -7,12 +7,12 @@ nav_html = """<nav class="navbar" id="navbar">
         <div class="nav-links">
             <a class="nav-attribute" href="index.html">Home</a>
             <a class="nav-attribute" href="about.html">About</a>
-            <a class="nav-attribute" href="products.html">Shop</a>
+            <a class="nav-attribute" href="products.html">Products</a>
             <a class="nav-attribute" href="gallery.html">Gallery</a>
             <a class="nav-attribute" href="contact.html">Contact</a>
             <a class="nav-attribute" href="login.html"><i class="fas fa-user"></i> Login</a>
             <a class="nav-attribute cart-icon" href="cart.html">
-                <i class="fas fa-shopping-cart"></i> 
+                <i class="fas fa-Productsping-cart"></i> 
                 <span class="cart-count" id="cartCount">0</span>
             </a>
         </div>
@@ -23,11 +23,11 @@ nav_html = """<nav class="navbar" id="navbar">
     <div class="close-btn" onclick="toggleMenu()">✕</div>
     <a href="index.html"><i class="fas fa-home"></i> Home</a>
     <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-    <a href="products.html"><i class="fas fa-box"></i> Shop</a>
+    <a href="products.html"><i class="fas fa-box"></i> Products</a>
     <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
     <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
     <a href="login.html"><i class="fas fa-user"></i> Login</a>
-    <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart <span id="mobileCartCount">0</span></a>
+    <a href="cart.html"><i class="fas fa-Productsping-cart"></i> Cart <span id="mobileCartCount">0</span></a>
 </div>
 <div class="overlay" id="overlay" onclick="toggleMenu()"></div>"""
 

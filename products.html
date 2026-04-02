@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Rose Embroidery | Shop – Premium Machines & Accessories</title>
+    <title>Rose Embroidery | Products – Premium Machines & Accessories</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -74,7 +74,7 @@
             animation: pulse 1.5s infinite;
         }
 
-        .shop-hero {
+        .Products-hero {
             background: linear-gradient(135deg, rgb(0 0 0 / 80%) 0%, rgb(0 0 0 / 95%) 100%), url('https://images.pexels.com/photos/3778010/pexels-photo-3778010.jpeg?auto=compress&cs=tinysrgb&w=1600');
             background-size: cover;
             background-position: center;
@@ -85,7 +85,7 @@
             overflow: hidden;
         }
 
-        .shop-hero::before {
+        .Products-hero::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -105,29 +105,29 @@
             pointer-events: none;
         }
 
-        .shop-hero h1 {
+        .Products-hero h1 {
             font-size: 64px;
             margin-bottom: 20px;
             animation: fadeInUp 0.8s ease;
         }
 
-        .shop-hero h1 i {
+        .Products-hero h1 i {
             margin-right: 15px;
             animation: float 3s ease-in-out infinite;
             display: inline-block;
         }
 
-        .shop-hero p {
+        .Products-hero p {
             font-size: 20px;
             opacity: 0.95;
             animation: fadeInUp 0.8s ease 0.2s backwards;
         }
 
-        .shop-main {
+        .Products-main {
             padding: 110px 0 80px;
         }
 
-        .shop-layout {
+        .Products-layout {
             display: flex;
             gap: 40px;
             flex-wrap: wrap;
@@ -215,7 +215,7 @@
             min-width: 0;
         }
 
-        .shop-controls {
+        .Products-controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -657,12 +657,12 @@
         }
 
         @media (max-width: 768px) {
-            .shop-layout { flex-direction: column; }
+            .Products-layout { flex-direction: column; }
             .filters-sidebar { width: 100%; position: static; }
-            .shop-hero { padding: 130px 0 50px; }
-            .shop-hero h1 { font-size: 40px; }
+            .Products-hero { padding: 130px 0 50px; }
+            .Products-hero h1 { font-size: 40px; }
             .container { padding: 0 20px; }
-            .shop-controls { flex-direction: column; align-items: stretch; }
+            .Products-controls { flex-direction: column; align-items: stretch; }
             .search-wrapper { max-width: 100%; }
             .products-grid { grid-template-columns: 1fr; }
             .button-group { flex-direction: column; }
@@ -933,12 +933,12 @@
             <div class="nav-links">
                 <a class="nav-attribute" href="index.html">Home</a>
                 <a class="nav-attribute" href="about.html">About</a>
-                <a class="nav-attribute active" href="products.html">Shop</a>
+                <a class="nav-attribute active" href="products.html">Products</a>
                 <a class="nav-attribute" href="gallery.html">Gallery</a>
                 <a class="nav-attribute" href="contact.html">Contact</a>
                 <a class="nav-attribute" style="display: flex; gap: 6px; align-items: center; justify-content: center;" href="login.html"><i class="fas fa-user"></i> Login</a>
                 <a class="nav-attribute cart-icon" href="cart.html">
-                    <i class="fas fa-shopping-cart"></i>
+                    <i class="fas fa-Productsping-cart"></i>
                     <span class="cart-count" id="cartCount">0</span>
                 </a>
             </div>
@@ -949,11 +949,11 @@
         <div class="close-btn" onclick="toggleMenu()">✕</div>
         <a href="index.html"><i class="fas fa-home"></i> Home</a>
         <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-        <a href="products.html"><i class="fas fa-box"></i> Shop</a>
+        <a href="products.html"><i class="fas fa-box"></i> Products</a>
         <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
         <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
         <a  href="login.html"><i class="fas fa-user"></i> Login</a>
-        <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart <span id="mobileCartCount">0</span></a>
+        <a href="cart.html"><i class="fas fa-Productsping-cart"></i> Cart <span id="mobileCartCount">0</span></a>
     </div>
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
 
@@ -999,20 +999,85 @@
 
   
 
-    <section class="shop-main">
+    <section class="Products-main">
         <div class="container">
-            <div class="shop-layout">
+            <div class="Products-layout">
                 <aside class="filters-sidebar" data-aos="fade-right">
                     <div class="filter-section" style="border-bottom: 2px solid #2C2C2C; margin-bottom: 30px;">
                         <h2 style="font-size: 22px; margin-bottom: 5px; color: #2C2C2C;">FILTER BY</h2>
                     </div>
-                    <div class="filter-section">
-                        <h4>Category</h4>
-                        <div class="filter-options" id="categoryFilters">
-                            <label class="filter-option"><input type="checkbox" value="machine"> <span>Embroidery Machines</span> <span class="count" id="machineCount"></span></label>
-                            <label class="filter-option"><input type="checkbox" value="device"> <span>Accessories & Devices</span> <span class="count" id="deviceCount"></span></label>
-                        </div>
-                    </div>
+                   <div class="filter-section">
+    <h4>Category</h4>
+    <div class="filter-options" id="categoryFilters">
+
+        <label class="filter-option">
+            <input type="checkbox" value="machine">
+            <span>Embroidery Machines</span>
+            <span class="count" id="machineCount"></span>
+        </label>
+
+        <label class="filter-option">
+            <input type="checkbox" value="device">
+            <span>Accessories & Devices</span>
+            <span class="count" id="deviceCount"></span>
+        </label>
+
+        <label class="filter-option">
+            <input type="checkbox" value="tailoring">
+            <span>Tailoring Materials</span>
+            <span class="count" id="tailoringCount"></span>
+        </label>
+
+        <label class="filter-option">
+            <input type="checkbox" value="embroidery">
+            <span>Embroidery Materials</span>
+            <span class="count" id="embroideryCount"></span>
+        </label>
+
+        <label class="filter-option">
+            <input type="checkbox" value="matching">
+            <span>Matching Materials</span>
+            <span class="count" id="matchingCount"></span>
+        </label>
+
+        <label class="filter-option">
+            <input type="checkbox" value="lace">
+            <span>Lace & Borders</span>
+            <span class="count" id="laceCount"></span>
+        </label>
+
+        <label class="filter-option">
+            <input type="checkbox" value="tazzles">
+            <span>Tazzles & Hangings</span>
+            <span class="count" id="tazzlesCount"></span>
+        </label>
+
+        <label class="filter-option">
+            <input type="checkbox" value="maggam">
+            <span>Maggam Work Materials</span>
+            <span class="count" id="maggamCount"></span>
+        </label>
+
+        <label class="filter-option">
+            <input type="checkbox" value="designer">
+            <span>Designer Fabrics</span>
+            <span class="count" id="designerCount"></span>
+        </label>
+
+        <label class="filter-option">
+            <input type="checkbox" value="blouse">
+            <span>Blouse Pieces</span>
+            <span class="count" id="blouseCount"></span>
+        </label>
+
+        <label class="filter-option">
+            <input type="checkbox" value="paint">
+            <span>Paint Work & More</span>
+            <span class="count" id="paintCount"></span>
+        </label>
+
+    </div>
+</div>
                     <div class="filter-section">
                         <h4>Best Sellers</h4>
                         <div class="filter-options">
@@ -1023,7 +1088,7 @@
                 </aside>
 
                 <div class="products-area">
-                    <div class="shop-controls" data-aos="fade-down">
+                    <div class="Products-controls" data-aos="fade-down">
                         <div class="search-wrapper">
                             <i class="fas fa-search"></i>
                             <input type="text" id="searchInput" placeholder="Search by name, features, or brand...">
@@ -1063,7 +1128,7 @@
                     <h3>Quick Links</h3>
                     <div class="footer-quick-links">
                         <a href="about.html"><i class="fas fa-angle-right"></i>About Us</a>
-                        <a href="products.html"><i class="fas fa-angle-right"></i>Shop Products</a>
+                        <a href="products.html"><i class="fas fa-angle-right"></i>Products Products</a>
                         <a href="gallery.html"><i class="fas fa-angle-right"></i>Gallery</a>
                         <a href="contact.html"><i class="fas fa-angle-right"></i>Contact Us</a>
                         <a href="#"><i class="fas fa-angle-right"></i>Terms & Conditions</a>
@@ -1411,7 +1476,7 @@ const products = [
                                 <i class="fas fa-file-invoice-dollar"></i> Quote
                             </button>
                             <button class="add-to-cart" onclick="addToCartGlobal(${product.id})">
-                                <i class="fas fa-shopping-cart"></i> Cart
+                                <i class="fas fa-Productsping-cart"></i> Cart
                             </button>
                         </div>
                     </div>

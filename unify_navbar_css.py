@@ -9,9 +9,9 @@ navbar_css = """
 .logo img { height: 60px; transition: all 0.3s ease; }
 .nav-links { display: flex; align-items: center; gap: 28px; }
 .nav-attribute { color: #3e2a2f; text-decoration: none; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; transition: all 0.3s; position: relative; }
-.nav-attribute::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: #d45a7a; transition: width 0.3s ease; }
+.nav-attribute::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: #ff6b9d; transition: width 0.3s ease; }
 .nav-attribute:hover::after, .nav-attribute.active::after { width: 100%; }
-.nav-attribute:hover, .nav-attribute.active { color: #d45a7a; }
+.nav-attribute:hover, .nav-attribute.active { color: #ff6b9d; }
 .cart-icon { position: relative; display: flex; align-items: center; }
 .cart-icon i { font-size: 16px; }
 .cart-count { position: absolute; top: -10px; right: -14px; background: #ff6b9d; color: white; font-size: 10px; font-weight: bold; padding: 2px 6px; border-radius: 50%; animation: pulse 1.5s infinite; border: 2px solid white; }
@@ -20,13 +20,13 @@ navbar_css = """
 @media (max-width: 768px) {
     .hamburger { display: block; cursor: pointer; z-index: 1001; }
     .hamburger span { display: block; width: 26px; height: 2px; background: #b34262; margin: 6px 0; transition: 0.3s; border-radius: 2px; }
-    .navbar.scrolled .hamburger span { background: #d45a7a; }
+    .navbar.scrolled .hamburger span { background: #ff6b9d; }
     .sidebar { position: fixed; top: 0; left: -300px; width: 280px; height: 100%; background: linear-gradient(145deg, #fff9fb, #fff0f4); padding: 90px 28px 30px; display: flex; flex-direction: column; gap: 18px; transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1); z-index: 10000; box-shadow: 4px 0 20px rgba(0,0,0,0.1); }
     .sidebar.active { left: 0; }
     .sidebar a { color: #3e2a2f; text-decoration: none; font-size: 16px; font-weight: 600; padding: 12px 0; border-bottom: 1px solid rgba(212, 90, 122, 0.1); display: flex; align-items: center; gap: 12px; transition: 0.3s; }
-    .sidebar a:hover, .sidebar a.active { color: #d45a7a; padding-left: 5px; }
+    .sidebar a:hover, .sidebar a.active { color: #ff6b9d; padding-left: 5px; }
     .sidebar .close-btn { position: absolute; top: 20px; right: 24px; font-size: 28px; cursor: pointer; color: #b34262; transition: 0.3s; }
-    .sidebar .close-btn:hover { transform: rotate(90deg); color: #d45a7a; }
+    .sidebar .close-btn:hover { transform: rotate(90deg); color: #ff6b9d; }
     .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); opacity: 0; visibility: hidden; transition: 0.3s; z-index: 9999; backdrop-filter: blur(3px); }
     .overlay.active { opacity: 1; visibility: visible; }
     .nav-links { display: none !important; }

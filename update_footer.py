@@ -94,7 +94,7 @@ css_addition = """
             margin: 0;
         }
         .footer-brand span {
-            color: #d45a7a;
+            color: #ff6b9d;
         }
         .footer-social-links {
             display: flex;
@@ -107,19 +107,19 @@ css_addition = """
             width: 40px;
             height: 40px;
             background: #fff;
-            color: #d45a7a;
+            color: #ff6b9d;
             border-radius: 8px;
             text-decoration: none;
             transition: all 0.3s ease;
             font-size: 18px;
         }
         .footer-social-links a:hover {
-            background: #d45a7a;
+            background: #ff6b9d;
             color: #fff;
             transform: translateY(-3px);
         }
         .footer-footer-col h3 {
-            color: #d45a7a;
+            color: #ff6b9d;
             font-size: 24px;
             margin-bottom: 25px;
             font-weight: 600;
@@ -140,12 +140,12 @@ css_addition = """
             opacity: 0.9;
         }
         .footer-quick-links a i {
-            color: #d45a7a;
+            color: #ff6b9d;
             margin-right: 12px;
             font-size: 12px;
         }
         .footer-quick-links a:hover {
-            color: #d45a7a;
+            color: #ff6b9d;
             padding-left: 8px;
             opacity: 1;
         }
@@ -174,14 +174,14 @@ css_addition = """
             padding-bottom: 0;
         }
         .footer-contact-info i {
-            color: #d45a7a;
+            color: #ff6b9d;
             margin-right: 15px;
             margin-top: 4px;
             width: 16px;
             text-align: center;
         }
         .footer-contact-info a:hover {
-            color: #d45a7a;
+            color: #ff6b9d;
             opacity: 1;
         }
         .footer-footer-divider {
@@ -203,7 +203,7 @@ css_addition = """
             opacity: 0.8;
         }
         .footer-copyright a {
-            color: #d45a7a;
+            color: #ff6b9d;
             text-decoration: none;
             font-weight: 500;
         }

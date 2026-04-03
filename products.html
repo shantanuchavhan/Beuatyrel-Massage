@@ -133,6 +133,64 @@
             flex-wrap: wrap;
         }
 
+        .category-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.category-item {
+    border-bottom: 1px solid #eee;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 5px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    color: #2C2C2C;
+    transition: 0.3s;
+}
+
+.category-header:hover {
+    color: #ff6b9d;
+}
+
+.category-header span {
+    font-size: 12px;
+    transition: transform 0.3s;
+}
+
+/* Subcategory */
+.subcategory {
+    display: none;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.subcategory p {
+    margin: 8px 0;
+    font-size: 13px;
+    color: #666;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.subcategory p:hover {
+    color: #ff6b9d;
+}
+
+/* Active dropdown */
+.category-item.active .subcategory {
+    display: block;
+}
+
+.category-item.active .category-header span {
+    transform: rotate(180deg);
+}
+
         .filters-sidebar {
             width: 250px;
             flex-shrink: 0;
@@ -1007,74 +1065,72 @@
                         <h2 style="font-size: 22px; margin-bottom: 5px; color: #2C2C2C;">FILTER BY</h2>
                     </div>
                    <div class="filter-section">
-    <h4>Category</h4>
-    <div class="filter-options" id="categoryFilters">
+    <h4>Categories</h4>
 
-        <label class="filter-option">
-            <input type="checkbox" value="machine">
-            <span>Embroidery Machines</span>
-            <span class="count" id="machineCount"></span>
-        </label>
+    <div class="category-menu">
 
-        <label class="filter-option">
-            <input type="checkbox" value="device">
-            <span>Accessories & Devices</span>
-            <span class="count" id="deviceCount"></span>
-        </label>
+        <!-- 1. Embroidery Machines -->
+        <div class="category-item">
+            <div class="category-header">
+                Embroidery Machines <span>⌄</span>
+            </div>
+        </div>
 
-        <label class="filter-option">
-            <input type="checkbox" value="tailoring">
-            <span>Tailoring Materials</span>
-            <span class="count" id="tailoringCount"></span>
-        </label>
+        <!-- 2. Devices -->
+        <div class="category-item">
+            <div class="category-header">
+                Devices <span>⌄</span>
+            </div>
+        </div>
 
-        <label class="filter-option">
-            <input type="checkbox" value="embroidery">
-            <span>Embroidery Materials</span>
-            <span class="count" id="embroideryCount"></span>
-        </label>
+        <!-- 3. Embroidery Materials -->
+        <div class="category-item active">
+            <div class="category-header">
+                Embroidery Materials <span>⌄</span>
+            </div>
+            <div class="subcategory">
+                <p>Viscose Threads</p>
+                <p>Zari Threads</p>
+                <p>Nylon Threads</p>
+                <p>Bobbin Threads</p>
+            </div>
+        </div>
 
-        <label class="filter-option">
-            <input type="checkbox" value="matching">
-            <span>Matching Materials</span>
-            <span class="count" id="matchingCount"></span>
-        </label>
+        <!-- 4. Aari Materials -->
+        <div class="category-item">
+            <div class="category-header">
+                Aari Materials <span>⌄</span>
+            </div>
+            <div class="subcategory">
+                <p>Beads</p>
+                <p>Zardoshi</p>
+                <p>Coding Threads</p>
+                <p>Sequences</p>
+            </div>
+        </div>
 
-        <label class="filter-option">
-            <input type="checkbox" value="lace">
-            <span>Lace & Borders</span>
-            <span class="count" id="laceCount"></span>
-        </label>
+        <!-- 5. Embroidery Designs -->
+        <div class="category-item">
+            <div class="category-header">
+                Embroidery Designs <span>⌄</span>
+            </div>
+            <div class="subcategory">
+                <p>Embroidery Designs</p>
+                <p>Aari Designs</p>
+            </div>
+        </div>
 
-        <label class="filter-option">
-            <input type="checkbox" value="tazzles">
-            <span>Tazzles & Hangings</span>
-            <span class="count" id="tazzlesCount"></span>
-        </label>
-
-        <label class="filter-option">
-            <input type="checkbox" value="maggam">
-            <span>Maggam Work Materials</span>
-            <span class="count" id="maggamCount"></span>
-        </label>
-
-        <label class="filter-option">
-            <input type="checkbox" value="designer">
-            <span>Designer Fabrics</span>
-            <span class="count" id="designerCount"></span>
-        </label>
-
-        <label class="filter-option">
-            <input type="checkbox" value="blouse">
-            <span>Blouse Pieces</span>
-            <span class="count" id="blouseCount"></span>
-        </label>
-
-        <label class="filter-option">
-            <input type="checkbox" value="paint">
-            <span>Paint Work & More</span>
-            <span class="count" id="paintCount"></span>
-        </label>
+        <!-- 6. Spare Parts -->
+        <div class="category-item">
+            <div class="category-header">
+                Spare Parts <span>⌄</span>
+            </div>
+            <div class="subcategory">
+                <p>Needle</p>
+                <p>Bobbin</p>
+                <p>Bobbin Head</p>
+            </div>
+        </div>
 
     </div>
 </div>
@@ -1446,6 +1502,21 @@ const products = [
                 setTimeout(() => toast.remove(), 300);
             }, 2000);
         };
+
+        document.querySelectorAll(".category-header").forEach(header => {
+    header.addEventListener("click", () => {
+        const parent = header.parentElement;
+
+        // Close others
+        document.querySelectorAll(".category-item").forEach(item => {
+            if (item !== parent) item.classList.remove("active");
+        });
+
+        // Toggle current
+        parent.classList.toggle("active");
+    });
+});
+
 
         window.openQuoteModal = openQuoteModal;
 

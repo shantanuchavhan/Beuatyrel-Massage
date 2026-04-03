@@ -775,25 +775,238 @@
 
     let currentProduct = null;
 
-    // ---------- FULL PRODUCT DATABASE (Merged from both pages) ----------
-    const productDatabase = [
-      // ===== BABA MACHINES (from first page) =====
-      { id: 101, name: "BABA Multi Head Computerized Embroidery Machine", slug: "baba-multi-head", category: "machine", price: 0, badge: "Multi-Head", image: "https://5.imimg.com/data5/GLADMIN/Default/2023/5/307329784/KO/MN/UK/6538775/baba-42-head-computerized-embroidery-machine-500x500.jpg", images: ["https://5.imimg.com/data5/GLADMIN/Default/2023/5/307329784/KO/MN/UK/6538775/baba-42-head-computerized-embroidery-machine-500x500.jpg","https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp"], desc: "High-performance multi-head computerized embroidery machine designed for bulk production with precision.", specs: ["Multi Head", "9 Needles per Head", "Max Speed: 1200 RPM", "Heavy Body Structure", "Electronic System: Dahao"], bestSeller: true },
-      { id: 102, name: "BABA 42 Head Computerized Embroidery Machine", slug: "baba-42-head", category: "machine", price: 0, badge: "Production Scale", image: "https://5.imimg.com/data5/GLADMIN/Default/2023/5/307329784/KO/MN/UK/6538775/baba-42-head-computerized-embroidery-machine-500x500.jpg", images: ["https://5.imimg.com/data5/GLADMIN/Default/2023/5/307329784/KO/MN/UK/6538775/baba-42-head-computerized-embroidery-machine-500x500.jpg","https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp"], desc: "Industrial 42-head machine built for large-scale embroidery production.", specs: ["42 Heads", "9 Needles per Head", "Max Speed: 1200 RPM", "Daily Capacity: 7 Lakh stitches/head", "Automatic Operation"], bestSeller: false },
-      { id: 103, name: "BABA 21 Head High Speed Embroidery Machine", slug: "baba-21-head", category: "machine", price: 0, badge: "High Speed", image: "https://5.imimg.com/data5/OC/XV/VJ/SELLER-6538775/21-head-high-speed-computerized-embroidery-machine.jpg", images: ["https://5.imimg.com/data5/OC/XV/VJ/SELLER-6538775/21-head-high-speed-computerized-embroidery-machine.jpg","https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp"], desc: "21-head high-speed machine for precision stitching.", specs: ["21 Heads", "9 Needles", "Max Speed: 1200 RPM", "Heavy Body", "Automatic Thread Cutter"], bestSeller: true },
-      { id: 104, name: "BABA 21 Head Cording Embroidery Machine", slug: "baba-21-head-cording", category: "machine", price: 0, badge: "Cording", image: "https://5.imimg.com/data5/GLADMIN/Default/2023/2/CC/ZM/WE/6538775/baba-21-head-high-speed-computerized-embroidery-machine-with-easy-cording-device-500x500.jpg", images: ["https://5.imimg.com/data5/GLADMIN/Default/2023/2/CC/ZM/WE/6538775/baba-21-head-high-speed-computerized-embroidery-machine-with-easy-cording-device-500x500.jpg"], desc: "Embroidery machine with advanced cording attachment.", specs: ["21 Heads", "9 Needles", "Max Speed: 1200 RPM", "Cording Attachment", "Heavy Body Structure"], bestSeller: false },
-      { id: 105, name: "BABA 15 Head Computerized Embroidery Machine", slug: "baba-15-head", category: "machine", price: 0, badge: "Industrial", image: "https://5.imimg.com/data5/JM/XR/EE/SELLER-6538775/hs-a915-400-800-1200-500x500.jpg", images: ["https://5.imimg.com/data5/JM/XR/EE/SELLER-6538775/hs-a915-400-800-1200-500x500.jpg"], desc: "15-head machine with Japanese core parts.", specs: ["15 Heads", "9 Needles", "Max Speed: 1000-1200 RPM", "Japanese Core Parts", "Dahao Control System"], bestSeller: true },
-      { id: 106, name: "BABA 18 Head Super High Speed (Bolt Max)", slug: "baba-18-head-bolt-max", category: "machine", price: 0, badge: "Super High Speed", image: "https://5.imimg.com/data5/SELLER/Default/2025/3/495692072/AH/XC/ZT/6538775/18-head-super-high-speed-embroidery-machine.jpg", images: ["https://5.imimg.com/data5/SELLER/Default/2025/3/495692072/AH/XC/ZT/6538775/18-head-super-high-speed-embroidery-machine.jpg"], desc: "Bolt Max model with ultra-fast speed.", specs: ["18 Heads", "9 Needles per Head", "Max Speed: 1600 RPM", "400 mm Head Distance", "Automatic Thread Trimming"], bestSeller: true },
-      { id: 107, name: "BABA Sequin Embroidery Machine", slug: "baba-sequin-machine", category: "machine", price: 0, badge: "Sequin", image: "https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png", images: ["https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png"], desc: "Advanced sequin embroidery machine for decorative embellishments.", specs: ["Multi Head", "9 Needles", "Max Speed: 1200 RPM", "Sequin Device", "Automatic Machine"], bestSeller: false },
-      { id: 108, name: "BABA Computerized Embroidery Machine (Standard)", slug: "baba-standard-machine", category: "machine", price: 0, badge: "Standard", image: "https://5.imimg.com/data5/SELLER/Default/2023/7/323505887/FY/LY/HN/6538775/baba-mix-chenile-aari-multi-high-speed-computerized-embroidery-machine.jpg", images: ["https://5.imimg.com/data5/SELLER/Default/2023/7/323505887/FY/LY/HN/6538775/baba-mix-chenile-aari-multi-high-speed-computerized-embroidery-machine.jpg"], desc: "Standard computerized embroidery machine.", specs: ["Multi Head", "9 Needles", "Max Speed: 1200 RPM", "Automatic", "ISI Certified"], bestSeller: false },
-      { id: 109, name: "BABA Dori / Cording Embroidery Machine", slug: "baba-dori-machine", category: "machine", price: 0, badge: "Dori Work", image: "https://5.imimg.com/data5/JY/KY/GQ/SELLER-6538775/0002.jpg", images: ["https://5.imimg.com/data5/JY/KY/GQ/SELLER-6538775/0002.jpg"], desc: "Specialized embroidery machine for dori and textured designs.", specs: ["Multi Head", "9 Needles", "Max Speed: 1500 RPM", "Dori Attachment", "Automatic Operation"], bestSeller: false },
-      // ===== HSW Machines (existing) =====
-      { id: 1, name: "HSW 5G 1216", slug: "hsw-5g-1216", category: "machine", price: 325000, badge: "Compact", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg", images: ["https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg"], desc: "12x16\" area, 12 needles, 1000 SPM", specs: ["12x16\" Area", "12 Needles", "1000 SPM", "USB & Wi-Fi"], bestSeller: true },
-      { id: 2, name: "HSW 5G 1632", slug: "hsw-5g-1632", category: "machine", price: 410000, badge: "Performer", image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg", images: ["https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1632.jpg"], desc: "16x32\" workspace, industrial-grade", specs: ["16x32\" Area", "12 Needles", "Auto Thread Trimmer"], bestSeller: true },
-      // Accessories
-      { id: 6, name: "Magnetic Hoop Pro", slug: "magnetic-hoop-pro", category: "device", price: 12500, badge: "Best Seller", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR878VKlZXIT7rcGYXe1G2Thh8jUDWCyL7tw&s", images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTR878VKlZXIT7rcGYXe1G2Thh8jUDWCyL7tw&s"], desc: "Magnetic hoops, no hoop burn", specs: ["Magnetic", "7 Sizes", "Quick Release"], bestSeller: true }
-    ];
+   const productDatabase = [
+  // ===== BABA MACHINES (Official Website Data) =====
+  {
+    id: 101,
+    name: "BABA Single Head Computerized Embroidery Machine with 4 Beads, 2 Sequin & Cording Device",
+    slug: "baba-single-head-4beads-sequin-cording",
+    category: "machine",
+    price: 0,
+    badge: "Single Head",
+    image: "https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png",
+    images: [
+      "https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png"
+    ],
+    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    desc: "Single head embroidery machine with beads, sequin and cording attachments for boutique and designer work.",
+    specs: [
+      "Single Head",
+      "4 Beads Device",
+      "2 Sequin Device",
+      "Cording Attachment",
+      "1200 RPM"
+    ],
+    bestSeller: true
+  },
 
+  {
+    id: 102,
+    name: "BABA Bolt Max 18 Head Computerized Embroidery Machine with Laser Cutting Device",
+    slug: "baba-bolt-max-18-head",
+    category: "machine",
+    price: 0,
+    badge: "Industrial",
+    image: "https://5.imimg.com/data5/SELLER/Default/2025/3/495692072/AH/XC/ZT/6538775/18-head-super-high-speed-embroidery-machine.jpg",
+    images: [
+      "https://5.imimg.com/data5/SELLER/Default/2025/3/495692072/AH/XC/ZT/6538775/18-head-super-high-speed-embroidery-machine.jpg"
+    ],
+    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    desc: "18 head industrial embroidery machine with laser cutting support for mass production.",
+    specs: [
+      "18 Heads",
+      "Laser Cutting Device",
+      "1600 RPM",
+      "Automatic Thread Trimming"
+    ],
+    bestSeller: true
+  },
+
+  {
+    id: 103,
+    name: "BABA Single Head MIX Embroidery with Taping Machine",
+    slug: "baba-single-head-taping",
+    category: "machine",
+    price: 0,
+    badge: "Taping",
+    image: "https://5.imimg.com/data5/SELLER/Default/2023/7/323505887/FY/LY/HN/6538775/baba-mix-chenile-aari-multi-high-speed-computerized-embroidery-machine.jpg",
+    images: [
+      "https://5.imimg.com/data5/SELLER/Default/2023/7/323505887/FY/LY/HN/6538775/baba-mix-chenile-aari-multi-high-speed-computerized-embroidery-machine.jpg"
+    ],
+    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    desc: "Single head mix embroidery machine with taping device for decorative stitching.",
+    specs: [
+      "Single Head",
+      "Taping Device",
+      "1200 RPM"
+    ],
+    bestSeller: false
+  },
+
+  {
+    id: 104,
+    name: "BABA 6 Head Laser Embroidery Machine",
+    slug: "baba-6-head-laser",
+    category: "machine",
+    price: 0,
+    badge: "6 Head",
+    image: "https://5.imimg.com/data5/GLADMIN/Default/2023/5/307329784/KO/MN/UK/6538775/baba-42-head-computerized-embroidery-machine-500x500.jpg",
+    images: [
+      "https://5.imimg.com/data5/GLADMIN/Default/2023/5/307329784/KO/MN/UK/6538775/baba-42-head-computerized-embroidery-machine-500x500.jpg"
+    ],
+    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    desc: "6 head laser embroidery machine for commercial production.",
+    specs: [
+      "6 Heads",
+      "Laser Device",
+      "Automatic",
+      "1200 RPM"
+    ],
+    bestSeller: true
+  },
+
+  {
+    id: 105,
+    name: "BABA Mix Embroidery Machine Single Head",
+    slug: "baba-mix-single-head",
+    category: "machine",
+    price: 0,
+    badge: "Single Head",
+    image: "https://5.imimg.com/data5/SELLER/Default/2023/7/323505887/FY/LY/HN/6538775/baba-mix-chenile-aari-multi-high-speed-computerized-embroidery-machine.jpg",
+    images: [
+      "https://5.imimg.com/data5/SELLER/Default/2023/7/323505887/FY/LY/HN/6538775/baba-mix-chenile-aari-multi-high-speed-computerized-embroidery-machine.jpg"
+    ],
+    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    desc: "Single head embroidery machine suitable for boutique businesses.",
+    specs: [
+      "Single Head",
+      "1200 RPM",
+      "Designer Work"
+    ],
+    bestSeller: false
+  },
+
+  {
+    id: 106,
+    name: "BABA 15 Head Computerized Embroidery Machine",
+    slug: "baba-15-head",
+    category: "machine",
+    price: 0,
+    badge: "15 Head",
+    image: "https://5.imimg.com/data5/JM/XR/EE/SELLER-6538775/hs-a915-400-800-1200-500x500.jpg",
+    images: [
+      "https://5.imimg.com/data5/JM/XR/EE/SELLER-6538775/hs-a915-400-800-1200-500x500.jpg"
+    ],
+    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    desc: "15 head industrial machine for high-volume production.",
+    specs: [
+      "15 Heads",
+      "9 Needles",
+      "1200 RPM",
+      "Automatic"
+    ],
+    bestSeller: true
+  },
+
+  {
+    id: 107,
+    name: "BABA Single Head Embroidery Machine 800-500 (20x32)",
+    slug: "baba-single-head-800-500",
+    category: "machine",
+    price: 0,
+    badge: "Large Frame",
+    image: "https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png",
+    images: [
+      "https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png"
+    ],
+    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    desc: "Large frame single head machine for saree and blouse work.",
+    specs: [
+      "800 x 500",
+      "20 x 32",
+      "Single Head"
+    ],
+    bestSeller: false
+  },
+
+  {
+    id: 108,
+    name: "BABA Single Head Embroidery Machine 600-400",
+    slug: "baba-single-head-600-400",
+    category: "machine",
+    price: 0,
+    badge: "Medium Frame",
+    image: "https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png",
+    images: [
+      "https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png"
+    ],
+    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    desc: "Medium frame single head machine for daily boutique use.",
+    specs: [
+      "600 x 400",
+      "Single Head",
+      "1200 RPM"
+    ],
+    bestSeller: false
+  },
+
+  {
+    id: 109,
+    name: "BABA Single Head High Speed Computerised Embroidery Machine 1200-500",
+    slug: "baba-single-head-1200-500",
+    category: "machine",
+    price: 0,
+    badge: "High Speed",
+    image: "https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png",
+    images: [
+      "https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png"
+    ],
+    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    desc: "Large workspace single head machine with high-speed embroidery.",
+    specs: [
+      "1200 x 500",
+      "Single Head",
+      "1200 RPM"
+    ],
+    bestSeller: true
+  },
+
+  {
+    id: 110,
+    name: "BABA Single Head Sequin Punching Machine",
+    slug: "baba-sequin-punching",
+    category: "machine",
+    price: 0,
+    badge: "Sequin",
+    image: "https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png",
+    images: [
+      "https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png"
+    ],
+    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    desc: "Specialized sequin punching machine for decorative fashion work.",
+    specs: [
+      "Single Head",
+      "Sequin Device",
+      "Automatic"
+    ],
+    bestSeller: false
+  },
+
+  // ===== HSW Machines (existing) =====
+  {
+    id: 1,
+    name: "HSW 5G 1216",
+    slug: "hsw-5g-1216",
+    category: "machine",
+    price: 325000,
+    badge: "Compact",
+    image: "https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg",
+    images: ["https://www.singleheadembroidery.com/wp-content/uploads/2024/08/1216-1.jpg"],
+    desc: "12x16 area, 12 needles, 1000 SPM",
+    specs: ["12x16 Area", "12 Needles", "1000 SPM", "USB & Wi-Fi"],
+    bestSeller: true
+  }
+];
     function getAllProducts() { return productDatabase; }
     function getProductBySlug(slug) { return getAllProducts().find(p => p.slug === slug); }
     function getCurrentProductId() { const hash = window.location.hash.substring(1); return hash || 'baba-multi-head'; }

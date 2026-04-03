@@ -385,6 +385,21 @@
             transition: transform 0.5s ease;
             position: relative;
             overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1);
         }
 
         .product-img::after {
@@ -1248,7 +1263,7 @@ const products = [
     category: "machine",
     price: 360000,
     badge: "Single Head",
-    image: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    image: "https://images.ctfassets.net/2jb0aeaks5sz/7aSEFyDhUpmWrbkOdvlAdF/f6af73d5397e8f1666a222e341f81a5b/DSC01504.jpg",
     link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
     desc: "Single head embroidery machine with 4 beads, 2 sequin and cording attachment for premium boutique and designer work.",
     specs: [
@@ -1268,7 +1283,7 @@ const products = [
     category: "machine",
     price: 2040750,
     badge: "Industrial",
-    image: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    image: "https://images.ctfassets.net/2jb0aeaks5sz/GlkfMVlMfG1hYSTH1UGTy/fa0074ef32f0e6418c711ef7ad19c751/DSC01496.jpg",
     link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
     desc: "Industrial-grade 18 head embroidery machine with built-in laser cutting for bulk textile production.",
     specs: [
@@ -1288,7 +1303,7 @@ const products = [
     category: "machine",
     price: 0,
     badge: "Taping",
-    image: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    image: "https://images.ctfassets.net/2jb0aeaks5sz/50c2PQjq92GfGHwRY8INuU/40a6004d24f15fed9de3ba50deffe26a/DSC01471.jpg",
     link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
     desc: "Single head mix embroidery machine with taping attachment for decorative fabric patterns.",
     specs: [
@@ -1307,7 +1322,7 @@ const products = [
     category: "machine",
     price: 1250000,
     badge: "6 Head",
-    image: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    image: "https://images.ctfassets.net/2jb0aeaks5sz/35kIA5gdhwz7brVU8hQzHJ/4e3b98ffbfb56b8abcda532df664e289/WhatsApp_Image_2023-10-31_at_11.22.42_bfec9bed.jpg",
     link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
     desc: "Commercial 6 head machine with laser support for medium scale embroidery production.",
     specs: [
@@ -1326,7 +1341,7 @@ const products = [
     category: "machine",
     price: 0,
     badge: "Mix",
-    image: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    image: "https://images.ctfassets.net/2jb0aeaks5sz/6eH1TExQGrcdvQjTzncIHC/981ac20f6781711621ba03a8cab12dcc/WhatsApp_Image_2023-04-18_at_12.10.20__3_.jpeg",
     link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
     desc: "Single head mix embroidery machine suitable for blouse, kurti and boutique stitching.",
     specs: [
@@ -1344,7 +1359,7 @@ const products = [
     category: "machine",
     price: 1870800,
     badge: "15 Head",
-    image: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    image: "https://images.ctfassets.net/2jb0aeaks5sz/7eIcvHG5hX2QeknmKHWuMm/129d8507c6b0adadade0f4880bf63554/_DSC4570__1___1_.jpg",
     link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
     desc: "15 head industrial embroidery machine for mass garment production.",
     specs: [
@@ -1363,7 +1378,7 @@ const products = [
     category: "machine",
     price: 0,
     badge: "Large Frame",
-    image: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    image: "https://images.ctfassets.net/2jb0aeaks5sz/5CvcVNX5KD6Yn34DGCwMIO/47adae0b31f2f6141817d0e18c440f3f/IMG_9349.png",
     link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
     desc: "Single head machine with large embroidery area for sarees and heavy garment work.",
     specs: [
@@ -1381,7 +1396,7 @@ const products = [
     category: "machine",
     price: 0,
     badge: "Medium Frame",
-    image: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    image: "https://images.ctfassets.net/2jb0aeaks5sz/VrokgqRPlEgSuhH3vphcZ/415d7034eec74740f6e901711dddd823/GP2A0051.JPG",
     link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
     desc: "Medium frame embroidery machine ideal for daily boutique production.",
     specs: [
@@ -1399,7 +1414,7 @@ const products = [
     category: "machine",
     price: 600000,
     badge: "High Speed",
-    image: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    image: "https://images.ctfassets.net/2jb0aeaks5sz/6cNjeeMm35a5H1nQ4M5A47/1de256ced003d567048d9e3db7d71483/IMG_9353.png",
     link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
     desc: "High speed single head embroidery machine with large stitching area.",
     specs: [
@@ -1418,7 +1433,7 @@ const products = [
     category: "machine",
     price: 0,
     badge: "Sequin",
-    image: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    image: "https://images.ctfassets.net/2jb0aeaks5sz/4UZTHJsYNI3eVphJ1yWTrn/7bea5784c4f654aa5cabf09579328f6f/IMG_5247-1.png",
     link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
     desc: "Specialized single head sequin machine for bridal and decorative work.",
     specs: [
@@ -1428,6 +1443,7 @@ const products = [
     ],
     bestSeller: false
   },
+
   {
     id: 111,
     name: "BABA Double Head Computerized Embroidery Machine (20 × 32)",
@@ -1435,7 +1451,7 @@ const products = [
     category: "machine",
     price: 0,
     badge: "Double Head",
-    image: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    image: "https://images.ctfassets.net/2jb0aeaks5sz/5CvcVNX5KD6Yn34DGCwMIO/47adae0b31f2f6141817d0e18c440f3f/IMG_9349.png",
     link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
     desc: "Powerful double head embroidery machine with 20x32 frame for high-volume production.",
     specs: [
@@ -1462,12 +1478,16 @@ const products = [
         const bestSellerCheck = document.getElementById("bestSellerFilter");
         const cartCountSpan = document.getElementById("cartCount");
 
+        function isImageUrl(url) {
+            return /\.(jpe?g|png|gif|webp|svg)(\?.*)?$/i.test(url);
+        }
+
         function openQuoteModal(productId) {
             const product = products.find(p => p.id === productId);
             if (product) {
                 currentQuoteProduct = product;
                 const quoteProductInfo = document.getElementById('quoteProductInfo');
-                const quoteImage = product.image && product.image.startsWith('http') ? product.image : BABA_IMAGE_URL;
+                const quoteImage = product.image && isImageUrl(product.image) ? product.image : BABA_IMAGE_URL;
                 quoteProductInfo.innerHTML = `
                     <img src="${quoteImage}" alt="${product.name}" onerror="this.src='${BABA_IMAGE_URL}'">
                     <div>
@@ -1582,7 +1602,7 @@ const products = [
             if (productsToRender.length === 0) { productsGrid.style.display = "none"; return; }
             productsGrid.style.display = "grid";
             productsGrid.innerHTML = productsToRender.map(product => {
-                const validImage = product.image && product.image.startsWith('http') ? product.image : BABA_IMAGE_URL;
+                const validImage = product.image && isImageUrl(product.image) ? product.image : BABA_IMAGE_URL;
                 const categoryLabel = product.category === 'machine'
                     ? '🪡 Embroidery Machine'
                     : product.category === 'devices'

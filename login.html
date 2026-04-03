@@ -59,7 +59,6 @@
             padding-bottom: 5px;
         }
 
-        /* auth section */
         .auth-section {
             padding: 140px 0 100px;
             min-height: 100vh;
@@ -76,6 +75,8 @@
             box-shadow: 0 35px 65px rgba(180, 60, 88, 0.15);
             overflow: hidden;
             transition: all 0.3s;
+            max-width: 1000px;
+            margin: 0 auto;
         }
 
         /* left brand side */
@@ -243,6 +244,10 @@
             background: #fefafc;
         }
 
+        .input-group input::placeholder {
+            color: #d4b5c0;
+        }
+
         .input-group input:focus {
             outline: none;
             border-color: #ff6b9d;
@@ -391,33 +396,260 @@
         }
 
         /* responsive */
+        @media (max-width: 1024px) {
+            .auth-section {
+                padding: 100px 0 80px;
+            }
 
-
-        @media (max-width: 992px) {
             .auth-wrapper {
                 grid-template-columns: 1fr;
-                border-radius: 48px;
+                border-radius: 40px;
+                gap: 0;
+                overflow: visible;
             }
 
             .auth-brand {
-                padding: 45px 35px;
+                padding: 50px 40px;
                 text-align: center;
+                min-height: 300px;
+                justify-content: center;
+                border-radius: 40px 40px 0 0;
             }
 
-            .feature-list {
-                text-align: left;
+            .auth-form-container {
+                padding: 45px 40px;
+                border-radius: 0 0 40px 40px;
+            }
+
+            .auth-brand h2 {
+                font-size: 32px;
+            }
+
+            .brand-icon {
+                font-size: 60px;
             }
 
             .container {
-                padding: 0 24px;
+                padding: 0 20px;
             }
         }
 
         @media (max-width: 768px) {
+            .auth-section {
+                padding: 80px 0 60px;
+                min-height: auto;
+            }
 
+            .auth-wrapper {
+                grid-template-columns: 1fr;
+                border-radius: 30px;
+                box-shadow: 0 20px 40px rgba(180, 60, 88, 0.1);
+            }
 
+            .auth-brand {
+                padding: 40px 30px;
+                border-radius: 30px 30px 0 0;
+            }
 
+            .auth-form-container {
+                padding: 35px 28px;
+                border-radius: 0 0 30px 30px;
+            }
 
+            .auth-brand h2 {
+                font-size: 28px;
+                margin-bottom: 15px;
+            }
+
+            .auth-brand p {
+                font-size: 14px;
+                margin-bottom: 20px;
+            }
+
+            .brand-icon {
+                font-size: 50px;
+                margin-bottom: 15px;
+            }
+
+            .feature-list li {
+                font-size: 13px;
+                margin-bottom: 12px;
+            }
+
+            .form-tabs {
+                gap: 15px;
+                margin-bottom: 30px;
+            }
+
+            .tab-btn {
+                font-size: 20px;
+                padding: 8px 4px;
+            }
+
+            .input-group {
+                margin-bottom: 20px;
+            }
+
+            .input-group input {
+                padding: 13px 16px 13px 45px;
+                font-size: 14px;
+            }
+
+            .input-group i {
+                left: 14px;
+                font-size: 16px;
+            }
+
+            .form-row {
+                margin-bottom: 24px;
+                gap: 10px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .checkbox-label {
+                font-size: 12px;
+            }
+
+            .auth-btn {
+                padding: 14px;
+                font-size: 15px;
+            }
+
+            .social-icons {
+                gap: 15px;
+            }
+
+            .social-icons a {
+                width: 42px;
+                height: 42px;
+                font-size: 18px;
+            }
+
+            .register-note {
+                font-size: 12px;
+                margin-top: 20px;
+            }
+
+            .container {
+                padding: 0 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .auth-section {
+                padding: 70px 0 50px;
+            }
+
+            .auth-wrapper {
+                border-radius: 20px;
+                box-shadow: 0 15px 30px rgba(180, 60, 88, 0.08);
+            }
+
+            .auth-brand {
+                padding: 35px 20px;
+                border-radius: 20px 20px 0 0;
+                min-height: 250px;
+            }
+
+            .auth-form-container {
+                padding: 28px 20px;
+                border-radius: 0 0 20px 20px;
+            }
+
+            .auth-brand h2 {
+                font-size: 24px;
+                margin-bottom: 12px;
+            }
+
+            .auth-brand p {
+                font-size: 12px;
+                line-height: 1.5;
+                margin-bottom: 15px;
+            }
+
+            .brand-icon {
+                font-size: 40px;
+                margin-bottom: 10px;
+            }
+
+            .feature-list li {
+                font-size: 12px;
+                margin-bottom: 8px;
+                gap: 8px;
+            }
+
+            .feature-list li i {
+                font-size: 16px;
+                width: 20px;
+            }
+
+            .form-tabs {
+                gap: 12px;
+                margin-bottom: 25px;
+            }
+
+            .tab-btn {
+                font-size: 18px;
+                padding: 6px 3px;
+            }
+
+            .input-group {
+                margin-bottom: 16px;
+            }
+
+            .input-group input {
+                padding: 12px 14px 12px 40px;
+                font-size: 13px;
+                border-radius: 50px;
+            }
+
+            .input-group i {
+                left: 12px;
+                font-size: 14px;
+            }
+
+            .form-row {
+                margin-bottom: 20px;
+                font-size: 11px;
+            }
+
+            .auth-btn {
+                padding: 12px;
+                font-size: 14px;
+                gap: 8px;
+            }
+
+            .social-login {
+                margin-top: 25px;
+            }
+
+            .social-login p {
+                font-size: 12px;
+                margin-bottom: 14px;
+            }
+
+            .social-icons {
+                gap: 12px;
+            }
+
+            .social-icons a {
+                width: 38px;
+                height: 38px;
+                font-size: 16px;
+            }
+
+            .register-note {
+                font-size: 11px;
+                margin-top: 16px;
+            }
+
+            .container {
+                padding: 0 12px;
+            }
+        }
+
+        @media (max-width: 768px) {
 
 
 

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Rose Embroidery | Products – Premium Machines & Accessories</title>
+    <title>Rose Embroidery | Shop – Premium Machines & Accessories</title>
     <link
         href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
@@ -65,7 +65,7 @@
             position: absolute;
             top: -8px;
             right: -12px;
-            background: #ff6b9d;
+            background: linear-gradient(135deg, #D45A7A, #B34262);
             color: white;
             font-size: 10px;
             font-weight: bold;
@@ -74,7 +74,7 @@
             animation: pulse 1.5s infinite;
         }
 
-        .Products-hero {
+        .shop-hero {
             background: linear-gradient(135deg, rgb(0 0 0 / 80%) 0%, rgb(0 0 0 / 95%) 100%), url('https://images.pexels.com/photos/3778010/pexels-photo-3778010.jpeg?auto=compress&cs=tinysrgb&w=1600');
             background-size: cover;
             background-position: center;
@@ -85,7 +85,7 @@
             overflow: hidden;
         }
 
-        .Products-hero::before {
+        .shop-hero::before {
             content: '';
             position: absolute;
             top: -50%;
@@ -105,91 +105,33 @@
             pointer-events: none;
         }
 
-        .Products-hero h1 {
+        .shop-hero h1 {
             font-size: 64px;
             margin-bottom: 20px;
             animation: fadeInUp 0.8s ease;
         }
 
-        .Products-hero h1 i {
+        .shop-hero h1 i {
             margin-right: 15px;
             animation: float 3s ease-in-out infinite;
             display: inline-block;
         }
 
-        .Products-hero p {
+        .shop-hero p {
             font-size: 20px;
             opacity: 0.95;
             animation: fadeInUp 0.8s ease 0.2s backwards;
         }
 
-        .Products-main {
-            padding: 110px 0 80px;
+        .shop-main {
+            padding: 60px 0 80px;
         }
 
-        .Products-layout {
+        .shop-layout {
             display: flex;
             gap: 40px;
             flex-wrap: wrap;
         }
-
-        .category-menu {
-    display: flex;
-    flex-direction: column;
-}
-
-.category-item {
-    border-bottom: 1px solid #eee;
-}
-
-.category-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 14px 5px;
-    font-size: 14px;
-    font-weight: 500;
-    cursor: pointer;
-    color: #2C2C2C;
-    transition: 0.3s;
-}
-
-.category-header:hover {
-    color: #ff6b9d;
-}
-
-.category-header span {
-    font-size: 12px;
-    transition: transform 0.3s;
-}
-
-/* Subcategory */
-.subcategory {
-    display: none;
-    padding-left: 10px;
-    padding-bottom: 10px;
-}
-
-.subcategory p {
-    margin: 8px 0;
-    font-size: 13px;
-    color: #666;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.subcategory p:hover {
-    color: #ff6b9d;
-}
-
-/* Active dropdown */
-.category-item.active .subcategory {
-    display: block;
-}
-
-.category-item.active .category-header span {
-    transform: rotate(180deg);
-}
 
         .filters-sidebar {
             width: 250px;
@@ -238,23 +180,23 @@
         }
 
         .filter-option:hover {
-            color: #ff6b9d;
+            color: #D45A7A;
         }
 
         .filter-option input {
             width: 16px;
             height: 16px;
             cursor: pointer;
-            accent-color: #ff6b9d;
+            accent-color: #D45A7A;
         }
 
         .clear-filters {
             width: 100%;
             background: transparent;
-            border: 2px solid #ff6b9d;
-            color: #ff6b9d;
+            border: 2px solid #D45A7A;
+            color: #D45A7A;
             padding: 12px;
-            border-radius: 8px;
+            border-radius: 12px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
@@ -262,7 +204,7 @@
         }
 
         .clear-filters:hover {
-            background: #ff6b9d;
+            background: #D45A7A;
             color: white;
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(212, 90, 122, 0.3);
@@ -273,7 +215,7 @@
             min-width: 0;
         }
 
-        .Products-controls {
+        .shop-controls {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -282,8 +224,8 @@
             margin-bottom: 35px;
             background: white;
             padding: 18px 25px;
-            border-radius: 8px;
-           
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
             border: 2px solid #E8D5DE;
         }
 
@@ -298,28 +240,28 @@
             left: 18px;
             top: 50%;
             transform: translateY(-50%);
-            color: #ff6b9d;
+            color: #D45A7A;
         }
 
         .search-wrapper input {
             width: 100%;
             padding: 12px 20px 12px 45px;
             border: 2px solid #E8D5DE;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 14px;
             outline: none;
             transition: 0.3s;
         }
 
         .search-wrapper input:focus {
-            border-color: #ff6b9d;
+            border-color: #D45A7A;
             box-shadow: 0 0 0 3px rgba(212, 90, 122, 0.1);
         }
 
         .sort-select {
             padding: 10px 20px;
             border: 2px solid #E8D5DE;
-            border-radius: 8px;
+            border-radius: 12px;
             background: white;
             font-weight: 500;
             color: #5A4A52;
@@ -329,7 +271,7 @@
         }
 
         .sort-select:focus {
-            border-color: #ff6b9d;
+            border-color: #D45A7A;
         }
 
         .results-count {
@@ -348,7 +290,7 @@
 
         .product-card {
             background: white;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
             transition: all 0.3s ease;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
@@ -366,10 +308,10 @@
             position: absolute;
             top: 15px;
             right: 15px;
-            background: #ff6b9d;
+            background: linear-gradient(135deg, #D45A7A, #B34262);
             color: white;
             padding: 6px 16px;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 11px;
             font-weight: 700;
             z-index: 2;
@@ -385,21 +327,6 @@
             transition: transform 0.5s ease;
             position: relative;
             overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .product-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .product-card:hover .product-img img {
-            transform: scale(1);
         }
 
         .product-img::after {
@@ -426,30 +353,6 @@
             padding: 22px;
         }
 
-        .quote-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            margin-top: 12px;
-            padding: 10px 14px;
-            border: 1px solid #ff6b9d;
-            background: #fff;
-            color: #ff6b9d;
-            font-weight: 700;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-
-        .quote-btn:hover {
-            background: #ff6b9d;
-            color: #fff;
-            border-color: #ff6b9d;
-        }
-
         .product-category {
             display: inline-block;
             padding: 5px 14px;
@@ -457,7 +360,7 @@
             border-radius: 10px;
             font-size: 11px;
             font-weight: 600;
-            color: #ff6b9d;
+            color: #D45A7A;
             margin-bottom: 12px;
         }
 
@@ -472,7 +375,7 @@
         }
 
         .product-card:hover .product-content h3 {
-            color: #ff6b9d;
+            color: #D45A7A;
         }
 
         .product-desc {
@@ -505,7 +408,7 @@
         }
 
         .product-specs li i {
-            color: #ff6b9d;
+            color: #D45A7A;
             font-size: 11px;
         }
 
@@ -537,13 +440,13 @@
 
         .btn-view-details:hover {
             background: #F8F9FA;
-            border-color: #ff6b9d;
-            color: #ff6b9d;
+            border-color: #D45A7A;
+            color: #D45A7A;
         }
 
         .add-to-cart {
             flex: 1;
-            background: #ff6b9d;
+            background: #D45A7A;
             border: none;
             padding: 10px 8px;
             border-radius: 6px;
@@ -609,8 +512,8 @@
             text-align: center;
             padding: 60px;
             background: white;
-            border-radius: 8px;
-            color: #ff6b9d;
+            border-radius: 16px;
+            color: #D45A7A;
             font-size: 18px;
             border: 2px solid #E8D5DE;
             animation: fadeInUp 0.5s ease;
@@ -662,13 +565,13 @@
         }
 
         .quote-modal-header .close-quote:hover {
-            color: #ff6b9d;
+            color: #D45A7A;
         }
 
         .quote-product-info {
             background: #FFF5F7;
             padding: 15px;
-            border-radius: 8px;
+            border-radius: 16px;
             margin-bottom: 20px;
             display: flex;
             align-items: center;
@@ -679,7 +582,7 @@
             width: 60px;
             height: 60px;
             object-fit: contain;
-            border-radius: 8px;
+            border-radius: 12px;
             background: white;
         }
 
@@ -691,7 +594,7 @@
 
         .quote-product-info p {
             font-size: 14px;
-            color: #ff6b9d;
+            color: #D45A7A;
             font-weight: 600;
         }
 
@@ -713,7 +616,7 @@
             width: 100%;
             padding: 12px 15px;
             border: 2px solid #F0D9E0;
-            border-radius: 8px;
+            border-radius: 12px;
             font-family: inherit;
             font-size: 14px;
             transition: 0.3s;
@@ -723,7 +626,7 @@
         .quote-form-group textarea:focus,
         .quote-form-group select:focus {
             outline: none;
-            border-color: #ff6b9d;
+            border-color: #D45A7A;
         }
 
         .quote-form-group textarea {
@@ -733,7 +636,7 @@
 
         .submit-quote-btn {
             width: 100%;
-            background: #ff6b9d;
+            background: linear-gradient(135deg, #D45A7A, #B34262);
             color: white;
             border: none;
             padding: 14px;
@@ -754,12 +657,12 @@
         }
 
         @media (max-width: 768px) {
-            .Products-layout { flex-direction: column; }
+            .shop-layout { flex-direction: column; }
             .filters-sidebar { width: 100%; position: static; }
-            .Products-hero { padding: 130px 0 50px; }
-            .Products-hero h1 { font-size: 40px; }
+            .shop-hero { padding: 130px 0 50px; }
+            .shop-hero h1 { font-size: 40px; }
             .container { padding: 0 20px; }
-            .Products-controls { flex-direction: column; align-items: stretch; }
+            .shop-controls { flex-direction: column; align-items: stretch; }
             .search-wrapper { max-width: 100%; }
             .products-grid { grid-template-columns: 1fr; }
             .button-group { flex-direction: column; }
@@ -767,33 +670,46 @@
         }
 
         /* Footer Styles */
-         /* Footer */
-        .footer-footer {
-            background: linear-gradient(135deg, #191a2c, #1f010a);
-            color: #fff;
-            padding: 30px 0 10px;
-            font-family: 'Montserrat', sans-serif;
-            text-align: left;
+        .tetro-footer {
+             background: linear-gradient(135deg, #191a2c, #1f010a);
+    color: #fff;
+    padding: 70px 0 30px;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;
         }
-        .footer-footer-container {
+
+        .tetro-footer-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 30px;
         }
-      .footer-footer-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-bottom: 40px;
-    padding: 0px;
-}
-        .footer-footer-col {
+
+        .tetro-footer-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .tetro-footer-col {
             flex: 1;
             min-width: 280px;
         }
-            a.footer-brand{
-            text-decoration: none;
+
+        .tetro-footer-col.col-brand p {
+            color: #F8F9FA;
+            line-height: 1.8;
+            margin-bottom: 25px;
+            font-size: 15px;
+            opacity: 0.9;
         }
+
+        .footer-brand {
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
         .footer-brand h2 {
             color: #fff;
             font-weight: 700;
@@ -801,67 +717,132 @@
             font-family: 'Montserrat', sans-serif;
             margin: 0;
         }
-        .footer-social-links {
+
+        .tetro-social-links {
             display: flex;
             gap: 12px;
-            margin-top: 15px;
         }
-        .footer-social-links a {
+
+        .tetro-social-links a {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 40px;
             height: 40px;
             background: #fff;
+            color: #D45A7A;
             border-radius: 8px;
             text-decoration: none;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            font-size: 18px;
         }
-        .footer-footer-col h3 {
+
+        .tetro-social-links a:hover {
+            background: #E0A800;
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .tetro-footer-col h3 {
             color: #ffffff;
             font-size: 24px;
-            margin-bottom: 8px;
+            margin-bottom: 25px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
         }
-        .footer-quick-links a, .footer-contact-info a, .footer-contact-info p {
+
+        .tetro-quick-links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .tetro-quick-links a {
             color: #fff;
             text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 0px;
-            opacity: 0.85;
-        }
-        .footer-quick-links a:hover, .footer-contact-info a:hover {
-            color: #ff6b9d;
+            opacity: 0.9;
         }
 
+        .tetro-quick-links a i {
+            margin-right: 12px;
+            font-size: 12px;
+        }
 
-    .footer-footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      padding: 16px;
-    }
+        .tetro-quick-links a:hover {
+            padding-left: 8px;
+            opacity: 1;
+            color: #E0A800;
+        }
 
-    .footer-footer-bottom a{
-        color:white;
-        text-decoration: None;
-    }
+        .tetro-contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
 
-    .footer-copyright {
-      color: #fff;
-      font-size: 14px;
-      opacity: 0.8;
-    }
+        .tetro-contact-info a,
+        .tetro-contact-info p {
+            color: #fff;
+            text-decoration: none;
+            font-size: 15px;
+            display: flex;
+            align-items: flex-start;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 16px 0;
+            margin: 0;
+            line-height: 1.5;
+            opacity: 0.9;
+        }
 
-    .footer-tagline {
-      color: #fff;
-      font-size: 14px;
-      opacity: 0.8;
-      font-weight: 500;
-    }
+        .tetro-contact-info a:first-child {
+            padding-top: 0;
+        }
+
+        .tetro-contact-info a:last-child,
+        .tetro-contact-info p:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .tetro-contact-info i {
+            color: #E0A800;
+            margin-right: 15px;
+            margin-top: 4px;
+            width: 16px;
+            text-align: center;
+        }
+
+        .tetro-footer-divider {
+            border: none;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 0 0 25px 0;
+        }
+
+        .tetro-footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .tetro-copyright {
+            color: #fff;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        .tetro-tagline {
+            color: #fff;
+            font-size: 14px;
+            opacity: 0.8;
+            font-weight: 500;
+        }
 
         /* Navbar Styles */
         .navbar {
@@ -877,9 +858,9 @@
         }
 
         .navbar.scrolled {
-           backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px);
             padding: 8px 0;
-            box-shadow: 0 5px 20px rgba(86, 86, 86, 0.15);
+            box-shadow: 0 5px 20px rgba(212, 90, 122, 0.15);
             background: rgba(255, 255, 255, 0.95);
         }
 
@@ -927,7 +908,7 @@
 
         .nav-attribute:hover,
         .nav-attribute.active {
-            color: #ff6b9d;
+            color: #D45A7A;
         }
 
         .hamburger, .sidebar, .overlay {
@@ -950,7 +931,7 @@
                 border-radius: 2px;
             }
             .navbar.scrolled .hamburger span {
-                background: #ff6b9d;
+                background: #D45A7A;
             }
             .sidebar {
                 position: fixed;
@@ -1030,7 +1011,7 @@
             <div class="nav-links">
                 <a class="nav-attribute" href="index.html">Home</a>
                 <a class="nav-attribute" href="about.html">About</a>
-                <a class="nav-attribute active" href="products.html">Products</a>
+                <a class="nav-attribute active" href="products.html">Shop</a>
                 <a class="nav-attribute" href="gallery.html">Gallery</a>
                 <a class="nav-attribute" href="contact.html">Contact</a>
                 <a class="nav-attribute" style="display: flex; gap: 6px; align-items: center; justify-content: center;" href="login.html"><i class="fas fa-user"></i> Login</a>
@@ -1046,24 +1027,13 @@
         <div class="close-btn" onclick="toggleMenu()">✕</div>
         <a href="index.html"><i class="fas fa-home"></i> Home</a>
         <a href="about.html"><i class="fas fa-info-circle"></i> About</a>
-        <a href="products.html"><i class="fas fa-box"></i> Products</a>
+        <a href="products.html"><i class="fas fa-box"></i> Shop</a>
         <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
         <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
         <a  href="login.html"><i class="fas fa-user"></i> Login</a>
         <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart <span id="mobileCartCount">0</span></a>
     </div>
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-
-    <!-- Products Hero Section -->
-    <section class="Products-hero">
-        <div class="floating-icon" style="top: 80px; left: 10%; animation-delay: 0s;">✨</div>
-        <div class="floating-icon" style="top: 150px; right: 15%; animation-delay: 1s;">🪡</div>
-        <div class="floating-icon" style="bottom: 100px; left: 5%; animation-delay: 0.5s;">💎</div>
-        <div class="container">
-            <h1><i class="fas fa-box"></i> Our Products</h1>
-            <p>Discover premium embroidery machines and accessories for your craft</p>
-        </div>
-    </section>
 
     <!-- Quote Modal -->
     <div id="quoteModal" class="quote-modal">
@@ -1105,94 +1075,31 @@
         </div>
     </div>
 
-  
+    <section class="shop-hero">
+        <div class="floating-icon" style="top: 15%; left: 5%; animation-delay: 0s;"><i class="fas fa-thread"></i></div>
+        <div class="floating-icon" style="top: 70%; left: 85%; animation-delay: 1s;"><i class="fas fa-rose"></i></div>
+        <div class="floating-icon" style="top: 30%; right: 8%; animation-delay: 2s;"><i class="fas fa-feather-alt"></i></div>
+        <div class="floating-icon" style="bottom: 10%; left: 15%; animation-delay: 1.5s;"><i class="fas fa-gem"></i></div>
+        <div class="container" data-aos="fade-up">
+            <h1><i class="fas fa-rose"></i> Embroidery Emporium</h1>
+            <p>Premium Machines • Aari Supplies • Designer Threads • Professional Accessories</p>
+        </div>
+    </section>
 
-    <section class="Products-main">
+    <section class="shop-main">
         <div class="container">
-            <div class="Products-layout">
+            <div class="shop-layout">
                 <aside class="filters-sidebar" data-aos="fade-right">
                     <div class="filter-section" style="border-bottom: 2px solid #2C2C2C; margin-bottom: 30px;">
                         <h2 style="font-size: 22px; margin-bottom: 5px; color: #2C2C2C;">FILTER BY</h2>
                     </div>
-                   <div class="filter-section">
-    <h4>Categories</h4>
-
-    <div class="category-menu">
-
-        <!-- 1. Embroidery Machines -->
-        <div class="category-item">
-            <div class="category-header">
-                Embroidery Machines <span>⌄</span>
-            </div>
-            <div class="subcategory">
-                <p onclick="navigateToProduct(101)">BABA Single Head Computerized Embroidery Machine</p>
-                <p onclick="navigateToProduct(103)">Single Head MIX Embroidery with Taping Machine</p>
-                <p onclick="navigateToProduct(105)">BABA Mix Embroidery Machine – Single Head</p>
-                <p onclick="navigateToProduct(107)">BABA Single Head Embroidery Machine 800–500 (20 × 32)</p>
-                <p onclick="navigateToProduct(108)">BABA Single Head Embroidery Machine 600–400</p>
-                <p onclick="navigateToProduct(109)">BABA Single Head High Speed Computerized Embroidery Machine 1200–500 (20 × 48)</p>
-                <p onclick="navigateToProduct(111)">BABA Double Head Computerized Embroidery Machine (20 × 32)</p>
-            </div>
-        </div>
-
-        <!-- 2. Devices -->
-        <div class="category-item">
-            <div class="category-header">
-                Devices <span>⌄</span>
-            </div>
-        </div>
-
-        <!-- 3. Embroidery Materials -->
-        <div class="category-item active">
-            <div class="category-header">
-                Embroidery Materials <span>⌄</span>
-            </div>
-            <div class="subcategory">
-                <p>Viscose Threads</p>
-                <p>Zari Threads</p>
-                <p>Nylon Threads</p>
-                <p>Bobbin Threads</p>
-            </div>
-        </div>
-
-        <!-- 4. Aari Materials -->
-        <div class="category-item">
-            <div class="category-header">
-                Aari Materials <span>⌄</span>
-            </div>
-            <div class="subcategory">
-                <p>Beads</p>
-                <p>Zardoshi</p>
-                <p>Coding Threads</p>
-                <p>Sequences</p>
-            </div>
-        </div>
-
-        <!-- 5. Embroidery Designs -->
-        <div class="category-item">
-            <div class="category-header">
-                Embroidery Designs <span>⌄</span>
-            </div>
-            <div class="subcategory">
-                <p>Embroidery Designs</p>
-                <p>Aari Designs</p>
-            </div>
-        </div>
-
-        <!-- 6. Spare Parts -->
-        <div class="category-item">
-            <div class="category-header">
-                Spare Parts <span>⌄</span>
-            </div>
-            <div class="subcategory">
-                <p>Needle</p>
-                <p>Bobbin</p>
-                <p>Bobbin Head</p>
-            </div>
-        </div>
-
-    </div>
-</div>
+                    <div class="filter-section">
+                        <h4>Category</h4>
+                        <div class="filter-options" id="categoryFilters">
+                            <label class="filter-option"><input type="checkbox" value="machine"> <span>Embroidery Machines</span> <span class="count" id="machineCount"></span></label>
+                            <label class="filter-option"><input type="checkbox" value="device"> <span>Accessories & Devices</span> <span class="count" id="deviceCount"></span></label>
+                        </div>
+                    </div>
                     <div class="filter-section">
                         <h4>Best Sellers</h4>
                         <div class="filter-options">
@@ -1203,7 +1110,7 @@
                 </aside>
 
                 <div class="products-area">
-                    <div class="Products-controls" data-aos="fade-down">
+                    <div class="shop-controls" data-aos="fade-down">
                         <div class="search-wrapper">
                             <i class="fas fa-search"></i>
                             <input type="text" id="searchInput" placeholder="Search by name, features, or brand...">
@@ -1224,26 +1131,26 @@
         </div>
     </section>
 
-    <footer class="footer-footer">
-        <div class="footer-footer-container">
-            <div class="footer-footer-row">
-                <div class="footer-footer-col col-brand">
+    <footer class="tetro-footer">
+        <div class="tetro-footer-container">
+            <div class="tetro-footer-row">
+                <div class="tetro-footer-col col-brand">
                     <a href="index.html" class="footer-brand">
                         <h2>Rose Embroidery</h2>
                     </a>
                     <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship with precision and quality.</p>
-                    <div class="footer-social-links">
+                    <div class="tetro-social-links">
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-facebook-f"></i></a>
                         <a href="#"><i class="fab fa-twitter"></i></a>
                         <a href="#"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
-                <div class="footer-footer-col col-links">
+                <div class="tetro-footer-col col-links">
                     <h3>Quick Links</h3>
-                    <div class="footer-quick-links">
+                    <div class="tetro-quick-links">
                         <a href="about.html"><i class="fas fa-angle-right"></i>About Us</a>
-                        <a href="products.html"><i class="fas fa-angle-right"></i>Products Products</a>
+                        <a href="products.html"><i class="fas fa-angle-right"></i>Shop Products</a>
                         <a href="gallery.html"><i class="fas fa-angle-right"></i>Gallery</a>
                         <a href="contact.html"><i class="fas fa-angle-right"></i>Contact Us</a>
                         <a href="#"><i class="fas fa-angle-right"></i>Terms & Conditions</a>
@@ -1251,21 +1158,22 @@
                         <a href="#"><i class="fas fa-angle-right"></i>Refund & Return Policy</a>
                     </div>
                 </div>
-                <div class="footer-footer-col col-contact">
+                <div class="tetro-footer-col col-contact">
                     <h3>Contact Info</h3>
-                    <div class="footer-contact-info">
+                    <div class="tetro-contact-info">
                         <a href="#"><i class="fas fa-map-marker-alt"></i>76 first avenue millenium town adayalampattu madhuravoyal chennai 600095</a>
-
+                        <a href="tel:+91902555206"><i class="fas fa-phone-alt"></i>+91 902555206</a>
+                        <a href="mailto:Drroslineg@gmail.com"><i class="fas fa-envelope"></i>Drroslineg@gmail.com</a>
                         <p><i class="fas fa-clock"></i>Mon-Sat: 9AM - 7PM</p>
                     </div>
                 </div>
             </div>
-            <hr class="footer-footer-divider">
-            <div class="footer-footer-bottom">
-                <div class="footer-copyright">
+            <hr class="tetro-footer-divider">
+            <div class="tetro-footer-bottom">
+                <div class="tetro-copyright">
                     <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a style="text-decoration: none; color: white;" href="index.html">Rose Embroidery</a>. All rights reserved.
                 </div>
-                <div class="footer-tagline">
+                <div class="tetro-tagline">
                     Quality • Precision • Trust
                 </div>
             </div>
@@ -1280,211 +1188,292 @@
         const BABA_IMAGE_URL = "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp";
 
 const products = [
-  {
-    id: 101,
-    name: "BABA Single Head Computerized Embroidery Machine with 4 Beads, 2 Sequin & Cording Device",
-    slug: "baba-single-head-4beads-sequin-cording",
-    category: "machine",
-    price: 360000,
-    badge: "Single Head",
-    image: "https://images.ctfassets.net/2jb0aeaks5sz/7aSEFyDhUpmWrbkOdvlAdF/f6af73d5397e8f1666a222e341f81a5b/DSC01504.jpg",
-    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
-    desc: "Single head embroidery machine with 4 beads, 2 sequin and cording attachment for premium boutique and designer work.",
-    specs: [
-      "Single Head",
-      "4 Beads Device",
-      "2 Sequin Device",
-      "Cording Attachment",
-      "High Precision"
-    ],
-    bestSeller: true
+  // ================= BABA MACHINES =================
+  { 
+    id: 101, 
+    name: "BABA 42 Head Computerized Embroidery Machine", 
+    slug: "baba-42-head", 
+    category: "machine", 
+    price: 0, 
+    badge: "Multi-Head", 
+    image: "https://5.imimg.com/data5/GLADMIN/Default/2023/5/307329784/KO/MN/UK/6538775/baba-42-head-computerized-embroidery-machine-500x500.jpg", 
+    desc: "42-head, 4-needle multi-head machine for large-scale production. Core parts from Japan with Dahao electronic system.", 
+    specs: ["42 Heads", "4 Needles per Head", "Max Speed: 850 RPM", "Core Parts from Japan", "Electronic System: Dahao"], 
+    bestSeller: false 
   },
 
-  {
-    id: 102,
-    name: "BABA Bolt Max 18 Head Computerized Embroidery Machine with Laser Cutting Device",
-    slug: "baba-bolt-max-18-head",
-    category: "machine",
-    price: 2040750,
-    badge: "Industrial",
-    image: "https://images.ctfassets.net/2jb0aeaks5sz/GlkfMVlMfG1hYSTH1UGTy/fa0074ef32f0e6418c711ef7ad19c751/DSC01496.jpg",
-    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
-    desc: "Industrial-grade 18 head embroidery machine with built-in laser cutting for bulk textile production.",
-    specs: [
-      "18 Heads",
-      "Laser Cutting Device",
-      "High Speed",
-      "Bulk Production",
-      "Automatic Thread Cutting"
-    ],
-    bestSeller: true
+  { 
+    id: 102, 
+    name: "BABA 21 Head High Speed Computerized Embroidery Machine", 
+    slug: "baba-21-head-high-speed", 
+    category: "machine", 
+    price: 0, 
+    badge: "High Speed", 
+    image: "https://5.imimg.com/data5/OC/XV/VJ/SELLER-6538775/21-head-high-speed-computerized-embroidery-machine.jpg", 
+    desc: "21-head, 9-needle machine for efficient, high-speed production. Maximum speed 1200 rpm with heavy body structure.", 
+    specs: ["21 Heads", "9 Needles per Head", "Max Speed: 1200 RPM", "Core Parts from Japan", "Electronic System: Dahao"], 
+    bestSeller: true 
   },
 
-  {
-    id: 103,
-    name: "BABA Single Head MIX Embroidery with Taping Machine",
-    slug: "baba-single-head-taping",
-    category: "machine",
-    price: 0,
-    badge: "Taping",
-    image: "https://images.ctfassets.net/2jb0aeaks5sz/50c2PQjq92GfGHwRY8INuU/40a6004d24f15fed9de3ba50deffe26a/DSC01471.jpg",
-    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
-    desc: "Single head mix embroidery machine with taping attachment for decorative fabric patterns.",
-    specs: [
-      "Single Head",
-      "Taping Device",
-      "Designer Work",
-      "Boutique Use"
-    ],
-    bestSeller: false
+  { 
+    id: 103, 
+    name: "BABA 21 Head High Speed with Easy Cording Device", 
+    slug: "baba-21-head-cording", 
+    category: "machine", 
+    price: 0, 
+    badge: "Cording Device", 
+    image: "https://5.imimg.com/data5/GLADMIN/Default/2023/2/CC/ZM/WE/6538775/baba-21-head-high-speed-computerized-embroidery-machine-with-easy-cording-device-500x500.jpg", 
+    desc: "21-head machine with easy cording device for decorative stitching. Perfect for adding corded accents to designs.", 
+    specs: ["21 Heads", "9 Needles", "Max Speed: 800 RPM", "Easy Cording Device from JIAYU", "Core Parts from Japan"], 
+    bestSeller: false 
   },
 
-  {
-    id: 104,
-    name: "BABA 6 Head Laser Embroidery Machine",
-    slug: "baba-6-head-laser",
-    category: "machine",
-    price: 1250000,
-    badge: "6 Head",
-    image: "https://images.ctfassets.net/2jb0aeaks5sz/35kIA5gdhwz7brVU8hQzHJ/4e3b98ffbfb56b8abcda532df664e289/WhatsApp_Image_2023-10-31_at_11.22.42_bfec9bed.jpg",
-    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
-    desc: "Commercial 6 head machine with laser support for medium scale embroidery production.",
-    specs: [
-      "6 Heads",
-      "Laser Device",
-      "Automatic",
-      "Commercial Use"
-    ],
-    bestSeller: true
+  { 
+    id: 104, 
+    name: "BABA 15 Head High Speed Computerized Embroidery Machine", 
+    slug: "baba-15-head-high-speed", 
+    category: "machine", 
+    price: 0, 
+    badge: "Industrial", 
+    image: "https://5.imimg.com/data5/JM/XR/EE/SELLER-6538775/hs-a915-400-800-1200-500x500.jpg", 
+    desc: "15-head, 9-needle machine with high-speed sequin device. Champion sequin device for enhanced embellishments.", 
+    specs: ["15 Heads", "9 Needles per Head", "Max Speed: 1200 RPM", "Auto Thread Cutter", "High Speed Sequin Device - Champion"], 
+    bestSeller: false 
   },
 
-  {
-    id: 105,
-    name: "BABA Mix Embroidery Machine Single Head",
-    slug: "baba-mix-single-head",
-    category: "machine",
-    price: 0,
-    badge: "Mix",
-    image: "https://images.ctfassets.net/2jb0aeaks5sz/6eH1TExQGrcdvQjTzncIHC/981ac20f6781711621ba03a8cab12dcc/WhatsApp_Image_2023-04-18_at_12.10.20__3_.jpeg",
-    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
-    desc: "Single head mix embroidery machine suitable for blouse, kurti and boutique stitching.",
-    specs: [
-      "Single Head",
-      "Multi Design Support",
-      "High Speed"
-    ],
-    bestSeller: false
+  { 
+    id: 105, 
+    name: "BABA Mini Schiffli 88 Head 176 Needle Machine", 
+    slug: "baba-mini-schiffli", 
+    category: "machine", 
+    price: 0, 
+    badge: "Schiffli", 
+    image: "https://5.imimg.com/data5/DY/MN/TU/SELLER-6538775/hs-n1176-55-600-1520-500x500.jpg", 
+    desc: "Specialized mini schiffli machine for lace, border, and large-scale embroidery. Ideal for saree and ethnic wear.", 
+    specs: ["88 Heads", "176 Needles", "Max Speed: 1000-1500 SPM", "Embroidery Width: 1500 mm", "Application: Schiffli Design, Lace"], 
+    bestSeller: false 
   },
 
-  {
-    id: 106,
-    name: "BABA 15 Head Computerized Embroidery Machine",
-    slug: "baba-15-head",
-    category: "machine",
-    price: 1870800,
-    badge: "15 Head",
-    image: "https://images.ctfassets.net/2jb0aeaks5sz/7eIcvHG5hX2QeknmKHWuMm/129d8507c6b0adadade0f4880bf63554/_DSC4570__1___1_.jpg",
-    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
-    desc: "15 head industrial embroidery machine for mass garment production.",
-    specs: [
-      "15 Heads",
-      "Automatic",
-      "1200 RPM",
-      "Industrial Production"
-    ],
-    bestSeller: true
+  { 
+    id: 106, 
+    name: "BABA 15 Head Computerized Embroidery Machine", 
+    slug: "baba-15-head", 
+    category: "machine", 
+    price: 0, 
+    badge: "Premium", 
+    image: "https://5.imimg.com/data5/GLADMIN/Default/2023/5/307531299/HJ/XL/LN/6538775/baba-15-head-computerized-embroidery-machine-500x500.jpg", 
+    desc: "15-head machine with easy cording and sequin devices. Versatile machine for multiple embroidery applications.", 
+    specs: ["15 Heads", "9 Needles", "Max Speed: 1200 RPM", "Easy Cording Device from JIAYU", "Sequin Device from CHAMPION"], 
+    bestSeller: false 
   },
 
-  {
-    id: 107,
-    name: "BABA Single Head Embroidery Machine 800x500 (20x32)",
-    slug: "baba-single-head-800-500",
-    category: "machine",
-    price: 0,
-    badge: "Large Frame",
-    image: "https://images.ctfassets.net/2jb0aeaks5sz/5CvcVNX5KD6Yn34DGCwMIO/47adae0b31f2f6141817d0e18c440f3f/IMG_9349.png",
-    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
-    desc: "Single head machine with large embroidery area for sarees and heavy garment work.",
-    specs: [
-      "800x500 Frame",
-      "20x32 Size",
-      "Single Head"
-    ],
-    bestSeller: false
+  { 
+    id: 107, 
+    name: "BABA Bridge Laser Multi-head Embroidery Machine", 
+    slug: "baba-bridge-laser", 
+    category: "machine", 
+    price: 0, 
+    badge: "Laser Technology", 
+    image: "https://5.imimg.com/data5/MR/LW/ZF/SELLER-6538775/bridge-laser-for-multi-head-embroidery-machine-500x500.jpg", 
+    desc: "Italian technology bridge laser machine for cutting and embroidery. Game-changing innovation for textile industry.", 
+    specs: ["CO2 Laser", "Laser Power: 400W", "Multi-Head", "High Precision", "Cutting accuracy: <0.01mm"], 
+    bestSeller: false 
   },
 
-  {
-    id: 108,
-    name: "BABA Single Head Embroidery Machine 600x400",
-    slug: "baba-single-head-600-400",
-    category: "machine",
-    price: 0,
-    badge: "Medium Frame",
-    image: "https://images.ctfassets.net/2jb0aeaks5sz/VrokgqRPlEgSuhH3vphcZ/415d7034eec74740f6e901711dddd823/GP2A0051.JPG",
-    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
-    desc: "Medium frame embroidery machine ideal for daily boutique production.",
-    specs: [
-      "600x400 Frame",
-      "Single Head",
-      "High Speed"
-    ],
-    bestSeller: false
+  { 
+    id: 108, 
+    name: "BABA Laser Cutting Aplique Work Machine", 
+    slug: "baba-laser-cutting", 
+    category: "machine", 
+    price: 0, 
+    badge: "Laser", 
+    image: "https://5.imimg.com/data5/SELLER/Default/2023/11/359146277/BE/XW/JK/6538775/baba-laser-cutting-embroidery-machine-500x500.jpg", 
+    desc: "6-head laser embroidery machine for aplique work. Integrated CO2 laser cutting device for precise applique.", 
+    specs: ["6 Heads", "9 Needles", "Max Speed: 1200 RPM", "CO2 Laser", "Max Sewing Speed: 1400 RPM"], 
+    bestSeller: false 
   },
 
-  {
-    id: 109,
-    name: "BABA Single Head High Speed Computerised Embroidery Machine 1200x500",
-    slug: "baba-single-head-1200-500",
-    category: "machine",
-    price: 600000,
-    badge: "High Speed",
-    image: "https://images.ctfassets.net/2jb0aeaks5sz/6cNjeeMm35a5H1nQ4M5A47/1de256ced003d567048d9e3db7d71483/IMG_9353.png",
-    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
-    desc: "High speed single head embroidery machine with large stitching area.",
-    specs: [
-      "1200x500 Frame",
-      "Single Head",
-      "High Speed",
-      "1200 RPM"
-    ],
-    bestSeller: true
+  { 
+    id: 109, 
+    name: "BABA 1600 Rpm BOLT Super High Speed Machine", 
+    slug: "baba-bolt-super-high-speed", 
+    category: "machine", 
+    price: 0, 
+    badge: "Super High Speed", 
+    image: "https://5.imimg.com/data5/IOS/Default/2023/10/349516529/TX/IC/HE/6538775/product-jpeg-500x500.png", 
+    desc: "Super high-speed machine with mist oiling and C5 pantograph. Redefines speed in embroidery technology.", 
+    specs: ["15 Needles", "Max Speed: 2000 SPM", "Mist Oiling System", "C5 Pantograph", "Improved Heavy Body Structure"], 
+    bestSeller: true 
   },
 
-  {
-    id: 110,
-    name: "BABA Single Head Sequin Punching Machine",
-    slug: "baba-sequin-punching",
-    category: "machine",
-    price: 0,
-    badge: "Sequin",
-    image: "https://images.ctfassets.net/2jb0aeaks5sz/4UZTHJsYNI3eVphJ1yWTrn/7bea5784c4f654aa5cabf09579328f6f/IMG_5247-1.png",
-    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
-    desc: "Specialized single head sequin machine for bridal and decorative work.",
-    specs: [
-      "Single Head",
-      "Sequin Device",
-      "Punching Support"
-    ],
-    bestSeller: false
+  { 
+    id: 110, 
+    name: "Multi Needle Sequin Embroidery Machine", 
+    slug: "multi-needle-sequin", 
+    category: "machine", 
+    price: 0, 
+    badge: "Sequin", 
+    image: "https://5.imimg.com/data5/IOS/Default/2024/5/415288941/JG/BT/HO/6538775/product-jpeg-500x500.png", 
+    desc: "Computerized sequin embroidery machine with motorized sequin device. Adds dazzling sequin embellishments effortlessly.", 
+    specs: ["9 Needles", "Max Speed: 1200 RPM", "Koban Japanese Hook", "Motorized Sequin Device", "Touch Screen Monitor"], 
+    bestSeller: false 
   },
 
-  {
-    id: 111,
-    name: "BABA Double Head Computerized Embroidery Machine (20 × 32)",
-    slug: "baba-double-head-20x32",
-    category: "machine",
-    price: 0,
-    badge: "Double Head",
-    image: "https://images.ctfassets.net/2jb0aeaks5sz/5CvcVNX5KD6Yn34DGCwMIO/47adae0b31f2f6141817d0e18c440f3f/IMG_9349.png",
-    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
-    desc: "Powerful double head embroidery machine with 20x32 frame for high-volume production.",
-    specs: [
-      "Double Head",
-      "20x32 Frame",
-      "Automatic",
-      "High Speed"
-    ],
-    bestSeller: false
+  { 
+    id: 111, 
+    name: "BABA 24 Head Computerized Embroidery Machine", 
+    slug: "baba-24-head", 
+    category: "machine", 
+    price: 0, 
+    badge: "Multi-Head", 
+    image: "https://5.imimg.com/data5/SELLER/Default/2023/7/323505887/FY/LY/HN/6538775/baba-mix-chenile-aari-multi-high-speed-computerized-embroidery-machine.jpg", 
+    desc: "24-head machine with touch screen and world-class efficiency. Highest production capabilities for large orders.", 
+    specs: ["24 Heads", "9 Needles per Head", "Max Speed: 1200 RPM", "Heavy Body Structure", "Touch Screen Monitor"], 
+    bestSeller: false 
+  },
+
+  { 
+    id: 112, 
+    name: "BABA 21 Head High Speed Chain Stitch Machine", 
+    slug: "baba-21-head-chain-stitch", 
+    category: "machine", 
+    price: 0, 
+    badge: "Chain Stitch/Aari", 
+    image: "https://5.imimg.com/data5/JY/KY/GQ/SELLER-6538775/0002.jpg", 
+    desc: "21-head, 6-color machine specialized for chain stitch and Aari work. Perfect for traditional embroidery designs.", 
+    specs: ["21 Heads", "6 Colors", "Max Speed: 1200 RPM", "Chain Stitch / Aari Work", "In-built Auto Thread Cutter"], 
+    bestSeller: false 
+  },
+
+  { 
+    id: 113, 
+    name: "BABA Embroidery Flat Bed Machine", 
+    slug: "baba-flat-bed-machine", 
+    category: "machine", 
+    price: 0, 
+    badge: "Flat Bed", 
+    image: "https://5.imimg.com/data5/SELLER/Default/2025/3/495481863/CK/TE/JE/6538775/42-head-super-high-speed-computerized-embroidery-machine-500x500.jpg", 
+    desc: "High-speed flat bed machine with customizable bed area. Supports beads, sequin, cording, laser, and towel devices.", 
+    specs: ["Max Speed: 1600 RPM", "Single Phase", "9 Needles", "Customisable Bed Area", "Supports Beads, Sequin, Cording, Laser, Towel Devices"], 
+    bestSeller: true 
+  },
+
+  { 
+    id: 114, 
+    name: "BABA 42 Head Super High Speed Machine", 
+    slug: "baba-42-head-super-high-speed", 
+    category: "machine", 
+    price: 0, 
+    badge: "Super High Speed", 
+    image: "https://5.imimg.com/data5/SELLER/Default/2025/3/495481837/RZ/QY/CA/6538775/42-head-super-high-speed-computerized-embroidery-machine-1000x1000.jpg", 
+    desc: "42-head super high-speed machine for massive production capacity. 7 lakh stitches per head daily capacity.", 
+    specs: ["42 Heads", "4 Needles per Head", "Max Speed: 1500 RPM", "Head Distance: 150mm", "Daily Capacity: 7 Lakh Stitches/Head"], 
+    bestSeller: false 
+  },
+
+  { 
+    id: 115, 
+    name: "BABA 18 Head Super High Speed Bolt Max", 
+    slug: "baba-18-head-bolt-max", 
+    category: "machine", 
+    price: 0, 
+    badge: "Bolt Max", 
+    image: "https://5.imimg.com/data5/SELLER/Default/2025/3/495692072/AH/XC/ZT/6538775/18-head-super-high-speed-embroidery-machine.jpg", 
+    desc: "18-head bolt max model with beads and sequin devices. 3 bead and 2 sequin devices for creative designs.", 
+    specs: ["18 Heads", "9 Needles per Head", "Max Speed: 1600 RPM", "3 Bead & 2 Sequin Devices", "400 mm Head-to-Head Distance"], 
+    bestSeller: false 
+  },
+
+  { 
+    id: 116, 
+    name: "BABA YUEMEI Computerized", 
+    slug: "baba-yuemei", 
+    category: "machine", 
+    price: 495000, 
+    badge: "Premium", 
+    image: "./images/machine1.jpeg", 
+    desc: "12-needle, Japanese shuttle machine with 1500 SPM. Premium quality with 2-year warranty.", 
+    specs: ["12 Needles", "1500 SPM", "Japanese Shuttle", "2 Yr Warranty"], 
+    bestSeller: false 
+  },
+
+  // ================= DEVICES =================
+  { 
+    id: 6, 
+    name: "Magnetic Hoop Pro", 
+    slug: "magnetic-hoop-pro", 
+    category: "device", 
+    price: 12500, 
+    badge: "Best Seller", 
+    image: "https://cdn.shopify.com/s/files/1/0621/4208/7329/files/1_b16c8683-cced-4970-b847-a31c05540912.jpg", 
+    desc: "7 sizes, no hoop burn, quick release magnetic hoop system.", 
+    specs: ["Magnetic", "7 Sizes", "Quick Release"], 
+    bestSeller: true 
+  },
+
+  { 
+    id: 7, 
+    name: "Digitizing Tablet Pro", 
+    slug: "digitizing-tablet-pro", 
+    category: "device", 
+    price: 28000, 
+    badge: "Pro", 
+    image: "https://images.pexels.com/photos/326503/pexels-photo-326503.jpeg?auto=compress&cs=tinysrgb&w=600", 
+    desc: "8192 pressure levels, wireless digitizing tablet for embroidery design.", 
+    specs: ["15.6\"", "8192 Levels", "Wireless"], 
+    bestSeller: false 
+  },
+
+  { 
+    id: 8, 
+    name: "Smart Thread Manager", 
+    slug: "smart-thread-manager", 
+    category: "device", 
+    price: 18500, 
+    badge: "IoT", 
+    image: "https://www.esewtech.com/comdata/74578/product/20240608164346A32780FB36B04DD0_b.png", 
+    desc: "Real-time tension monitoring, mobile alerts for thread breaks.", 
+    specs: ["Mobile App", "Break Detection", "Predictive"], 
+    bestSeller: true 
+  },
+
+  { 
+    id: 9, 
+    name: "OLH-098A Twin Sequin", 
+    slug: "olh-098a-twin-sequin", 
+    category: "device", 
+    price: 32500, 
+    badge: "Premium", 
+    image: "https://image.made-in-china.com/2f0j00AyOqEvhRkloc/Olh-098A-Twin-Sequin-Plus-Triple-Beads-Device-Double-Sequin-with-Triple-Bead-Device.jpg", 
+    desc: "Twin sequin + beads attachment for embroidery machines.", 
+    specs: ["1000 RPM", "Beads 1.7-4.0mm", "Twin Sequin"], 
+    bestSeller: false 
+  },
+
+  { 
+    id: 11, 
+    name: "Premium Thread Set (50 Colors)", 
+    slug: "premium-thread-set", 
+    category: "device", 
+    price: 4500, 
+    badge: "Bestseller", 
+    image: "https://m.media-amazon.com/images/I/71LLvUE2-VL.jpg", 
+    desc: "Rayon threads, vibrant shades for professional embroidery.", 
+    specs: ["50 Colors", "Rayon", "High Tenacity"], 
+    bestSeller: true 
+  },
+
+  { 
+    id: 12, 
+    name: "Aari Needle Set", 
+    slug: "aari-needle-set", 
+    category: "device", 
+    price: 899, 
+    badge: "Essential", 
+    image: "https://m.media-amazon.com/images/I/41BbkcD4S6L._SX679_.jpg", 
+    desc: "Professional Aari hooks & needles for chain stitch work.", 
+    specs: ["12 Sizes", "Ergonomic", "Steel"], 
+    bestSeller: false 
   }
 ];
 
@@ -1500,20 +1489,16 @@ const products = [
         const sortSelect = document.getElementById("sortSelect");
         const clearFiltersBtn = document.getElementById("clearFilters");
         const bestSellerCheck = document.getElementById("bestSellerFilter");
+        const categoryCheckboxes = document.querySelectorAll("#categoryFilters input");
         const cartCountSpan = document.getElementById("cartCount");
-
-        function isImageUrl(url) {
-            return /\.(jpe?g|png|gif|webp|svg)(\?.*)?$/i.test(url);
-        }
 
         function openQuoteModal(productId) {
             const product = products.find(p => p.id === productId);
             if (product) {
                 currentQuoteProduct = product;
                 const quoteProductInfo = document.getElementById('quoteProductInfo');
-                const quoteImage = product.image && isImageUrl(product.image) ? product.image : BABA_IMAGE_URL;
                 quoteProductInfo.innerHTML = `
-                    <img src="${quoteImage}" alt="${product.name}" onerror="this.src='${BABA_IMAGE_URL}'">
+                    <img src="${product.image}" alt="${product.name}">
                     <div>
                         <h4>${product.name}</h4>
                         <p>Price: ${product.price ? `₹${product.price.toLocaleString()}` : 'Contact for Price'}</p>
@@ -1567,10 +1552,10 @@ const products = [
                 position: fixed;
                 bottom: 30px;
                 right: 30px;
-                background: linear-gradient(95deg, #ff6b9d, #B34262);
+                background: linear-gradient(95deg, #D45A7A, #B34262);
                 color: white;
                 padding: 12px 24px;
-                border-radius: 8px;
+                border-radius: 12px;
                 font-size: 14px;
                 font-weight: 600;
                 z-index: 10000;
@@ -1585,25 +1570,11 @@ const products = [
             }, 2000);
         };
 
-        document.querySelectorAll(".category-header").forEach(header => {
-    header.addEventListener("click", () => {
-        const parent = header.parentElement;
-
-        // Close others
-        document.querySelectorAll(".category-item").forEach(item => {
-            if (item !== parent) item.classList.remove("active");
-        });
-
-        // Toggle current
-        parent.classList.toggle("active");
-    });
-});
-
-
         window.openQuoteModal = openQuoteModal;
 
         function updateCategoryCounts() {
-            // Category counts are no longer needed
+            document.getElementById("machineCount").innerText = `(${products.filter(p => p.category === "machine").length})`;
+            document.getElementById("deviceCount").innerText = `(${products.filter(p => p.category === "device").length})`;
         }
 
         function filterAndSortProducts() {
@@ -1625,38 +1596,45 @@ const products = [
         function renderProducts(productsToRender) {
             if (productsToRender.length === 0) { productsGrid.style.display = "none"; return; }
             productsGrid.style.display = "grid";
-            productsGrid.innerHTML = productsToRender.map(product => {
-                const validImage = product.image && isImageUrl(product.image) ? product.image : BABA_IMAGE_URL;
-                const categoryLabel = product.category === 'machine'
-                    ? '🪡 Embroidery Machine'
-                    : product.category === 'devices'
-                    ? '🔧 Device'
-                    : '🧵 Embroidery Accessory';
-                return `
-                <a href="machine.html#${product.slug}" class="product-card" style="text-decoration:none; color:inherit;">
-                    <div class="product-img"><img src="${validImage}" alt="${product.name}" onerror="this.src='${BABA_IMAGE_URL}'"></div>
+            productsGrid.innerHTML = productsToRender.map(product => `
+                <div class="product-card">
+                    <div class="product-img" style="background-image: url('${product.image}');"></div>
                     <div class="product-content">
-                        <span class="product-category">${categoryLabel}</span>
+                        <span class="product-category">${product.category === 'machine' ? '🪡 Embroidery Machine' : '🔧 Accessory'}</span>
                         <h3>${product.name}</h3>
                         <p class="product-desc">${product.desc.substring(0, 80)}...</p>
-                        <p class="product-price">${product.price ? `₹${product.price.toLocaleString()}` : 'Contact for Price'}</p>
+          
                         <ul class="product-specs">${product.specs.slice(0, 3).map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}</ul>
-                        <button class="quote-btn" onclick="event.preventDefault(); event.stopPropagation(); openQuoteModal(${product.id});">📩 Request Quote</button>
+                        <div class="button-group">
+                            <button class="btn-view-details" onclick="navigateToProduct(${product.id})">
+                                <i class="fas fa-eye"></i> View
+                            </button>
+                            <button class="btn-request-quote" onclick="openQuoteModal(${product.id})">
+                                <i class="fas fa-file-invoice-dollar"></i> Quote
+                            </button>
+                            <button class="add-to-cart" onclick="addToCartGlobal(${product.id})">
+                                <i class="fas fa-shopping-cart"></i> Cart
+                            </button>
+                        </div>
                     </div>
-                </a>
-            `;
-            }).join('');
+                </div>
+            `).join('');
         }
 
         function updateFilters() {
+            const selectedCategories = [];
+            categoryCheckboxes.forEach(cb => { if (cb.checked) selectedCategories.push(cb.value); });
+            currentFilters.categories = selectedCategories;
             currentFilters.bestSeller = bestSellerCheck.checked;
             filterAndSortProducts();
         }
 
+        categoryCheckboxes.forEach(cb => cb.addEventListener("change", updateFilters));
         bestSellerCheck.addEventListener("change", updateFilters);
         searchInput.addEventListener("input", (e) => { currentFilters.search = e.target.value; filterAndSortProducts(); });
         sortSelect.addEventListener("change", (e) => { currentSort = e.target.value; filterAndSortProducts(); });
         clearFiltersBtn.addEventListener("click", () => {
+            categoryCheckboxes.forEach(cb => cb.checked = false);
             bestSellerCheck.checked = false;
             searchInput.value = "";
             sortSelect.value = "default";

@@ -678,7 +678,6 @@
   <section class="hero-section">
     <div class="hero-content" data-aos="fade-up" data-aos-duration="1200">
       <h2 id="heroCategory">Premium Embroidery Machine</h2>
-      <h1 id="heroTitle">BABA Multi Head Series</h1>
       <p id="heroSubtitle">Industrial-grade computerized machines for high-volume production</p>
       <div class="hero-badge" id="heroBadge"><i class="fas fa-gem"></i> BABA Machinery</div>
     </div>
@@ -1009,14 +1008,25 @@
 ];
     function getAllProducts() { return productDatabase; }
     function getProductBySlug(slug) { return getAllProducts().find(p => p.slug === slug); }
-    function getCurrentProductId() { const hash = window.location.hash.substring(1); return hash || 'baba-multi-head'; }
+    function getCurrentProductId() { const hash = window.location.hash.substring(1); return hash || 'baba-single-head-4beads-sequin-cording'; }
 
     function loadProduct(productSlug) {
       const product = getProductBySlug(productSlug);
-      if (!product) { loadProduct('baba-multi-head'); return; }
+      const defaultSlug = 'baba-single-head-4beads-sequin-cording';
+      if (!product) {
+        if (productSlug === defaultSlug) {
+          console.error(`Default product '${defaultSlug}' is missing from database.`);
+          return;
+        }
+        console.warn(`Product '${productSlug}' not found. Falling back to '${defaultSlug}'.`);
+        window.location.hash = defaultSlug;
+        loadProduct(defaultSlug);
+        return;
+      }
       currentProduct = product;
       document.getElementById('heroCategory').innerText = product.category === 'machine' ? 'Embroidery Machine' : 'Premium Accessory';
-      document.getElementById('heroTitle').innerText = product.name;
+      const heroTitleEl = document.getElementById('heroTitle');
+      if (heroTitleEl) heroTitleEl.innerText = product.name;
       document.getElementById('heroSubtitle').innerText = product.desc;
       document.getElementById('heroBadge').innerHTML = `<i class="fas fa-gem"></i> ${product.badge || 'Premium Quality'}`;
       document.getElementById('productBadge').innerHTML = `<i class="fas fa-${product.category === 'machine' ? 'microchip' : 'tools'}"></i> ${product.category === 'machine' ? 'Industrial Machine' : 'Attachment Device'}`;
@@ -1039,7 +1049,7 @@
       document.getElementById('relatedGrid').innerHTML = products.map(p => `<div class="related-card" onclick="navigateToProduct('${p.slug}')"><img src="${p.image}" alt="${p.name}" onerror="this.src='https://placehold.co/400x220/f5e6e8/d45a7a?text=Rose'"><h4>${p.name}</h4><p>${p.price ? `₹${p.price.toLocaleString()}` : 'Contact for Price'}</p></div>`).join('');
     }
 
-    function navigateToProduct(slug) { window.location.href = `devices.html#${slug}`; }
+    function navigateToProduct(slug) { window.location.href = `machine.html#${slug}`; }
     window.changeImage = function(el, src) { document.getElementById('mainImage').src = src; document.querySelectorAll('.thumb-btn').forEach(btn => btn.classList.remove('active')); el.classList.add('active'); };
     window.addToCart = function() { if(!currentProduct) return; let cart = JSON.parse(localStorage.getItem('cart')) || []; let existing = cart.find(i => i.id === currentProduct.id); if(existing) existing.quantity += 1; else cart.push({ id: currentProduct.id, name: currentProduct.name, price: currentProduct.price, image: currentProduct.image, quantity: 1 }); localStorage.setItem('cart', JSON.stringify(cart)); updateCartCount(); let toast = document.createElement('div'); toast.className = 'toast-notification'; toast.innerHTML = `<i class="fas fa-check-circle"></i> ${currentProduct.name} added to cart!`; document.body.appendChild(toast); setTimeout(() => { toast.style.opacity = '0'; setTimeout(() => toast.remove(), 300); }, 2000); };
     window.enquireNow = function() { if(currentProduct) alert(`📞 Inquiry for ${currentProduct.name}\n\nContact: +91 90255 52206\nEmail: Drroslineg@gmail.com\n\nWe'll get back with best pricing.`); };

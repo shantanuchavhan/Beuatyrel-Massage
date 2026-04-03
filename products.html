@@ -996,7 +996,7 @@
                 <a class="nav-attribute" href="contact.html">Contact</a>
                 <a class="nav-attribute" style="display: flex; gap: 6px; align-items: center; justify-content: center;" href="login.html"><i class="fas fa-user"></i> Login</a>
                 <a class="nav-attribute cart-icon" href="cart.html">
-                    <i class="fas fa-Productsping-cart"></i>
+                    <i class="fas fa-shopping-cart"></i>
                     <span class="cart-count" id="cartCount">0</span>
                 </a>
             </div>
@@ -1011,9 +1011,20 @@
         <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
         <a href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
         <a  href="login.html"><i class="fas fa-user"></i> Login</a>
-        <a href="cart.html"><i class="fas fa-Productsping-cart"></i> Cart <span id="mobileCartCount">0</span></a>
+        <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart <span id="mobileCartCount">0</span></a>
     </div>
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+    <!-- Products Hero Section -->
+    <section class="Products-hero">
+        <div class="floating-icon" style="top: 80px; left: 10%; animation-delay: 0s;">✨</div>
+        <div class="floating-icon" style="top: 150px; right: 15%; animation-delay: 1s;">🪡</div>
+        <div class="floating-icon" style="bottom: 100px; left: 5%; animation-delay: 0.5s;">💎</div>
+        <div class="container">
+            <h1><i class="fas fa-box"></i> Our Products</h1>
+            <p>Discover premium embroidery machines and accessories for your craft</p>
+        </div>
+    </section>
 
     <!-- Quote Modal -->
     <div id="quoteModal" class="quote-modal">
@@ -1073,6 +1084,15 @@
         <div class="category-item">
             <div class="category-header">
                 Embroidery Machines <span>⌄</span>
+            </div>
+            <div class="subcategory">
+                <p onclick="navigateToProduct(101)">BABA Single Head Computerized Embroidery Machine</p>
+                <p onclick="navigateToProduct(103)">Single Head MIX Embroidery with Taping Machine</p>
+                <p onclick="navigateToProduct(105)">BABA Mix Embroidery Machine – Single Head</p>
+                <p onclick="navigateToProduct(107)">BABA Single Head Embroidery Machine 800–500 (20 × 32)</p>
+                <p onclick="navigateToProduct(108)">BABA Single Head Embroidery Machine 600–400</p>
+                <p onclick="navigateToProduct(109)">BABA Single Head High Speed Computerized Embroidery Machine 1200–500 (20 × 48)</p>
+                <p onclick="navigateToProduct(111)">BABA Double Head Computerized Embroidery Machine (20 × 32)</p>
             </div>
         </div>
 
@@ -1224,7 +1244,7 @@ const products = [
   {
     id: 101,
     name: "BABA Single Head Computerized Embroidery Machine with 4 Beads, 2 Sequin & Cording Device",
-    slug: "single-head-4beads-2sequin-cording",
+    slug: "baba-single-head-4beads-sequin-cording",
     category: "machine",
     price: 360000,
     badge: "Single Head",
@@ -1244,7 +1264,7 @@ const products = [
   {
     id: 102,
     name: "BABA Bolt Max 18 Head Computerized Embroidery Machine with Laser Cutting Device",
-    slug: "bolt-max-18-head-laser",
+    slug: "baba-bolt-max-18-head",
     category: "machine",
     price: 2040750,
     badge: "Industrial",
@@ -1264,7 +1284,7 @@ const products = [
   {
     id: 103,
     name: "BABA Single Head MIX Embroidery with Taping Machine",
-    slug: "single-head-mix-taping",
+    slug: "baba-single-head-taping",
     category: "machine",
     price: 0,
     badge: "Taping",
@@ -1283,7 +1303,7 @@ const products = [
   {
     id: 104,
     name: "BABA 6 Head Laser Embroidery Machine",
-    slug: "6-head-laser",
+    slug: "baba-6-head-laser",
     category: "machine",
     price: 1250000,
     badge: "6 Head",
@@ -1302,7 +1322,7 @@ const products = [
   {
     id: 105,
     name: "BABA Mix Embroidery Machine Single Head",
-    slug: "mix-single-head",
+    slug: "baba-mix-single-head",
     category: "machine",
     price: 0,
     badge: "Mix",
@@ -1320,7 +1340,7 @@ const products = [
   {
     id: 106,
     name: "BABA 15 Head Computerized Embroidery Machine",
-    slug: "15-head",
+    slug: "baba-15-head",
     category: "machine",
     price: 1870800,
     badge: "15 Head",
@@ -1339,7 +1359,7 @@ const products = [
   {
     id: 107,
     name: "BABA Single Head Embroidery Machine 800x500 (20x32)",
-    slug: "single-head-800x500",
+    slug: "baba-single-head-800-500",
     category: "machine",
     price: 0,
     badge: "Large Frame",
@@ -1357,7 +1377,7 @@ const products = [
   {
     id: 108,
     name: "BABA Single Head Embroidery Machine 600x400",
-    slug: "single-head-600x400",
+    slug: "baba-single-head-600-400",
     category: "machine",
     price: 0,
     badge: "Medium Frame",
@@ -1375,7 +1395,7 @@ const products = [
   {
     id: 109,
     name: "BABA Single Head High Speed Computerised Embroidery Machine 1200x500",
-    slug: "single-head-high-speed-1200x500",
+    slug: "baba-single-head-1200-500",
     category: "machine",
     price: 600000,
     badge: "High Speed",
@@ -1394,7 +1414,7 @@ const products = [
   {
     id: 110,
     name: "BABA Single Head Sequin Punching Machine",
-    slug: "single-head-sequin",
+    slug: "baba-sequin-punching",
     category: "machine",
     price: 0,
     badge: "Sequin",
@@ -1405,6 +1425,24 @@ const products = [
       "Single Head",
       "Sequin Device",
       "Punching Support"
+    ],
+    bestSeller: false
+  },
+  {
+    id: 111,
+    name: "BABA Double Head Computerized Embroidery Machine (20 × 32)",
+    slug: "baba-double-head-20x32",
+    category: "machine",
+    price: 0,
+    badge: "Double Head",
+    image: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    link: "https://www.babamachinery.com/products/computerised-embroidery-machine",
+    desc: "Powerful double head embroidery machine with 20x32 frame for high-volume production.",
+    specs: [
+      "Double Head",
+      "20x32 Frame",
+      "Automatic",
+      "High Speed"
     ],
     bestSeller: false
   }
@@ -1422,7 +1460,6 @@ const products = [
         const sortSelect = document.getElementById("sortSelect");
         const clearFiltersBtn = document.getElementById("clearFilters");
         const bestSellerCheck = document.getElementById("bestSellerFilter");
-        const categoryCheckboxes = document.querySelectorAll("#categoryFilters input");
         const cartCountSpan = document.getElementById("cartCount");
 
         function openQuoteModal(productId) {
@@ -1430,8 +1467,9 @@ const products = [
             if (product) {
                 currentQuoteProduct = product;
                 const quoteProductInfo = document.getElementById('quoteProductInfo');
+                const quoteImage = product.image && product.image.startsWith('http') ? product.image : BABA_IMAGE_URL;
                 quoteProductInfo.innerHTML = `
-                    <img src="${product.image}" alt="${product.name}">
+                    <img src="${quoteImage}" alt="${product.name}" onerror="this.src='${BABA_IMAGE_URL}'">
                     <div>
                         <h4>${product.name}</h4>
                         <p>Price: ${product.price ? `₹${product.price.toLocaleString()}` : 'Contact for Price'}</p>
@@ -1521,8 +1559,7 @@ const products = [
         window.openQuoteModal = openQuoteModal;
 
         function updateCategoryCounts() {
-            document.getElementById("machineCount").innerText = `(${products.filter(p => p.category === "machine").length})`;
-            document.getElementById("deviceCount").innerText = `(${products.filter(p => p.category === "device").length})`;
+            // Category counts are no longer needed
         }
 
         function filterAndSortProducts() {
@@ -1544,45 +1581,37 @@ const products = [
         function renderProducts(productsToRender) {
             if (productsToRender.length === 0) { productsGrid.style.display = "none"; return; }
             productsGrid.style.display = "grid";
-            productsGrid.innerHTML = productsToRender.map(product => `
-                <div class="product-card">
-                    <div class="product-img" style="background-image: url('${product.image}');"></div>
+            productsGrid.innerHTML = productsToRender.map(product => {
+                const validImage = product.image && product.image.startsWith('http') ? product.image : BABA_IMAGE_URL;
+                const categoryLabel = product.category === 'machine'
+                    ? '🪡 Embroidery Machine'
+                    : product.category === 'devices'
+                    ? '🔧 Device'
+                    : '🧵 Embroidery Accessory';
+                return `
+                <a href="machine.html#${product.slug}" class="product-card" style="text-decoration:none; color:inherit;">
+                    <div class="product-img"><img src="${validImage}" alt="${product.name}" onerror="this.src='${BABA_IMAGE_URL}'"></div>
                     <div class="product-content">
-                        <span class="product-category">${product.category === 'machine' ? '🪡 Embroidery Machine' : '🔧 Accessory'}</span>
+                        <span class="product-category">${categoryLabel}</span>
                         <h3>${product.name}</h3>
                         <p class="product-desc">${product.desc.substring(0, 80)}...</p>
-          
+                        <p class="product-price">${product.price ? `₹${product.price.toLocaleString()}` : 'Contact for Price'}</p>
                         <ul class="product-specs">${product.specs.slice(0, 3).map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}</ul>
-                        <div class="button-group">
-                            <button class="btn-view-details" onclick="navigateToProduct(${product.id})">
-                                <i class="fas fa-eye"></i> View
-                            </button>
-                            <button class="btn-request-quote" onclick="openQuoteModal(${product.id})">
-                                <i class="fas fa-file-invoice-dollar"></i> Quote
-                            </button>
-                            <button class="add-to-cart" onclick="addToCartGlobal(${product.id})">
-                                <i class="fas fa-Productsping-cart"></i> Cart
-                            </button>
-                        </div>
                     </div>
-                </div>
-            `).join('');
+                </a>
+            `;
+            }).join('');
         }
 
         function updateFilters() {
-            const selectedCategories = [];
-            categoryCheckboxes.forEach(cb => { if (cb.checked) selectedCategories.push(cb.value); });
-            currentFilters.categories = selectedCategories;
             currentFilters.bestSeller = bestSellerCheck.checked;
             filterAndSortProducts();
         }
 
-        categoryCheckboxes.forEach(cb => cb.addEventListener("change", updateFilters));
         bestSellerCheck.addEventListener("change", updateFilters);
         searchInput.addEventListener("input", (e) => { currentFilters.search = e.target.value; filterAndSortProducts(); });
         sortSelect.addEventListener("change", (e) => { currentSort = e.target.value; filterAndSortProducts(); });
         clearFiltersBtn.addEventListener("click", () => {
-            categoryCheckboxes.forEach(cb => cb.checked = false);
             bestSellerCheck.checked = false;
             searchInput.value = "";
             sortSelect.value = "default";

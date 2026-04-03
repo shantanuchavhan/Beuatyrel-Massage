@@ -1639,7 +1639,6 @@ const products = [
                         <span class="product-category">${categoryLabel}</span>
                         <h3>${product.name}</h3>
                         <p class="product-desc">${product.desc.substring(0, 80)}...</p>
-                        <p class="product-price">${product.price ? `₹${product.price.toLocaleString()}` : 'Contact for Price'}</p>
                         <ul class="product-specs">${product.specs.slice(0, 3).map(spec => `<li><i class="fas fa-check-circle"></i> ${spec}</li>`).join('')}</ul>
                         <button class="quote-btn" onclick="event.preventDefault(); event.stopPropagation(); openQuoteModal(${product.id});">📩 Request Quote</button>
                     </div>

@@ -21,7 +21,7 @@
             font-family: 'Montserrat', sans-serif;
             color: #2C2C2C;
             line-height: 1.6;
-            background: linear-gradient(135deg, #FFF9FB 0%, #FEF5F8 100%);
+            background: #FFCBDA;
             overflow-x: hidden;
         }
 
@@ -973,7 +973,7 @@
         }
 
         .logo img {
-            height: 60px;
+            height: 90px;
             transition: all 0.3s ease;
         }
 
@@ -2082,17 +2082,36 @@ const products = [
                 const filterParam = hash.split('=')[1];
                 if (filterParam === 'machine') {
                     filterByCategory('machine');
+                    // Open machines dropdown
+                    const machinesDropdown = document.querySelector('.category-item.active');
+                    if (machinesDropdown) {
+                        machinesDropdown.classList.remove('active');
+                    }
+                    const allDropdowns = document.querySelectorAll('.category-item');
+                    allDropdowns.forEach(dropdown => {
+                        if (dropdown.textContent.includes('Embroidery Machines')) {
+                            dropdown.classList.add('active');
+                        }
+                    });
                 } else if (filterParam === 'devices') {
                     filterByCategory('devices');
-                } else if (filterParam === 'embroidery-materials') {
-                    // Filter for embroidery materials category
-                    currentFilters.categories = ['embroidery-materials'];
-                    filterAndSortProducts();
-                } else if (filterParam === 'materials') {
-                    // Generic materials filter
-                    currentFilters.categories = ['materials'];
+                    // Open devices dropdown
+                    const allDropdowns = document.querySelectorAll('.category-item');
+                    allDropdowns.forEach(dropdown => {
+                        if (dropdown.textContent.includes('Devices') && !dropdown.textContent.includes('Spare')) {
+                            dropdown.classList.add('active');
+                        } else {
+                            dropdown.classList.remove('active');
+                        }
+                    });
+                } else {
+                    // For materials or other categories, show all products
+                    currentFilters.categories = [];
                     filterAndSortProducts();
                 }
+            } else {
+                // Default: show all products on initial load
+                filterAndSortProducts();
             }
         });
 

@@ -426,6 +426,33 @@
           gap: 10px;
         }
       }
+
+      /* Standardized Color Scheme */
+      :root {
+        --primary-pink: #ff6b9d;
+        --light-pink: #FFCBDA;
+        --dark-pink: #d4567a;
+        --white: #ffffff;
+      }
+
+      body {
+        background-color: var(--light-pink) !important;
+      }
+
+      /* Light pink background for sections */
+      .bg-light-pink {
+        background-color: var(--light-pink);
+      }
+
+      /* Primary pink for accents */
+      .bg-primary-pink {
+        background-color: var(--primary-pink);
+      }
+
+      /* Dark pink for hover states */
+      .hover:bg-dark-pink:hover {
+        background-color: var(--dark-pink);
+      }
     </style>
 
     <script id="tailwind-config">

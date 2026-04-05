@@ -6,7 +6,7 @@ footer_html = """<footer class="footer-footer">
         <div class="footer-footer-row">
             <div class="footer-footer-col col-brand">
                 <a href="index.html" class="footer-brand">
-                    <h2>Rose Embroidery</h2>
+                    <h2>Rose Embroidery Machines</h2>
                 </a>
                 <p>Trusted provider of high-performance embroidery machinery, dedicated to elevating craftsmanship with precision and quality.</p>
                 <div class="footer-social-links">
@@ -41,7 +41,7 @@ footer_html = """<footer class="footer-footer">
         <hr class="footer-footer-divider">
         <div class="footer-footer-bottom">
             <div class="footer-copyright">
-                <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose Embroidery</a>. All rights reserved.
+                <i class="fas fa-copyright"></i> <span id="copyright-year">2026</span> <a href="index.html">Rose Embroidery Machines</a>. All rights reserved.
             </div>
             <div class="footer-tagline">
                 Quality Precision Trust
@@ -86,10 +86,10 @@ css_addition = """
             display: inline-block;
             margin-bottom: 20px;
         }
-        .footer-brand h2 {
+           .footer-brand h2 {
             color: #fff;
             font-weight: 700;
-            font-size: 32px;
+            font-size: 24px;
             font-family: 'Montserrat', sans-serif;
             margin: 0;
         }

@@ -3,7 +3,7 @@ import re
 
 nav_html = """<nav class="navbar" id="navbar">
     <div class="nav-container">
-        <div class="logo"><a href="./index.html"><img src="./images/logo.png" alt="Rose Embroidery"></a></a><div></div>
+        <div class="logo"><a href="./index.html"><img src="./images/logo.png" alt="Rose Embroidery Machines"></a></a><div></div>
         <div class="nav-links">
             <a class="nav-attribute" href="index.html">Home</a>
             <a class="nav-attribute" href="about.html">About</a>

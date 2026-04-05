@@ -2075,6 +2075,27 @@ const products = [
             filterAndSortProducts();
         });
 
+        // Check for URL hash filter parameter and apply filter on page load
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1);
+            if (hash.startsWith('filter=')) {
+                const filterParam = hash.split('=')[1];
+                if (filterParam === 'machine') {
+                    filterByCategory('machine');
+                } else if (filterParam === 'devices') {
+                    filterByCategory('devices');
+                } else if (filterParam === 'embroidery-materials') {
+                    // Filter for embroidery materials category
+                    currentFilters.categories = ['embroidery-materials'];
+                    filterAndSortProducts();
+                } else if (filterParam === 'materials') {
+                    // Generic materials filter
+                    currentFilters.categories = ['materials'];
+                    filterAndSortProducts();
+                }
+            }
+        });
+
         document.getElementById('quoteForm').addEventListener('submit', sendQuoteRequest);
 
         function toggleMenu() {

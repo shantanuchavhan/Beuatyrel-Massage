@@ -176,10 +176,53 @@
     color: #666;
     cursor: pointer;
     transition: 0.2s;
+    padding-left: 10px;
 }
 
 .subcategory p:hover {
     color: #ff6b9d;
+}
+
+/* Device Subcategories */
+.device-subcategory {
+    margin-bottom: 15px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #f0d9e0;
+}
+
+.device-subcategory:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.device-subheader {
+    font-size: 12px;
+    font-weight: 700;
+    color: #ff6b9d;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 5px 0;
+}
+
+.device-subcategory p {
+    margin: 6px 0;
+    font-size: 12px;
+    color: #555;
+    cursor: pointer;
+    transition: 0.2s;
+    padding-left: 20px;
+}
+
+.device-subcategory p.device-model {
+    font-weight: 600;
+    color: #333;
+}
+
+.device-subcategory p:hover {
+    color: #ff6b9d;
+    padding-left: 25px;
 }
 
 /* Active dropdown */
@@ -196,9 +239,21 @@
             flex-shrink: 0;
             background: transparent;
             padding: 0;
-            height: fit-content;
+            height: auto;
+            max-height: calc(100vh - 150px);
+            overflow-y: auto;
             position: sticky;
             top: 100px;
+        }
+
+        /* Hide scrollbar but keep scrolling functionality */
+        .filters-sidebar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .filters-sidebar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
         }
 
         .filter-section {
@@ -344,6 +399,24 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 30px;
+        }
+
+        .category-divider {
+            grid-column: 1 / -1;
+            padding: 20px 0;
+            margin: 20px 0 10px 0;
+            border-top: 2px solid #ff6b9d;
+            border-bottom: 1px solid #E8D5DE;
+            background: linear-gradient(90deg, rgba(255, 107, 157, 0.05), transparent);
+        }
+
+        .category-divider h3 {
+            margin: 0;
+            font-size: 16px;
+            font-weight: 600;
+            color: #ff6b9d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         .product-card {
@@ -1120,8 +1193,8 @@
     <div class="category-menu">
 
         <!-- 1. Embroidery Machines -->
-        <div class="category-item">
-            <div class="category-header">
+        <div class="category-item active">
+            <div class="category-header" onclick="toggleDropdown(this); filterByCategory('machine');">
                 Embroidery Machines <span>⌄</span>
             </div>
             <div class="subcategory">
@@ -1137,14 +1210,46 @@
 
         <!-- 2. Devices -->
         <div class="category-item">
-            <div class="category-header">
+            <div class="category-header" onclick="toggleDropdown(this); filterByCategory('devices');">
                 Devices <span>⌄</span>
+            </div>
+            <div class="subcategory">
+                <div class="device-subcategory">
+                    <div class="device-subheader" onclick="filterByDeviceType('Single Sequin Device'); event.stopPropagation();">🎯 Sequin Devices</div>
+                    <p onclick="navigateToProduct(202)" class="device-model">Single Sequin Device SQ-522</p>
+                    <p onclick="navigateToProduct(202.1)" class="device-model">Single Sequin Device SQ-520</p>
+                    <p onclick="navigateToProduct(202.2)" class="device-model">Single Sequin Device SQ-422A</p>
+                    <p onclick="navigateToProduct(203)" class="device-model">Dual Sequin Device DQ-522</p>
+                    <p onclick="navigateToProduct(203.1)" class="device-model">Dual Sequin Device DQ-520</p>
+                    <p onclick="navigateToProduct(204)" class="device-model">Triple Sequin Device TQ-522</p>
+                    <p onclick="navigateToProduct(204.1)" class="device-model">Triple Sequin Device TQ-520</p>
+                    <p onclick="navigateToProduct(205)" class="device-model">Four Sequin Device FQ-522</p>
+                    <p onclick="navigateToProduct(205.1)" class="device-model">Four Sequin Device FQ-520</p>
+                    <p onclick="navigateToProduct(206)" class="device-model">Multi Sequin Device MQ-522</p>
+                    <p onclick="navigateToProduct(206.1)" class="device-model">Multi Sequin Device MQ-520</p>
+                </div>
+                <div class="device-subcategory">
+                    <div class="device-subheader" onclick="filterByDeviceType('Bead Device Attachment'); event.stopPropagation();">💎 Bead Devices</div>
+                    <p onclick="navigateToProduct(201)" class="device-model">Bead Device BD-522</p>
+                    <p onclick="navigateToProduct(201.1)" class="device-model">Bead Device BD-520</p>
+                    <p onclick="navigateToProduct(201.2)" class="device-model">Bead Device BD-422A</p>
+                </div>
+                <div class="device-subcategory">
+                    <div class="device-subheader" onclick="filterByDeviceType('Cording Device Attachment'); event.stopPropagation();">🧵 Cording Devices</div>
+                    <p onclick="navigateToProduct(207)" class="device-model">Cording Device CD-522</p>
+                    <p onclick="navigateToProduct(207.1)" class="device-model">Cording Device CD-520</p>
+                </div>
+                <div class="device-subcategory">
+                    <div class="device-subheader" onclick="filterByDeviceType('Taping Device Attachment'); event.stopPropagation();">📎 Taping Devices</div>
+                    <p onclick="navigateToProduct(208)" class="device-model">Taping Device TP-522</p>
+                    <p onclick="navigateToProduct(208.1)" class="device-model">Taping Device TP-520</p>
+                </div>
             </div>
         </div>
 
         <!-- 3. Embroidery Materials -->
-        <div class="category-item active">
-            <div class="category-header">
+        <div class="category-item ">
+            <div class="category-header" onclick="toggleDropdown(this);">
                 Embroidery Materials <span>⌄</span>
             </div>
             <div class="subcategory">
@@ -1157,7 +1262,7 @@
 
         <!-- 4. Aari Materials -->
         <div class="category-item">
-            <div class="category-header">
+            <div class="category-header" onclick="toggleDropdown(this);">
                 Aari Materials <span>⌄</span>
             </div>
             <div class="subcategory">
@@ -1170,7 +1275,7 @@
 
         <!-- 5. Embroidery Designs -->
         <div class="category-item">
-            <div class="category-header">
+            <div class="category-header" onclick="toggleDropdown(this);">
                 Embroidery Designs <span>⌄</span>
             </div>
             <div class="subcategory">
@@ -1181,7 +1286,7 @@
 
         <!-- 6. Spare Parts -->
         <div class="category-item">
-            <div class="category-header">
+            <div class="category-header" onclick="toggleDropdown(this);">
                 Spare Parts <span>⌄</span>
             </div>
             <div class="subcategory">
@@ -1485,8 +1590,259 @@ const products = [
       "High Speed"
     ],
     bestSeller: false
+  },
+
+  // Bead Device Variants
+  {
+    id: 201,
+    name: "Bead Device Attachment BD-522",
+    slug: "bead-device-bd-522",
+    category: "devices",
+    price: 0,
+    badge: "Bead Device",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.babamachinery.net/devices-and-attachments.html",
+    desc: "Professional bead attachment device BD-522 for embroidery machines, compatible with BABA single and multi-head machines.",
+    specs: ["Bead Threading Support", "High Precision Control", "Easy Installation"],
+    bestSeller: false
+  },
+  {
+    id: 201.1,
+    name: "Bead Device Attachment BD-520",
+    slug: "bead-device-bd-520",
+    category: "devices",
+    price: 0,
+    badge: "Bead Device",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.babamachinery.net/devices-and-attachments.html",
+    desc: "Professional bead attachment device BD-520 for embroidery machines, compatible with BABA single and multi-head machines.",
+    specs: ["Bead Threading Support", "High Precision Control", "Easy Installation"],
+    bestSeller: false
+  },
+  {
+    id: 201.2,
+    name: "Bead Device Attachment BD-422A",
+    slug: "bead-device-bd-422a",
+    category: "devices",
+    price: 0,
+    badge: "Bead Device",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.babamachinery.net/devices-and-attachments.html",
+    desc: "Professional bead attachment device BD-422A for embroidery machines, compatible with BABA single and multi-head machines.",
+    specs: ["Bead Threading Support", "High Precision Control", "Easy Installation"],
+    bestSeller: false
+  },
+
+  // Single Sequin Device Variants
+  {
+    id: 202,
+    name: "Single Sequin Device SQ-522",
+    slug: "single-sequin-device-sq-522",
+    category: "devices",
+    price: 0,
+    badge: "Single Sequin",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.championdevice.com/index.php?m=home&c=Lists&a=index&tid=18&lang=en",
+    desc: "Single sequin device SQ-522 for precise sequin placement in embroidery designs.",
+    specs: ["Single Sequin Placement", "Automatic Threading", "Universal Compatibility"],
+    bestSeller: false
+  },
+  {
+    id: 202.1,
+    name: "Single Sequin Device SQ-520",
+    slug: "single-sequin-device-sq-520",
+    category: "devices",
+    price: 0,
+    badge: "Single Sequin",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.championdevice.com/index.php?m=home&c=Lists&a=index&tid=18&lang=en",
+    desc: "Single sequin device SQ-520 for precise sequin placement in embroidery designs.",
+    specs: ["Single Sequin Placement", "Automatic Threading", "Universal Compatibility"],
+    bestSeller: false
+  },
+  {
+    id: 202.2,
+    name: "Single Sequin Device SQ-422A",
+    slug: "single-sequin-device-sq-422a",
+    category: "devices",
+    price: 0,
+    badge: "Single Sequin",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.championdevice.com/index.php?m=home&c=Lists&a=index&tid=18&lang=en",
+    desc: "Single sequin device SQ-422A for precise sequin placement in embroidery designs.",
+    specs: ["Single Sequin Placement", "Automatic Threading", "Universal Compatibility"],
+    bestSeller: false
+  },
+
+  // Dual Sequin Device Variants
+  {
+    id: 203,
+    name: "Dual Sequin Device DQ-522",
+    slug: "dual-sequin-device-dq-522",
+    category: "devices",
+    price: 0,
+    badge: "Dual Sequin",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.championdevice.com/index.php?m=home&c=Lists&a=index&tid=18&lang=en",
+    desc: "Dual sequin device DQ-522 for faster production with two sequin channels simultaneously.",
+    specs: ["Dual Sequin Channels", "High Speed Output", "Synchronized Threading"],
+    bestSeller: true
+  },
+  {
+    id: 203.1,
+    name: "Dual Sequin Device DQ-520",
+    slug: "dual-sequin-device-dq-520",
+    category: "devices",
+    price: 0,
+    badge: "Dual Sequin",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.championdevice.com/index.php?m=home&c=Lists&a=index&tid=18&lang=en",
+    desc: "Dual sequin device DQ-520 for faster production with two sequin channels simultaneously.",
+    specs: ["Dual Sequin Channels", "High Speed Output", "Synchronized Threading"],
+    bestSeller: true
+  },
+
+  // Triple Sequin Device Variants
+  {
+    id: 204,
+    name: "Triple Sequin Device TQ-522",
+    slug: "triple-sequin-device-tq-522",
+    category: "devices",
+    price: 0,
+    badge: "Triple Sequin",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.championdevice.com/index.php?m=home&c=Lists&a=index&tid=18&lang=en",
+    desc: "Triple sequin device TQ-522 for high-volume production with three sequin channels.",
+    specs: ["Triple Sequin Channels", "Industrial Grade", "Fast Threading System"],
+    bestSeller: true
+  },
+  {
+    id: 204.1,
+    name: "Triple Sequin Device TQ-520",
+    slug: "triple-sequin-device-tq-520",
+    category: "devices",
+    price: 0,
+    badge: "Triple Sequin",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.championdevice.com/index.php?m=home&c=Lists&a=index&tid=18&lang=en",
+    desc: "Triple sequin device TQ-520 for high-volume production with three sequin channels.",
+    specs: ["Triple Sequin Channels", "Industrial Grade", "Fast Threading System"],
+    bestSeller: true
+  },
+
+  // Four Sequin Device Variants
+  {
+    id: 205,
+    name: "Four Sequin Device FQ-522",
+    slug: "four-sequin-device-fq-522",
+    category: "devices",
+    price: 0,
+    badge: "Four Sequin",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.championdevice.com/index.php?m=home&c=Lists&a=index&tid=18&lang=en",
+    desc: "Four sequin device FQ-522 for maximum production efficiency with four independent sequin channels.",
+    specs: ["Four Sequin Channels", "Maximum Efficiency", "Precision Control"],
+    bestSeller: true
+  },
+  {
+    id: 205.1,
+    name: "Four Sequin Device FQ-520",
+    slug: "four-sequin-device-fq-520",
+    category: "devices",
+    price: 0,
+    badge: "Four Sequin",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.championdevice.com/index.php?m=home&c=Lists&a=index&tid=18&lang=en",
+    desc: "Four sequin device FQ-520 for maximum production efficiency with four independent sequin channels.",
+    specs: ["Four Sequin Channels", "Maximum Efficiency", "Precision Control"],
+    bestSeller: true
+  },
+
+  // Multi Sequin Device Variants
+  {
+    id: 206,
+    name: "Multi Sequin Device MQ-522",
+    slug: "multi-sequin-device-mq-522",
+    category: "devices",
+    price: 0,
+    badge: "Multi Sequin",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.championdevice.com/index.php?m=home&c=Lists&a=index&tid=18&lang=en",
+    desc: "Advanced multi sequin device MQ-522 supporting up to 6 sequin channels for ultra-high speed production.",
+    specs: ["Up to 6 Sequin Channels", "Ultra High Speed", "Advanced Synchronization"],
+    bestSeller: true
+  },
+  {
+    id: 206.1,
+    name: "Multi Sequin Device MQ-520",
+    slug: "multi-sequin-device-mq-520",
+    category: "devices",
+    price: 0,
+    badge: "Multi Sequin",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.championdevice.com/index.php?m=home&c=Lists&a=index&tid=18&lang=en",
+    desc: "Advanced multi sequin device MQ-520 supporting up to 6 sequin channels for ultra-high speed production.",
+    specs: ["Up to 6 Sequin Channels", "Ultra High Speed", "Advanced Synchronization"],
+    bestSeller: true
+  },
+
+  // Cording Device Variants
+  {
+    id: 207,
+    name: "Cording Device CD-522",
+    slug: "cording-device-cd-522",
+    category: "devices",
+    price: 0,
+    badge: "Cording",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.babamachinery.net/devices-and-attachments.html",
+    desc: "Professional cording device CD-522 for decorative cord embellishment on fabrics.",
+    specs: ["Cord Threading Control", "Multiple Cord Sizes", "Smooth Application"],
+    bestSeller: false
+  },
+  {
+    id: 207.1,
+    name: "Cording Device CD-520",
+    slug: "cording-device-cd-520",
+    category: "devices",
+    price: 0,
+    badge: "Cording",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.babamachinery.net/devices-and-attachments.html",
+    desc: "Professional cording device CD-520 for decorative cord embellishment on fabrics.",
+    specs: ["Cord Threading Control", "Multiple Cord Sizes", "Smooth Application"],
+    bestSeller: false
+  },
+
+  // Taping Device Variants
+  {
+    id: 208,
+    name: "Taping Device TP-522",
+    slug: "taping-device-tp-522",
+    category: "devices",
+    price: 0,
+    badge: "Taping",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.babamachinery.net/devices-and-attachments.html",
+    desc: "Taping device TP-522 for applying decorative tape along embroidery patterns with precision.",
+    specs: ["Tape Placement Accuracy", "Variable Width Support", "Smooth Feeding System"],
+    bestSeller: false
+  },
+  {
+    id: 208.1,
+    name: "Taping Device TP-520",
+    slug: "taping-device-tp-520",
+    category: "devices",
+    price: 0,
+    badge: "Taping",
+    image: "https://www.babamachinery.net/img/machine/computerised-embroidery-machine-500x500.webp",
+    link: "https://www.babamachinery.net/devices-and-attachments.html",
+    desc: "Taping device TP-520 for applying decorative tape along embroidery patterns with precision.",
+    specs: ["Tape Placement Accuracy", "Variable Width Support", "Smooth Feeding System"],
+    bestSeller: false
   }
 ];
+
 
         let cartCount = 0;
         let currentFilters = { categories: [], bestSeller: false, search: "" };
@@ -1516,7 +1872,6 @@ const products = [
                     <img src="${quoteImage}" alt="${product.name}" onerror="this.src='${BABA_IMAGE_URL}'">
                     <div>
                         <h4>${product.name}</h4>
-                        <p>Price: ${product.price ? `₹${product.price.toLocaleString()}` : 'Contact for Price'}</p>
                     </div>
                 `;
                 document.getElementById('quoteModal').style.display = 'flex';
@@ -1547,7 +1902,7 @@ const products = [
         }
 
         window.navigateToProduct = function (productId) {
-            const product = products.find(p => p.id === productId);
+            const product = products.find(p => p.id == productId);
             if (product) {
                 if (product.category === 'machine') {
                     window.location.href = `machine.html#${product.slug}`;
@@ -1585,20 +1940,48 @@ const products = [
             }, 2000);
         };
 
-        document.querySelectorAll(".category-header").forEach(header => {
-    header.addEventListener("click", () => {
-        const parent = header.parentElement;
+        // Filter by category (for category headers like "Embroidery Machines")
+        window.filterByCategory = function(category) {
+            currentFilters.categories = [category];
+            filterAndSortProducts();
+            
+            // Scroll to products area
+            const productsArea = document.querySelector('.products-area');
+            if (productsArea) {
+                setTimeout(() => {
+                    productsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        };
 
-        // Close others
-        document.querySelectorAll(".category-item").forEach(item => {
-            if (item !== parent) item.classList.remove("active");
-        });
+        // Toggle dropdown open/closed
+        window.toggleDropdown = function(headerElement) {
+            const categoryItem = headerElement.parentElement;
+            
+            // Close other dropdowns
+            document.querySelectorAll(".category-item").forEach(item => {
+                if (item !== categoryItem) {
+                    item.classList.remove("active");
+                }
+            });
+            
+            // Toggle current dropdown
+            categoryItem.classList.toggle("active");
+        };
 
-        // Toggle current
-        parent.classList.toggle("active");
-    });
-});
-
+        // Filter by device type (for individual device types like "Single Sequin Device")
+        window.filterByDeviceType = function(deviceType) {
+            currentFilters.categories = ['devices'];
+            filterAndSortProducts();
+            
+            // Scroll to products area
+            const productsArea = document.querySelector('.products-area');
+            if (productsArea) {
+                setTimeout(() => {
+                    productsArea.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        };
 
         window.openQuoteModal = openQuoteModal;
 
@@ -1625,15 +2008,39 @@ const products = [
         function renderProducts(productsToRender) {
             if (productsToRender.length === 0) { productsGrid.style.display = "none"; return; }
             productsGrid.style.display = "grid";
-            productsGrid.innerHTML = productsToRender.map(product => {
-                const validImage = product.image && isImageUrl(product.image) ? product.image : BABA_IMAGE_URL;
-                const categoryLabel = product.category === 'machine'
-                    ? '🪡 Embroidery Machine'
-                    : product.category === 'devices'
-                    ? '🔧 Device'
-                    : '🧵 Embroidery Accessory';
-                return `
-                <a href="machine.html#${product.slug}" class="product-card" style="text-decoration:none; color:inherit;">
+            
+            // Group products by category
+            const grouped = {};
+            productsToRender.forEach(product => {
+                if (!grouped[product.category]) grouped[product.category] = [];
+                grouped[product.category].push(product);
+            });
+            
+            // Create HTML with category dividers
+            let html = '';
+            const categoryOrder = ['machine', 'devices'];
+            const categoryLabels = {
+                'machine': '🪡 Embroidery Machines',
+                'devices': '🔧 Devices'
+            };
+            
+            // Render in specific order
+            categoryOrder.forEach(category => {
+                if (grouped[category]) {
+                    // Add category divider
+                    html += `<div class="category-divider"><h3>${categoryLabels[category] || category}</h3></div>`;
+                    
+                    // Add products for this category
+                    grouped[category].forEach(product => {
+                        const validImage = product.image && isImageUrl(product.image) ? product.image : BABA_IMAGE_URL;
+                        const categoryLabel = product.category === 'machine'
+                            ? '🪡 Embroidery Machine'
+                            : product.category === 'devices'
+                            ? '🔧 Device'
+                            : '🧵 Embroidery Accessory';
+                        const detailPageUrl = product.category === 'devices' ? 'devices.html' : 'machine.html';
+                        html += `
+                <a href="${detailPageUrl}#${product.slug}" class="product-card" style="text-decoration:none; color:inherit;">
                     <div class="product-img"><img src="${validImage}" alt="${product.name}" onerror="this.src='${BABA_IMAGE_URL}'"></div>
                     <div class="product-content">
                         <span class="product-category">${categoryLabel}</span>
@@ -1644,7 +2051,11 @@ const products = [
                     </div>
                 </a>
             `;
-            }).join('');
+                    });
+                }
+            });
+            
+            productsGrid.innerHTML = html;
         }
 
         function updateFilters() {

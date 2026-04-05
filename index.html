@@ -61,6 +61,116 @@
             100% { transform: scale(1); }
         }
 
+        /* Custom Scroll Animations */
+        @keyframes fadeInUpScale {
+            from {
+                opacity: 0;
+                transform: translateY(40px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(60px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes rotateIn {
+            from {
+                opacity: 0;
+                transform: rotate(-10deg) translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: rotate(0) translateY(0);
+            }
+        }
+
+        @keyframes flipIn {
+            from {
+                opacity: 0;
+                transform: perspective(400px) rotateY(90deg);
+            }
+            to {
+                opacity: 1;
+                transform: perspective(400px) rotateY(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .fade-in-up { animation: fadeInUpScale 0.8s ease-out; }
+        .slide-left { animation: slideInLeft 0.8s ease-out; }
+        .slide-right { animation: slideInRight 0.8s ease-out; }
+        .zoom-in { animation: zoomIn 0.8s ease-out; }
+        .rotate-in { animation: rotateIn 0.8s ease-out; }
+        .flip-in { animation: flipIn 0.8s ease-out; }
+        .bounce-in { animation: bounceIn 0.8s ease-out; }
+
+        /* Enhanced Card Hover Effects */
+        .card-hover-lift {
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .card-hover-lift:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 40px rgba(212, 90, 122, 0.25);
+        }
+
+        .card-hover-glow:hover {
+            box-shadow: 0 0 20px rgba(255, 107, 157, 0.4);
+        }
+
+        .card-hover-scale:hover {
+            transform: scale(1.05);
+        }
+
         /* Hero Section */
         .hero {
             position: relative;
@@ -206,16 +316,22 @@
             object-fit: cover;
             display: block;
             border-radius: 8px;
-            transition: transform 0.3s;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
         .product-card:hover img {
-            transform: scale(1.02);
+            transform: scale(1.1) rotate(2deg);
+            box-shadow: 0 15px 35px rgba(212, 90, 122, 0.3);
         }
         .product-card p {
             margin-top: 15px;
             font-size: 18px;
             color: #222;
             font-weight: 500;
+            transition: color 0.3s;
+        }
+        .product-card:hover p {
+            color: #ff6b9d;
         }
         .collection-footer {
             display: flex;
@@ -366,12 +482,30 @@ body {
     border-radius: 15px;
     text-align: center;
     padding: 20px 15px;
-    transition: 0.3s;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.category-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 107, 157, 0.1), transparent);
+    transition: left 0.5s;
+}
+
+.category-card:hover::before {
+    left: 100%;
 }
 
 .category-card:hover {
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(255, 107, 157, 0.15);
+    transform: translateY(-8px) scale(1.03);
 }
 
 .category-card img {
@@ -402,11 +536,24 @@ body {
     border-radius: 15px;
     text-align: center;
     border: 1px solid #eee;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.info-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(212, 90, 122, 0.2);
 }
 
 .icon {
     font-size: 50px;
     margin-bottom: 20px;
+    transition: all 0.3s;
+}
+
+.info-card:hover .icon {
+    transform: scale(1.2) rotate(10deg);
+    color: #ff6b9d;
 }
 
 .info-card h3 {
@@ -430,12 +577,12 @@ body {
             padding: 25px;
             text-align: center;
             box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-            transition: all 0.3s;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
             position: relative;
         }
         .product-item:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 35px rgba(212, 90, 122, 0.2);
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(212, 90, 122, 0.25);
         }
         .product-badge {
             position: absolute;
@@ -447,16 +594,25 @@ body {
             border-radius: 20px;
             font-size: 12px;
             font-weight: bold;
+            animation: pulse 2s infinite;
         }
         .product-item img {
             width: 100%;
             height: 260px;
             object-fit: cover;
             border-radius: 8px;
+            transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .product-item:hover img {
+            transform: scale(1.08);
         }
         .product-item h3 {
             font-size: 20px;
             margin: 15px 0 8px;
+            transition: color 0.3s;
+        }
+        .product-item:hover h3 {
+            color: #ff6b9d;
         }
         .price {
             font-size: 22px;
@@ -497,8 +653,34 @@ body {
             padding: 30px 20px;
             border-radius: 20px;
             background: #fff;
-            transition: 0.3s;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            position: relative;
+            overflow: hidden;
         }
+
+        .why-item::after {
+            content: '';
+            position: absolute;
+            bottom: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.15), transparent);
+            transition: all 0.5s;
+            border-radius: 50%;
+        }
+
+        .why-item:hover::after {
+            bottom: -30%;
+        }
+
+        .why-item:hover {
+            transform: translateY(-15px) rotateY(5deg);
+            box-shadow: 0 20px 45px rgba(212, 90, 122, 0.25);
+        }
+
         .why-item i {
             font-size: 48px;
             background: #ff6b9d;
@@ -506,11 +688,27 @@ body {
             background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 18px;
+            transition: all 0.4s;
+            position: relative;
+            z-index: 1;
         }
+
+        .why-item:hover i {
+            font-size: 56px;
+            transform: scale(1.15) rotate(15deg);
+        }
+
         .why-item h4 {
             font-size: 22px;
             margin-bottom: 0px;
             color: #3e2a2f;
+            transition: color 0.3s;
+            position: relative;
+            z-index: 1;
+        }
+
+        .why-item:hover h4 {
+            color: #ff6b9d;
         }
 
         /* Use Case Section */
@@ -528,15 +726,34 @@ body {
         }
         .usecase-item {
             padding: 20px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
+
+        .usecase-item:hover {
+            transform: translateY(-10px) scale(1.05);
+        }
+
         .usecase-item i {
             font-size: 48px;
             color: #ff6b9d;
             margin-bottom: 15px;
+            transition: all 0.4s;
         }
+
+        .usecase-item:hover i {
+            font-size: 60px;
+            transform: rotate(360deg);
+            text-shadow: 0 0 20px rgba(255, 107, 157, 0.4);
+        }
+
         .usecase-item h4 {
             font-size: 20px;
             margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .usecase-item:hover h4 {
+            color: #ff6b9d;
         }
 
         /* Offers Banner */
@@ -547,16 +764,51 @@ body {
             text-align: center;
             margin: 60px auto;
             max-width: 1100px;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
         }
+
+        .offers-banner::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
+            animation: pulse-banner 4s infinite;
+        }
+
+        @keyframes pulse-banner {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .offers-banner:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(212, 90, 122, 0.3);
+        }
+
         .offers-banner h2 {
             color: white;
             font-size: 48px;
             margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.3s;
         }
+
+        .offers-banner:hover h2 {
+            transform: scale(1.05);
+        }
+
         .offers-banner p {
             color: rgba(255,255,255,0.9);
             font-size: 18px;
             margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
         }
 
         /* Reviews Section */
@@ -575,18 +827,56 @@ body {
             border-radius: 24px;
             text-align: center;
             box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
         }
+
+        .review-card::before {
+            content: '"';
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 60px;
+            color: #ff6b9d;
+            opacity: 0.1;
+        }
+
+        .review-card:hover {
+            transform: translateY(-15px) rotateZ(-2deg);
+            box-shadow: 0 20px 45px rgba(212, 90, 122, 0.2);
+        }
+
         .stars {
             color: #ffc107;
             margin-bottom: 15px;
+            transition: all 0.3s;
         }
+
+        .review-card:hover .stars {
+            transform: scale(1.2);
+            text-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+        }
+
         .review-card p {
             font-style: italic;
             margin-bottom: 20px;
+            color: #666;
+            transition: color 0.3s;
         }
+
+        .review-card:hover p {
+            color: #333;
+        }
+
         .reviewer {
             font-weight: 700;
             color: #ff6b9d;
+            transition: all 0.3s;
+        }
+
+        .review-card:hover .reviewer {
+            transform: scale(1.1);
+            text-shadow: 0 0 10px rgba(255, 107, 157, 0.3);
         }
 
         /* About Store Section */
@@ -931,9 +1221,9 @@ body {
     </section>
 
 
-    <section class="welcome">
+    <section class="welcome" data-aos="fade-up" data-aos-duration="1000">
     <div class="container">
-        <div class="welcome-text" data-aos="fade-up">
+        <div class="welcome-text" data-aos="zoom-in" data-aos-duration="900">
             <h2>Welcome</h2>
             <h3>Welcome to Rose Embroidery Machines</h3>
             <p>Rose Embroidery Machines is a premier provider of high-performance embroidery technology, specializing in cutting-edge machines built for both professional industries and independent creators. Committed to precision and innovation, the company delivers scalable embroidery solutions designed to elevate craftsmanship for businesses of all sizes. With a focus on durability and flawless execution, Rose Embroidery Machines empowers users to transform intricate designs into high-quality reality through world-class engineering and dedicated support.</p>
@@ -943,11 +1233,11 @@ body {
 
 
     <!-- Featured Categories Section -->
-  <section class="category-section">
+  <section class="category-section" data-aos="fade-up" data-aos-duration="1000">
     <div class="container">
 
         <!-- Top Header -->
-        <div class="category-header">
+        <div class="category-header" data-aos="slide-left" data-aos-duration="800">
             <div class="header-left">
                 <h2>CATEGORY</h2>
                 <p>Find your favorite categories</p>
@@ -1038,16 +1328,16 @@ body {
     </section> -->
 
     <!-- Why Products With Us -->
-    <section class="why-choose">
+    <section class="why-choose" data-aos="fade-up" data-aos-duration="1000">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
+            <div class="section-header" data-aos="zoom-in" data-aos-duration="900">
                 <div class="subtitle">Why Products With Us</div>
                 <h2>Why Customers Choose Rose Embroidery Machines</h2>
             </div>
-            <div class="why-grid">
-                <div class="why-item"><i class="fas fa-gem"></i><h4>Premium Quality Machines</h4><p>Built with advanced technology for smooth and precise embroidery.</p></div>
-                <div class="why-item"><i class="fas fa-tools"></i><h4>Easy Setup & Installation</h4><p>Complete setup guidance and machine installation support.</p></div>
-                <div class="why-item"><i class="fas fa-palette"></i><h4>Latest Design Support</h4><p>Access trending embroidery designs and fashion-ready patterns.</p></div>
+            <div class="why-grid" data-aos="fade-up" data-aos-duration="1100" data-aos-delay="200">
+                <div class="why-item" data-aos="flip-left" data-aos-duration="800"><i class="fas fa-gem"></i><h4>Premium Quality Machines</h4><p>Built with advanced technology for smooth and precise embroidery.</p></div>
+                <div class="why-item" data-aos="flip-left" data-aos-duration="800" data-aos-delay="100"><i class="fas fa-tools"></i><h4>Easy Setup & Installation</h4><p>Complete setup guidance and machine installation support.</p></div>
+                <div class="why-item" data-aos="flip-left" data-aos-duration="800" data-aos-delay="200"><i class="fas fa-palette"></i><h4>Latest Design Support</h4><p>Access trending embroidery designs and fashion-ready patterns.</p></div>
                 <div class="why-item"><i class="fas fa-headset"></i><h4>Fast Service & Maintenance</h4><p>Reliable support for repairs, servicing, and spare parts.</p></div>
                 <div class="why-item"><i class="fas fa-chart-line"></i><h4>Business Growth Support</h4><p>Helping boutiques and startups grow with professional machines.</p></div>
                 <div class="why-item"><i class="fas fa-heart"></i><h4>Trusted by Happy Customers</h4><p>Loved by designers, tailors, and embroidery businesses.</p></div>
@@ -1056,18 +1346,18 @@ body {
     </section>
 
     <!-- Products by Use Case -->
-    <section class="usecase-section">
+    <section class="usecase-section" data-aos="fade-up" data-aos-duration="1000">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
+            <div class="section-header" data-aos="rotate-in" data-aos-duration="900">
                 <div class="subtitle">Perfect for Every Fashion Need</div>
                 <h2>Perfect Machines for Every Fashion Need</h2>
             </div>
-            <div class="usecase-grid" data-aos="fade-up">
-                <div class="usecase-item"><i class="fas fa-tshirt"></i><h4>Blouse Neck Designs</h4></div>
-                <div class="usecase-item"><i class="fas fa-female"></i><h4>Kurti Embroidery</h4></div>
-                <div class="usecase-item"><i class="fas fa-crown"></i><h4>Bridal Lehenga Work</h4></div>
-                <div class="usecase-item"><i class="fas fa-scroll"></i><h4>Dupatta Border Designs</h4></div>
-                <div class="usecase-item"><i class="fas fa-star"></i><h4>Designer Gown Patterns</h4></div>
+            <div class="usecase-grid" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+                <div class="usecase-item" data-aos="bounce-in" data-aos-duration="800"><i class="fas fa-tshirt"></i><h4>Blouse Neck Designs</h4></div>
+                <div class="usecase-item" data-aos="bounce-in" data-aos-duration="800" data-aos-delay="100"><i class="fas fa-female"></i><h4>Kurti Embroidery</h4></div>
+                <div class="usecase-item" data-aos="bounce-in" data-aos-duration="800" data-aos-delay="200"><i class="fas fa-crown"></i><h4>Bridal Lehenga Work</h4></div>
+                <div class="usecase-item" data-aos="bounce-in" data-aos-duration="800" data-aos-delay="300"><i class="fas fa-scroll"></i><h4>Dupatta Border Designs</h4></div>
+                <div class="usecase-item" data-aos="bounce-in" data-aos-duration="800" data-aos-delay="400"><i class="fas fa-star"></i><h4>Designer Gown Patterns</h4></div>
                 <div class="usecase-item"><i class="fas fa-store"></i><h4>Boutique Custom Orders</h4></div>
             </div>
 
